@@ -25,6 +25,7 @@ import {
 } from '../../sprache'
 import type { Schluessel } from '../../sprache'
 import { systemKennung, useT } from '../sprache-anbindung'
+import { lizenzStatusText } from '../community'
 
 function SpracheAbschnitt() {
   const { settingsStore } = useAppContext()
@@ -70,15 +71,7 @@ function LizenzVerweis() {
   return (
     <>
       <h3>{t('verwaltungsdialoge.einstellungenDialog.lizenz.titel')}</h3>
-      <p className="dialog-hinweis">
-        {status?.betriebsmodus === 'demo'
-          ? t('verwaltungsdialoge.einstellungenDialog.lizenz.demo')
-          : status?.lizenznehmer
-            ? t('verwaltungsdialoge.einstellungenDialog.lizenz.lizenziertFuer', {
-                name: status.lizenznehmer,
-              })
-            : t('verwaltungsdialoge.einstellungenDialog.lizenz.keine')}
-      </p>
+      <p className="dialog-hinweis">{lizenzStatusText(status, t)}</p>
       <p className="dialog-hinweis">{t('verwaltungsdialoge.einstellungenDialog.lizenz.hinweis')}</p>
       <div className="dialog-aktionen">
         <button type="button" onClick={oeffnen}>

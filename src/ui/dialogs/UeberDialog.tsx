@@ -1,5 +1,6 @@
 import { useT } from '../sprache-anbindung'
 import { useUiStore } from '../store/ui-store'
+import { UnterstuetzenVerweise } from '../UnterstuetzenVerweise'
 
 export function UeberDialog() {
   const t = useT()
@@ -17,7 +18,12 @@ export function UeberDialog() {
       <div className="dialog" onMouseDown={(e) => e.stopPropagation()}>
         <h2>{t('verwaltungsdialoge.ueber.titel')}</h2>
         <p>{t('verwaltungsdialoge.ueber.beschreibung')}</p>
-        <p>{t('verwaltungsdialoge.ueber.version', { version: __APP_VERSION__ })}</p>
+        <p>
+          {t('community.ueber.fassung')} ·{' '}
+          {t('verwaltungsdialoge.ueber.version', { version: __APP_VERSION__ })}
+        </p>
+        <p className="dialog-hinweis">{t('community.ueber.lizenz')}</p>
+        <UnterstuetzenVerweise />
         <p className="dialog-copyright">© 2026 Thomas Marx</p>
         <div className="dialog-aktionen">
           <button type="button" onClick={oeffneLizenzen}>

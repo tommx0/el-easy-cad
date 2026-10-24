@@ -1,33 +1,59 @@
 import { useState } from 'react'
-import { useT } from './sprache-anbindung'
+import { formatiereAblaufdatum } from './ablaufdatum'
 import { useUiStore } from './store/ui-store'
+import { useSettingsStore } from './store/settings-store'
+import { useAppContext } from './use-app-context'
+import { useT } from './sprache-anbindung'
+import { UnterstuetzenVerweise } from './UnterstuetzenVerweise'
 
-export function DemoHinweisDialog({ resttage }: { resttage: number }) {
+export function DemoHinweisDialog(_props: { resttage: number }) {
+  const { settingsStore } = useAppContext()
   const t = useT()
   const [weggeklickt, setWeggeklickt] = useState(false)
-  if (weggeklickt) return null
+  const geladen = useSettingsStore((s) => s.geladen)
+  const gesehen = useSettingsStore((s) => s.communityHinweisVersion)
+  const status = useUiStore((s) => s.produktlizenzStatus)
 
-  const oeffneMeineLizenz = () => {
+  const lizenzProblem = status?.status === 'abgelaufen' || status?.status === 'ungueltig'
+  if (weggeklickt || !geladen) return null
+  if (!lizenzProblem && gesehen === __APP_VERSION__) return null
+
+  const schliessen = () => {
     setWeggeklickt(true)
+    useSettingsStore.getState().setCommunityHinweisVersion(settingsStore, __APP_VERSION__)
+  }
+  const oeffneMeineLizenz = () => {
+    schliessen()
     useUiStore.getState().setMeineLizenzDialogOffen(true)
   }
 
   return (
     <div className="dialog-overlay">
       <div className="dialog">
-        <h2>{t('verwaltungsdialoge.demoHinweis.titel')}</h2>
-        <p>{t('verwaltungsdialoge.demoHinweis.text')}</p>
-        <p>
-          {resttage > 0
-            ? t('verwaltungsdialoge.demoHinweis.resttage', { n: resttage })
-            : t('verwaltungsdialoge.demoHinweis.laeuftHeuteAb')}
-        </p>
+        <h2>{t('community.start.titel')}</h2>
+        {status?.status === 'abgelaufen' && (
+          <p>
+            <b>
+              {t('community.start.abgelaufen', {
+                datum: status.gueltigBis ? formatiereAblaufdatum(status.gueltigBis) : '',
+              })}
+            </b>
+          </p>
+        )}
+        {status?.status === 'ungueltig' && (
+          <p>
+            <b>{t('community.start.ungueltig')}</b>
+          </p>
+        )}
+        <p>{t('community.start.kostenlos')}</p>
+        <p>{t('community.start.gewerblich')}</p>
+        <UnterstuetzenVerweise />
         <div className="dialog-aktionen">
           <button type="button" onClick={oeffneMeineLizenz}>
-            {t('verwaltungsdialoge.demoHinweis.lizenzEinspielen')}
+            {t('community.start.lizenzEinspielen')}
           </button>
-          <button type="button" className="primaer" onClick={() => setWeggeklickt(true)}>
-            {t('verwaltungsdialoge.demoHinweis.verstanden')}
+          <button type="button" className="primaer" onClick={schliessen}>
+            {t('community.start.verstanden')}
           </button>
         </div>
       </div>

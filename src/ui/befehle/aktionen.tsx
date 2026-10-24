@@ -52,6 +52,10 @@ import { tabellenVerknuepfung } from '../verknuepfung'
 import { BEFEHLE, BEFEHL_NACH_ID, kuerzelPartner } from './katalog'
 import { werkzeugPasstZuZeichnungsart } from '../werkzeugleiste-reihenfolge'
 import { FANGART_BEFEHL_ID } from '../objektfang-namen'
+import { erzeugeUebersetzer } from '../../sprache'
+import { ausgabeZeile, GITHUB_SPONSORS_URL, hinweisAktiv } from '../community'
+import { oeffneAdresse } from '../../persistence'
+import { planspracheVon } from '../../document-model'
 import { useT } from '../sprache-anbindung'
 
 export interface Befehlsaktion {
@@ -95,12 +99,10 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
   const klemmbrettGefuellt = useUiStore((s) => s.klemmbrettGefuellt)
   const setAuswahlIds = useUiStore((s) => s.setAuswahlIds)
   const zeigeToast = useUiStore((s) => s.zeigeToast)
-  const wasserzeichenAktiv = useUiStore((s) => s.produktlizenzStatus?.betriebsmodus === 'demo')
-  const lizenznehmer = useUiStore((s) =>
-    s.produktlizenzStatus?.status === 'gueltig'
-      ? (s.produktlizenzStatus.lizenznehmer ?? null)
-      : null,
-  )
+  const lizenzStatus = useUiStore((s) => s.produktlizenzStatus)
+  const wasserzeichenAktiv = hinweisAktiv(lizenzStatus)
+  const tPlan = erzeugeUebersetzer(planspracheVon(zeichnung))
+  const lizenznehmer = ausgabeZeile(lizenzStatus, tPlan)
   const rasterSichtbar = useUiStore((s) => s.rasterSichtbar)
   const snapAktiv = useUiStore((s) => s.snapAktiv)
   const objektfangAktiv = useUiStore((s) => s.objektfangAktiv)
@@ -359,7 +361,9 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     try {
       const { datei, bericht } = await exportiereAlsIfc(zeichnung, katalogKomponenten, {
         module: freigeschaltet,
-        anwendung: `el.easy.CAD ${__APP_VERSION__}`,
+        anwendung: wasserzeichenAktiv
+          ? `el.easy.CAD Community ${__APP_VERSION__} (${tPlan('community.hinweis.ifc')})`
+          : `el.easy.CAD Community ${__APP_VERSION__}`,
       })
       const dateiname = erzeugeDateiname(
         [offenesDokument?.projektBezeichnung, zeichnung.name, 'IFC'],
@@ -490,8 +494,7 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
           },
           'datei.export-ifc': {
             ausfuehren: () => void exportiereIfc(),
-            deaktiviert: schaltplan || wasserzeichenAktiv,
-            labelZusatz: wasserzeichenAktiv ? t('aktionen.befehle.nichtInTestversion') : undefined,
+            deaktiviert: schaltplan,
           },
           'ansicht.dreid': {
             ausfuehren: () => ui().setDreidDialogOffen(true),
@@ -670,6 +673,7 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     },
     'hilfe.ueber': { ausfuehren: () => ui().setUeberDialogOffen(true) },
     'hilfe.meine-lizenz': { ausfuehren: () => ui().setMeineLizenzDialogOffen(true) },
+    'hilfe.unterstuetzen': { ausfuehren: () => void oeffneAdresse(GITHUB_SPONSORS_URL) },
     'hilfe.lizenzen': { ausfuehren: () => ui().setLizenzenDialogOffen(true) },
     'hilfe.datenschutz': { ausfuehren: () => ui().setDatenschutzDialogOffen(true) },
     'hilfe.fehlerprotokoll': { ausfuehren: () => ui().setFehlerprotokollDialogOffen(true) },

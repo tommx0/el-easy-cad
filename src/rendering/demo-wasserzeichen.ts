@@ -1,7 +1,7 @@
 import { erzeugeUebersetzer, QUELLSPRACHE, type Uebersetzer } from '../sprache'
 
 export function demoWasserzeichenText(tp: Uebersetzer): string {
-  return tp('druck.wasserzeichen')
+  return tp('community.hinweis.ausgabe')
 }
 
 export const DEMO_WASSERZEICHEN_TEXT = demoWasserzeichenText(erzeugeUebersetzer(QUELLSPRACHE))
@@ -13,30 +13,23 @@ export function zeichneDemoWasserzeichen(
   tp: Uebersetzer,
 ): void {
   if (breitePx <= 0 || hoehePx <= 0) return
-  const text = demoWasserzeichenText(tp)
-
+  const text = tp('community.hinweis.stempel')
+  const kante = Math.min(breitePx, hoehePx)
+  const schrift = Math.max(7, kante * 0.018)
+  const rand = kante * 0.02
   ctx.save()
-  ctx.globalAlpha = 0.14
+  ctx.font = `bold ${schrift}px sans-serif`
+  const breite = ctx.measureText(text).width + schrift * 1.2
+  const hoehe = schrift * 1.8
+  const x = breitePx - rand - breite
+  const y = rand
+  ctx.globalAlpha = 0.55
+  ctx.strokeStyle = '#cc0000'
   ctx.fillStyle = '#cc0000'
+  ctx.lineWidth = Math.max(1, schrift * 0.12)
+  ctx.strokeRect(x, y, breite, hoehe)
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
-
-  const diagonale = Math.hypot(breitePx, hoehePx)
-  let schriftgroesse = Math.max(10, Math.min(breitePx, hoehePx) * 0.07)
-  ctx.font = `bold ${schriftgroesse}px sans-serif`
-  const gemesseneBreite = ctx.measureText(text).width
-  const zielBreite = diagonale * 0.8
-  if (gemesseneBreite > zielBreite) {
-    schriftgroesse = Math.max(8, schriftgroesse * (zielBreite / gemesseneBreite))
-    ctx.font = `bold ${schriftgroesse}px sans-serif`
-  }
-
-  ctx.translate(breitePx / 2, hoehePx / 2)
-  ctx.rotate(-Math.PI / 6)
-
-  const zeilenAbstand = schriftgroesse * 3.5
-  for (let y = -diagonale; y <= diagonale; y += zeilenAbstand) {
-    ctx.fillText(text, 0, y)
-  }
+  ctx.fillText(text, x + breite / 2, y + hoehe / 2)
   ctx.restore()
 }

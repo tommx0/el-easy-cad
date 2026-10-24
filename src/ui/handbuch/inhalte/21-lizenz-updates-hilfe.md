@@ -1,0 +1,107 @@
+# Lizenz, Aktualisierungen und Hilfe
+
+## Programmfassung und Lizenz {#lizenz}
+
+{{befehl:hilfe.ueber}} zeigt die Fassung, die gerade läuft – dieselbe Nummer steht oben in der
+Kopfzeile und im Kopf dieser Anleitung – und die Lizenz, unter der el.easy.CAD Community steht.
+
+:::nur-desktop
+**Nicht kommerzielle Nutzung:** el.easy.CAD Community ist für jede nicht kommerzielle Nutzung
+kostenlos – mit vollem Funktionsumfang und ohne Zeitbegrenzung. Grundlage ist die Lizenz
+PolyForm Noncommercial 1.0.0. Oben in der Kopfzeile steht dann „Nicht kommerzielle Nutzung“, und
+jeder Ausdruck, jedes PDF, jede Excel-Arbeitsmappe und jeder IFC-Export trägt einen Hinweis darauf:
+auf Planseiten ein kleiner Stempel oben rechts und eine Zeile im Kleingedruckten. Die Zeichenfläche
+selbst bleibt frei. Beim ersten Start und nach jedem Update erklärt ein kurzer Hinweis, was das
+bedeutet.
+
+**Unterstützer-Lizenz:** Für die gewerbliche oder berufliche Nutzung brauchen Sie eine
+Unterstützer-Lizenz. Sie erhalten sie als Datei, wenn Sie das Projekt unterstützen (siehe
+[Projekt unterstützen](#unterstuetzen)). {{befehl:hilfe.meine-lizenz}} zeigt Ihre Lizenz: auf wen
+sie läuft, Ihre Unterstützer-Stufe, ob sie die kommerzielle Nutzung erlaubt und für welchen
+Zeitraum sie gilt. Dort spielen Sie die Lizenzdatei auch ein.
+
+- Erlaubt Ihre Stufe die kommerzielle Nutzung, entfallen Stempel und Hinweis. Kopfzeile und
+  Kleingedrucktes nennen stattdessen „Offizieller Unterstützer des Projektes“ mit Ihrer Stufe.
+- Erlaubt sie die kommerzielle Nutzung nicht, erscheinen beide Angaben: Ihre Stufe und der
+  Hinweis auf die nicht kommerzielle Nutzung.
+- Läuft die Lizenz ab, gilt wieder die nicht kommerzielle Nutzung; gesperrt wird nichts. Ein
+  Hinweis beim Start nennt das Ablaufdatum.
+
+Zeichnungen, die Sie ohne kommerzielle Lizenz angelegt haben, behalten einen Vermerk darüber –
+auch später mit Lizenz. Beim Öffnen einer solchen Zeichnung erscheint dann ein kurzer Hinweis;
+einen Stempel bekommt sie dadurch nicht.
+:::
+
+:::nur-cloud
+Die Nutzung ist über den Vertrag Ihres Unternehmens geregelt; eine eigene Lizenzdatei brauchen
+Sie nicht. Läuft der Vertragszeitraum ab, weist ein Hinweis rechtzeitig darauf hin.
+
+{{befehl:hilfe.impressum}} zeigt das Impressum des Anbieters.
+:::
+
+{{befehl:hilfe.lizenzen}} listet die verwendeten Fremdbibliotheken mit ihren Lizenzen.
+
+:::nur-desktop
+## Projekt unterstützen {#unterstuetzen}
+
+{{befehl:hilfe.unterstuetzen}} öffnet die Unterstützerseite des Projekts in Ihrem Browser. Dort
+wählen Sie eine Stufe; welche Stufen die kommerzielle Nutzung erlauben, steht auf der Seite. Die
+Lizenzdatei erhalten Sie danach vom Projekt. Dieselben Verweise stehen im Hinweis beim Start, in
+„Meine Lizenz“ und unter {{befehl:hilfe.ueber}}. Das Programm selbst überträgt dabei nichts – es
+öffnet nur die Seite.
+:::
+
+:::nur-cloud
+## Neue Fassungen {#updates}
+
+Die Cloud-Fassung wird auf dem Server aktualisiert; Sie brauchen nichts zu installieren. Liegt
+eine neuere Fassung vor, meldet das Programm sich – {{befehl:hilfe.neu-laden}} holt sie sofort.
+:::
+
+:::nur-desktop
+## Aktualisierungen {#updates}
+
+Das Programm sucht nicht selbst nach neuen Fassungen. Neue Fassungen stehen auf der Projektseite
+zum Herunterladen bereit; Sie installieren sie wie die Erstinstallation. Ihre Projekte bleiben
+dabei erhalten.
+
+Spielen Sie Aktualisierungen bitte zeitnah ein, sobald Sie von einer neuen Fassung erfahren. Sie
+beheben Fehler und schließen Sicherheitslücken.
+:::
+
+## Datenschutz {#datenschutz}
+
+{{befehl:hilfe.datenschutz}} zeigt die Datenschutzerklärung: Ihre Projektdaten bleiben auf Ihrem
+Rechner, es gibt keine Telemetrie und keine Analyse.
+
+## Fehlerprotokoll {#fehlerprotokoll}
+
+Stimmt etwas nicht, hilft das Fehlerprotokoll: {{befehl:hilfe.fehlerprotokoll}} zeigt alle
+erfassten Fehler mit Zeitpunkt und Zusammenhang.
+
+:::nur-cloud
+Von dort schicken Sie den Auszug als Rückmeldung an den Hersteller – mit einem Klick, ohne etwas
+abzuschreiben. Allgemeine Rückmeldungen und Wünsche senden Sie über den Feedback-Knopf oben links
+in der Kopfzeile.
+:::
+
+:::nur-desktop
+Eine Feedback-Funktion gibt es im Programm nicht. Laden Sie den Auszug als Datei herunter und
+hängen Sie ihn an eine Fehlermeldung („Issue“) auf der Projektseite.
+:::
+
+## Diese Anleitung {#diese-anleitung}
+
+{{befehl:hilfe.handbuch}} öffnet die Anleitung; sie beschreibt genau die Fassung, die bei Ihnen
+läuft. **F1** aus einem aktiven Werkzeug heraus springt direkt zum passenden Abschnitt.
+
+- **Themenbaum** links: ein Klick auf ein Kapitel öffnet es und klappt seine Abschnitte auf, ein
+  Klick auf einen Abschnitt springt dorthin. Querverweise im Text führen genauso direkt an die
+  genannte Stelle.
+- **Suchfeld** oben: Ab zwei Buchstaben ersetzt eine Trefferliste den Themenbaum – je Abschnitt
+  ein Treffer mit der Fundstelle. Groß- und Kleinschreibung spielen keine Rolle, „ue“ findet auch
+  „ü“ und umgekehrt, und Menübefehle findet die Suche unter dem Namen, der im Menü steht. Ein
+  Klick auf den Treffer öffnet den Abschnitt; leeren Sie das Feld, erscheint wieder der
+  Themenbaum.
+
+Über „Drucken / als PDF“ unten links geben Sie die ganze Anleitung aus.

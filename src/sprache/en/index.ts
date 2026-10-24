@@ -1,6 +1,7 @@
 import type { Texte } from '../texte'
 import { aktionen } from './aktionen'
 import { befehle } from './befehle'
+import { community } from './community'
 import { beschriftung } from './beschriftung'
 import { blattregister } from './blattregister'
 import { dreid } from './dreid'
@@ -37,6 +38,7 @@ export const en: Texte = {
   befehle,
   beschriftung,
   blattregister,
+  community,
   dreid,
   druck,
   eigenschaften,

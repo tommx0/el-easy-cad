@@ -71,7 +71,6 @@ import {
   NETZ_FARBE,
   NETZ_FELDLINIEN_FARBE,
   zeichneNullpunkt,
-  zeichneDemoWasserzeichen,
   FrameScheduler,
   TRUNK_ENDE_TOLERANZ_PX,
   OBJEKTFANG_TOLERANZ_PX,
@@ -399,10 +398,6 @@ export function CanvasArea() {
         bezeichnerHindernisse,
         trunkKanten,
       )
-    }
-
-    if (useUiStore.getState().produktlizenzStatus?.betriebsmodus === 'demo') {
-      zeichneDemoWasserzeichen(ctxSet.inhalt, breite, hoehe, komponentenRahmen.tp)
     }
   }
 

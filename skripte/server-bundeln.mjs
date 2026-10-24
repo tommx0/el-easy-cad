@@ -156,13 +156,10 @@ async function pruefeServerBundleSmoke(serverBundlePfad) {
     }
 
     const projekteAntwort = await fetch(`${basisUrl}/api/projekte`)
-    const projekteKoerper = await projekteAntwort.json()
-    if (projekteAntwort.status !== 403 || projekteKoerper?.fehler?.code !== 'lizenz-erforderlich') {
+    if (projekteAntwort.status !== 200) {
       throw new Error(
-        'Lizenzdurchsetzung im obfuskierten Bundle greift nicht mehr: ' +
-          `/api/projekte lieferte ${projekteAntwort.status} ${JSON.stringify(projekteKoerper)} ` +
-          'statt 403 "lizenz-erforderlich". Ausgabe:\n' +
-          ausgabe,
+        `/api/projekte lieferte ${projekteAntwort.status} statt 200 - die Community-Fassung ` +
+          `darf ohne Lizenz nichts sperren. Ausgabe:\n${ausgabe}`,
       )
     }
   } finally {

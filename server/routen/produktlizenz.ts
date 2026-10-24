@@ -12,6 +12,11 @@ import {
   type ProduktlizenzPruefung,
 } from '../produktlizenz/produktlizenz'
 import { leseOeffentlichenSchluessel } from '../produktlizenz/schluessel'
+import {
+  kommerziellErlaubt,
+  unterstuetzerAngaben,
+  type UnterstuetzerAngaben,
+} from '../produktlizenz/unterstuetzer'
 import type { ServerKontext } from '../server'
 
 export interface LizenzDetails {
@@ -29,6 +34,8 @@ export interface ProduktlizenzAntwort {
   resttageDemo: number | null
   details: LizenzDetails | null
   module: LizenzModul[]
+  unterstuetzer: UnterstuetzerAngaben | null
+  kommerziell: boolean
 }
 
 function zuAntwort(ermittlung: BetriebsmodusErmittlung): ProduktlizenzAntwort {
@@ -45,6 +52,8 @@ function zuAntwort(ermittlung: BetriebsmodusErmittlung): ProduktlizenzAntwort {
       ? { firma: produktlizenz.lizenz.lizenznehmer, gueltigAb: produktlizenz.lizenz.gueltigAb }
       : null,
     module: freigeschalteteModule(ermittlung),
+    unterstuetzer: unterstuetzerAngaben(produktlizenz.lizenz),
+    kommerziell: kommerziellErlaubt(ermittlung),
   }
 }
 

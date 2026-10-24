@@ -169,6 +169,7 @@ export const befehle = {
     einfuehrung: 'Erste Schritte…',
     ueber: 'Über el.easy.CAD',
     'meine-lizenz': 'Meine Lizenz…',
+    unterstuetzen: 'el.easy.CAD unterstützen…',
     lizenzen: 'Lizenzen der Fremdbibliotheken…',
     datenschutz: 'Datenschutzerklärung…',
     fehlerprotokoll: 'Fehlerprotokoll…',

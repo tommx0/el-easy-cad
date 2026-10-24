@@ -7,6 +7,7 @@ import {
   standEingabeSchema,
 } from '../../src/document-model'
 import { ergaenzeHerkunftTestversion, ermittleBetriebsmodusStatus } from '../demo/betriebsmodus'
+import { kommerziellErlaubt } from '../produktlizenz/unterstuetzer'
 import {
   aendereDokument,
   holeDokument,
@@ -98,7 +99,7 @@ export function registriereDokumentRouten(
         demoOptionen.oeffentlicherSchluessel,
         true,
       )
-      if (ermittlung.betriebsmodus === 'demo') {
+      if (!kommerziellErlaubt(ermittlung)) {
         eingabe = { ...eingabe, inhalt: ergaenzeHerkunftTestversion(eingabe.inhalt) }
       }
     }

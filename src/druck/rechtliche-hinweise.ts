@@ -25,10 +25,7 @@ export function planHinweisMitLizenznehmer(
 ): HinweisAbschnitt {
   const hinweis = planHinweis(zeichnungsart, tp)
   if (!lizenznehmer) return hinweis
-  return {
-    ...hinweis,
-    text: `${hinweis.text} ${tp('druck.hinweis.lizenziertFuer', { name: lizenznehmer })}`,
-  }
+  return { ...hinweis, text: `${hinweis.text} ${lizenznehmer}` }
 }
 
 export function rechtlicheHinweise(tp: Uebersetzer = DEUTSCH): HinweisAbschnitt[] {
@@ -51,8 +48,7 @@ export function rechtlicheHinweise(tp: Uebersetzer = DEUTSCH): HinweisAbschnitt[
 
 export function excelFusszeile(lizenznehmer: string | null, tp: Uebersetzer = DEUTSCH): string {
   const blatt = tp('druck.rechtliches.blattName')
-  const links = lizenznehmer
-    ? tp('druck.excelFusszeile.linksMitLizenz', { blatt, name: lizenznehmer })
-    : tp('druck.excelFusszeile.links', { blatt })
+  const lizenzTeil = lizenznehmer ? ` – ${lizenznehmer}` : ''
+  const links = `${tp('druck.excelFusszeile.links', { blatt })}${lizenzTeil}`
   return `&L&8${links}&R&8${tp('druck.excelFusszeile.seite')}`
 }

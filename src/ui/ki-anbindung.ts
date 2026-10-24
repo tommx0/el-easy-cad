@@ -20,6 +20,9 @@ import {
   verteilerplanZeichnungen,
   type Verknuepfung,
 } from './verknuepfung'
+import { erzeugeUebersetzer } from '../sprache'
+import { planspracheVon } from '../document-model'
+import { ausgabeZeile, hinweisAktiv } from './community'
 
 export function verbindeKiSchnittstelle(teile: {
   doc: DocumentStore
@@ -124,8 +127,8 @@ export function verbindeKiSchnittstelle(teile: {
           bereich,
           maxKantePx,
           module: freigeschalteteModule(),
-          wasserzeichenAktiv: lizenz?.betriebsmodus === 'demo',
-          lizenznehmer: lizenz?.status === 'gueltig' ? (lizenz.lizenznehmer ?? null) : null,
+          wasserzeichenAktiv: hinweisAktiv(lizenz),
+          lizenznehmer: ausgabeZeile(lizenz, erzeugeUebersetzer(planspracheVon(zeichnung))),
         },
       )
     },

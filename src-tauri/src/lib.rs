@@ -226,8 +226,6 @@ fn starte_begleitserver(handle: &AppHandle) -> Result<CommandChild, String> {
         ));
     }
 
-    let demo_start = demo::demo_start_datum_ermitteln();
-
     let (mut rx, kind) = handle
         .shell()
         .sidecar("node")
@@ -235,7 +233,6 @@ fn starte_begleitserver(handle: &AppHandle) -> Result<CommandChild, String> {
         .current_dir(&ressourcen)
         .args([server_datei.clone()])
         .env("EL_EASY_CAD_STATISCH", statisch_verzeichnis.clone())
-        .env("EL_EASY_CAD_DEMO_START", demo_start)
         .spawn()
         .map_err(|fehler| {
             format!(
@@ -288,6 +285,7 @@ fn starte_begleitserver(handle: &AppHandle) -> Result<CommandChild, String> {
     Ok(kind)
 }
 
+const LIZENZ_WAECHTER_AKTIV: bool = false;
 const LIZENZ_WAECHTER_INTERVALL: Duration = Duration::from_secs(5 * 60);
 const LIZENZ_WAECHTER_SCHWELLE: u32 = 2;
 
@@ -545,7 +543,9 @@ pub fn run() {
                             "[app] Begleitserver bereit, oeffne Hauptfenster",
                         );
                         schliesse_splashfenster(&handle);
-                        tauri::async_runtime::spawn(lizenz_waechter(handle.clone()));
+                        if LIZENZ_WAECHTER_AKTIV {
+                            tauri::async_runtime::spawn(lizenz_waechter(handle.clone()));
+                        }
                     }
                 } else {
                     let ausgabe = handle

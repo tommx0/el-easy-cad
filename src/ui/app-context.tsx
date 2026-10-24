@@ -141,6 +141,7 @@ import { verbindeSpracheMitEinstellungen } from './sprache-anbindung'
 import { t } from '../sprache'
 import type { Sprache } from '../sprache'
 import { planspracheVon, planUebersetzer } from '../document-model'
+import { hinweisAktiv } from './community'
 
 const SERVER_START_VERSUCHE = 6
 const SERVER_WARTE_MS = 400
@@ -706,13 +707,12 @@ function erzeugeAppKontext(): AppKontext {
       if (unbekannteZonen.length > 0) {
         meldungen.push(t('aktionen.app.zonenUnbekannt', { n: unbekannteZonen.length }))
       }
-      const betriebsmodus = useUiStore.getState().produktlizenzStatus?.betriebsmodus
       if (
         offen?.typ === 'zeichnung' &&
         doc.getZeichnung().herkunftTestversion === true &&
-        betriebsmodus !== 'demo'
+        !hinweisAktiv(useUiStore.getState().produktlizenzStatus)
       ) {
-        meldungen.push(t('aktionen.app.testversionBegonnen'))
+        meldungen.push(t('community.hinweis.herkunft'))
       }
       useUiStore.getState().zeigeToast(meldungen.join(' '))
       void ladeHintergruendeAllerBlaetterVor()
@@ -746,7 +746,7 @@ function erzeugeAppKontext(): AppKontext {
 
   function zeichnungFuerDateiExport() {
     const zeichnung = doc.getZeichnung()
-    if (useUiStore.getState().produktlizenzStatus?.betriebsmodus !== 'demo') return zeichnung
+    if (!hinweisAktiv(useUiStore.getState().produktlizenzStatus)) return zeichnung
     return { ...zeichnung, herkunftTestversion: true }
   }
 

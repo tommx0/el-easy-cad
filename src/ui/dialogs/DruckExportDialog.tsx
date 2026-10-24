@@ -22,7 +22,10 @@ import { useKatalogStore } from '../store/katalog-store'
 import type { DruckExportModus } from '../store/ui-store'
 import { useUiStore } from '../store/ui-store'
 import { useFreigeschalteteModule } from '../lizenz-module'
+import { erzeugeUebersetzer } from '../../sprache'
 import type { Schluessel, Uebersetzer } from '../../sprache'
+import { planspracheVon } from '../../document-model'
+import { ausgabeZeile, hinweisAktiv } from '../community'
 import { useT } from '../sprache-anbindung'
 import { befehlName, gruppenName } from '../befehle/katalog'
 
@@ -71,12 +74,9 @@ export function DruckExportDialog() {
   const t = useT()
   const { catalogStore, verknuepfung } = useAppContext()
   const katalogKomponenten = useKatalogStore((s) => s.komponenten)
-  const demoAktiv = useUiStore((s) => s.produktlizenzStatus?.betriebsmodus === 'demo')
-  const lizenznehmer = useUiStore((s) =>
-    s.produktlizenzStatus?.status === 'gueltig'
-      ? (s.produktlizenzStatus.lizenznehmer ?? null)
-      : null,
-  )
+  const lizenzStatus = useUiStore((s) => s.produktlizenzStatus)
+  const demoAktiv = hinweisAktiv(lizenzStatus)
+  const lizenznehmer = ausgabeZeile(lizenzStatus, erzeugeUebersetzer(planspracheVon(zeichnung)))
 
   const module = useFreigeschalteteModule()
 

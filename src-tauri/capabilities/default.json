@@ -24,6 +24,10 @@
     {
       "identifier": "opener:allow-open-path",
       "allow": [{ "path": "$TEMP/el-easy-cad-anlagen/**" }]
+    },
+    {
+      "identifier": "opener:allow-open-url",
+      "allow": [{ "url": "https://github.com/sponsors/*" }, { "url": "https://www.patreon.com/*" }]
     }
   ]
 }

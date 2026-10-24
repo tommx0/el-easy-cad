@@ -51,6 +51,7 @@ export interface AppSettings {
   verteilerplan: VerteilerplanGespeichert
   stromkreisImPanel: boolean
   sprache: string | null
+  communityHinweisVersion: string | null
   verknuepfungNachLeitung: boolean
   leitungenErstNachLoslassen: boolean
 }
@@ -165,6 +166,7 @@ export const appSettingsPatchSchema = z.object({
   verteilerplan: verteilerplanSchema.optional(),
   stromkreisImPanel: z.boolean().optional(),
   sprache: z.string().nullable().optional(),
+  communityHinweisVersion: z.string().nullable().optional(),
   verknuepfungNachLeitung: z.boolean().optional(),
   leitungenErstNachLoslassen: z.boolean().optional(),
 })

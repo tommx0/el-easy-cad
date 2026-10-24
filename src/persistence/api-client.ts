@@ -128,6 +128,8 @@ export interface ProduktlizenzStatus {
   resttageDemo: number | null
   details: LizenzDetails | null
   module?: LizenzModul[]
+  unterstuetzer?: { stufe: string; kommerziell: boolean } | null
+  kommerziell?: boolean
 }
 
 export type { LizenzModul }

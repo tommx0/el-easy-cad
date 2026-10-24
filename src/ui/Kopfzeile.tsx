@@ -9,6 +9,7 @@ import { MenuBar } from './MenuBar'
 import { Symbolleiste } from './Symbolleiste'
 import { useAktivesBlatt } from './use-app-context'
 import { useUiStore } from './store/ui-store'
+import { gueltigeStufe } from './community'
 
 function speicherText(zustand: ReturnType<typeof useUiStore.getState>['speicherZustand']): string {
   switch (zustand.art) {
@@ -41,7 +42,7 @@ export function Kopfzeile() {
   const pfadEnde = pfadTeile.at(-1) ?? null
   const hinweis = speicherText(speicherZustand)
   const zeigeBlatt = !offenesDokument || offenesDokument.typ === 'zeichnung'
-  const lizenz = produktlizenzStatus?.status === 'gueltig' ? produktlizenzStatus : null
+  const stufe = gueltigeStufe(produktlizenzStatus)
   const projekteBefehl = useBefehl('datei.projekte')
   const projekteKuerzel = useSettingsStore((s) => s.belegung['datei.projekte'])
   const symbolleisteAnzeigen = useSettingsStore((s) => s.symbolleisteAnzeigen)
@@ -66,27 +67,30 @@ export function Kopfzeile() {
           </div>
         </div>
 
-        {lizenz?.lizenznehmer && (
-          <div
-            className="kopfzeile-lizenz"
-            title={t('kopfzeile.lizenzTitel')}
-            role="button"
-            tabIndex={0}
-            onClick={() => useUiStore.getState().setMeineLizenzDialogOffen(true)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                useUiStore.getState().setMeineLizenzDialogOffen(true)
-              }
-            }}
-          >
-            <span className="kopfzeile-lizenz-chip">
-              <IconLizenzsiegel />
-              {t('kopfzeile.lizenziertFuer')}{' '}
-              <b className="kopfzeile-lizenz-name">{lizenz.lizenznehmer}</b>
-            </span>
-          </div>
-        )}
+        <div
+          className="kopfzeile-lizenz"
+          title={t('community.hinweis.kopfzeileTitel')}
+          role="button"
+          tabIndex={0}
+          onClick={() => useUiStore.getState().setMeineLizenzDialogOffen(true)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              useUiStore.getState().setMeineLizenzDialogOffen(true)
+            }
+          }}
+        >
+          <span className="kopfzeile-lizenz-chip">
+            <IconLizenzsiegel />
+            {stufe ? (
+              t('community.hinweis.kopfzeileUnterstuetzer', { stufe })
+            ) : (
+              <b className="kopfzeile-lizenz-name">
+                {t('community.hinweis.kopfzeileNichtKommerziell')}
+              </b>
+            )}
+          </span>
+        </div>
 
         <div className="kopfzeile-dokument">
           <span className={`kopfzeile-dateiname${pfadEnde ? '' : ' kopfzeile-dateiname-leer'}`}>

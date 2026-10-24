@@ -1,19 +1,13 @@
 import { useState, type ReactNode } from 'react'
 import type { ProduktlizenzStatus } from '../../persistence'
 import { t as tAktuell } from '../../sprache'
-import type { Schluessel } from '../../sprache'
 import { formatiereAblaufdatum } from '../ablaufdatum'
 import { MODUL_NAME } from '../lizenz-module'
 import { useT } from '../sprache-anbindung'
 import { useUiStore } from '../store/ui-store'
 import { useAppContext } from '../use-app-context'
-
-const STATUS_TEXT: Record<ProduktlizenzStatus['status'], Schluessel> = {
-  fehlt: 'verwaltungsdialoge.meineLizenz.statusFehlt',
-  ungueltig: 'verwaltungsdialoge.meineLizenz.statusUngueltig',
-  abgelaufen: 'verwaltungsdialoge.meineLizenz.statusAbgelaufen',
-  gueltig: 'verwaltungsdialoge.meineLizenz.statusGueltig',
-}
+import { lizenzStatusText } from '../community'
+import { UnterstuetzenVerweise } from '../UnterstuetzenVerweise'
 
 function restTageText(tage: number | null): string {
   if (tage === null) return ''
@@ -32,15 +26,21 @@ function Zeile({ titel, children }: { titel: string; children: ReactNode }) {
 }
 
 function Angaben({ status }: { status: ProduktlizenzStatus }) {
-  const t = useT()
   const d = status.details
+  const t = useT()
   return (
     <dl className="lizenz-details">
       <Zeile titel={t('verwaltungsdialoge.meineLizenz.status')}>
-        {status.betriebsmodus === 'demo'
-          ? t('verwaltungsdialoge.meineLizenz.testversionTage', { n: status.resttageDemo ?? 0 })
-          : t(STATUS_TEXT[status.status])}
+        {lizenzStatusText(status, t)}
       </Zeile>
+      {status.unterstuetzer && (
+        <Zeile titel={t('community.lizenz.stufe')}>{status.unterstuetzer.stufe}</Zeile>
+      )}
+      {status.unterstuetzer && (
+        <Zeile titel={t('community.lizenz.kommerzielleNutzung')}>
+          {status.kommerziell ? t('community.lizenz.erlaubt') : t('community.lizenz.nichtErlaubt')}
+        </Zeile>
+      )}
       {d?.firma && (
         <Zeile titel={t('verwaltungsdialoge.meineLizenz.lizenziertFuer')}>{d.firma}</Zeile>
       )}
@@ -130,6 +130,8 @@ export function MeineLizenzDialog() {
         ) : (
           <p className="dialog-hinweis">{t('verwaltungsdialoge.meineLizenz.wirdGeprueft')}</p>
         )}
+
+        <UnterstuetzenVerweise />
 
         <h3>{t('verwaltungsdialoge.meineLizenz.austauschen')}</h3>
         <DateiAustausch />

@@ -1,7 +1,7 @@
 import type { KeyObject } from 'node:crypto'
 import { ermittleProduktlizenzStatus } from '../produktlizenz/produktlizenz'
 import type { ServerKontext } from '../server'
-import { ermittleBetriebsmodus, ermittleDemoStart } from './demo'
+import { ermittleBetriebsmodus } from './demo'
 import type { BetriebsmodusErmittlung } from './demo'
 
 export type { BetriebsmodusErmittlung } from './demo'
@@ -16,8 +16,7 @@ export function ermittleBetriebsmodusStatus(
     kontext.konfiguration.lizenzDatei,
     oeffentlicherSchluessel,
   )
-  const demoStart = ermittleDemoStart(kontext.konfiguration, heute)
-  return ermittleBetriebsmodus(produktlizenz, demoPruefungAktiv, demoStart, heute)
+  return ermittleBetriebsmodus(produktlizenz, demoPruefungAktiv, '', heute)
 }
 
 export function ergaenzeHerkunftTestversion(inhalt: string | null): string | null {

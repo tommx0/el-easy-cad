@@ -22,33 +22,16 @@ export function freigeschalteteModule(ermittlung: BetriebsmodusErmittlung): Lize
   return []
 }
 
-const MILLISEKUNDEN_PRO_TAG = 24 * 60 * 60 * 1000
-
-function tageDifferenz(vonTag: string, bisTag: string): number {
-  return Math.floor(
-    (Date.parse(`${bisTag}T00:00:00Z`) - Date.parse(`${vonTag}T00:00:00Z`)) / MILLISEKUNDEN_PRO_TAG,
-  )
-}
-
 export function ermittleBetriebsmodus(
   produktlizenz: ProduktlizenzPruefung,
-  demoAktiv: boolean,
-  demoStart: string,
-  heute: Date = new Date(),
+  _demoAktiv: boolean,
+  _demoStart: string,
+  _heute: Date = new Date(),
 ): BetriebsmodusErmittlung {
   if (produktlizenz.status === 'gueltig') {
     return { produktlizenz, betriebsmodus: 'lizenziert', resttageDemo: null }
   }
-  if (produktlizenz.status !== 'fehlt' || !demoAktiv) {
-    return { produktlizenz, betriebsmodus: 'gesperrt', resttageDemo: null }
-  }
-
-  const heuteTag = heute.toISOString().slice(0, 10)
-  const resttageDemo = DEMO_DAUER_TAGE - tageDifferenz(demoStart, heuteTag)
-  if (resttageDemo > 0) {
-    return { produktlizenz, betriebsmodus: 'demo', resttageDemo }
-  }
-  return { produktlizenz, betriebsmodus: 'demo-abgelaufen', resttageDemo: 0 }
+  return { produktlizenz, betriebsmodus: 'demo', resttageDemo: null }
 }
 
 const DEMO_START_SCHEMA = z.object({ start: z.string().regex(/^\d{4}-\d{2}-\d{2}$/) })

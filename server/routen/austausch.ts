@@ -23,6 +23,7 @@ import { leseKatalog } from '../db/kataloge'
 import { erstelleSicherung, sicherungsDateiname } from '../austausch/sicherung'
 import { holeProjekt } from '../db/projekte'
 import { ermittleBetriebsmodusStatus } from '../demo/betriebsmodus'
+import { kommerziellErlaubt } from '../produktlizenz/unterstuetzer'
 import { ApiFehler } from '../fehler'
 import { alsText, serverText, uebersetzerFuer } from '../sprache'
 import type { DokumentRoutenDemoOptionen } from './dokumente'
@@ -60,8 +61,9 @@ export function registriereAustauschRouten(
 ): void {
   const ausTestversion = () =>
     demoOptionen.demoDurchsetzungAktiv &&
-    ermittleBetriebsmodusStatus(kontext, demoOptionen.oeffentlicherSchluessel, true)
-      .betriebsmodus === 'demo'
+    !kommerziellErlaubt(
+      ermittleBetriebsmodusStatus(kontext, demoOptionen.oeffentlicherSchluessel, true),
+    )
 
   app.get('/api/export/projekt/:id', (anfrage, ausgabe) => {
     const id = (anfrage.params as { id: string }).id

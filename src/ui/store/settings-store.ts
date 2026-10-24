@@ -87,6 +87,7 @@ interface SettingsState {
   }
   stromkreisImPanel: boolean
   sprache: string | null
+  communityHinweisVersion: string | null
   verknuepfungNachLeitung: boolean
   leitungenErstNachLoslassen: boolean
   geladen: boolean
@@ -141,6 +142,7 @@ interface SettingsState {
   ) => void
   setStromkreisImPanel: (store: SettingsStore, wert: boolean) => void
   setSprache: (store: SettingsStore, wert: string | null) => void
+  setCommunityHinweisVersion: (store: SettingsStore, wert: string) => void
   setVerknuepfungNachLeitung: (store: SettingsStore, wert: boolean) => void
   setLeitungenErstNachLoslassen: (store: SettingsStore, wert: boolean) => void
 }
@@ -215,6 +217,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   verteilerplanEinstellungen: { ...VERTEILERPLAN_STANDARD },
   stromkreisImPanel: true,
   sprache: null,
+  communityHinweisVersion: null,
   verknuepfungNachLeitung: true,
   leitungenErstNachLoslassen: false,
   geladen: false,
@@ -302,6 +305,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
       verteilerplanEinstellungen: { ...VERTEILERPLAN_STANDARD, ...gespeichert.verteilerplan },
       stromkreisImPanel: gespeichert.stromkreisImPanel ?? true,
       sprache: gespeichert.sprache ?? null,
+      communityHinweisVersion: gespeichert.communityHinweisVersion ?? null,
       verknuepfungNachLeitung: gespeichert.verknuepfungNachLeitung ?? true,
       leitungenErstNachLoslassen: gespeichert.leitungenErstNachLoslassen ?? false,
       geladen: true,
@@ -622,6 +626,12 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     if (get().stromkreisImPanel === wert) return
     set({ stromkreisImPanel: wert })
     void store.speichern({ stromkreisImPanel: wert })
+  },
+
+  setCommunityHinweisVersion: (store, wert) => {
+    if (get().communityHinweisVersion === wert) return
+    set({ communityHinweisVersion: wert })
+    void store.speichern({ communityHinweisVersion: wert })
   },
 
   setSprache: (store, wert) => {

@@ -243,7 +243,10 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     bestimmungen: 'Licence terms',
     bestimmungenText:
       'All dependencies permit commercial use. They are under permissive licences ' +
-      '(MIT/Apache 2.0); web-ifc is under the MPL 2.0 and is used unmodified.',
+      '(MIT/Apache 2.0); web-ifc and some Rust components of the desktop app are under the ' +
+      'MPL 2.0 and are used unmodified.',
+    nodeZweck: 'Runtime of the companion server (desktop app)',
+    tauriZweck: 'Desktop app shell including its Rust libraries',
     vollstaendigVor: 'Full information can be found in the file',
     vollstaendigNach: '.',
   },

@@ -161,6 +161,34 @@ export function LizenzenDialog() {
               </p>
               <small>3D view</small>
             </div>
+
+            <div className="lizenz-item">
+              <strong>Node.js</strong>
+              <span className="lizenz-badge">MIT</span>
+              <p>
+                Node.js contributors •{' '}
+                <a href="https://github.com/nodejs/node" target="_blank" rel="noopener noreferrer">
+                  github.com/nodejs/node
+                </a>
+              </p>
+              <small>{t('verwaltungsdialoge.lizenzen.nodeZweck')}</small>
+            </div>
+
+            <div className="lizenz-item">
+              <strong>Tauri</strong>
+              <span className="lizenz-badge">MIT/Apache</span>
+              <p>
+                Tauri Programme •{' '}
+                <a
+                  href="https://github.com/tauri-apps/tauri"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  github.com/tauri-apps/tauri
+                </a>
+              </p>
+              <small>{t('verwaltungsdialoge.lizenzen.tauriZweck')}</small>
+            </div>
           </div>
 
           <h4>{t('verwaltungsdialoge.lizenzen.bestimmungen')}</h4>

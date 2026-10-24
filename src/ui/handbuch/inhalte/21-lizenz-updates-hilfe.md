@@ -4,6 +4,9 @@
 
 {{befehl:hilfe.ueber}} zeigt die Fassung, die gerade läuft – dieselbe Nummer steht oben in der
 Kopfzeile und im Kopf dieser Anleitung – und die Lizenz, unter der el.easy.CAD Community steht.
+„Lizenztext…“ dort und in {{befehl:hilfe.meine-lizenz}} zeigt den vollständigen, verbindlichen
+englischen Lizenztext. Er liegt dem Programm außerdem als Datei `LICENSE` bei, die Lizenzen der
+Fremdbibliotheken als `LICENSES.md`.
 
 :::nur-desktop
 **Nicht kommerzielle Nutzung:** el.easy.CAD Community ist für jede nicht kommerzielle Nutzung

@@ -2,6 +2,7 @@ import { useT } from '../sprache-anbindung'
 import { useUiStore } from '../store/ui-store'
 import { PROJEKT_URL } from '../community'
 import { UnterstuetzenVerweise, Verweis } from '../UnterstuetzenVerweise'
+import { LizenztextKnopf } from './LizenztextDialog'
 
 export function UeberDialog() {
   const t = useT()
@@ -30,6 +31,7 @@ export function UeberDialog() {
           © 2026 Thomas Marx · <Verweis url={PROJEKT_URL}>github.com/tommx0/el-easy-cad</Verweis>
         </p>
         <div className="dialog-aktionen">
+          <LizenztextKnopf />
           <button type="button" onClick={oeffneLizenzen}>
             {t('verwaltungsdialoge.ueber.lizenzen')}
           </button>

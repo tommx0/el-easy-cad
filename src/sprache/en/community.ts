@@ -44,6 +44,13 @@ export const community: Texte['community'] = {
     githubSponsors: 'Via GitHub Sponsors',
     patreon: 'Via Patreon',
   },
+  lizenztext: {
+    knopf: 'Licence text…',
+    titel: 'Licence of the Community edition',
+    hinweis:
+      'el.easy.CAD Community is licensed under the PolyForm Noncommercial License 1.0.0. The ' +
+      'licence text below is binding.',
+  },
   ueber: {
     fassung: 'Community edition',
     lizenz:

@@ -8,6 +8,7 @@ import { useUiStore } from '../store/ui-store'
 import { useAppContext } from '../use-app-context'
 import { lizenzStatusText } from '../community'
 import { UnterstuetzenVerweise } from '../UnterstuetzenVerweise'
+import { LizenztextKnopf } from './LizenztextDialog'
 
 function restTageText(tage: number | null): string {
   if (tage === null) return ''
@@ -137,6 +138,7 @@ export function MeineLizenzDialog() {
         <DateiAustausch />
 
         <div className="dialog-aktionen">
+          <LizenztextKnopf />
           <button type="button" onClick={schliessen}>
             {t('verwaltungsdialoge.allgemein.schliessen')}
           </button>

@@ -4,7 +4,9 @@
 
 {{befehl:hilfe.ueber}} shows the version that is running – the same number appears at the top of
 the header and at the top of this manual – and the licence under which el.easy.CAD Community is
-published.
+published. “Licence text…” there and in {{befehl:hilfe.meine-lizenz}} shows the complete, binding
+licence text. It also ships with the program as the file `LICENSE`, the licences of the third-party
+libraries as `LICENSES.md`.
 
 :::nur-desktop
 **Non-commercial use:** el.easy.CAD Community is free for any non-commercial use – with all

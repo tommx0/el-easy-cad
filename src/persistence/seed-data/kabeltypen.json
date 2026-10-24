@@ -1,0 +1,761 @@
+{
+  "seed_version": 1,
+  "kabeltypen": [
+    {
+      "id": "kabeltyp-nym-j-3x1-5",
+      "bezeichnung": "NYM-J 3x1,5",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 10
+    },
+    {
+      "id": "kabeltyp-nym-j-3x2-5",
+      "bezeichnung": "NYM-J 3x2,5",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 20
+    },
+    {
+      "id": "kabeltyp-nym-j-3x4",
+      "bezeichnung": "NYM-J 3x4",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 30
+    },
+    {
+      "id": "kabeltyp-nym-j-3x6",
+      "bezeichnung": "NYM-J 3x6",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 40
+    },
+    {
+      "id": "kabeltyp-nym-j-3x10",
+      "bezeichnung": "NYM-J 3x10",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 50
+    },
+    {
+      "id": "kabeltyp-nym-j-3x16",
+      "bezeichnung": "NYM-J 3x16",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 60
+    },
+    {
+      "id": "kabeltyp-nym-j-3x25",
+      "bezeichnung": "NYM-J 3x25",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 70
+    },
+    {
+      "id": "kabeltyp-nym-j-5x1-5",
+      "bezeichnung": "NYM-J 5x1,5",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 80
+    },
+    {
+      "id": "kabeltyp-nym-j-5x2-5",
+      "bezeichnung": "NYM-J 5x2,5",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 90
+    },
+    {
+      "id": "kabeltyp-nym-j-5x4",
+      "bezeichnung": "NYM-J 5x4",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 100
+    },
+    {
+      "id": "kabeltyp-nym-j-5x6",
+      "bezeichnung": "NYM-J 5x6",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 110
+    },
+    {
+      "id": "kabeltyp-nym-j-5x10",
+      "bezeichnung": "NYM-J 5x10",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 120
+    },
+    {
+      "id": "kabeltyp-nym-j-5x16",
+      "bezeichnung": "NYM-J 5x16",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 130
+    },
+    {
+      "id": "kabeltyp-nym-j-5x25",
+      "bezeichnung": "NYM-J 5x25",
+      "gruppe": "NYM-J",
+      "bemerkung": "Mantelleitung 300/500 V, trockene und feuchte Innenräume",
+      "sortierung": 140
+    },
+    {
+      "id": "kabeltyp-nyy-j-3x1-5",
+      "bezeichnung": "NYY-J 3x1,5",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 10
+    },
+    {
+      "id": "kabeltyp-nyy-j-3x2-5",
+      "bezeichnung": "NYY-J 3x2,5",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 20
+    },
+    {
+      "id": "kabeltyp-nyy-j-3x4",
+      "bezeichnung": "NYY-J 3x4",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 30
+    },
+    {
+      "id": "kabeltyp-nyy-j-3x6",
+      "bezeichnung": "NYY-J 3x6",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 40
+    },
+    {
+      "id": "kabeltyp-nyy-j-3x10",
+      "bezeichnung": "NYY-J 3x10",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 50
+    },
+    {
+      "id": "kabeltyp-nyy-j-3x16",
+      "bezeichnung": "NYY-J 3x16",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 60
+    },
+    {
+      "id": "kabeltyp-nyy-j-3x25",
+      "bezeichnung": "NYY-J 3x25",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 70
+    },
+    {
+      "id": "kabeltyp-nyy-j-5x1-5",
+      "bezeichnung": "NYY-J 5x1,5",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 80
+    },
+    {
+      "id": "kabeltyp-nyy-j-5x2-5",
+      "bezeichnung": "NYY-J 5x2,5",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 90
+    },
+    {
+      "id": "kabeltyp-nyy-j-5x4",
+      "bezeichnung": "NYY-J 5x4",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 100
+    },
+    {
+      "id": "kabeltyp-nyy-j-5x6",
+      "bezeichnung": "NYY-J 5x6",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 110
+    },
+    {
+      "id": "kabeltyp-nyy-j-5x10",
+      "bezeichnung": "NYY-J 5x10",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 120
+    },
+    {
+      "id": "kabeltyp-nyy-j-5x16",
+      "bezeichnung": "NYY-J 5x16",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 130
+    },
+    {
+      "id": "kabeltyp-nyy-j-5x25",
+      "bezeichnung": "NYY-J 5x25",
+      "gruppe": "NYY-J",
+      "bemerkung": "Erdkabel 0,6/1 kV, direkt erdverlegbar",
+      "sortierung": 140
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-3x1-5",
+      "bezeichnung": "NHXMH-J 3x1,5",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 10
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-3x2-5",
+      "bezeichnung": "NHXMH-J 3x2,5",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 20
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-3x4",
+      "bezeichnung": "NHXMH-J 3x4",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 30
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-3x6",
+      "bezeichnung": "NHXMH-J 3x6",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 40
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-3x10",
+      "bezeichnung": "NHXMH-J 3x10",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 50
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-3x16",
+      "bezeichnung": "NHXMH-J 3x16",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 60
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-3x25",
+      "bezeichnung": "NHXMH-J 3x25",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 70
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-5x1-5",
+      "bezeichnung": "NHXMH-J 5x1,5",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 80
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-5x2-5",
+      "bezeichnung": "NHXMH-J 5x2,5",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 90
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-5x4",
+      "bezeichnung": "NHXMH-J 5x4",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 100
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-5x6",
+      "bezeichnung": "NHXMH-J 5x6",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 110
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-5x10",
+      "bezeichnung": "NHXMH-J 5x10",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 120
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-5x16",
+      "bezeichnung": "NHXMH-J 5x16",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 130
+    },
+    {
+      "id": "kabeltyp-nhxmh-j-5x25",
+      "bezeichnung": "NHXMH-J 5x25",
+      "gruppe": "NHXMH-J",
+      "bemerkung": "Halogenfreie Mantelleitung 300/500 V, Flucht- und Rettungswege",
+      "sortierung": 140
+    },
+    {
+      "id": "kabeltyp-h07rn-f-3g1-5",
+      "bezeichnung": "H07RN-F 3G1,5",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 10
+    },
+    {
+      "id": "kabeltyp-h07rn-f-3g2-5",
+      "bezeichnung": "H07RN-F 3G2,5",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 20
+    },
+    {
+      "id": "kabeltyp-h07rn-f-3g4",
+      "bezeichnung": "H07RN-F 3G4",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 30
+    },
+    {
+      "id": "kabeltyp-h07rn-f-3g6",
+      "bezeichnung": "H07RN-F 3G6",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 40
+    },
+    {
+      "id": "kabeltyp-h07rn-f-3g10",
+      "bezeichnung": "H07RN-F 3G10",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 50
+    },
+    {
+      "id": "kabeltyp-h07rn-f-3g16",
+      "bezeichnung": "H07RN-F 3G16",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 60
+    },
+    {
+      "id": "kabeltyp-h07rn-f-3g25",
+      "bezeichnung": "H07RN-F 3G25",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 70
+    },
+    {
+      "id": "kabeltyp-h07rn-f-5g1-5",
+      "bezeichnung": "H07RN-F 5G1,5",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 80
+    },
+    {
+      "id": "kabeltyp-h07rn-f-5g2-5",
+      "bezeichnung": "H07RN-F 5G2,5",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 90
+    },
+    {
+      "id": "kabeltyp-h07rn-f-5g4",
+      "bezeichnung": "H07RN-F 5G4",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 100
+    },
+    {
+      "id": "kabeltyp-h07rn-f-5g6",
+      "bezeichnung": "H07RN-F 5G6",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 110
+    },
+    {
+      "id": "kabeltyp-h07rn-f-5g10",
+      "bezeichnung": "H07RN-F 5G10",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 120
+    },
+    {
+      "id": "kabeltyp-h07rn-f-5g16",
+      "bezeichnung": "H07RN-F 5G16",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 130
+    },
+    {
+      "id": "kabeltyp-h07rn-f-5g25",
+      "bezeichnung": "H07RN-F 5G25",
+      "gruppe": "H07RN-F",
+      "bemerkung": "Gummischlauchleitung, mechanisch beansprucht, Baustelle und Außenbereich",
+      "sortierung": 140
+    },
+    {
+      "id": "kabeltyp-j-y-st-y-2x2x0-6",
+      "bezeichnung": "J-Y(ST)Y 2x2x0,6",
+      "gruppe": "Fernmeldeleitungen",
+      "bemerkung": "Fernmelde-/Telefonleitung, statisch geschirmt",
+      "sortierung": 10
+    },
+    {
+      "id": "kabeltyp-j-y-st-y-4x2x0-6",
+      "bezeichnung": "J-Y(ST)Y 4x2x0,6",
+      "gruppe": "Fernmeldeleitungen",
+      "bemerkung": "Fernmelde-/Telefonleitung, statisch geschirmt",
+      "sortierung": 20
+    },
+    {
+      "id": "kabeltyp-j-y-st-y-6x2x0-6",
+      "bezeichnung": "J-Y(ST)Y 6x2x0,6",
+      "gruppe": "Fernmeldeleitungen",
+      "bemerkung": "Fernmelde-/Telefonleitung, statisch geschirmt",
+      "sortierung": 30
+    },
+    {
+      "id": "kabeltyp-j-y-st-y-10x2x0-6",
+      "bezeichnung": "J-Y(ST)Y 10x2x0,6",
+      "gruppe": "Fernmeldeleitungen",
+      "bemerkung": "Fernmelde-/Telefonleitung, statisch geschirmt",
+      "sortierung": 40
+    },
+    {
+      "id": "kabeltyp-j-y-st-y-2x2x0-8",
+      "bezeichnung": "J-Y(ST)Y 2x2x0,8",
+      "gruppe": "Fernmeldeleitungen",
+      "bemerkung": "Fernmelde-/Telefonleitung, statisch geschirmt",
+      "sortierung": 50
+    },
+    {
+      "id": "kabeltyp-j-y-st-y-4x2x0-8",
+      "bezeichnung": "J-Y(ST)Y 4x2x0,8",
+      "gruppe": "Fernmeldeleitungen",
+      "bemerkung": "Fernmelde-/Telefonleitung, statisch geschirmt",
+      "sortierung": 60
+    },
+    {
+      "id": "kabeltyp-j-y-st-y-6x2x0-8",
+      "bezeichnung": "J-Y(ST)Y 6x2x0,8",
+      "gruppe": "Fernmeldeleitungen",
+      "bemerkung": "Fernmelde-/Telefonleitung, statisch geschirmt",
+      "sortierung": 70
+    },
+    {
+      "id": "kabeltyp-j-y-st-y-10x2x0-8",
+      "bezeichnung": "J-Y(ST)Y 10x2x0,8",
+      "gruppe": "Fernmeldeleitungen",
+      "bemerkung": "Fernmelde-/Telefonleitung, statisch geschirmt",
+      "sortierung": 80
+    },
+    {
+      "id": "kabeltyp-je-y-st-y-2x2x0-8",
+      "bezeichnung": "JE-Y(ST)Y 2x2x0,8",
+      "gruppe": "Fernmeldeleitungen",
+      "bemerkung": "Halogenfreie Fernmeldeleitung, Industrie- und Meldetechnik",
+      "sortierung": 110
+    },
+    {
+      "id": "kabeltyp-je-y-st-y-4x2x0-8",
+      "bezeichnung": "JE-Y(ST)Y 4x2x0,8",
+      "gruppe": "Fernmeldeleitungen",
+      "bemerkung": "Halogenfreie Fernmeldeleitung, Industrie- und Meldetechnik",
+      "sortierung": 120
+    },
+    {
+      "id": "kabeltyp-je-y-st-y-10x2x0-8",
+      "bezeichnung": "JE-Y(ST)Y 10x2x0,8",
+      "gruppe": "Fernmeldeleitungen",
+      "bemerkung": "Halogenfreie Fernmeldeleitung, Industrie- und Meldetechnik",
+      "sortierung": 130
+    },
+    {
+      "id": "kabeltyp-ysly-jz-3g0-75",
+      "bezeichnung": "YSLY-JZ 3G0,75",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 10
+    },
+    {
+      "id": "kabeltyp-ysly-jz-4g0-75",
+      "bezeichnung": "YSLY-JZ 4G0,75",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 20
+    },
+    {
+      "id": "kabeltyp-ysly-jz-5g0-75",
+      "bezeichnung": "YSLY-JZ 5G0,75",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 30
+    },
+    {
+      "id": "kabeltyp-ysly-jz-7g0-75",
+      "bezeichnung": "YSLY-JZ 7G0,75",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 40
+    },
+    {
+      "id": "kabeltyp-ysly-jz-3g1-0",
+      "bezeichnung": "YSLY-JZ 3G1,0",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 50
+    },
+    {
+      "id": "kabeltyp-ysly-jz-4g1-0",
+      "bezeichnung": "YSLY-JZ 4G1,0",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 60
+    },
+    {
+      "id": "kabeltyp-ysly-jz-5g1-0",
+      "bezeichnung": "YSLY-JZ 5G1,0",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 70
+    },
+    {
+      "id": "kabeltyp-ysly-jz-7g1-0",
+      "bezeichnung": "YSLY-JZ 7G1,0",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 80
+    },
+    {
+      "id": "kabeltyp-ysly-jz-3g1-5",
+      "bezeichnung": "YSLY-JZ 3G1,5",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 90
+    },
+    {
+      "id": "kabeltyp-ysly-jz-4g1-5",
+      "bezeichnung": "YSLY-JZ 4G1,5",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 100
+    },
+    {
+      "id": "kabeltyp-ysly-jz-5g1-5",
+      "bezeichnung": "YSLY-JZ 5G1,5",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 110
+    },
+    {
+      "id": "kabeltyp-ysly-jz-7g1-5",
+      "bezeichnung": "YSLY-JZ 7G1,5",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung mit nummerierten Adern (Bauform ÖLFLEX CLASSIC 110)",
+      "sortierung": 120
+    },
+    {
+      "id": "kabeltyp-ysly-oz-2x0-75",
+      "bezeichnung": "YSLY-OZ 2x0,75",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung ohne Schutzleiter",
+      "sortierung": 210
+    },
+    {
+      "id": "kabeltyp-ysly-oz-2x1-0",
+      "bezeichnung": "YSLY-OZ 2x1,0",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung ohne Schutzleiter",
+      "sortierung": 220
+    },
+    {
+      "id": "kabeltyp-ysly-oz-2x1-5",
+      "bezeichnung": "YSLY-OZ 2x1,5",
+      "gruppe": "Steuerleitungen",
+      "bemerkung": "Steuerleitung ohne Schutzleiter",
+      "sortierung": 230
+    },
+    {
+      "id": "kabeltyp-je-h-st-h-bd-fe180-e30-2x2x0-8",
+      "bezeichnung": "JE-H(ST)H Bd FE180 E30 2x2x0,8",
+      "gruppe": "Brandmelde & Funktionserhalt",
+      "bemerkung": "Brandmeldekabel halogenfrei, Funktionserhalt E30 nach DIN 4102-12",
+      "sortierung": 10
+    },
+    {
+      "id": "kabeltyp-je-h-st-h-bd-fe180-e30-4x2x0-8",
+      "bezeichnung": "JE-H(ST)H Bd FE180 E30 4x2x0,8",
+      "gruppe": "Brandmelde & Funktionserhalt",
+      "bemerkung": "Brandmeldekabel halogenfrei, Funktionserhalt E30 nach DIN 4102-12",
+      "sortierung": 20
+    },
+    {
+      "id": "kabeltyp-je-h-st-h-bd-fe180-e30-10x2x0-8",
+      "bezeichnung": "JE-H(ST)H Bd FE180 E30 10x2x0,8",
+      "gruppe": "Brandmelde & Funktionserhalt",
+      "bemerkung": "Brandmeldekabel halogenfrei, Funktionserhalt E30 nach DIN 4102-12",
+      "sortierung": 30
+    },
+    {
+      "id": "kabeltyp-nhxh-fe180-e30-3x1-5",
+      "bezeichnung": "NHXH FE180 E30 3x1,5",
+      "gruppe": "Brandmelde & Funktionserhalt",
+      "bemerkung": "Funktionserhalt E30 für Sicherheitsstromversorgung",
+      "sortierung": 110
+    },
+    {
+      "id": "kabeltyp-nhxh-fe180-e30-3x2-5",
+      "bezeichnung": "NHXH FE180 E30 3x2,5",
+      "gruppe": "Brandmelde & Funktionserhalt",
+      "bemerkung": "Funktionserhalt E30 für Sicherheitsstromversorgung",
+      "sortierung": 120
+    },
+    {
+      "id": "kabeltyp-nhxh-fe180-e30-5x1-5",
+      "bezeichnung": "NHXH FE180 E30 5x1,5",
+      "gruppe": "Brandmelde & Funktionserhalt",
+      "bemerkung": "Funktionserhalt E30 für Sicherheitsstromversorgung",
+      "sortierung": 130
+    },
+    {
+      "id": "kabeltyp-nhxh-fe180-e30-5x2-5",
+      "bezeichnung": "NHXH FE180 E30 5x2,5",
+      "gruppe": "Brandmelde & Funktionserhalt",
+      "bemerkung": "Funktionserhalt E30 für Sicherheitsstromversorgung",
+      "sortierung": 140
+    },
+    {
+      "id": "kabeltyp-nhxh-fe180-e30-5x4",
+      "bezeichnung": "NHXH FE180 E30 5x4",
+      "gruppe": "Brandmelde & Funktionserhalt",
+      "bemerkung": "Funktionserhalt E30 für Sicherheitsstromversorgung",
+      "sortierung": 150
+    },
+    {
+      "id": "kabeltyp-cat-5e-f-utp-4x2xawg24",
+      "bezeichnung": "Cat 5e F/UTP 4x2xAWG24",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 10
+    },
+    {
+      "id": "kabeltyp-cat-5e-f-utp-duplex-2x4x2xawg24",
+      "bezeichnung": "Cat 5e F/UTP Duplex 2x4x2xAWG24",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 20
+    },
+    {
+      "id": "kabeltyp-cat-6-u-utp-4x2xawg23",
+      "bezeichnung": "Cat 6 U/UTP 4x2xAWG23",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 30
+    },
+    {
+      "id": "kabeltyp-cat-6-u-utp-duplex-2x4x2xawg23",
+      "bezeichnung": "Cat 6 U/UTP Duplex 2x4x2xAWG23",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 40
+    },
+    {
+      "id": "kabeltyp-cat-6a-s-ftp-4x2xawg23",
+      "bezeichnung": "Cat 6A S/FTP 4x2xAWG23",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 50
+    },
+    {
+      "id": "kabeltyp-cat-6a-s-ftp-duplex-2x4x2xawg23",
+      "bezeichnung": "Cat 6A S/FTP Duplex 2x4x2xAWG23",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 60
+    },
+    {
+      "id": "kabeltyp-cat-7-s-ftp-4x2xawg23",
+      "bezeichnung": "Cat 7 S/FTP 4x2xAWG23",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 70
+    },
+    {
+      "id": "kabeltyp-cat-7-s-ftp-duplex-2x4x2xawg23",
+      "bezeichnung": "Cat 7 S/FTP Duplex 2x4x2xAWG23",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 80
+    },
+    {
+      "id": "kabeltyp-cat-7a-s-ftp-4x2xawg22",
+      "bezeichnung": "Cat 7A S/FTP 4x2xAWG22",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 90
+    },
+    {
+      "id": "kabeltyp-cat-7a-s-ftp-duplex-2x4x2xawg22",
+      "bezeichnung": "Cat 7A S/FTP Duplex 2x4x2xAWG22",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 100
+    },
+    {
+      "id": "kabeltyp-cat-8-1-s-ftp-4x2xawg22",
+      "bezeichnung": "Cat 8.1 S/FTP 4x2xAWG22",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 110
+    },
+    {
+      "id": "kabeltyp-cat-8-1-s-ftp-duplex-2x4x2xawg22",
+      "bezeichnung": "Cat 8.1 S/FTP Duplex 2x4x2xAWG22",
+      "gruppe": "Netzwerk",
+      "bemerkung": "Netzwerk-Verlegekabel (Datenleitung), Simplex und Duplex",
+      "sortierung": 120
+    },
+    {
+      "id": "kabeltyp-koax-75-ohm-2-fach-geschirmt-100-db",
+      "bezeichnung": "Koax 75 Ω, 2-fach geschirmt, 100 dB",
+      "gruppe": "Koaxial",
+      "bemerkung": "Antennen-, SAT- und BK-Leitung, 75 Ω",
+      "sortierung": 10
+    },
+    {
+      "id": "kabeltyp-koax-75-ohm-4-fach-geschirmt-120-db",
+      "bezeichnung": "Koax 75 Ω, 4-fach geschirmt, 120 dB",
+      "gruppe": "Koaxial",
+      "bemerkung": "Antennen-, SAT- und BK-Leitung, 75 Ω",
+      "sortierung": 20
+    },
+    {
+      "id": "kabeltyp-koax-75-ohm-4-fach-geschirmt-135-db",
+      "bezeichnung": "Koax 75 Ω, 4-fach geschirmt, 135 dB",
+      "gruppe": "Koaxial",
+      "bemerkung": "Antennen-, SAT- und BK-Leitung, 75 Ω",
+      "sortierung": 30
+    },
+    {
+      "id": "kabeltyp-rg6-75-ohm",
+      "bezeichnung": "RG6 75 Ω",
+      "gruppe": "Koaxial",
+      "bemerkung": "Antennen-, SAT- und BK-Leitung, 75 Ω",
+      "sortierung": 40
+    },
+    {
+      "id": "kabeltyp-rg59-75-ohm",
+      "bezeichnung": "RG59 75 Ω",
+      "gruppe": "Koaxial",
+      "bemerkung": "Antennen-, SAT- und BK-Leitung, 75 Ω",
+      "sortierung": 50
+    },
+    {
+      "id": "kabeltyp-rg11-75-ohm",
+      "bezeichnung": "RG11 75 Ω",
+      "gruppe": "Koaxial",
+      "bemerkung": "Antennen-, SAT- und BK-Leitung, 75 Ω",
+      "sortierung": 60
+    }
+  ]
+}

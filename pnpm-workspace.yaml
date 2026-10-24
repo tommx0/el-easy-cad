@@ -1,0 +1,5 @@
+allowBuilds:
+  core-js: true
+  esbuild: true
+overrides:
+  unzipper: ^0.11.2

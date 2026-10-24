@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-lizenzserver-token-vorhanden"
+description = "Enables the lizenzserver_token_vorhanden command without any pre-configured scope."
+commands.allow = ["lizenzserver_token_vorhanden"]
+
+[[permission]]
+identifier = "deny-lizenzserver-token-vorhanden"
+description = "Denies the lizenzserver_token_vorhanden command without any pre-configured scope."
+commands.deny = ["lizenzserver_token_vorhanden"]

@@ -1,0 +1,2727 @@
+{
+  "katalog": {
+    "id": "elektroinstallation",
+    "name": "Elektroinstallation",
+    "beschreibung": "Generische Installationsplan-Symbole nach DIN – Schalter, Steckdosen, Leuchten, Kommunikations- und Rollladentechnik.",
+    "sortierung": 3,
+    "uebersetzungen": {
+      "en": {
+        "name": "Electrical installation",
+        "beschreibung": "Generic installation plan symbols to DIN – switches, socket outlets, luminaires, communication and roller shutter technology."
+      }
+    },
+    "seed_version": 23
+  },
+  "komponenten": [
+    {
+      "id": "ausschalter",
+      "name": "Ausschalter",
+      "uebersetzungen": {
+        "en": {
+          "name": "One-way switch",
+          "kategorie": "Switches",
+          "varianten": {
+            "kontrollleuchte": {
+              "farbe": "with pilot light"
+            }
+          },
+          "technischeDaten": {
+            "Schaltprinzip": {
+              "bezeichnung": "Switching principle",
+              "wert": "1-pole, on/off"
+            }
+          }
+        }
+      },
+      "kategorie": "Schalter",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 43 48\">\n<path d=\"M14.1733 24.759a7.0866 7.0866 0 1 1-.00014.04279\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"m38.976 7.0866-7.0866-3.5433s-7.0866 14.173-7.6611 14.792\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.25
+          },
+          {
+            "xAnteil": 0.75,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.25,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.7
+          }
+        ]
+      },
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 1
+      },
+      "technische_daten": {
+        "Schaltprinzip": "1-polig Aus"
+      },
+      "varianten": [
+        {
+          "id": "kontrollleuchte",
+          "farbe_ausfuehrung": "mit Kontrollleuchte"
+        }
+      ],
+      "seed_version": 7
+    },
+    {
+      "id": "katalog-3020f650-51ae-4de5-8eda-e294a39c1283",
+      "name": "Kontrol-Ausschalter",
+      "uebersetzungen": {
+        "en": {
+          "name": "One-way switch with pilot light",
+          "kategorie": "Switches",
+          "varianten": {
+            "variante-62ffe760-b497-48ea-8318-a2c70f470770": {
+              "farbe": "with pilot light"
+            }
+          },
+          "technischeDaten": {
+            "Schaltprinzip": {
+              "bezeichnung": "Switching principle",
+              "wert": "1-pole, on/off"
+            }
+          }
+        }
+      },
+      "kategorie": "Schalter",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emur7v6uv1l\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":32.96116279069768,\"y\":51.581250000000004}},{\"typ\":\"C\",\"c1\":{\"x\":33.01836032298696,\"y\":43.43631929911744},\"c2\":{\"x\":40.42800839708842,\"y\":36.87160089553693},\"p\":{\"x\":49.52010004649695,\"y\":36.91054512174398}},{\"typ\":\"C\",\"c1\":{\"x\":58.612191695905494,\"y\":36.94948934795104},\"c2\":{\"x\":65.95142632569225,\"y\":43.57738175444198},\"p\":{\"x\":65.92167870783787,\"y\":51.722430031754506}},{\"typ\":\"C\",\"c1\":{\"x\":65.89193108998347,\"y\":59.86747830906704},\"c2\":{\"x\":58.504440883441376,\"y\":66.45220696842337},\"p\":{\"x\":49.41225942306346,\"y\":66.43785344003389}},{\"typ\":\"C\",\"c1\":{\"x\":40.320077962685545,\"y\":66.42349991164441},\"c2\":{\"x\":32.958539777030936,\"y\":59.81548744535271},\"p\":{\"x\":32.960837209302326,\"y\":51.67039583333334}}],\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emur7v6uv1m\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":90.64186046511628,\"y\":14.76375}},{\"typ\":\"L\",\"p\":{\"x\":74.1613953488372,\"y\":7.381875}},{\"typ\":\"C\",\"c1\":{\"x\":74.1613953488372,\"y\":7.381875},\"c2\":{\"x\":57.68093023255814,\"y\":36.90895833333334},\"p\":{\"x\":56.34488372093023,\"y\":38.19854166666667}}],\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emur7wpyu1o\",\"a\":{\"x\":60,\"y\":65},\"b\":{\"x\":40,\"y\":40},\"strich\":2.5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emur7ws4t1p\",\"a\":{\"x\":39,\"y\":65},\"b\":{\"x\":59,\"y\":40},\"strich\":2.5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><path d=\"M32.96 51.58 C33.02 43.44 40.43 36.87 49.52 36.91 C58.61 36.95 65.95 43.58 65.92 51.72 C65.89 59.87 58.5 66.45 49.41 66.44 C40.32 66.42 32.96 59.82 32.96 51.67\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M90.64 14.76 L74.16 7.38 C74.16 7.38 57.68 36.91 56.34 38.2\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"60\" y1=\"65\" x2=\"40\" y2=\"40\" stroke=\"#000\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"39\" y1=\"65\" x2=\"59\" y2=\"40\" stroke=\"#000\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.25
+          },
+          {
+            "xAnteil": 0.75,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.7
+          },
+          {
+            "xAnteil": 0.25,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 1
+      },
+      "technische_daten": {
+        "Schaltprinzip": "1-polig Aus"
+      },
+      "varianten": [
+        {
+          "id": "variante-62ffe760-b497-48ea-8318-a2c70f470770",
+          "farbe_ausfuehrung": "mit Kontrollleuchte"
+        }
+      ],
+      "seed_version": 3
+    },
+    {
+      "id": "wechselschalter",
+      "name": "Wechselschalter",
+      "uebersetzungen": {
+        "en": {
+          "name": "Two-way switch",
+          "kategorie": "Switches",
+          "varianten": {
+            "kontrollleuchte": {
+              "farbe": "with pilot light"
+            }
+          },
+          "technischeDaten": {
+            "Schaltprinzip": {
+              "bezeichnung": "Switching principle",
+              "wert": "2 switching points (e.g. staircase, two switches)"
+            }
+          }
+        }
+      },
+      "kategorie": "Schalter",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 43 48\">\n<path d=\"M14.1733 24.759a7.0866 7.0866 0 1 1-.00014.04279\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"m38.976 7.0866-7.0866-3.5433s-7.0866 14.173-7.6611 14.792\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M3.5433 42.52l7.0866 3.543s7.0866-14.173 7.6611-14.792\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.25
+          },
+          {
+            "xAnteil": 0.25,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.75,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.7
+          }
+        ]
+      },
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 1
+      },
+      "technische_daten": {
+        "Schaltprinzip": "2 Schaltstellen (z. B. Treppenhaus, zwei Schalter)"
+      },
+      "varianten": [
+        {
+          "id": "kontrollleuchte",
+          "farbe_ausfuehrung": "mit Kontrollleuchte"
+        }
+      ],
+      "seed_version": 7
+    },
+    {
+      "id": "katalog-e33c6db2-5a9e-47ac-986f-ddcc7d39b910",
+      "name": "Kontrol-Wechselschalter",
+      "uebersetzungen": {
+        "en": {
+          "name": "Two-way switch with pilot light",
+          "kategorie": "Switches",
+          "varianten": {
+            "variante-fede3b62-1e6b-4ee8-a789-f47af4071d5c": {
+              "farbe": "with pilot light"
+            }
+          },
+          "technischeDaten": {
+            "Schaltprinzip": {
+              "bezeichnung": "Switching principle",
+              "wert": "2 switching points (e.g. staircase, two switches)"
+            }
+          }
+        }
+      },
+      "kategorie": "Schalter",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emur7uvxk1h\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":32.96116279069768,\"y\":51.581250000000004}},{\"typ\":\"C\",\"c1\":{\"x\":33.01836032298696,\"y\":43.43631929911744},\"c2\":{\"x\":40.42800839708842,\"y\":36.87160089553693},\"p\":{\"x\":49.52010004649695,\"y\":36.91054512174398}},{\"typ\":\"C\",\"c1\":{\"x\":58.612191695905494,\"y\":36.94948934795104},\"c2\":{\"x\":65.95142632569225,\"y\":43.57738175444198},\"p\":{\"x\":65.92167870783787,\"y\":51.722430031754506}},{\"typ\":\"C\",\"c1\":{\"x\":65.89193108998347,\"y\":59.86747830906704},\"c2\":{\"x\":58.504440883441376,\"y\":66.45220696842337},\"p\":{\"x\":49.41225942306346,\"y\":66.43785344003389}},{\"typ\":\"C\",\"c1\":{\"x\":40.320077962685545,\"y\":66.42349991164441},\"c2\":{\"x\":32.958539777030936,\"y\":59.81548744535271},\"p\":{\"x\":32.960837209302326,\"y\":51.67039583333334}}],\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emur7uvxl1i\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":90.64186046511628,\"y\":14.76375}},{\"typ\":\"L\",\"p\":{\"x\":74.1613953488372,\"y\":7.381875}},{\"typ\":\"C\",\"c1\":{\"x\":74.1613953488372,\"y\":7.381875},\"c2\":{\"x\":57.68093023255814,\"y\":36.90895833333334},\"p\":{\"x\":56.34488372093023,\"y\":38.19854166666667}}],\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emur7uvxl1j\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":8.240232558139535,\"y\":88.58333333333334}},{\"typ\":\"L\",\"p\":{\"x\":24.720697674418606,\"y\":95.96458333333335}},{\"typ\":\"C\",\"c1\":{\"x\":24.720697674418606,\"y\":95.96458333333335},\"c2\":{\"x\":41.20116279069768,\"y\":66.4375},\"p\":{\"x\":42.537209302325586,\"y\":65.14791666666667}}],\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emur7yvdq1r\",\"a\":{\"x\":39,\"y\":64},\"b\":{\"x\":59,\"y\":39},\"strich\":2.5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emur7yziq1s\",\"a\":{\"x\":39,\"y\":40},\"b\":{\"x\":59,\"y\":65},\"strich\":2.5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><path d=\"M32.96 51.58 C33.02 43.44 40.43 36.87 49.52 36.91 C58.61 36.95 65.95 43.58 65.92 51.72 C65.89 59.87 58.5 66.45 49.41 66.44 C40.32 66.42 32.96 59.82 32.96 51.67\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M90.64 14.76 L74.16 7.38 C74.16 7.38 57.68 36.91 56.34 38.2\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M8.24 88.58 L24.72 95.96 C24.72 95.96 41.2 66.44 42.54 65.15\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"39\" y1=\"64\" x2=\"59\" y2=\"39\" stroke=\"#000\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"39\" y1=\"40\" x2=\"59\" y2=\"65\" stroke=\"#000\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.25,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.75,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.25
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.7
+          }
+        ]
+      },
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 1
+      },
+      "technische_daten": {
+        "Schaltprinzip": "2 Schaltstellen (z. B. Treppenhaus, zwei Schalter)"
+      },
+      "varianten": [
+        {
+          "id": "variante-fede3b62-1e6b-4ee8-a789-f47af4071d5c",
+          "farbe_ausfuehrung": "mit Kontrollleuchte"
+        }
+      ],
+      "seed_version": 3
+    },
+    {
+      "id": "kreuzschalter",
+      "name": "Kreuzschalter",
+      "uebersetzungen": {
+        "en": {
+          "name": "Intermediate switch",
+          "kategorie": "Switches",
+          "varianten": {
+            "kontrollleuchte": {
+              "farbe": "with pilot light"
+            }
+          },
+          "technischeDaten": {
+            "Schaltprinzip": {
+              "bezeichnung": "Switching principle",
+              "wert": "between two two-way switches, any number of switching points"
+            }
+          }
+        }
+      },
+      "kategorie": "Schalter",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 43 48\">\n<path d=\"m21,17.5a7,7 0,1,0 1,0z\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M3 7l7-3 8,14m6,13 8,14 7-3M3,42l7,3 8-14m6-13 8-14 7,3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.25,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.25
+          },
+          {
+            "xAnteil": 0.75,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.7
+          }
+        ]
+      },
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 1
+      },
+      "technische_daten": {
+        "Schaltprinzip": "zwischen zwei Wechselschaltern, beliebig viele Schaltstellen"
+      },
+      "varianten": [
+        {
+          "id": "kontrollleuchte",
+          "farbe_ausfuehrung": "mit Kontrollleuchte"
+        }
+      ],
+      "seed_version": 7
+    },
+    {
+      "id": "taster",
+      "name": "Taster",
+      "uebersetzungen": {
+        "en": {
+          "name": "Push-button",
+          "kategorie": "Switches",
+          "varianten": {
+            "kontrollleuchte": {
+              "farbe": "with pilot light"
+            }
+          },
+          "technischeDaten": {
+            "Funktion": {
+              "bezeichnung": "Function",
+              "wert": "closes only while pressed (e.g. staircase timer)"
+            }
+          }
+        }
+      },
+      "kategorie": "Schalter",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 43 48\">\n<circle cx=\"21.26\" cy=\"24.8\" r=\"7.09\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"21.26\" cy=\"24.8\" r=\"10.63\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.2
+          },
+          {
+            "xAnteil": 0.8,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.75
+          },
+          {
+            "xAnteil": 0.2,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 1
+      },
+      "technische_daten": {
+        "Funktion": "schließt nur während Betätigung (z. B. Treppenhausautomat)"
+      },
+      "varianten": [
+        {
+          "id": "kontrollleuchte",
+          "farbe_ausfuehrung": "mit Kontrollleuchte"
+        }
+      ],
+      "seed_version": 7
+    },
+    {
+      "id": "katalog-e7613659-caf3-4057-80e1-69f4db00a1a6",
+      "name": "Taster mit Licht",
+      "uebersetzungen": {
+        "en": {
+          "name": "Illuminated push-button",
+          "kategorie": "Switches",
+          "varianten": {
+            "variante-e4d09a1e-ae15-4d89-9925-35a79d3ba089": {
+              "farbe": "with pilot light"
+            }
+          },
+          "technischeDaten": {
+            "Funktion": {
+              "bezeichnung": "Function",
+              "wert": "closes only while pressed (e.g. staircase timer)"
+            }
+          }
+        }
+      },
+      "kategorie": "Schalter",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"ellipse\",\"id\":\"emur7uulj1b\",\"mitte\":{\"x\":50.441860465116285,\"y\":49.16666666666667},\"rx\":16.488372093023255,\"ry\":14.770833333333334,\"drehung\":0,\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emur7uulj1c\",\"mitte\":{\"x\":50.441860465116285,\"y\":49.16666666666667},\"rx\":24.720930232558143,\"ry\":22.145833333333336,\"drehung\":0,\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emur8008t1u\",\"a\":{\"x\":60,\"y\":37.5},\"b\":{\"x\":40,\"y\":62.5},\"strich\":2.5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emur803pl1v\",\"a\":{\"x\":41,\"y\":37.5},\"b\":{\"x\":61,\"y\":62.5},\"strich\":2.5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><ellipse cx=\"50.44\" cy=\"49.17\" rx=\"16.49\" ry=\"14.77\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><ellipse cx=\"50.44\" cy=\"49.17\" rx=\"24.72\" ry=\"22.15\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"60\" y1=\"37.5\" x2=\"40\" y2=\"62.5\" stroke=\"#000\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"41\" y1=\"37.5\" x2=\"61\" y2=\"62.5\" stroke=\"#000\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.225
+          },
+          {
+            "xAnteil": 0.8,
+            "yAnteil": 0.525
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.775
+          },
+          {
+            "xAnteil": 0.2,
+            "yAnteil": 0.525
+          }
+        ]
+      },
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 1
+      },
+      "technische_daten": {
+        "Funktion": "schließt nur während Betätigung (z. B. Treppenhausautomat)"
+      },
+      "varianten": [
+        {
+          "id": "variante-e4d09a1e-ae15-4d89-9925-35a79d3ba089",
+          "farbe_ausfuehrung": "mit Kontrollleuchte"
+        }
+      ],
+      "seed_version": 3
+    },
+    {
+      "id": "serienschalter",
+      "name": "Serienschalter",
+      "uebersetzungen": {
+        "en": {
+          "name": "Two-circuit switch",
+          "kategorie": "Switches",
+          "varianten": {
+            "kontrollleuchte": {
+              "farbe": "with pilot light"
+            }
+          },
+          "technischeDaten": {
+            "Funktion": {
+              "bezeichnung": "Function",
+              "wert": "two independently switched circuits in one frame"
+            }
+          }
+        }
+      },
+      "kategorie": "Schalter",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 43 48\">\n<path d=\"M14.1733 24.759a7.0866 7.0866 0 1 1-.00014.04279\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"m38.976 7.0866-7.0866-3.5433s-7.0866 14.173-7.6611 14.792\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M3.5433 7.0866 10.6299 3.5433C10.6299 3.5433 17.7165 17.7165 18.2911 18.3353\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.25,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.75,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.25
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.7
+          }
+        ]
+      },
+      "slotMatrixVorlage": {
+        "spalten": 2,
+        "zeilen": 1
+      },
+      "technische_daten": {
+        "Funktion": "zwei unabhängig geschaltete Stromkreise in einem Rahmen"
+      },
+      "varianten": [
+        {
+          "id": "kontrollleuchte",
+          "farbe_ausfuehrung": "mit Kontrollleuchte"
+        }
+      ],
+      "seed_version": 7
+    },
+    {
+      "id": "dimmer",
+      "name": "Dimmer",
+      "uebersetzungen": {
+        "en": {
+          "kategorie": "Switches",
+          "varianten": {
+            "drehdimmer": {
+              "farbe": "Rotary dimmer"
+            },
+            "tastdimmer": {
+              "farbe": "Push-button dimmer"
+            }
+          },
+          "technischeDaten": {
+            "Schaltprinzip": {
+              "bezeichnung": "Switching principle",
+              "wert": "brightness control, stepless"
+            },
+            "Schaltzeichen": {
+              "bezeichnung": "Graphical symbol"
+            }
+          },
+          "name": "Dimmer"
+        }
+      },
+      "kategorie": "Schalter",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emupswpyg9\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":32.96116279069768,\"y\":51.581250000000004}},{\"typ\":\"C\",\"c1\":{\"x\":33.01836032298696,\"y\":43.43631929911744},\"c2\":{\"x\":40.42800839708842,\"y\":36.87160089553693},\"p\":{\"x\":49.52010004649695,\"y\":36.91054512174398}},{\"typ\":\"C\",\"c1\":{\"x\":58.612191695905494,\"y\":36.94948934795104},\"c2\":{\"x\":65.95142632569225,\"y\":43.57738175444198},\"p\":{\"x\":65.92167870783787,\"y\":51.722430031754506}},{\"typ\":\"C\",\"c1\":{\"x\":65.89193108998347,\"y\":59.86747830906704},\"c2\":{\"x\":58.504440883441376,\"y\":66.45220696842337},\"p\":{\"x\":49.41225942306346,\"y\":66.43785344003389}},{\"typ\":\"C\",\"c1\":{\"x\":40.320077962685545,\"y\":66.42349991164441},\"c2\":{\"x\":32.958539777030936,\"y\":59.81548744535271},\"p\":{\"x\":32.960837209302326,\"y\":51.67039583333334}}],\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emupswpyga\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":90.64186046511628,\"y\":14.76375}},{\"typ\":\"L\",\"p\":{\"x\":74.1613953488372,\"y\":7.381875}},{\"typ\":\"C\",\"c1\":{\"x\":74.1613953488372,\"y\":7.381875},\"c2\":{\"x\":57.68093023255814,\"y\":36.90895833333334},\"p\":{\"x\":56.34488372093023,\"y\":38.19854166666667}}],\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emupswpygb\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":64.13953488372093,\"y\":36.41666666666667}},{\"typ\":\"L\",\"p\":{\"x\":97.86046511627907,\"y\":36.41666666666667}},{\"typ\":\"L\",\"p\":{\"x\":97.86046511627907,\"y\":27.041666666666668}},{\"typ\":\"Z\"}],\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><path d=\"M32.96 51.58 C33.02 43.44 40.43 36.87 49.52 36.91 C58.61 36.95 65.95 43.58 65.92 51.72 C65.89 59.87 58.5 66.45 49.41 66.44 C40.32 66.42 32.96 59.82 32.96 51.67\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M90.64 14.76 L74.16 7.38 C74.16 7.38 57.68 36.91 56.34 38.2\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M64.14 36.42 L97.86 36.42 L97.86 27.04 Z\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.25,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.75,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.25
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.7
+          }
+        ]
+      },
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 1
+      },
+      "technische_daten": {
+        "Schaltprinzip": "Helligkeitssteller, stufenlos",
+        "Schaltzeichen": "DIN EN 60617-11, 11-14-08"
+      },
+      "varianten": [
+        {
+          "id": "drehdimmer",
+          "farbe_ausfuehrung": "Drehdimmer"
+        },
+        {
+          "id": "tastdimmer",
+          "farbe_ausfuehrung": "Tastdimmer"
+        }
+      ],
+      "seed_version": 5
+    },
+    {
+      "id": "steckdose-1fach",
+      "name": "Steckdose einfach",
+      "uebersetzungen": {
+        "en": {
+          "name": "Socket outlet 1-gang",
+          "kategorie": "Socket outlets",
+          "varianten": {
+            "ap-reinweiss": {
+              "farbe": "Surface-mounted, pure white"
+            },
+            "ap-anthrazit": {
+              "farbe": "Surface-mounted, anthracite"
+            },
+            "up-reinweiss": {
+              "farbe": "Flush-mounted, pure white"
+            },
+            "up-anthrazit": {
+              "farbe": "Flush-mounted, anthracite"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "earthing contact (SCHUKO), 230 V"
+            }
+          }
+        }
+      },
+      "kategorie": "Steckdosen",
+      "herkunft": "standard",
+      "typ": "anschlussdose",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emuo5ed802\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":50.51413043478261,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":50.51413043478261,\"y\":11.073125000000003}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5ed813\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":81.32565217391304,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":19.702826086956527,\"y\":33.21875}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5ed814\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":19.70282608695652,\"y\":77.51}},{\"typ\":\"C\",\"c1\":{\"x\":19.70282608695652,\"y\":53.0484375},\"c2\":{\"x\":33.497608695652175,\"y\":33.2184375},\"p\":{\"x\":50.51413043478261,\"y\":33.2184375}},{\"typ\":\"C\",\"c1\":{\"x\":67.53086956521739,\"y\":33.2184375},\"c2\":{\"x\":81.32543478260868,\"y\":53.0484375},\"p\":{\"x\":81.32543478260868,\"y\":77.51}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><path d=\"M50.51 33.22 L50.51 11.07\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M81.33 33.22 L19.7 33.22\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M19.7 77.51 C19.7 53.05 33.5 33.22 50.51 33.22 C67.53 33.22 81.33 53.05 81.33 77.51\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.9
+          }
+        ]
+      },
+      "technische_daten": {
+        "Typ": "Schutzkontakt (SCHUKO), 230 V"
+      },
+      "varianten": [
+        {
+          "id": "ap-reinweiss",
+          "farbe_ausfuehrung": "Aufputz, reinweiß"
+        },
+        {
+          "id": "ap-anthrazit",
+          "farbe_ausfuehrung": "Aufputz, anthrazit"
+        },
+        {
+          "id": "up-reinweiss",
+          "farbe_ausfuehrung": "Unterputz, reinweiß"
+        },
+        {
+          "id": "up-anthrazit",
+          "farbe_ausfuehrung": "Unterputz, anthrazit"
+        }
+      ],
+      "seed_version": 10
+    },
+    {
+      "id": "katalog-6e4d2a12-fca3-45ba-8555-9bd6d4bf01c2",
+      "name": "Steckdose mehrfach",
+      "uebersetzungen": {
+        "en": {
+          "name": "Socket outlet multi-gang",
+          "kategorie": "Socket outlets",
+          "varianten": {
+            "variante-20d8915d-2ab3-438d-b2d4-1f350acfce33": {
+              "farbe": "Surface-mounted, pure white"
+            },
+            "variante-aa169c23-69aa-4b4c-b0bd-4b5594def17b": {
+              "farbe": "Surface-mounted, anthracite"
+            },
+            "variante-20a8418c-28bb-4375-8081-20dff45c7465": {
+              "farbe": "Flush-mounted, pure white"
+            },
+            "variante-8b9af6c8-d22f-4529-ac26-aca4c687a567": {
+              "farbe": "Flush-mounted, anthracite"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "earthing contact (SCHUKO), 230 V"
+            }
+          },
+          "texte": {
+            "Anzahl": "Quantity"
+          }
+        }
+      },
+      "kategorie": "Steckdosen",
+      "herkunft": "standard",
+      "typ": "anschlussdose",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emuo5ed802\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":49.51413043478261,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":49.51413043478261,\"y\":11.073125000000003}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5ed813\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":80.32565217391304,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":18.702826086956527,\"y\":33.21875}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5ed814\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":18.70282608695652,\"y\":77.51}},{\"typ\":\"C\",\"c1\":{\"x\":18.70282608695652,\"y\":53.0484375},\"c2\":{\"x\":32.497608695652175,\"y\":33.2184375},\"p\":{\"x\":49.51413043478261,\"y\":33.2184375}},{\"typ\":\"C\",\"c1\":{\"x\":66.53086956521739,\"y\":33.2184375},\"c2\":{\"x\":80.32543478260868,\"y\":53.0484375},\"p\":{\"x\":80.32543478260868,\"y\":77.51}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5pgkf17\",\"a\":{\"x\":66,\"y\":65},\"b\":{\"x\":91,\"y\":45},\"strich\":5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><path d=\"M49.51 33.22 L49.51 11.07\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M80.33 33.22 L18.7 33.22\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M18.7 77.51 C18.7 53.05 32.5 33.22 49.51 33.22 C66.53 33.22 80.33 53.05 80.33 77.51\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"66\" y1=\"65\" x2=\"91\" y2=\"45\" stroke=\"#000\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.495,
+            "yAnteil": 0.889
+          }
+        ]
+      },
+      "textElemente": [
+        {
+          "xAnteil": 0.847,
+          "yAnteil": 0.83,
+          "text": "2",
+          "groesseAnteil": 0.29,
+          "ausrichtungHorizontal": "mittig",
+          "ausrichtungVertikal": "mittig",
+          "variable": "Anzahl",
+          "inStueckliste": true
+        }
+      ],
+      "technische_daten": {
+        "Typ": "Schutzkontakt (SCHUKO), 230 V"
+      },
+      "varianten": [
+        {
+          "id": "variante-20d8915d-2ab3-438d-b2d4-1f350acfce33",
+          "farbe_ausfuehrung": "Aufputz, reinweiß"
+        },
+        {
+          "id": "variante-aa169c23-69aa-4b4c-b0bd-4b5594def17b",
+          "farbe_ausfuehrung": "Aufputz, anthrazit"
+        },
+        {
+          "id": "variante-20a8418c-28bb-4375-8081-20dff45c7465",
+          "farbe_ausfuehrung": "Unterputz, reinweiß"
+        },
+        {
+          "id": "variante-8b9af6c8-d22f-4529-ac26-aca4c687a567",
+          "farbe_ausfuehrung": "Unterputz, anthrazit"
+        }
+      ],
+      "seed_version": 7
+    },
+    {
+      "id": "steckdose-2fach",
+      "name": "Steckdose zweifach",
+      "uebersetzungen": {
+        "en": {
+          "name": "Socket outlet 2-gang",
+          "kategorie": "Socket outlets",
+          "varianten": {
+            "ap-reinweiss": {
+              "farbe": "Surface-mounted, pure white"
+            },
+            "ap-anthrazit": {
+              "farbe": "Surface-mounted, anthracite"
+            },
+            "up-reinweiss": {
+              "farbe": "Flush-mounted, pure white"
+            },
+            "up-anthrazit": {
+              "farbe": "Flush-mounted, anthracite"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "earthing contact (SCHUKO), 230 V"
+            }
+          }
+        }
+      },
+      "kategorie": "Steckdosen",
+      "herkunft": "standard",
+      "typ": "anschlussdose",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emuo5nse68\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":49.51413043478261,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":49.51413043478261,\"y\":11.073125000000003}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5nse69\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":80.32565217391304,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":18.702826086956527,\"y\":33.21875}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5nse6a\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":18.70282608695652,\"y\":77.51}},{\"typ\":\"C\",\"c1\":{\"x\":18.70282608695652,\"y\":53.0484375},\"c2\":{\"x\":32.497608695652175,\"y\":33.2184375},\"p\":{\"x\":49.51413043478261,\"y\":33.2184375}},{\"typ\":\"C\",\"c1\":{\"x\":66.53086956521739,\"y\":33.2184375},\"c2\":{\"x\":80.32543478260868,\"y\":53.0484375},\"p\":{\"x\":80.32543478260868,\"y\":77.51}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5nsejd\",\"position\":{\"x\":81,\"y\":25},\"text\":\"2\",\"groesse\":26.064301757134345,\"ausrichtung\":\"links\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"},{\"art\":\"linie\",\"id\":\"emuo5oof3i\",\"a\":{\"x\":66,\"y\":65},\"b\":{\"x\":91,\"y\":45},\"strich\":5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><path d=\"M49.51 33.22 L49.51 11.07\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M80.33 33.22 L18.7 33.22\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M18.7 77.51 C18.7 53.05 32.5 33.22 49.51 33.22 C66.53 33.22 80.33 53.05 80.33 77.51\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"26.06\" font-weight=\"bold\" text-anchor=\"start\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"81\" y=\"25\">2</tspan></text><line x1=\"66\" y1=\"65\" x2=\"91\" y2=\"45\" stroke=\"#000\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.9
+          }
+        ]
+      },
+      "technische_daten": {
+        "Typ": "Schutzkontakt (SCHUKO), 230 V"
+      },
+      "varianten": [
+        {
+          "id": "ap-reinweiss",
+          "farbe_ausfuehrung": "Aufputz, reinweiß"
+        },
+        {
+          "id": "ap-anthrazit",
+          "farbe_ausfuehrung": "Aufputz, anthrazit"
+        },
+        {
+          "id": "up-reinweiss",
+          "farbe_ausfuehrung": "Unterputz, reinweiß"
+        },
+        {
+          "id": "up-anthrazit",
+          "farbe_ausfuehrung": "Unterputz, anthrazit"
+        }
+      ],
+      "seed_version": 9
+    },
+    {
+      "id": "steckdose-3fach",
+      "name": "Steckdose dreifach",
+      "uebersetzungen": {
+        "en": {
+          "name": "Socket outlet 3-gang",
+          "kategorie": "Socket outlets",
+          "varianten": {
+            "ap-reinweiss": {
+              "farbe": "Surface-mounted, pure white"
+            },
+            "ap-anthrazit": {
+              "farbe": "Surface-mounted, anthracite"
+            },
+            "up-reinweiss": {
+              "farbe": "Flush-mounted, pure white"
+            },
+            "up-anthrazit": {
+              "farbe": "Flush-mounted, anthracite"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "earthing contact (SCHUKO), 230 V"
+            }
+          }
+        }
+      },
+      "kategorie": "Steckdosen",
+      "herkunft": "standard",
+      "typ": "anschlussdose",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emuo5opjhk\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":50.51413043478261,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":50.51413043478261,\"y\":11.073125000000003}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5opjhl\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":81.32565217391304,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":19.702826086956527,\"y\":33.21875}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5opjhm\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":19.70282608695652,\"y\":77.51}},{\"typ\":\"C\",\"c1\":{\"x\":19.70282608695652,\"y\":53.0484375},\"c2\":{\"x\":33.497608695652175,\"y\":33.2184375},\"p\":{\"x\":50.51413043478261,\"y\":33.2184375}},{\"typ\":\"C\",\"c1\":{\"x\":67.53086956521739,\"y\":33.2184375},\"c2\":{\"x\":81.32543478260868,\"y\":53.0484375},\"p\":{\"x\":81.32543478260868,\"y\":77.51}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5opjhp\",\"position\":{\"x\":77,\"y\":25},\"text\":\"3\",\"groesse\":26.064301757134345,\"ausrichtung\":\"links\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"},{\"art\":\"linie\",\"id\":\"emuo5ouzbq\",\"a\":{\"x\":67,\"y\":65},\"b\":{\"x\":87,\"y\":45},\"strich\":5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><path d=\"M50.51 33.22 L50.51 11.07\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M81.33 33.22 L19.7 33.22\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M19.7 77.51 C19.7 53.05 33.5 33.22 50.51 33.22 C67.53 33.22 81.33 53.05 81.33 77.51\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"26.06\" font-weight=\"bold\" text-anchor=\"start\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"77\" y=\"25\">3</tspan></text><line x1=\"67\" y1=\"65\" x2=\"87\" y2=\"45\" stroke=\"#000\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.9
+          }
+        ]
+      },
+      "technische_daten": {
+        "Typ": "Schutzkontakt (SCHUKO), 230 V"
+      },
+      "varianten": [
+        {
+          "id": "ap-reinweiss",
+          "farbe_ausfuehrung": "Aufputz, reinweiß"
+        },
+        {
+          "id": "ap-anthrazit",
+          "farbe_ausfuehrung": "Aufputz, anthrazit"
+        },
+        {
+          "id": "up-reinweiss",
+          "farbe_ausfuehrung": "Unterputz, reinweiß"
+        },
+        {
+          "id": "up-anthrazit",
+          "farbe_ausfuehrung": "Unterputz, anthrazit"
+        }
+      ],
+      "seed_version": 9
+    },
+    {
+      "id": "steckdose-4fach",
+      "name": "Steckdose vierfach",
+      "uebersetzungen": {
+        "en": {
+          "name": "Socket outlet 4-gang",
+          "kategorie": "Socket outlets",
+          "varianten": {
+            "ap-reinweiss": {
+              "farbe": "Surface-mounted, pure white"
+            },
+            "ap-anthrazit": {
+              "farbe": "Surface-mounted, anthracite"
+            },
+            "up-reinweiss": {
+              "farbe": "Flush-mounted, pure white"
+            },
+            "up-anthrazit": {
+              "farbe": "Flush-mounted, anthracite"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "earthing contact (SCHUKO), 230 V"
+            }
+          }
+        }
+      },
+      "kategorie": "Steckdosen",
+      "herkunft": "standard",
+      "typ": "anschlussdose",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emuo5oytfs\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":49.51413043478261,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":49.51413043478261,\"y\":11.073125000000003}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5oytft\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":80.32565217391304,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":18.702826086956527,\"y\":33.21875}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5oytfu\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":18.70282608695652,\"y\":77.51}},{\"typ\":\"C\",\"c1\":{\"x\":18.70282608695652,\"y\":53.0484375},\"c2\":{\"x\":32.497608695652175,\"y\":33.2184375},\"p\":{\"x\":49.51413043478261,\"y\":33.2184375}},{\"typ\":\"C\",\"c1\":{\"x\":66.53086956521739,\"y\":33.2184375},\"c2\":{\"x\":80.32543478260868,\"y\":53.0484375},\"p\":{\"x\":80.32543478260868,\"y\":77.51}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5oytfx\",\"position\":{\"x\":76,\"y\":25},\"text\":\"4\",\"groesse\":26.064301757134345,\"ausrichtung\":\"links\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"},{\"art\":\"linie\",\"id\":\"emuo5p3v4y\",\"a\":{\"x\":66,\"y\":65},\"b\":{\"x\":86,\"y\":45},\"strich\":5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><path d=\"M49.51 33.22 L49.51 11.07\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M80.33 33.22 L18.7 33.22\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M18.7 77.51 C18.7 53.05 32.5 33.22 49.51 33.22 C66.53 33.22 80.33 53.05 80.33 77.51\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"26.06\" font-weight=\"bold\" text-anchor=\"start\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"76\" y=\"25\">4</tspan></text><line x1=\"66\" y1=\"65\" x2=\"86\" y2=\"45\" stroke=\"#000\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.495,
+            "yAnteil": 0.889
+          }
+        ]
+      },
+      "technische_daten": {
+        "Typ": "Schutzkontakt (SCHUKO), 230 V"
+      },
+      "varianten": [
+        {
+          "id": "ap-reinweiss",
+          "farbe_ausfuehrung": "Aufputz, reinweiß"
+        },
+        {
+          "id": "ap-anthrazit",
+          "farbe_ausfuehrung": "Aufputz, anthrazit"
+        },
+        {
+          "id": "up-reinweiss",
+          "farbe_ausfuehrung": "Unterputz, reinweiß"
+        },
+        {
+          "id": "up-anthrazit",
+          "farbe_ausfuehrung": "Unterputz, anthrazit"
+        }
+      ],
+      "seed_version": 9
+    },
+    {
+      "id": "steckdose-5fach",
+      "name": "Steckdose fünffach",
+      "uebersetzungen": {
+        "en": {
+          "name": "Socket outlet 5-gang",
+          "kategorie": "Socket outlets",
+          "varianten": {
+            "ap-reinweiss": {
+              "farbe": "Surface-mounted, pure white"
+            },
+            "ap-anthrazit": {
+              "farbe": "Surface-mounted, anthracite"
+            },
+            "up-reinweiss": {
+              "farbe": "Flush-mounted, pure white"
+            },
+            "up-anthrazit": {
+              "farbe": "Flush-mounted, anthracite"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "earthing contact (SCHUKO), 230 V"
+            }
+          }
+        }
+      },
+      "kategorie": "Steckdosen",
+      "herkunft": "standard",
+      "typ": "anschlussdose",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emuo5p54r10\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":49.51413043478261,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":49.51413043478261,\"y\":11.073125000000003}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5p54r11\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":80.32565217391304,\"y\":33.21875}},{\"typ\":\"L\",\"p\":{\"x\":18.702826086956527,\"y\":33.21875}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5p54r12\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":18.70282608695652,\"y\":77.51}},{\"typ\":\"C\",\"c1\":{\"x\":18.70282608695652,\"y\":53.0484375},\"c2\":{\"x\":32.497608695652175,\"y\":33.2184375},\"p\":{\"x\":49.51413043478261,\"y\":33.2184375}},{\"typ\":\"C\",\"c1\":{\"x\":66.53086956521739,\"y\":33.2184375},\"c2\":{\"x\":80.32543478260868,\"y\":53.0484375},\"p\":{\"x\":80.32543478260868,\"y\":77.51}}],\"strich\":5.99,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5p54r15\",\"position\":{\"x\":76,\"y\":25},\"text\":\"5\",\"groesse\":26.064301757134345,\"ausrichtung\":\"links\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"},{\"art\":\"linie\",\"id\":\"emuo5paib16\",\"a\":{\"x\":66,\"y\":65},\"b\":{\"x\":86,\"y\":45},\"strich\":5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><path d=\"M49.51 33.22 L49.51 11.07\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M80.33 33.22 L18.7 33.22\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M18.7 77.51 C18.7 53.05 32.5 33.22 49.51 33.22 C66.53 33.22 80.33 53.05 80.33 77.51\" stroke=\"#000\" stroke-width=\"5.99\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"26.06\" font-weight=\"bold\" text-anchor=\"start\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"76\" y=\"25\">5</tspan></text><line x1=\"66\" y1=\"65\" x2=\"86\" y2=\"45\" stroke=\"#000\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.495,
+            "yAnteil": 0.889
+          }
+        ]
+      },
+      "technische_daten": {
+        "Typ": "Schutzkontakt (SCHUKO), 230 V"
+      },
+      "varianten": [
+        {
+          "id": "ap-reinweiss",
+          "farbe_ausfuehrung": "Aufputz, reinweiß"
+        },
+        {
+          "id": "ap-anthrazit",
+          "farbe_ausfuehrung": "Aufputz, anthrazit"
+        },
+        {
+          "id": "up-reinweiss",
+          "farbe_ausfuehrung": "Unterputz, reinweiß"
+        },
+        {
+          "id": "up-anthrazit",
+          "farbe_ausfuehrung": "Unterputz, anthrazit"
+        }
+      ],
+      "seed_version": 9
+    },
+    {
+      "id": "herdanschlussdose",
+      "name": "Herdanschlussdose",
+      "uebersetzungen": {
+        "en": {
+          "name": "Cooker connection unit",
+          "kategorie": "Special connections",
+          "varianten": {
+            "ap": {
+              "farbe": "Surface-mounted"
+            },
+            "up": {
+              "farbe": "Flush-mounted"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "three-phase connection unit (cooker), 400 V"
+            }
+          }
+        }
+      },
+      "kategorie": "Sonderanschlüsse",
+      "herkunft": "standard",
+      "typ": "anschlussdose",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emv4a1b3x6\",\"mitte\":{\"x\":49.72976190476189,\"y\":49.8011904761905},\"breite\":96.06673985350734,\"hoehe\":95.92934974881481,\"radius\":0,\"drehung\":0,\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emv4a1b3x7\",\"mitte\":{\"x\":49.72976190476189,\"y\":25.818853038986802},\"rx\":15.7032170914387,\"ry\":15.680759093556267,\"drehung\":0,\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emv4a1b3x8\",\"mitte\":{\"x\":22.01820233163476,\"y\":73.78352791339421},\"rx\":15.7032170914387,\"ry\":15.680759093556267,\"drehung\":0,\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emv4a1b3x9\",\"mitte\":{\"x\":77.441321477889,\"y\":73.78352791339421},\"rx\":15.7032170914387,\"ry\":15.680759093556267,\"drehung\":0,\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><rect x=\"1.7\" y=\"1.84\" width=\"96.07\" height=\"95.93\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><ellipse cx=\"49.73\" cy=\"25.82\" rx=\"15.7\" ry=\"15.68\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><ellipse cx=\"22.02\" cy=\"73.78\" rx=\"15.7\" ry=\"15.68\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><ellipse cx=\"77.44\" cy=\"73.78\" rx=\"15.7\" ry=\"15.68\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "kombinierbar": false,
+      "stromkreisVorgabe": "eigen",
+      "stromkreisPolzahl": 3,
+      "technische_daten": {
+        "Typ": "Drehstrom-Anschlussdose (Herd), 400 V"
+      },
+      "varianten": [
+        {
+          "id": "ap",
+          "farbe_ausfuehrung": "Aufputz"
+        },
+        {
+          "id": "up",
+          "farbe_ausfuehrung": "Unterputz"
+        }
+      ],
+      "seed_version": 7
+    },
+    {
+      "id": "saunaofen",
+      "name": "Saunaofen",
+      "uebersetzungen": {
+        "en": {
+          "name": "Sauna heater",
+          "kategorie": "Special connections",
+          "technischeDaten": {
+            "Anschluss": {
+              "bezeichnung": "Connection",
+              "wert": "three-phase 400 V, fixed connection"
+            }
+          }
+        }
+      },
+      "kategorie": "Sonderanschlüsse",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<rect x=\"20\" y=\"42\" width=\"60\" height=\"38\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"35\" y1=\"42\" x2=\"35\" y2=\"80\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"50\" y1=\"42\" x2=\"50\" y2=\"80\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"65\" y1=\"42\" x2=\"65\" y2=\"80\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M 36 34 c -5 -4 5 -8 0 -12 c -5 -4 5 -8 0 -12\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M 50 34 c -5 -4 5 -8 0 -12 c -5 -4 5 -8 0 -12\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M 64 34 c -5 -4 5 -8 0 -12 c -5 -4 5 -8 0 -12\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.85,
+            "yAnteil": 0.4
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.15
+          },
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.4
+          }
+        ]
+      },
+      "kombinierbar": false,
+      "stromkreisVorgabe": "eigen",
+      "stromkreisPolzahl": 3,
+      "technische_daten": {
+        "Anschluss": "Drehstrom 400 V, Festanschluss"
+      },
+      "seed_version": 6
+    },
+    {
+      "id": "durchlauferhitzer",
+      "name": "Durchlauferhitzer",
+      "uebersetzungen": {
+        "en": {
+          "name": "Instantaneous water heater",
+          "kategorie": "Special connections",
+          "technischeDaten": {
+            "Anschluss": {
+              "bezeichnung": "Connection",
+              "wert": "three-phase 400 V, fixed connection"
+            }
+          }
+        }
+      },
+      "kategorie": "Sonderanschlüsse",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emv4a1ky3j\",\"mitte\":{\"x\":50.08848600508906,\"y\":50.13274647887324},\"breite\":96.9050810396734,\"hoehe\":56.675363170534055,\"radius\":0,\"drehung\":0,\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emv4a1ky3k\",\"a\":{\"x\":14.386614043104117,\"y\":21.795064893606206},\"b\":{\"x\":14.386614043104117,\"y\":78.47042806414026},\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emv4a1ky3l\",\"a\":{\"x\":27.13728260095588,\"y\":21.795064893606206},\"b\":{\"x\":27.13728260095588,\"y\":78.47042806414026},\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emv4a1ky3m\",\"a\":{\"x\":39.887951158807645,\"y\":21.795064893606206},\"b\":{\"x\":39.887951158807645,\"y\":78.47042806414026},\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emv4a1ky4o\",\"position\":{\"x\":69.21448884186671,\"y\":51.549630558136585},\"text\":\"DLE\",\"groesse\":26.88212735598428,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><rect x=\"1.64\" y=\"21.8\" width=\"96.91\" height=\"56.68\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"14.39\" y1=\"21.8\" x2=\"14.39\" y2=\"78.47\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"27.14\" y1=\"21.8\" x2=\"27.14\" y2=\"78.47\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"39.89\" y1=\"21.8\" x2=\"39.89\" y2=\"78.47\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"26.88\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"69.21\" y=\"51.55\">DLE</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.8
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.2
+          },
+          {
+            "xAnteil": 1,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.016,
+            "yAnteil": 0.499
+          }
+        ]
+      },
+      "stromkreisVorgabe": "eigen",
+      "stromkreisPolzahl": 3,
+      "technische_daten": {
+        "Anschluss": "Drehstrom 400 V, Festanschluss"
+      },
+      "seed_version": 8
+    },
+    {
+      "id": "waermepumpe",
+      "name": "Wärmepumpe",
+      "uebersetzungen": {
+        "en": {
+          "name": "Heat pump",
+          "kategorie": "Special connections",
+          "technischeDaten": {
+            "Anschluss": {
+              "bezeichnung": "Connection",
+              "wert": "three-phase 400 V, fixed connection"
+            }
+          }
+        }
+      },
+      "kategorie": "Sonderanschlüsse",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emv4a1x7aq\",\"mitte\":{\"x\":49.91151399491094,\"y\":52.29096244131456},\"breite\":96.90508103967342,\"hoehe\":61.554493404188634,\"radius\":0,\"drehung\":0,\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emv4a1x7ar\",\"mitte\":{\"x\":26.960310590777752,\"y\":52.29096244131456},\"rx\":16.575869125207298,\"ry\":20.005210356361303,\"drehung\":0,\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emv4a1x7bs\",\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":26.960310590777752,\"y\":33.05518325250562}},{\"typ\":\"C\",\"c1\":{\"x\":29.072910529172304,\"y\":33.05518325250562},\"c2\":{\"x\":30.785511158133268,\"y\":37.189016064529895},\"p\":{\"x\":30.78551115813329,\"y\":42.28835726313392}},{\"typ\":\"C\",\"c1\":{\"x\":30.78551115813329,\"y\":47.38769846173794},\"c2\":{\"x\":29.072910529172304,\"y\":51.52153127376219},\"p\":{\"x\":26.960310590777752,\"y\":51.52153127376219}},{\"typ\":\"C\",\"c1\":{\"x\":24.8477106523832,\"y\":51.52153127376219},\"c2\":{\"x\":23.135110023422214,\"y\":47.38769846173794},\"p\":{\"x\":23.135110023422214,\"y\":42.28835726313392}},{\"typ\":\"C\",\"c1\":{\"x\":23.135110023422214,\"y\":37.189016064529895},\"c2\":{\"x\":24.847710652383185,\"y\":33.05518325250562},\"p\":{\"x\":26.960310590777752,\"y\":33.05518325250562}},{\"typ\":\"Z\"}]},{\"art\":\"pfad\",\"id\":\"emv4a1x7bt\",\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":40.763314198696655,\"y\":61.908852035719036}},{\"typ\":\"C\",\"c1\":{\"x\":39.707014229499386,\"y\":64.11693154599688},\"c2\":{\"x\":35.88440261258408,\"y\":63.840017255090075},\"p\":{\"x\":32.225272183217825,\"y\":61.290346655788056}},{\"typ\":\"C\",\"c1\":{\"x\":28.566141753851568,\"y\":58.74067605648604},\"c2\":{\"x\":26.45613076589725,\"y\":54.88375753536859},\"p\":{\"x\":27.51243073509451,\"y\":52.67567802509073}},{\"typ\":\"C\",\"c1\":{\"x\":28.568730704291802,\"y\":50.467598514812906},\"c2\":{\"x\":32.391342321207084,\"y\":50.74451280571968},\"p\":{\"x\":36.05047275057336,\"y\":53.29418340502171}},{\"typ\":\"C\",\"c1\":{\"x\":39.709603179939606,\"y\":55.84385400432373},\"c2\":{\"x\":41.81961416789394,\"y\":59.700772525441195},\"p\":{\"x\":40.763314198696655,\"y\":61.908852035719036}},{\"typ\":\"Z\"}]},{\"art\":\"pfad\",\"id\":\"emv4a1x7bu\",\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":13.157306982858863,\"y\":61.908852035719036}},{\"typ\":\"C\",\"c1\":{\"x\":12.10100701366158,\"y\":59.700772525441195},\"c2\":{\"x\":14.211018001615916,\"y\":55.84385400432373},\"p\":{\"x\":17.87014843098217,\"y\":53.29418340502171}},{\"typ\":\"C\",\"c1\":{\"x\":21.529278860348427,\"y\":50.74451280571968},\"c2\":{\"x\":25.35189047726373,\"y\":50.467598514812906},\"p\":{\"x\":26.408190446461013,\"y\":52.67567802509073}},{\"typ\":\"C\",\"c1\":{\"x\":27.464490415658283,\"y\":54.88375753536859},\"c2\":{\"x\":25.35447942770395,\"y\":58.74067605648604},\"p\":{\"x\":21.6953489983377,\"y\":61.290346655788056}},{\"typ\":\"C\",\"c1\":{\"x\":18.036218568971446,\"y\":63.840017255090075},\"c2\":{\"x\":14.213606952056143,\"y\":64.11693154599688},\"p\":{\"x\":13.157306982858863,\"y\":61.908852035719036}},{\"typ\":\"Z\"}]},{\"art\":\"text\",\"id\":\"emv4a1x7bw\",\"position\":{\"x\":70.31258368747376,\"y\":53.82982477641927},\"text\":\"WP\",\"groesse\":28.01536977523734,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><rect x=\"1.46\" y=\"21.51\" width=\"96.91\" height=\"61.55\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><ellipse cx=\"26.96\" cy=\"52.29\" rx=\"16.58\" ry=\"20.01\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M26.96 33.06 C29.07 33.06 30.79 37.19 30.79 42.29 C30.79 47.39 29.07 51.52 26.96 51.52 C24.85 51.52 23.14 47.39 23.14 42.29 C23.14 37.19 24.85 33.06 26.96 33.06 Z\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M40.76 61.91 C39.71 64.12 35.88 63.84 32.23 61.29 C28.57 58.74 26.46 54.88 27.51 52.68 C28.57 50.47 32.39 50.74 36.05 53.29 C39.71 55.84 41.82 59.7 40.76 61.91 Z\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M13.16 61.91 C12.1 59.7 14.21 55.84 17.87 53.29 C21.53 50.74 25.35 50.47 26.41 52.68 C27.46 54.88 25.35 58.74 21.7 61.29 C18.04 63.84 14.21 64.12 13.16 61.91 Z\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"28.02\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"70.31\" y=\"53.83\">WP</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.15
+          },
+          {
+            "xAnteil": 1,
+            "yAnteil": 0.45
+          },
+          {
+            "xAnteil": 0.499,
+            "yAnteil": 0.785
+          },
+          {
+            "xAnteil": 0,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "stromkreisVorgabe": "eigen",
+      "stromkreisPolzahl": 3,
+      "technische_daten": {
+        "Anschluss": "Drehstrom 400 V, Festanschluss"
+      },
+      "seed_version": 8
+    },
+    {
+      "id": "elektroverteiler",
+      "name": "Elektroverteiler / Schaltschrank",
+      "uebersetzungen": {
+        "en": {
+          "name": "Distribution board / control cabinet",
+          "kategorie": "Distribution",
+          "technischeDaten": {
+            "Docking": {
+              "wert": "SPECIAL CASE - cable/trunk connects anywhere on the outer rectangle, as with the cable riser",
+              "bezeichnung": "Docking"
+            }
+          }
+        }
+      },
+      "kategorie": "Verteilung",
+      "herkunft": "standard",
+      "typ": "betriebsmittel",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 300 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":300,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emvdpn5tf2\",\"mitte\":{\"x\":150.28095865949078,\"y\":50.317372665874196},\"breite\":294.273324558027,\"hoehe\":94.04664605520979,\"radius\":0,\"drehung\":0,\"strich\":4.33,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvdpn5tf3\",\"a\":{\"x\":2.624983384159748,\"y\":96.70772593922874},\"b\":{\"x\":296.85772797565033,\"y\":2.6845523058667133},\"strich\":4.33,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><rect x=\"3.14\" y=\"3.29\" width=\"294.27\" height=\"94.05\" stroke=\"#000\" stroke-width=\"4.33\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"2.62\" y1=\"96.71\" x2=\"296.86\" y2=\"2.68\" stroke=\"#000\" stroke-width=\"4.33\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.183,
+            "yAnteil": 1
+          },
+          {
+            "xAnteil": 0.383,
+            "yAnteil": 1
+          },
+          {
+            "xAnteil": 0.633,
+            "yAnteil": 1
+          },
+          {
+            "xAnteil": 0.833,
+            "yAnteil": 1
+          },
+          {
+            "xAnteil": 0.183,
+            "yAnteil": 0
+          },
+          {
+            "xAnteil": 0.383,
+            "yAnteil": 0
+          },
+          {
+            "xAnteil": 0.65,
+            "yAnteil": 0
+          },
+          {
+            "xAnteil": 0.833,
+            "yAnteil": 0
+          },
+          {
+            "xAnteil": 0.501,
+            "yAnteil": 0.967,
+            "trunk": true,
+            "bezeichnung": "T",
+            "beschriftung": {
+              "groesseAnteil": 0.07,
+              "ausrichtungHorizontal": "links",
+              "ausrichtungVertikal": "unten",
+              "bildschirmVersatz": {
+                "x": 0.076,
+                "y": -0.002
+              }
+            }
+          },
+          {
+            "xAnteil": 0.501,
+            "yAnteil": 0.027,
+            "trunk": true,
+            "bezeichnung": "T",
+            "beschriftung": {
+              "groesseAnteil": 0.07,
+              "ausrichtungHorizontal": "links",
+              "ausrichtungVertikal": "unten",
+              "bildschirmVersatz": {
+                "x": 0.075,
+                "y": 0.065
+              }
+            }
+          },
+          {
+            "xAnteil": 0.991,
+            "yAnteil": 0.497,
+            "trunk": true,
+            "bezeichnung": "T"
+          },
+          {
+            "xAnteil": 0.01,
+            "yAnteil": 0.497,
+            "trunk": true,
+            "bezeichnung": "T",
+            "beschriftung": {
+              "groesseAnteil": 0.07,
+              "ausrichtungHorizontal": "links",
+              "ausrichtungVertikal": "unten",
+              "bildschirmVersatz": {
+                "x": -0.048,
+                "y": -0.055
+              }
+            }
+          }
+        ]
+      },
+      "breitenFaktor": 2,
+      "hoehenFaktor": 0.5,
+      "bauart": "verteiler",
+      "technische_daten": {
+        "Docking": "SONDERFALL - Leitung/Trunk dockt ueberall am aeusseren Rechteck an, wie beim Kabelschacht"
+      },
+      "seed_version": 15
+    },
+    {
+      "id": "tae-dose",
+      "name": "Telekommunikationsanschlussdose (TAE)",
+      "uebersetzungen": {
+        "en": {
+          "name": "Telecommunications outlet (TAE)",
+          "kategorie": "Communications",
+          "varianten": {
+            "ap": {
+              "farbe": "Surface-mounted"
+            },
+            "up": {
+              "farbe": "Flush-mounted"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "TAE 6/6, analogue telephone network/NTBA"
+            }
+          }
+        }
+      },
+      "kategorie": "Kommunikationstechnik",
+      "herkunft": "standard",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emuo5rcc71f\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":50.61857142857143,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":50.61857142857143,\"y\":11.0728125}}],\"strich\":7.68,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5rcc81g\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":12.654642857142857,\"y\":88.5828125}},{\"typ\":\"L\",\"p\":{\"x\":12.654642857142857,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":88.58250000000001,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":88.58250000000001,\"y\":88.5828125}}],\"strich\":7.68,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5rcc81i\",\"position\":{\"x\":35,\"y\":75},\"text\":\"TK\",\"groesse\":26.72612419124244,\"ausrichtung\":\"links\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><path d=\"M50.62 44.29 L50.62 11.07\" stroke=\"#000\" stroke-width=\"7.68\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M12.65 88.58 L12.65 44.29 L88.58 44.29 L88.58 88.58\" stroke=\"#000\" stroke-width=\"7.68\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"26.73\" font-weight=\"bold\" text-anchor=\"start\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"35\" y=\"75\">TK</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.9
+          }
+        ]
+      },
+      "technische_daten": {
+        "Typ": "TAE 6/6, analoges Telefonnetz/NTBA"
+      },
+      "varianten": [
+        {
+          "id": "ap",
+          "farbe_ausfuehrung": "Aufputz"
+        },
+        {
+          "id": "up",
+          "farbe_ausfuehrung": "Unterputz"
+        }
+      ],
+      "seed_version": 6
+    },
+    {
+      "id": "tv-dose",
+      "name": "TV-Anschlussdose",
+      "uebersetzungen": {
+        "en": {
+          "name": "TV outlet",
+          "kategorie": "Communications",
+          "varianten": {
+            "ap": {
+              "farbe": "Surface-mounted"
+            },
+            "up": {
+              "farbe": "Flush-mounted"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "coaxial, cable TV/satellite connection"
+            }
+          }
+        }
+      },
+      "kategorie": "Kommunikationstechnik",
+      "herkunft": "standard",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emuo5r8dr1a\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":50.61857142857143,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":50.61857142857143,\"y\":11.0728125}}],\"strich\":7.68,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5r8dr1b\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":12.654642857142857,\"y\":88.5828125}},{\"typ\":\"L\",\"p\":{\"x\":12.654642857142857,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":88.58250000000001,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":88.58250000000001,\"y\":88.5828125}}],\"strich\":7.68,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5r8dr1d\",\"position\":{\"x\":35,\"y\":75},\"text\":\"TV\",\"groesse\":26.72612419124244,\"ausrichtung\":\"links\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><path d=\"M50.62 44.29 L50.62 11.07\" stroke=\"#000\" stroke-width=\"7.68\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M12.65 88.58 L12.65 44.29 L88.58 44.29 L88.58 88.58\" stroke=\"#000\" stroke-width=\"7.68\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"26.73\" font-weight=\"bold\" text-anchor=\"start\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"35\" y=\"75\">TV</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.506,
+            "yAnteil": 0.889
+          }
+        ]
+      },
+      "technische_daten": {
+        "Typ": "Koaxial, Kabel-/Sat-Anschluss"
+      },
+      "varianten": [
+        {
+          "id": "ap",
+          "farbe_ausfuehrung": "Aufputz"
+        },
+        {
+          "id": "up",
+          "farbe_ausfuehrung": "Unterputz"
+        }
+      ],
+      "seed_version": 6
+    },
+    {
+      "id": "katalog-fbfba481-406e-4dc5-afe5-1abf2b4c9d0d",
+      "name": "SAT-Anschlussdose",
+      "uebersetzungen": {
+        "en": {
+          "name": "Satellite outlet",
+          "kategorie": "Communications",
+          "varianten": {
+            "variante-78a39dbe-f942-45fb-95e8-6485ca06dfc2": {
+              "farbe": "Surface-mounted"
+            },
+            "variante-05de24d8-6f2b-48ad-90ee-cbf44712f217": {
+              "farbe": "Flush-mounted"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "coaxial, cable TV/satellite connection"
+            }
+          }
+        }
+      },
+      "kategorie": "Kommunikationstechnik",
+      "herkunft": "standard",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emuo5r8dr1a\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":50.61857142857143,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":50.61857142857143,\"y\":11.0728125}}],\"strich\":7.68,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emuo5r8dr1b\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":12.654642857142857,\"y\":88.5828125}},{\"typ\":\"L\",\"p\":{\"x\":12.654642857142857,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":88.58250000000001,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":88.58250000000001,\"y\":88.5828125}}],\"strich\":7.68,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5r8dr1d\",\"position\":{\"x\":24,\"y\":77},\"text\":\"SAT\",\"groesse\":26.72612419124244,\"ausrichtung\":\"links\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><path d=\"M50.62 44.29 L50.62 11.07\" stroke=\"#000\" stroke-width=\"7.68\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M12.65 88.58 L12.65 44.29 L88.58 44.29 L88.58 88.58\" stroke=\"#000\" stroke-width=\"7.68\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"26.73\" font-weight=\"bold\" text-anchor=\"start\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"24\" y=\"77\">SAT</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.9
+          }
+        ]
+      },
+      "technische_daten": {
+        "Typ": "Koaxial, Kabel-/Sat-Anschluss"
+      },
+      "varianten": [
+        {
+          "id": "variante-78a39dbe-f942-45fb-95e8-6485ca06dfc2",
+          "farbe_ausfuehrung": "Aufputz"
+        },
+        {
+          "id": "variante-05de24d8-6f2b-48ad-90ee-cbf44712f217",
+          "farbe_ausfuehrung": "Unterputz"
+        }
+      ],
+      "seed_version": 3
+    },
+    {
+      "id": "netzwerkdose-1fach",
+      "name": "Netzwerkdose (RJ45) einfach",
+      "uebersetzungen": {
+        "en": {
+          "name": "Data outlet (RJ45) single",
+          "kategorie": "Communications",
+          "varianten": {
+            "ap": {
+              "farbe": "Surface-mounted"
+            },
+            "up": {
+              "farbe": "Flush-mounted"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "RJ45, Cat.6/6A"
+            }
+          }
+        }
+      },
+      "kategorie": "Kommunikationstechnik",
+      "herkunft": "standard",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 28 32\">\n<path d=\"M14.1732 14.1732 14.1732 3.5433\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M3.5433 28.3465 3.5433 14.1732 24.8031 14.1732 24.8031 28.3465\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"14.1732\" y=\"26\" font-family=\"'IBM Plex Sans', Arial, sans-serif\" font-size=\"8\" font-weight=\"600\" fill=\"#000000\" text-anchor=\"middle\">EDV</text>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.9
+          }
+        ]
+      },
+      "technische_daten": {
+        "Typ": "RJ45, Cat.6/6A"
+      },
+      "varianten": [
+        {
+          "id": "ap",
+          "farbe_ausfuehrung": "Aufputz"
+        },
+        {
+          "id": "up",
+          "farbe_ausfuehrung": "Unterputz"
+        }
+      ],
+      "seed_version": 6
+    },
+    {
+      "id": "katalog-23f3e419-cf2b-4990-8e94-e5a497474867",
+      "name": "Netzwerkdose (RJ45) zweifach",
+      "uebersetzungen": {
+        "en": {
+          "name": "Data outlet (RJ45) double",
+          "kategorie": "Communications",
+          "varianten": {
+            "variante-9c4d0a34-04ed-4056-a488-48138af678ea": {
+              "farbe": "Surface-mounted"
+            },
+            "variante-6f6580f3-e7e7-4bca-9afa-1a77d4e021e7": {
+              "farbe": "Flush-mounted"
+            }
+          },
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "RJ45, Cat.6/6A"
+            }
+          }
+        }
+      },
+      "kategorie": "Kommunikationstechnik",
+      "herkunft": "standard",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emur83jvu26\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":50.61857142857143,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":50.61857142857143,\"y\":11.0728125}}],\"strich\":7.68,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emur83jvu27\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":12.654642857142857,\"y\":88.5828125}},{\"typ\":\"L\",\"p\":{\"x\":12.654642857142857,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":88.58250000000001,\"y\":44.29125}},{\"typ\":\"L\",\"p\":{\"x\":88.58250000000001,\"y\":88.5828125}}],\"strich\":7.68,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emur83jvu29\",\"position\":{\"x\":50,\"y\":70},\"text\":\"EDV\",\"groesse\":26.72612419124244,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"},{\"art\":\"text\",\"id\":\"emur84pt72a\",\"position\":{\"x\":50,\"y\":85},\"text\":\"2 fach\",\"groesse\":12,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":false,\"farbe\":\"schwarz\"}]}</metadata><path d=\"M50.62 44.29 L50.62 11.07\" stroke=\"#000\" stroke-width=\"7.68\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M12.65 88.58 L12.65 44.29 L88.58 44.29 L88.58 88.58\" stroke=\"#000\" stroke-width=\"7.68\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"26.73\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"50\" y=\"70\">EDV</tspan></text><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"12\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"50\" y=\"85\">2 fach</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.9
+          }
+        ]
+      },
+      "technische_daten": {
+        "Typ": "RJ45, Cat.6/6A"
+      },
+      "varianten": [
+        {
+          "id": "variante-9c4d0a34-04ed-4056-a488-48138af678ea",
+          "farbe_ausfuehrung": "Aufputz"
+        },
+        {
+          "id": "variante-6f6580f3-e7e7-4bca-9afa-1a77d4e021e7",
+          "farbe_ausfuehrung": "Unterputz"
+        }
+      ],
+      "seed_version": 3
+    },
+    {
+      "id": "leuchtenauslass-decke",
+      "name": "Leuchtenauslass Decke",
+      "uebersetzungen": {
+        "en": {
+          "name": "Luminaire outlet, ceiling",
+          "kategorie": "Luminaire outlets",
+          "technischeDaten": {
+            "Funktion": {
+              "bezeichnung": "Function",
+              "wert": "connection point without a fixed luminaire model"
+            }
+          }
+        }
+      },
+      "kategorie": "Leuchtenauslässe",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<line x1=\"24\" y1=\"24\" x2=\"76\" y2=\"76\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"24\" y1=\"76\" x2=\"76\" y2=\"24\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "kombinierbar": false,
+      "montageort": "decke",
+      "ansteuerung": "schalten",
+      "technische_daten": {
+        "Funktion": "Anschlusspunkt ohne festes Leuchtenmodell"
+      },
+      "seed_version": 8
+    },
+    {
+      "id": "leuchtenauslass-wand",
+      "name": "Leuchtenauslass Wand",
+      "uebersetzungen": {
+        "en": {
+          "name": "Luminaire outlet, wall",
+          "kategorie": "Luminaire outlets",
+          "technischeDaten": {
+            "Funktion": {
+              "bezeichnung": "Function",
+              "wert": "connection point without a fixed luminaire model"
+            }
+          }
+        }
+      },
+      "kategorie": "Leuchtenauslässe",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"linie\",\"id\":\"emvdon7ts17\",\"a\":{\"x\":26,\"y\":24},\"b\":{\"x\":74,\"y\":24},\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvdon7ts18\",\"a\":{\"x\":50,\"y\":24},\"b\":{\"x\":50,\"y\":50},\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvdon7ts19\",\"a\":{\"x\":26,\"y\":32},\"b\":{\"x\":74,\"y\":80},\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvdon7ts1a\",\"a\":{\"x\":26,\"y\":80},\"b\":{\"x\":74,\"y\":32},\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><line x1=\"26\" y1=\"24\" x2=\"74\" y2=\"24\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"50\" y1=\"24\" x2=\"50\" y2=\"50\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"26\" y1=\"32\" x2=\"74\" y2=\"80\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"26\" y1=\"80\" x2=\"74\" y2=\"32\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.26,
+            "yAnteil": 0.76
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.76
+          },
+          {
+            "xAnteil": 0.74,
+            "yAnteil": 0.76
+          }
+        ]
+      },
+      "kombinierbar": false,
+      "ansteuerung": "schalten",
+      "technische_daten": {
+        "Funktion": "Anschlusspunkt ohne festes Leuchtenmodell"
+      },
+      "seed_version": 8
+    },
+    {
+      "id": "leuchte-decke-rund",
+      "name": "Deckenleuchte (rund)",
+      "uebersetzungen": {
+        "en": {
+          "name": "Ceiling luminaire (round)",
+          "kategorie": "Luminaires"
+        }
+      },
+      "kategorie": "Leuchten",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<circle cx=\"50\" cy=\"50\" r=\"30\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"29\" y1=\"29\" x2=\"71\" y2=\"71\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"29\" y1=\"71\" x2=\"71\" y2=\"29\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.8
+          },
+          {
+            "xAnteil": 0.8,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.2
+          },
+          {
+            "xAnteil": 0.2,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "kombinierbar": false,
+      "montageort": "decke",
+      "ansteuerung": "schalten",
+      "seed_version": 8
+    },
+    {
+      "id": "leuchte-wand",
+      "name": "Wandleuchte",
+      "uebersetzungen": {
+        "en": {
+          "name": "Wall luminaire",
+          "kategorie": "Luminaires"
+        }
+      },
+      "kategorie": "Leuchten",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"linie\",\"id\":\"emvdog47f2\",\"a\":{\"x\":14.778605361803466,\"y\":0.65},\"b\":{\"x\":83.92139463819655,\"y\":0.65},\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emvdog47f3\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":15.977460427224134,\"y\":0.967706123498616}},{\"typ\":\"C\",\"c1\":{\"x\":15.977460427224141,\"y\":22.52464678240419},\"c2\":{\"x\":31.209870243441216,\"y\":40},\"p\":{\"x\":50,\"y\":40}},{\"typ\":\"C\",\"c1\":{\"x\":68.7901297565588,\"y\":40},\"c2\":{\"x\":84.02253957277587,\"y\":22.52464678240419},\"p\":{\"x\":84.02253957277587,\"y\":0.967706123498616}}],\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvdog47g4\",\"a\":{\"x\":37.08720917190076,\"y\":3.973425251300312},\"b\":{\"x\":63.10444531578818,\"y\":33.82164998038961},\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvdog47g5\",\"a\":{\"x\":37.08720917190076,\"y\":33.82164998038961},\"b\":{\"x\":63.10444531578818,\"y\":3.973425251300312},\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><line x1=\"14.78\" y1=\"0.65\" x2=\"83.92\" y2=\"0.65\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M15.98 0.97 C15.98 22.52 31.21 40 50 40 C68.79 40 84.02 22.52 84.02 0.97\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"37.09\" y1=\"3.97\" x2=\"63.1\" y2=\"33.82\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"37.09\" y1=\"33.82\" x2=\"63.1\" y2=\"3.97\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.148,
+            "yAnteil": 0.994
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 1
+          },
+          {
+            "xAnteil": 0.839,
+            "yAnteil": 0.994
+          }
+        ]
+      },
+      "kombinierbar": false,
+      "ansteuerung": "schalten",
+      "seed_version": 10
+    },
+    {
+      "id": "leuchte-einbaustrahler",
+      "name": "Einbaustrahler",
+      "uebersetzungen": {
+        "en": {
+          "name": "Recessed spotlight",
+          "kategorie": "Luminaires"
+        }
+      },
+      "kategorie": "Leuchten",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<circle cx=\"50\" cy=\"50\" r=\"28\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"50\" cy=\"50\" r=\"15\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.85
+          },
+          {
+            "xAnteil": 0.85,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.15
+          },
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "kombinierbar": false,
+      "montageort": "decke",
+      "ansteuerung": "schalten",
+      "seed_version": 8
+    },
+    {
+      "id": "leuchte-wannenleuchte",
+      "name": "Wannenleuchte (Leuchtstoff)",
+      "uebersetzungen": {
+        "en": {
+          "name": "Batten luminaire (fluorescent)",
+          "kategorie": "Luminaires"
+        }
+      },
+      "kategorie": "Leuchten",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":400,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emvdooh1i1j\",\"mitte\":{\"x\":199.83014230271672,\"y\":52.2595890410959},\"breite\":383.8531363351814,\"hoehe\":29.183015840784385,\"radius\":2.3205322912678192,\"drehung\":0,\"strich\":5.2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvdoovlb1l\",\"a\":{\"x\":215,\"y\":60},\"b\":{\"x\":195,\"y\":45},\"strich\":2.5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvdoozyj1o\",\"a\":{\"x\":195,\"y\":60},\"b\":{\"x\":215,\"y\":45},\"strich\":2.5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><rect x=\"7.9\" y=\"37.67\" width=\"383.85\" height=\"29.18\" rx=\"2.32\" ry=\"2.32\" stroke=\"#000\" stroke-width=\"5.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"215\" y1=\"60\" x2=\"195\" y2=\"45\" stroke=\"#000\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"195\" y1=\"60\" x2=\"215\" y2=\"45\" stroke=\"#000\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 1,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.513,
+            "yAnteil": 0.75
+          },
+          {
+            "xAnteil": 0.513,
+            "yAnteil": 0.2
+          }
+        ]
+      },
+      "breitenFaktor": 4,
+      "kombinierbar": false,
+      "montageort": "decke",
+      "ansteuerung": "schalten",
+      "seed_version": 9
+    },
+    {
+      "id": "leuchte-scheinwerfer",
+      "name": "Scheinwerfer",
+      "uebersetzungen": {
+        "en": {
+          "name": "Floodlight",
+          "kategorie": "Luminaires"
+        }
+      },
+      "kategorie": "Leuchten",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<circle cx=\"58\" cy=\"50\" r=\"26\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"39.62\" y1=\"31.62\" x2=\"76.38\" y2=\"68.38\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"39.62\" y1=\"68.38\" x2=\"76.38\" y2=\"31.62\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M 58 14 A 36 36 0 0 0 58 86\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "ansteuerung": "schalten",
+      "seed_version": 5
+    },
+    {
+      "id": "leuchte-fluchtweg",
+      "name": "Fluchtwegleuchte (Rettungszeichenleuchte)",
+      "uebersetzungen": {
+        "en": {
+          "name": "Escape route luminaire (exit sign)",
+          "kategorie": "Luminaires",
+          "varianten": {
+            "links": {
+              "farbe": "Escape route arrow left"
+            },
+            "rechts": {
+              "farbe": "Escape route arrow right"
+            },
+            "oben": {
+              "farbe": "Escape route arrow up"
+            },
+            "unten": {
+              "farbe": "Escape route arrow down"
+            }
+          },
+          "technischeDaten": {
+            "Funktion": {
+              "bezeichnung": "Function",
+              "wert": "emergency lighting, marks escape and rescue routes"
+            }
+          }
+        }
+      },
+      "kategorie": "Leuchten",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<rect x=\"10\" y=\"28\" width=\"80\" height=\"44\" rx=\"2\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"78\" y1=\"50\" x2=\"36\" y2=\"50\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M 22 50 L 38 38 L 38 62 Z\" fill=\"#000000\" stroke=\"#000000\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>\n</svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.95,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.25
+          },
+          {
+            "xAnteil": 0.05,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.75
+          }
+        ]
+      },
+      "kombinierbar": false,
+      "montageort": "decke",
+      "technische_daten": {
+        "Funktion": "Sicherheitsbeleuchtung, kennzeichnet Flucht- und Rettungswege"
+      },
+      "varianten": [
+        {
+          "id": "links",
+          "farbe_ausfuehrung": "Fluchtweg-Pfeil links",
+          "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<rect x=\"10\" y=\"28\" width=\"80\" height=\"44\" rx=\"2\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"78\" y1=\"50\" x2=\"36\" y2=\"50\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M 22 50 L 38 38 L 38 62 Z\" fill=\"#000000\" stroke=\"#000000\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>\n</svg>"
+        },
+        {
+          "id": "rechts",
+          "farbe_ausfuehrung": "Fluchtweg-Pfeil rechts",
+          "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<rect x=\"10\" y=\"28\" width=\"80\" height=\"44\" rx=\"2\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"22\" y1=\"50\" x2=\"64\" y2=\"50\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M 78 50 L 62 38 L 62 62 Z\" fill=\"#000000\" stroke=\"#000000\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>\n</svg>"
+        },
+        {
+          "id": "oben",
+          "farbe_ausfuehrung": "Fluchtweg-Pfeil oben",
+          "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<rect x=\"10\" y=\"28\" width=\"80\" height=\"44\" rx=\"2\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"50\" y1=\"66\" x2=\"50\" y2=\"44\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M 50 34 L 40 46 L 60 46 Z\" fill=\"#000000\" stroke=\"#000000\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>\n</svg>"
+        },
+        {
+          "id": "unten",
+          "farbe_ausfuehrung": "Fluchtweg-Pfeil unten",
+          "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<rect x=\"10\" y=\"28\" width=\"80\" height=\"44\" rx=\"2\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"50\" y1=\"34\" x2=\"50\" y2=\"56\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M 50 66 L 40 54 L 60 54 Z\" fill=\"#000000\" stroke=\"#000000\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/>\n</svg>"
+        }
+      ],
+      "seed_version": 7
+    },
+    {
+      "id": "rollladenschalter",
+      "name": "Rollladenschalter (Auf/Ab)",
+      "uebersetzungen": {
+        "en": {
+          "name": "Roller shutter switch (up/down)",
+          "kategorie": "Roller shutters",
+          "technischeDaten": {
+            "Funktion": {
+              "bezeichnung": "Function",
+              "wert": "two-way switch design with up/down symbol"
+            }
+          }
+        }
+      },
+      "kategorie": "Rollladentechnik",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "modul_system": "modulrahmen",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"pfad\",\"id\":\"emupsuy8s6\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":32.96116279069768,\"y\":51.581250000000004}},{\"typ\":\"C\",\"c1\":{\"x\":33.01836032298696,\"y\":43.43631929911744},\"c2\":{\"x\":40.42800839708842,\"y\":36.87160089553693},\"p\":{\"x\":49.52010004649695,\"y\":36.91054512174398}},{\"typ\":\"C\",\"c1\":{\"x\":58.612191695905494,\"y\":36.94948934795104},\"c2\":{\"x\":65.95142632569225,\"y\":43.57738175444198},\"p\":{\"x\":65.92167870783787,\"y\":51.722430031754506}},{\"typ\":\"C\",\"c1\":{\"x\":65.89193108998347,\"y\":59.86747830906704},\"c2\":{\"x\":58.504440883441376,\"y\":66.45220696842337},\"p\":{\"x\":49.41225942306346,\"y\":66.43785344003389}},{\"typ\":\"C\",\"c1\":{\"x\":40.320077962685545,\"y\":66.42349991164441},\"c2\":{\"x\":32.958539777030936,\"y\":59.81548744535271},\"p\":{\"x\":32.960837209302326,\"y\":51.67039583333334}}],\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emupsuy8t7\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":90.64186046511628,\"y\":14.76375}},{\"typ\":\"L\",\"p\":{\"x\":74.1613953488372,\"y\":7.381875}},{\"typ\":\"C\",\"c1\":{\"x\":74.1613953488372,\"y\":7.381875},\"c2\":{\"x\":57.68093023255814,\"y\":36.90895833333334},\"p\":{\"x\":56.34488372093023,\"y\":38.19854166666667}}],\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emupsuy8t8\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":8.240232558139535,\"y\":14.76375}},{\"typ\":\"L\",\"p\":{\"x\":24.720697674418606,\"y\":7.381875}},{\"typ\":\"C\",\"c1\":{\"x\":24.720697674418606,\"y\":7.381875},\"c2\":{\"x\":41.20116279069768,\"y\":36.909375000000004},\"p\":{\"x\":42.53744186046512,\"y\":38.19854166666667}}],\"strich\":5.06,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emupsuy8t9\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":42.55813953488372,\"y\":59.958333333333336}},{\"typ\":\"L\",\"p\":{\"x\":42.55813953488372,\"y\":45.37500000000001}}],\"strich\":3,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emupsuy8ta\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":38.6046511627907,\"y\":49.583333333333336}},{\"typ\":\"L\",\"p\":{\"x\":42.55813953488372,\"y\":44.37500000000001}},{\"typ\":\"L\",\"p\":{\"x\":46.51162790697675,\"y\":49.583333333333336}}],\"strich\":3,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emupsuy8tb\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":56.27906976744186,\"y\":43.37500000000001}},{\"typ\":\"L\",\"p\":{\"x\":56.27906976744186,\"y\":57.958333333333336}}],\"strich\":3,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"pfad\",\"id\":\"emupsuy8tc\",\"segmente\":[{\"typ\":\"M\",\"p\":{\"x\":52.32558139534884,\"y\":53.75000000000001}},{\"typ\":\"L\",\"p\":{\"x\":56.27906976744186,\"y\":58.958333333333336}},{\"typ\":\"L\",\"p\":{\"x\":60.23255813953488,\"y\":53.75000000000001}}],\"strich\":3,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><path d=\"M32.96 51.58 C33.02 43.44 40.43 36.87 49.52 36.91 C58.61 36.95 65.95 43.58 65.92 51.72 C65.89 59.87 58.5 66.45 49.41 66.44 C40.32 66.42 32.96 59.82 32.96 51.67\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M90.64 14.76 L74.16 7.38 C74.16 7.38 57.68 36.91 56.34 38.2\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M8.24 14.76 L24.72 7.38 C24.72 7.38 41.2 36.91 42.54 38.2\" stroke=\"#000\" stroke-width=\"5.06\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M42.56 59.96 L42.56 45.38\" stroke=\"#000\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M38.6 49.58 L42.56 44.38 L46.51 49.58\" stroke=\"#000\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M56.28 43.38 L56.28 57.96\" stroke=\"#000\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><path d=\"M52.33 53.75 L56.28 58.96 L60.23 53.75\" stroke=\"#000\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.7
+          },
+          {
+            "xAnteil": 0.75,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.25
+          },
+          {
+            "xAnteil": 0.25,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 1
+      },
+      "technische_daten": {
+        "Funktion": "Wechselschalter-Bauform mit Auf/Ab-Symbol"
+      },
+      "seed_version": 8
+    },
+    {
+      "id": "rollladenmotor",
+      "name": "Rollladenmotor (Anschluss)",
+      "uebersetzungen": {
+        "en": {
+          "name": "Roller shutter motor (connection)",
+          "kategorie": "Roller shutters",
+          "technischeDaten": {
+            "Typ": {
+              "bezeichnung": "Type",
+              "wert": "tubular motor 230 V"
+            }
+          }
+        }
+      },
+      "kategorie": "Rollladentechnik",
+      "herkunft": "standard",
+      "typ": "verbraucher",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"ellipse\",\"id\":\"emupsuj8e2\",\"mitte\":{\"x\":50,\"y\":50},\"rx\":30,\"ry\":30,\"drehung\":0,\"strich\":2.6,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emupsuj8f4\",\"position\":{\"x\":50,\"y\":62.29999999999999},\"text\":\"M\",\"groesse\":35.86548944784294,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><circle cx=\"50\" cy=\"50\" r=\"30\" stroke=\"#000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"35.87\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"50\" y=\"62.3\">M</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.85
+          },
+          {
+            "xAnteil": 0.85,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.15
+          },
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "kombinierbar": false,
+      "ansteuerung": "rollo",
+      "technische_daten": {
+        "Typ": "Rohrmotor 230 V"
+      },
+      "seed_version": 8
+    },
+    {
+      "id": "tastsensor-knx-1-fach",
+      "name": "Tastsensor KNX 1 fach",
+      "uebersetzungen": {
+        "en": {
+          "name": "KNX push-button sensor 1-gang",
+          "untergruppe": "Sensors",
+          "texte": {
+            "Bus-Adresse": "Bus address"
+          },
+          "hauptgruppe": "KNX"
+        }
+      },
+      "hersteller": "generisch",
+      "hauptgruppe": "KNX",
+      "untergruppe": "Sensoren",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emuo5rngu1l\",\"mitte\":{\"x\":49.666666666666664,\"y\":49.666666666666664},\"breite\":60,\"hoehe\":48,\"radius\":0,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5rngv1m\",\"a\":{\"x\":32,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5rngv1n\",\"a\":{\"x\":79.66666666666666,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5rngv1o\",\"mitte\":{\"x\":69.33333333333333,\"y\":63},\"rx\":7,\"ry\":7,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5rngv1p\",\"mitte\":{\"x\":69.33333333333333,\"y\":63},\"rx\":3.833333333333333,\"ry\":3.833333333333333,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"polylinie\",\"id\":\"emuo5rngv1q\",\"punkte\":[{\"x\":26,\"y\":30.666666666666664},{\"x\":29.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":65.33333333333333},{\"x\":29.666666666666664,\"y\":65.33333333333333},{\"x\":26,\"y\":69.33333333333333},{\"x\":22.333333333333332,\"y\":65.33333333333333},{\"x\":24,\"y\":65.33333333333333},{\"x\":24,\"y\":34.666666666666664},{\"x\":22.333333333333332,\"y\":34.666666666666664}],\"geschlossen\":true,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5rnh71s\",\"position\":{\"x\":69.66666666666666,\"y\":50},\"text\":\"{1}\",\"groesse\":9.333333333333332,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><rect x=\"19.67\" y=\"25.67\" width=\"60\" height=\"48\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"32\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"79.67\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"69.33\" cy=\"63\" r=\"7\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"69.33\" cy=\"63\" r=\"3.83\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><polygon points=\"26,30.67 29.67,34.67 27.67,34.67 27.67,65.33 29.67,65.33 26,69.33 22.33,65.33 24,65.33 24,34.67 22.33,34.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"9.33\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"69.67\" y=\"50\">{1}</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.8
+          },
+          {
+            "xAnteil": 0.85,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.1
+          },
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "textElemente": [
+        {
+          "xAnteil": 0.525,
+          "yAnteil": 0.205,
+          "text": "0.0.0",
+          "groesseAnteil": 0.08,
+          "ausrichtungHorizontal": "mittig",
+          "ausrichtungVertikal": "mittig",
+          "variable": "Bus-Adresse",
+          "fixiert": true
+        }
+      ],
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 1
+      },
+      "seed_version": 12
+    },
+    {
+      "id": "katalog-cdfb4dbb-f6de-4a29-b0a7-90a070f83d08",
+      "name": "Tastsensor KNX dyn.",
+      "uebersetzungen": {
+        "en": {
+          "name": "KNX push-button sensor dyn.",
+          "untergruppe": "Sensors",
+          "texte": {
+            "Bus-Adresse": "Bus address",
+            "Anzahl Wippenreihen": "Number of rocker rows"
+          },
+          "varianten": {
+            "variante-e32b32a0-0aef-471f-a8a2-37d8b52d5654": {
+              "name": "Push-button sensor KNX dyn. – variant 1"
+            }
+          },
+          "hauptgruppe": "KNX"
+        }
+      },
+      "hersteller": "generisch",
+      "hauptgruppe": "KNX",
+      "untergruppe": "Sensoren",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emuo5rngu1l\",\"mitte\":{\"x\":49.666666666666664,\"y\":49.666666666666664},\"breite\":60,\"hoehe\":48,\"radius\":0,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5rngv1m\",\"a\":{\"x\":32,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5rngv1n\",\"a\":{\"x\":79.66666666666666,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5rngv1o\",\"mitte\":{\"x\":69.33333333333333,\"y\":63},\"rx\":7,\"ry\":7,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5rngv1p\",\"mitte\":{\"x\":69.33333333333333,\"y\":63},\"rx\":3.833333333333333,\"ry\":3.833333333333333,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"polylinie\",\"id\":\"emuo5rngv1q\",\"punkte\":[{\"x\":26,\"y\":30.666666666666664},{\"x\":29.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":65.33333333333333},{\"x\":29.666666666666664,\"y\":65.33333333333333},{\"x\":26,\"y\":69.33333333333333},{\"x\":22.333333333333332,\"y\":65.33333333333333},{\"x\":24,\"y\":65.33333333333333},{\"x\":24,\"y\":34.666666666666664},{\"x\":22.333333333333332,\"y\":34.666666666666664}],\"geschlossen\":true,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5rnh71s\",\"position\":{\"x\":65,\"y\":52.7},\"text\":\"{\\n\",\"groesse\":6.976149845485451,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"},{\"art\":\"text\",\"id\":\"emup53t64a\",\"position\":{\"x\":76.9,\"y\":48},\"text\":\"}\",\"groesse\":8,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":false,\"farbe\":\"schwarz\"}]}</metadata><rect x=\"19.67\" y=\"25.67\" width=\"60\" height=\"48\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"32\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"79.67\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"69.33\" cy=\"63\" r=\"7\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"69.33\" cy=\"63\" r=\"3.83\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><polygon points=\"26,30.67 29.67,34.67 27.67,34.67 27.67,65.33 29.67,65.33 26,69.33 22.33,65.33 24,65.33 24,34.67 22.33,34.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"6.98\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"65\" y=\"48.51\">{</tspan><tspan x=\"65\" y=\"56.89\"></tspan></text><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"8\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"76.9\" y=\"48\">}</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.8
+          },
+          {
+            "xAnteil": 0.85,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.15
+          },
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "textElemente": [
+        {
+          "xAnteil": 0.525,
+          "yAnteil": 0.205,
+          "text": "0.0.0",
+          "groesseAnteil": 0.08,
+          "ausrichtungHorizontal": "mittig",
+          "ausrichtungVertikal": "mittig",
+          "variable": "Bus-Adresse",
+          "fixiert": true
+        },
+        {
+          "xAnteil": 0.703,
+          "yAnteil": 0.535,
+          "text": "X",
+          "groesseAnteil": 0.08,
+          "ausrichtungHorizontal": "mittig",
+          "ausrichtungVertikal": "mittig",
+          "variable": "Anzahl Wippenreihen",
+          "inStueckliste": true
+        }
+      ],
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 1
+      },
+      "slotAnzahlAus": "Anzahl Wippenreihen",
+      "varianten": [
+        {
+          "id": "variante-e32b32a0-0aef-471f-a8a2-37d8b52d5654"
+        }
+      ],
+      "seed_version": 4
+    },
+    {
+      "id": "tastsensor-knx-2-fach",
+      "name": "Tastsensor KNX 2 fach",
+      "uebersetzungen": {
+        "en": {
+          "name": "KNX push-button sensor 2-gang",
+          "untergruppe": "Sensors",
+          "texte": {
+            "Bus-Adresse": "Bus address"
+          },
+          "hauptgruppe": "KNX"
+        }
+      },
+      "hersteller": "generisch",
+      "hauptgruppe": "KNX",
+      "untergruppe": "Sensoren",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emuo5sdfg1v\",\"mitte\":{\"x\":49.666666666666664,\"y\":49.666666666666664},\"breite\":60,\"hoehe\":48,\"radius\":0,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5sdfg1w\",\"a\":{\"x\":32,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5sdfg1x\",\"a\":{\"x\":79.66666666666666,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5sdfg1y\",\"mitte\":{\"x\":69.33333333333333,\"y\":63},\"rx\":7,\"ry\":7,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5sdfg1z\",\"mitte\":{\"x\":69.33333333333333,\"y\":63},\"rx\":3.833333333333333,\"ry\":3.833333333333333,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"polylinie\",\"id\":\"emuo5sdfg20\",\"punkte\":[{\"x\":26,\"y\":30.666666666666664},{\"x\":29.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":65.33333333333333},{\"x\":29.666666666666664,\"y\":65.33333333333333},{\"x\":26,\"y\":69.33333333333333},{\"x\":22.333333333333332,\"y\":65.33333333333333},{\"x\":24,\"y\":65.33333333333333},{\"x\":24,\"y\":34.666666666666664},{\"x\":22.333333333333332,\"y\":34.666666666666664}],\"geschlossen\":true,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5sdfg22\",\"position\":{\"x\":69.66666666666666,\"y\":50},\"text\":\"{2}\",\"groesse\":9.333333333333332,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><rect x=\"19.67\" y=\"25.67\" width=\"60\" height=\"48\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"32\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"79.67\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"69.33\" cy=\"63\" r=\"7\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"69.33\" cy=\"63\" r=\"3.83\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><polygon points=\"26,30.67 29.67,34.67 27.67,34.67 27.67,65.33 29.67,65.33 26,69.33 22.33,65.33 24,65.33 24,34.67 22.33,34.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"9.33\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"69.67\" y=\"50\">{2}</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.8
+          },
+          {
+            "xAnteil": 0.85,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.15
+          },
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "textElemente": [
+        {
+          "xAnteil": 0.53,
+          "yAnteil": 0.207,
+          "text": "0.0.0",
+          "groesseAnteil": 0.08,
+          "ausrichtungHorizontal": "mittig",
+          "ausrichtungVertikal": "mittig",
+          "variable": "Bus-Adresse",
+          "fixiert": true
+        }
+      ],
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 2
+      },
+      "seed_version": 13
+    },
+    {
+      "id": "tastsensor-knx-3-fach",
+      "name": "Tastsensor KNX 3 fach",
+      "uebersetzungen": {
+        "en": {
+          "name": "KNX push-button sensor 3-gang",
+          "untergruppe": "Sensors",
+          "texte": {
+            "Bus-Adresse": "Bus address"
+          },
+          "hauptgruppe": "KNX"
+        }
+      },
+      "hersteller": "generisch",
+      "hauptgruppe": "KNX",
+      "untergruppe": "Sensoren",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emuo5sr3a25\",\"mitte\":{\"x\":49.666666666666664,\"y\":49.666666666666664},\"breite\":60,\"hoehe\":48,\"radius\":0,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5sr3a26\",\"a\":{\"x\":32,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5sr3a27\",\"a\":{\"x\":79.66666666666666,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5sr3a28\",\"mitte\":{\"x\":69.33333333333333,\"y\":63},\"rx\":7,\"ry\":7,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5sr3a29\",\"mitte\":{\"x\":69.33333333333333,\"y\":63},\"rx\":3.833333333333333,\"ry\":3.833333333333333,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"polylinie\",\"id\":\"emuo5sr3a2a\",\"punkte\":[{\"x\":26,\"y\":30.666666666666664},{\"x\":29.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":65.33333333333333},{\"x\":29.666666666666664,\"y\":65.33333333333333},{\"x\":26,\"y\":69.33333333333333},{\"x\":22.333333333333332,\"y\":65.33333333333333},{\"x\":24,\"y\":65.33333333333333},{\"x\":24,\"y\":34.666666666666664},{\"x\":22.333333333333332,\"y\":34.666666666666664}],\"geschlossen\":true,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5sr3b2c\",\"position\":{\"x\":69.66666666666666,\"y\":50},\"text\":\"{3}\",\"groesse\":9.333333333333332,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><rect x=\"19.67\" y=\"25.67\" width=\"60\" height=\"48\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"32\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"79.67\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"69.33\" cy=\"63\" r=\"7\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"69.33\" cy=\"63\" r=\"3.83\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><polygon points=\"26,30.67 29.67,34.67 27.67,34.67 27.67,65.33 29.67,65.33 26,69.33 22.33,65.33 24,65.33 24,34.67 22.33,34.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"9.33\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"69.67\" y=\"50\">{3}</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.8
+          },
+          {
+            "xAnteil": 0.85,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.15
+          },
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "textElemente": [
+        {
+          "xAnteil": 0.522,
+          "yAnteil": 0.207,
+          "text": "0.0.0",
+          "groesseAnteil": 0.08,
+          "ausrichtungHorizontal": "mittig",
+          "ausrichtungVertikal": "mittig",
+          "variable": "Bus-Adresse",
+          "fixiert": true
+        }
+      ],
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 3
+      },
+      "seed_version": 14
+    },
+    {
+      "id": "tastsensor-knx-4-fach",
+      "name": "Tastsensor KNX 4 fach",
+      "uebersetzungen": {
+        "en": {
+          "name": "KNX push-button sensor 4-gang",
+          "untergruppe": "Sensors",
+          "texte": {
+            "Bus-Adresse": "Bus address"
+          },
+          "hauptgruppe": "KNX"
+        }
+      },
+      "hersteller": "generisch",
+      "hauptgruppe": "KNX",
+      "untergruppe": "Sensoren",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emuo5t8oo2f\",\"mitte\":{\"x\":49.666666666666664,\"y\":49.666666666666664},\"breite\":60,\"hoehe\":48,\"radius\":0,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5t8op2g\",\"a\":{\"x\":32,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5t8op2h\",\"a\":{\"x\":79.66666666666666,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5t8op2i\",\"mitte\":{\"x\":69.33333333333333,\"y\":63},\"rx\":7,\"ry\":7,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5t8op2j\",\"mitte\":{\"x\":69.33333333333333,\"y\":63},\"rx\":3.833333333333333,\"ry\":3.833333333333333,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"polylinie\",\"id\":\"emuo5t8op2k\",\"punkte\":[{\"x\":26,\"y\":30.666666666666664},{\"x\":29.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":65.33333333333333},{\"x\":29.666666666666664,\"y\":65.33333333333333},{\"x\":26,\"y\":69.33333333333333},{\"x\":22.333333333333332,\"y\":65.33333333333333},{\"x\":24,\"y\":65.33333333333333},{\"x\":24,\"y\":34.666666666666664},{\"x\":22.333333333333332,\"y\":34.666666666666664}],\"geschlossen\":true,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5t8op2m\",\"position\":{\"x\":69.66666666666666,\"y\":50},\"text\":\"{4}\",\"groesse\":9.333333333333332,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><rect x=\"19.67\" y=\"25.67\" width=\"60\" height=\"48\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"32\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"79.67\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"69.33\" cy=\"63\" r=\"7\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"69.33\" cy=\"63\" r=\"3.83\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><polygon points=\"26,30.67 29.67,34.67 27.67,34.67 27.67,65.33 29.67,65.33 26,69.33 22.33,65.33 24,65.33 24,34.67 22.33,34.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"9.33\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"69.67\" y=\"50\">{4}</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.8
+          },
+          {
+            "xAnteil": 0.85,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.15
+          },
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "textElemente": [
+        {
+          "xAnteil": 0.494,
+          "yAnteil": 0.206,
+          "text": "0.0.0",
+          "groesseAnteil": 0.08,
+          "ausrichtungHorizontal": "mittig",
+          "ausrichtungVertikal": "mittig",
+          "variable": "Bus-Adresse",
+          "fixiert": true
+        }
+      ],
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 4
+      },
+      "seed_version": 16
+    },
+    {
+      "id": "bewegungsmelder-knx",
+      "name": "Bewegungsmelder KNX",
+      "uebersetzungen": {
+        "en": {
+          "name": "KNX motion detector",
+          "untergruppe": "Sensors",
+          "varianten": {
+            "unterputz": {
+              "farbe": "Flush-mounted"
+            },
+            "aufputz": {
+              "farbe": "Surface-mounted"
+            }
+          },
+          "technischeDaten": {
+            "Erfassung": {
+              "bezeichnung": "Detection",
+              "wert": "passive infrared (PIR), wall mounting"
+            },
+            "Helligkeitssensor": {
+              "bezeichnung": "Brightness sensor",
+              "wert": "integrated (twilight threshold)"
+            },
+            "Ausgang": {
+              "bezeichnung": "Output",
+              "wert": "binary, motion and brightness"
+            },
+            "Schaltzeichen": {
+              "bezeichnung": "Graphical symbol",
+              "wert": "KNX bus device to DIN EN 60617, marked PIR and lx"
+            }
+          },
+          "texte": {
+            "Bus-Adresse": "Bus address"
+          },
+          "slots": {
+            "bewegung": "Motion",
+            "helligkeit": "Brightness"
+          },
+          "hauptgruppe": "KNX"
+        }
+      },
+      "hersteller": "generisch",
+      "hauptgruppe": "KNX",
+      "untergruppe": "Sensoren",
+      "herkunft": "standard",
+      "typ": "sensor",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emuo5tm4t2p\",\"mitte\":{\"x\":49.666666666666664,\"y\":49.666666666666664},\"breite\":60,\"hoehe\":48,\"radius\":0,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5tm4u2q\",\"a\":{\"x\":32,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5tm4u2r\",\"a\":{\"x\":79.66666666666666,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"polylinie\",\"id\":\"emuo5tm4u2s\",\"punkte\":[{\"x\":26,\"y\":30.666666666666664},{\"x\":29.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":65.33333333333333},{\"x\":29.666666666666664,\"y\":65.33333333333333},{\"x\":26,\"y\":69.33333333333333},{\"x\":22.333333333333332,\"y\":65.33333333333333},{\"x\":24,\"y\":65.33333333333333},{\"x\":24,\"y\":34.666666666666664},{\"x\":22.333333333333332,\"y\":34.666666666666664}],\"geschlossen\":true,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"polylinie\",\"id\":\"emuo5tm4u2t\",\"punkte\":[{\"x\":40,\"y\":40},{\"x\":50,\"y\":40},{\"x\":50,\"y\":32.666666666666664},{\"x\":60.33333333333333,\"y\":32.666666666666664}],\"geschlossen\":false,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5tm4u2v\",\"position\":{\"x\":69.66666666666666,\"y\":50},\"text\":\"lx\",\"groesse\":8.666666666666666,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"},{\"art\":\"text\",\"id\":\"emuo5tm4u2x\",\"position\":{\"x\":69.66666666666666,\"y\":63},\"text\":\"PIR\",\"groesse\":8.666666666666666,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><rect x=\"19.67\" y=\"25.67\" width=\"60\" height=\"48\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"32\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"79.67\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><polygon points=\"26,30.67 29.67,34.67 27.67,34.67 27.67,65.33 29.67,65.33 26,69.33 22.33,65.33 24,65.33 24,34.67 22.33,34.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><polyline points=\"40,40 50,40 50,32.67 60.33,32.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"8.67\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"69.67\" y=\"50\">lx</tspan></text><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"8.67\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"69.67\" y=\"63\">PIR</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.8
+          },
+          {
+            "xAnteil": 0.85,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.15
+          },
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "textElemente": [
+        {
+          "xAnteil": 0.498,
+          "yAnteil": 0.214,
+          "text": "0.0.0",
+          "groesseAnteil": 0.08,
+          "ausrichtungHorizontal": "mittig",
+          "ausrichtungVertikal": "mittig",
+          "variable": "Bus-Adresse",
+          "fixiert": true
+        }
+      ],
+      "slotVorlagen": [
+        {
+          "id": "bewegung",
+          "bezeichnung": "Bewegung"
+        },
+        {
+          "id": "helligkeit",
+          "bezeichnung": "Helligkeit"
+        }
+      ],
+      "technische_daten": {
+        "Erfassung": "Passiv-Infrarot (PIR), Wandmontage",
+        "Helligkeitssensor": "integriert (Dämmerungsschwelle)",
+        "Ausgang": "binär, Bewegung und Helligkeit",
+        "Schaltzeichen": "KNX-Busgerät nach DIN EN 60617 mit Kennzeichen PIR und lx"
+      },
+      "varianten": [
+        {
+          "id": "unterputz",
+          "farbe_ausfuehrung": "Unterputz"
+        },
+        {
+          "id": "aufputz",
+          "farbe_ausfuehrung": "Aufputz"
+        }
+      ],
+      "seed_version": 6
+    },
+    {
+      "id": "praesenzmelder-knx-decke",
+      "name": "Deckenpräsenzmelder KNX",
+      "uebersetzungen": {
+        "en": {
+          "name": "KNX ceiling presence detector",
+          "untergruppe": "Sensors",
+          "varianten": {
+            "unterputz": {
+              "farbe": "Recessed in ceiling"
+            },
+            "aufputz": {
+              "farbe": "Surface-mounted"
+            }
+          },
+          "technischeDaten": {
+            "Erfassung": {
+              "bezeichnung": "Detection",
+              "wert": "passive infrared (PIR) 360°, ceiling mounting"
+            },
+            "Helligkeitssensor": {
+              "bezeichnung": "Brightness sensor",
+              "wert": "integrated (mixed light measurement)"
+            },
+            "Ausgang": {
+              "bezeichnung": "Output",
+              "wert": "binary, presence and brightness"
+            },
+            "Schaltzeichen": {
+              "bezeichnung": "Graphical symbol",
+              "wert": "KNX bus device to DIN EN 60617, marked PIR and lx"
+            }
+          },
+          "texte": {
+            "Bus-Adresse": "Bus address"
+          },
+          "slots": {
+            "bewegung": "Motion",
+            "helligkeit": "Brightness"
+          },
+          "hauptgruppe": "KNX"
+        }
+      },
+      "hersteller": "generisch",
+      "hauptgruppe": "KNX",
+      "untergruppe": "Sensoren",
+      "herkunft": "standard",
+      "typ": "sensor",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emuo5tm4t2p\",\"mitte\":{\"x\":49.666666666666664,\"y\":49.666666666666664},\"breite\":60,\"hoehe\":48,\"radius\":0,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5tm4u2q\",\"a\":{\"x\":32,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5tm4u2r\",\"a\":{\"x\":79.66666666666666,\"y\":25.666666666666664},\"b\":{\"x\":32,\"y\":73.66666666666666},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"polylinie\",\"id\":\"emuo5tm4u2s\",\"punkte\":[{\"x\":26,\"y\":30.666666666666664},{\"x\":29.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":34.666666666666664},{\"x\":27.666666666666664,\"y\":65.33333333333333},{\"x\":29.666666666666664,\"y\":65.33333333333333},{\"x\":26,\"y\":69.33333333333333},{\"x\":22.333333333333332,\"y\":65.33333333333333},{\"x\":24,\"y\":65.33333333333333},{\"x\":24,\"y\":34.666666666666664},{\"x\":22.333333333333332,\"y\":34.666666666666664}],\"geschlossen\":true,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"polylinie\",\"id\":\"emuo5tm4u2t\",\"punkte\":[{\"x\":40,\"y\":40},{\"x\":50,\"y\":40},{\"x\":50,\"y\":32.666666666666664},{\"x\":60.33333333333333,\"y\":32.666666666666664}],\"geschlossen\":false,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5tm4u2v\",\"position\":{\"x\":69.66666666666666,\"y\":50},\"text\":\"lx\",\"groesse\":8.666666666666666,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"},{\"art\":\"text\",\"id\":\"emuo5tm4u2x\",\"position\":{\"x\":69.66666666666666,\"y\":63},\"text\":\"PIR\",\"groesse\":8.666666666666666,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":true,\"farbe\":\"schwarz\"}]}</metadata><rect x=\"19.67\" y=\"25.67\" width=\"60\" height=\"48\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"32\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"79.67\" y1=\"25.67\" x2=\"32\" y2=\"73.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><polygon points=\"26,30.67 29.67,34.67 27.67,34.67 27.67,65.33 29.67,65.33 26,69.33 22.33,65.33 24,65.33 24,34.67 22.33,34.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><polyline points=\"40,40 50,40 50,32.67 60.33,32.67\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"8.67\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"69.67\" y=\"50\">lx</tspan></text><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"8.67\" font-weight=\"bold\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"69.67\" y=\"63\">PIR</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.8
+          },
+          {
+            "xAnteil": 0.85,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.15
+          },
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "textElemente": [
+        {
+          "xAnteil": 0.492,
+          "yAnteil": 0.218,
+          "text": "0.0.0",
+          "groesseAnteil": 0.08,
+          "ausrichtungHorizontal": "mittig",
+          "ausrichtungVertikal": "mittig",
+          "variable": "Bus-Adresse",
+          "fixiert": true
+        }
+      ],
+      "kombinierbar": false,
+      "montageort": "decke",
+      "slotVorlagen": [
+        {
+          "id": "bewegung",
+          "bezeichnung": "Bewegung"
+        },
+        {
+          "id": "helligkeit",
+          "bezeichnung": "Helligkeit"
+        }
+      ],
+      "technische_daten": {
+        "Erfassung": "Passiv-Infrarot (PIR) 360°, Deckenmontage",
+        "Helligkeitssensor": "integriert (Mischlichtmessung)",
+        "Ausgang": "binär, Präsenz und Helligkeit",
+        "Schaltzeichen": "KNX-Busgerät nach DIN EN 60617 mit Kennzeichen PIR und lx"
+      },
+      "varianten": [
+        {
+          "id": "unterputz",
+          "farbe_ausfuehrung": "Deckeneinbau"
+        },
+        {
+          "id": "aufputz",
+          "farbe_ausfuehrung": "Aufputz"
+        }
+      ],
+      "seed_version": 7
+    },
+    {
+      "id": "katalog-5f0b77e8-eadf-4a3c-bfe4-64e329825740",
+      "name": "Tastsensor fach mit RTR dyn.",
+      "uebersetzungen": {
+        "en": {
+          "name": "Push-button sensor with RTC dyn.",
+          "untergruppe": "Sensors",
+          "varianten": {
+            "variante-79afcda6-0954-436f-9674-2d373e6e08f4": {
+              "farbe": "1-gang"
+            },
+            "variante-3da43e63-8ca4-487a-a1ee-5f43d5700e9e": {
+              "farbe": "2-gang"
+            },
+            "variante-837eedbe-254a-46e9-a9e3-e20148846980": {
+              "farbe": "3-gang",
+              "name": "Push-button sensor with RTC – variant 3"
+            },
+            "variante-4f532ef8-e7be-4254-b3b8-315668b03cbb": {
+              "farbe": "4-gang",
+              "name": "Push-button sensor with RTC – variant 4"
+            }
+          },
+          "technischeDaten": {
+            "Erfassung": {
+              "bezeichnung": "Detection",
+              "wert": "passive infrared (PIR) 360°, ceiling mounting"
+            },
+            "Helligkeitssensor": {
+              "bezeichnung": "Brightness sensor",
+              "wert": "integrated (mixed light measurement)"
+            },
+            "Ausgang": {
+              "bezeichnung": "Output",
+              "wert": "binary, presence and brightness"
+            },
+            "Schaltzeichen": {
+              "bezeichnung": "Graphical symbol",
+              "wert": "KNX bus device to DIN EN 60617, marked PIR and lx"
+            }
+          },
+          "texte": {
+            "Anzahl Wippenreihen": "Number of rocker rows",
+            "Bus-Adresse": "Bus address"
+          },
+          "hauptgruppe": "KNX"
+        }
+      },
+      "hersteller": "generisch",
+      "hauptgruppe": "KNX",
+      "untergruppe": "Sensoren",
+      "herkunft": "standard",
+      "typ": "bediengeraet",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"rechteck\",\"id\":\"emuo5tm4t2p\",\"mitte\":{\"x\":52.000000000000014,\"y\":50.49999999999999},\"breite\":63.870967741935495,\"hoehe\":48.96000000000001,\"radius\":0,\"drehung\":0,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5tm4u2q\",\"a\":{\"x\":32.33333333333334,\"y\":27.000000000000007},\"b\":{\"x\":32.33333333333334,\"y\":75},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emuo5tm4u2r\",\"a\":{\"x\":82.87638016886774,\"y\":27.01959999999999},\"b\":{\"x\":32.39243703543337,\"y\":75.0004},\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"polylinie\",\"id\":\"emuo5tm4u2s\",\"punkte\":[{\"x\":26.333333333333343,\"y\":32.00000000000001},{\"x\":30.000000000000007,\"y\":36.00000000000001},{\"x\":28.000000000000007,\"y\":36.00000000000001},{\"x\":28.000000000000007,\"y\":66.66666666666667},{\"x\":30.000000000000007,\"y\":66.66666666666667},{\"x\":26.333333333333343,\"y\":70.66666666666667},{\"x\":22.666666666666675,\"y\":66.66666666666667},{\"x\":24.333333333333343,\"y\":66.66666666666667},{\"x\":24.333333333333343,\"y\":36.00000000000001},{\"x\":22.666666666666675,\"y\":36.00000000000001}],\"geschlossen\":true,\"strich\":2,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5wqve2y\",\"mitte\":{\"x\":70.33333333333334,\"y\":63.26226552146787},\"rx\":7.0710678118654755,\"ry\":7.0710678118654755,\"drehung\":0,\"strich\":2.5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"ellipse\",\"id\":\"emuo5wuew2z\",\"mitte\":{\"x\":70.33333333333334,\"y\":63.40440114519882},\"rx\":2.9289321881345245,\"ry\":2.9289321881345245,\"drehung\":0,\"strich\":2.5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emuo5yfrj31\",\"position\":{\"x\":45.33333333333334,\"y\":41.33333333333334},\"text\":\"RTR\",\"groesse\":8,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":false,\"farbe\":\"schwarz\"},{\"art\":\"text\",\"id\":\"emup4wwdw9\",\"position\":{\"x\":55.33333333333334,\"y\":71.33333333333334},\"text\":\"t\",\"groesse\":12,\"ausrichtung\":\"mittig\",\"drehung\":0,\"fett\":false,\"farbe\":\"schwarz\"}]}</metadata><rect x=\"20.06\" y=\"26.02\" width=\"63.87\" height=\"48.96\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"32.33\" y1=\"27\" x2=\"32.33\" y2=\"75\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"82.88\" y1=\"27.02\" x2=\"32.39\" y2=\"75\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><polygon points=\"26.33,32 30,36 28,36 28,66.67 30,66.67 26.33,70.67 22.67,66.67 24.33,66.67 24.33,36 22.67,36\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"70.33\" cy=\"63.26\" r=\"7.07\" stroke=\"#000\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><circle cx=\"70.33\" cy=\"63.4\" r=\"2.93\" stroke=\"#000\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"8\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"45.33\" y=\"41.33\">RTR</tspan></text><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"12\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"#000\"><tspan x=\"55.33\" y=\"71.33\">t</tspan></text></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.8
+          },
+          {
+            "xAnteil": 0.9,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.15
+          },
+          {
+            "xAnteil": 0.15,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "textElemente": [
+        {
+          "xAnteil": 0.745,
+          "yAnteil": 0.553,
+          "text": "4",
+          "groesseAnteil": 0.12,
+          "ausrichtungHorizontal": "mittig",
+          "ausrichtungVertikal": "mittig",
+          "variable": "Anzahl Wippenreihen",
+          "inStueckliste": true,
+          "fixiert": true
+        },
+        {
+          "xAnteil": 0.507,
+          "yAnteil": 0.188,
+          "text": "0.0.0",
+          "groesseAnteil": 0.08,
+          "ausrichtungHorizontal": "mittig",
+          "ausrichtungVertikal": "mittig",
+          "variable": "Bus-Adresse",
+          "fixiert": true
+        }
+      ],
+      "slotMatrixVorlage": {
+        "spalten": 1,
+        "zeilen": 3
+      },
+      "slotAnzahlAus": "Anzahl Wippenreihen",
+      "technische_daten": {
+        "Erfassung": "Passiv-Infrarot (PIR) 360°, Deckenmontage",
+        "Helligkeitssensor": "integriert (Mischlichtmessung)",
+        "Ausgang": "binär, Präsenz und Helligkeit",
+        "Schaltzeichen": "KNX-Busgerät nach DIN EN 60617 mit Kennzeichen PIR und lx"
+      },
+      "varianten": [
+        {
+          "id": "variante-79afcda6-0954-436f-9674-2d373e6e08f4",
+          "farbe_ausfuehrung": "1 fach"
+        },
+        {
+          "id": "variante-3da43e63-8ca4-487a-a1ee-5f43d5700e9e",
+          "farbe_ausfuehrung": "2 fach"
+        },
+        {
+          "id": "variante-837eedbe-254a-46e9-a9e3-e20148846980",
+          "farbe_ausfuehrung": "3 fach"
+        },
+        {
+          "id": "variante-4f532ef8-e7be-4254-b3b8-315668b03cbb",
+          "farbe_ausfuehrung": "4 fach"
+        }
+      ],
+      "seed_version": 6
+    },
+    {
+      "id": "leerkomponente",
+      "name": "Leerkomponente 1x1",
+      "uebersetzungen": {
+        "en": {
+          "name": "Blank component 1x1",
+          "kategorie": "Miscellaneous"
+        }
+      },
+      "kategorie": "Sonstiges",
+      "herkunft": "standard",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/>\n</svg>",
+      "seed_version": 4
+    },
+    {
+      "id": "katalog-5f9ffefe-690d-445a-ab5d-7ee79dccbbec",
+      "name": "Leerkomponente 2x2",
+      "uebersetzungen": {
+        "en": {
+          "name": "Blank component 2x2",
+          "kategorie": "Miscellaneous"
+        }
+      },
+      "kategorie": "Sonstiges",
+      "herkunft": "standard",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/>\n</svg>",
+      "breitenFaktor": 2,
+      "hoehenFaktor": 2,
+      "seed_version": 2
+    },
+    {
+      "id": "katalog-b007476f-a31e-4081-8392-c50f20b75364",
+      "name": "Leerkomponente 2x4",
+      "uebersetzungen": {
+        "en": {
+          "name": "Blank component 2x4",
+          "kategorie": "Miscellaneous"
+        }
+      },
+      "kategorie": "Sonstiges",
+      "herkunft": "standard",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\">\n<rect x=\"2\" y=\"2\" width=\"96\" height=\"96\" stroke=\"#000000\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/>\n</svg>",
+      "breitenFaktor": 4,
+      "hoehenFaktor": 2,
+      "seed_version": 2
+    },
+    {
+      "id": "katalog-78f74f46-d383-4a0b-a23c-0728167c9cdc",
+      "name": "Abzweigdose",
+      "uebersetzungen": {
+        "en": {
+          "name": "Junction box",
+          "untergruppe": "Accessories",
+          "hauptgruppe": "Installation"
+        }
+      },
+      "hersteller": "Generisch",
+      "hauptgruppe": "Installation",
+      "untergruppe": "Zubehör",
+      "herkunft": "standard",
+      "typ": "anschlussdose",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 50 50\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":50,\"hoehe\":50,\"elemente\":[{\"art\":\"ellipse\",\"id\":\"emvdou7jp21\",\"mitte\":{\"x\":25.150396073649084,\"y\":25.150396073649084},\"rx\":9.30111394046019,\"ry\":9.30111394046019,\"drehung\":0,\"strich\":2.5,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><circle cx=\"25.15\" cy=\"25.15\" r=\"9.3\" stroke=\"#000\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.8
+          },
+          {
+            "xAnteil": 0.8,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.2
+          },
+          {
+            "xAnteil": 0.2,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "breitenFaktor": 0.5,
+      "hoehenFaktor": 0.5,
+      "stromkreisVorgabe": "kein",
+      "ifcKlasse": "IfcOutlet",
+      "ifcTyp": "POWEROUTLET",
+      "kennzeichenBuchstabe": "X",
+      "seed_version": 5
+    }
+  ]
+}

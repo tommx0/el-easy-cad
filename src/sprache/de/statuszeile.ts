@@ -1,0 +1,28 @@
+export const statuszeile = {
+  aria: 'Statuszeile',
+  kiVerbunden: 'KI verbunden',
+  kiBereit: 'KI bereit',
+  kiBereitTitel: 'KI-Schnittstelle eingeschaltet – noch keine Anfrage in den letzten Minuten.',
+  laengeTitel:
+    'Länge des gerade gezeichneten Teilstücks (Luftlinie vom letzten Punkt zum Zeiger). Eintippen legt sie fest, Enter setzt den Punkt.',
+  laenge: 'Länge',
+  laengeAria: 'Länge in Metern',
+  winkelTitel:
+    'Winkel des Teilstücks: abs = Kompasswinkel (0 = senkrecht nach oben, 90 = rechts, im Uhrzeigersinn), rel = Knick gegenüber dem vorherigen Teilstück (+ = rechts, – = links). Eintippen legt die Richtung fest, Tab wechselt das Feld, Enter setzt den Punkt.',
+  winkel: 'Winkel',
+  winkelAbsAria: 'Winkel absolut in Grad',
+  winkelRelAria: 'Winkel relativ in Grad',
+  einheitTitel: 'Einheit des Blatts',
+  einheit: 'Einheit',
+  massstabTitel: 'Maßstab des Hintergrundplans',
+  massstab: 'Maßstab',
+  zoomTitel: 'Zoomstufe (100 % = 1 m entspricht 100 Pixeln)',
+  zoom: 'Zoom',
+  positionTitel: 'Zeigerposition in Modellkoordinaten',
+  position: 'Position',
+  feldTitel: 'Feld des Koordinatennetzes unter dem Zeiger',
+  feld: 'Feld',
+  kiZugriff: '{name} greift auf dieses Dokument zu.',
+  kiZugriffNurLesen: '{name} greift auf dieses Dokument zu (nur lesen).',
+  kiAssistent: 'KI-Assistent',
+}

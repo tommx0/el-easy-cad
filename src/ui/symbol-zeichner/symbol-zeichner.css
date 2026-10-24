@@ -1,0 +1,229 @@
+.symbolzeichner-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 105;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 22, 26, 0.5);
+  font-family: inherit;
+}
+
+.symbolzeichner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(1180px, calc(100vw - 32px));
+  height: min(820px, calc(100vh - 32px));
+  padding: 14px 16px;
+  box-sizing: border-box;
+  background: var(--flaeche, #ffffff);
+  color: var(--text, #171a1f);
+  border-radius: var(--radius-l, 14px);
+  box-shadow: var(--schatten-3, 0 20px 48px rgba(19, 29, 50, 0.18));
+  font-size: 13px;
+}
+
+.symbolzeichner h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.symbolzeichner button {
+  font: inherit;
+  font-size: 12.5px;
+  padding: 5px 10px;
+  border: 1px solid var(--rand-stark, #c4cad4);
+  border-radius: var(--radius-s, 6px);
+  background: var(--flaeche, #ffffff);
+  color: var(--text, #171a1f);
+  cursor: pointer;
+}
+
+.symbolzeichner button:hover:not(:disabled) {
+  background: var(--flaeche-gedaempft, #f4f6fa);
+}
+
+.symbolzeichner button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.symbolzeichner button.aktiv,
+.symbolzeichner button.primaer {
+  background: var(--akzent, #2f7dd1);
+  border-color: var(--akzent, #2f7dd1);
+  color: var(--akzent-kontrast, #ffffff);
+}
+
+.symbolzeichner button.aktiv:hover:not(:disabled),
+.symbolzeichner button.primaer:hover:not(:disabled) {
+  background: var(--akzent, #2f7dd1);
+  filter: brightness(0.93);
+}
+
+.symbolzeichner-werkzeuge {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.symbolzeichner-trenner {
+  width: 1px;
+  align-self: stretch;
+  margin: 0 6px;
+  background: var(--rand, #dde1e9);
+}
+
+.symbolzeichner-haupt {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  gap: 12px;
+}
+
+.symbolzeichner-flaeche {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 200px;
+  overflow: hidden;
+  border: 1px solid var(--rand, #dde1e9);
+  border-radius: var(--radius-s, 6px);
+}
+
+.symbolzeichner-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  user-select: none;
+  cursor: crosshair;
+}
+
+.symbolzeichner-canvas.werkzeug-auswahl {
+  cursor: default;
+}
+
+.symbolzeichner-canvas.werkzeug-radierer {
+  cursor: none;
+}
+
+.symbolzeichner-texteingabe {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  min-width: 80px;
+  padding: 2px 4px;
+  border: 1px dashed var(--akzent, #2f7dd1);
+  background: rgba(255, 255, 255, 0.92);
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2;
+  text-align: center;
+  resize: none;
+  outline: none;
+}
+
+.symbolzeichner-seite {
+  display: flex;
+  flex: 0 0 200px;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.symbolzeichner-gruppe {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.symbolzeichner-gruppentitel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-gedaempft, #5c636e);
+}
+
+.symbolzeichner-segmente {
+  display: flex;
+  gap: 3px;
+}
+
+.symbolzeichner-segmente button {
+  flex: 1 1 0;
+  padding: 4px 2px;
+}
+
+.symbolzeichner-schalter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.symbolzeichner-seite select,
+.symbolzeichner-seite input[type='number'] {
+  font: inherit;
+  padding: 4px 6px;
+  border: 1px solid var(--rand-stark, #c4cad4);
+  border-radius: var(--radius-s, 6px);
+  background: var(--flaeche, #ffffff);
+  color: var(--text, #171a1f);
+}
+
+.symbolzeichner-vorschau {
+  align-self: flex-start;
+  border: 1px solid var(--rand, #dde1e9);
+  background: #ffffff;
+}
+
+.symbolzeichner-hinweis {
+  margin: 0;
+  font-size: 11.5px;
+  color: var(--text-gedaempft, #5c636e);
+}
+
+.symbolzeichner-fuss {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.symbolzeichner-status {
+  flex: 1 1 240px;
+  color: var(--text-gedaempft, #5c636e);
+}
+
+@media (max-width: 760px) {
+  .symbolzeichner-haupt {
+    flex-direction: column;
+  }
+
+  .symbolzeichner-seite {
+    flex: 0 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: 190px;
+  }
+}
+
+.symbolzeichner-farben {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.symbolzeichner-farben button {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid var(--rand-stark, #c4cad4);
+  border-radius: var(--radius-s, 6px);
+}
+
+.symbolzeichner-farben button.aktiv {
+  outline: 2px solid var(--akzent, #2f6fdd);
+  outline-offset: 1px;
+}

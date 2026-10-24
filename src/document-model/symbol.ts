@@ -1,0 +1,1 @@
+export const BASIS_SYMBOL_GROESSE_METER = 0.4

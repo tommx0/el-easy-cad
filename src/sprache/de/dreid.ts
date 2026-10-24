@@ -1,0 +1,37 @@
+export const dreid = {
+  info: {
+    meter: '{wert} m',
+    geschoss: 'Geschoss {name}',
+    hoehe: 'Höhe {hoehe}',
+  },
+  szene: {
+    farbschema: {
+      plan: 'Wie im Plan',
+      zone: 'Nach Installationszone',
+      geraetetyp: 'Nach Gerätetyp',
+    },
+    senkrechteStuecke: 'Senkrechte Stücke',
+    andereZone: 'Andere Zone',
+    ohneGeraetetyp: 'Ohne Gerätetyp',
+    kennzeichen: 'Kennzeichen {kennzeichen}',
+    montagehoehe: 'Montagehöhe {hoehe}',
+    verlegeart: 'Verlegeart {art}',
+    verlegelaenge: 'Verlegelänge {laenge}',
+    querschnitt: 'Querschnitt {breite} × {hoehe} cm',
+    buendel: 'Bündel',
+    kabelschacht: 'Kabelschacht',
+  },
+  gebaeude: {
+    wand: 'Wand',
+    staerke: 'Stärke {cm} cm',
+    breite: 'Breite {breite}',
+    fenster: 'Fenster',
+    bruestungUndHoehe: 'Brüstung {bruestung}, Höhe {hoehe}',
+    tuer: 'Tür',
+    wanddurchbruch: 'Wanddurchbruch',
+    treppe: 'Treppe – {form}',
+    steigungen: { one: '{n} Steigung à {cm} cm', other: '{n} Steigungen à {cm} cm' },
+    bodenplatte: 'Bodenplatte',
+    oberkante: 'Oberkante {wert} über Fußboden',
+  },
+}

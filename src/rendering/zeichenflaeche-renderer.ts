@@ -1,0 +1,40 @@
+import type { Zeichenflaeche } from '../document-model'
+import { zeichenflaecheBoundingBox } from '../document-model'
+import type { Uebersetzer } from '../sprache'
+import type { ViewTransform } from './view-transform'
+
+export function zeichneZeichenflaecheRahmen(
+  ctx: CanvasRenderingContext2D,
+  view: ViewTransform,
+  zeichenflaeche: Zeichenflaeche,
+  tp: Uebersetzer,
+) {
+  const bb = zeichenflaecheBoundingBox(zeichenflaeche)
+  const oben = view.worldToScreen({ x: bb.min.x, y: bb.max.y })
+  const unten = view.worldToScreen({ x: bb.max.x, y: bb.min.y })
+  const breitePx = unten.x - oben.x
+  const hoehePx = unten.y - oben.y
+
+  ctx.save()
+  ctx.strokeStyle = '#5b7dd9'
+  ctx.lineWidth = 1.5
+  ctx.setLineDash([7, 5])
+  ctx.strokeRect(oben.x, oben.y, breitePx, hoehePx)
+
+  const zoomFaktor = view.zoomFaktor()
+  ctx.setLineDash([])
+  ctx.fillStyle = '#5b7dd9'
+  ctx.font = `${12 * zoomFaktor}px sans-serif`
+  ctx.textBaseline = 'bottom'
+  const label = tp(
+    zeichenflaeche.ausrichtung === 'hoch'
+      ? 'druck.zeichenflaeche.hoch'
+      : 'druck.zeichenflaeche.quer',
+    {
+      format: zeichenflaeche.papierformat,
+      nenner: String(Math.round(zeichenflaeche.massstabNenner)),
+    },
+  )
+  ctx.fillText(label, oben.x, oben.y - 4 * zoomFaktor)
+  ctx.restore()
+}

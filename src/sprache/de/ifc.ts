@@ -1,0 +1,63 @@
+export const ifc = {
+  datei: {
+    grundstueck: 'Grundstück',
+    komponente: 'Komponente',
+    zubehoer: 'Zubehör',
+    leitung: 'Leitung {nummer}',
+    portAnfang: '{name} Anfang',
+    portEnde: '{name} Ende',
+    switchPort: '{name} Port {port}',
+    kabelschacht: 'Kabelschacht',
+    trunk: 'Trunk',
+    traeger: '{trunk} – {ausfuehrung}',
+    ausfuehrung: { kanal: 'Kabelkanal', trasse: 'Kabeltrasse', rohr: 'Leerrohr' },
+    montageort: { decke: 'Decke', boden: 'Boden' },
+    verlegeart: { auf: 'Aufputz', in: 'Unterputz' },
+    verlegeartKuerzel: { auf: 'AP', in: 'UP' },
+    wand: 'Wand',
+    tuer: 'Tür',
+    fenster: 'Fenster',
+    wanddurchbruch: 'Wanddurchbruch',
+    bodenplatte: 'Bodenplatte',
+    raum: 'Raum',
+    treppe: 'Treppe – {form}',
+  },
+  bericht: {
+    meter: '{wert} m',
+    nurAnsicht: '„{blatt}“ lässt sich hier nur ansehen – nicht exportiert.',
+    keineKote: '„{blatt}“: keine Kote – {kote} angenommen.',
+    unvollstaendigesGeschoss:
+      '„{blatt}“: keine vollständigen Geschossangaben – Leitungen in der Zone „{zone}“ bei {raumhoehe} Raumhöhe angenommen.',
+    zubehoerOhneGeraet:
+      '„{blatt}“: Zubehör „{zubehoer}“ liegt auf keinem Gerät – nicht exportiert.',
+    ohneAbmessung: '{trunk} ({ausfuehrung}): keine Abmessung – Vorgabequerschnitt angenommen.',
+    bauteile: 'Bauteile: {liste}.',
+    anzahl: {
+      waende: { one: '{n} Wand', other: '{n} Wände' },
+      tueren: { one: '{n} Tür', other: '{n} Türen' },
+      fenster: { one: '{n} Fenster', other: '{n} Fenster' },
+      durchbrueche: { one: '{n} Wanddurchbruch', other: '{n} Wanddurchbrüche' },
+      treppen: { one: '{n} Treppe', other: '{n} Treppen' },
+      platten: { one: '{n} Bodenplatte', other: '{n} Bodenplatten' },
+      raeume: { one: '{n} Raum', other: '{n} Räume' },
+    },
+    doppelteKennung: {
+      one: '{n} aus der IFC übernommenes Bauteil teilt sich die Kennung mit einem anderen und bekommt eine neue.',
+      other:
+        '{n} aus der IFC übernommene Bauteile teilen sich die Kennung mit einem anderen und bekommen eine neue.',
+    },
+  },
+  export: {
+    schaltplan: 'Ein Schaltplan lässt sich nicht als IFC exportieren.',
+    fehlgeschlagen: 'IFC-Export fehlgeschlagen.',
+  },
+  import: {
+    zuGross: 'Die IFC-Datei ist {mb} MB groß – höchstens {max} MB sind möglich.',
+    abgebrochen: 'Der IFC-Import wurde abgebrochen.',
+    fehlgeschlagen: 'IFC-Import fehlgeschlagen.',
+    keineDatei: 'Keine IFC-Datei geöffnet.',
+    nichtLesbar: 'Die IFC-Datei konnte nicht gelesen werden.',
+    geschossFehlt: 'Geschoss nicht gefunden.',
+    geschossNichtImModell: 'Geschoss nicht im Modell.',
+  },
+}

@@ -1,0 +1,294 @@
+{
+  "version": 3,
+  "typen": [
+    {
+      "kennung": "bediengeraet",
+      "bezeichnung": "Bediengerät",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Control device"
+        }
+      },
+      "slots": "matrix",
+      "ansteuerung": false,
+      "verbindungenGrau": true,
+      "ifcKlasse": "IfcSwitchingDevice",
+      "ifcTyp": "TOGGLESWITCH",
+      "standardMontagehoehe": 1.05
+    },
+    {
+      "kennung": "verbraucher",
+      "bezeichnung": "Verbraucher",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Load"
+        }
+      },
+      "slots": "keine",
+      "ansteuerung": true,
+      "ifcKlasse": "IfcElectricAppliance",
+      "ifcTyp": "NOTDEFINED",
+      "standardMontagehoehe": 2.4
+    },
+    {
+      "kennung": "systemgeraet",
+      "bezeichnung": "Systemgerät",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "System device"
+        }
+      },
+      "slots": "liste",
+      "ansteuerung": false,
+      "ifcKlasse": "IfcCommunicationsAppliance",
+      "ifcTyp": "NOTDEFINED",
+      "standardMontagehoehe": 1.5
+    },
+    {
+      "kennung": "sensor",
+      "bezeichnung": "Sensor",
+      "slots": "liste",
+      "ansteuerung": false,
+      "ifcKlasse": "IfcSensor",
+      "ifcTyp": "NOTDEFINED",
+      "standardMontagehoehe": 2.2,
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Sensor"
+        }
+      }
+    },
+    {
+      "kennung": "betriebsmittel",
+      "bezeichnung": "Betriebsmittel",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Equipment"
+        }
+      },
+      "slots": "keine",
+      "ansteuerung": false,
+      "ifcKlasse": "IfcElectricDistributionBoard",
+      "ifcTyp": "DISTRIBUTIONBOARD",
+      "standardMontagehoehe": 1.5
+    },
+    {
+      "kennung": "anschlussdose",
+      "bezeichnung": "Anschlussdose",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Outlet"
+        }
+      },
+      "slots": "keine",
+      "ansteuerung": false,
+      "ifcKlasse": "IfcOutlet",
+      "ifcTyp": "POWEROUTLET",
+      "standardMontagehoehe": 0.3
+    },
+    {
+      "kennung": "aktor",
+      "bezeichnung": "Aktor",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Actuator"
+        }
+      },
+      "slots": "liste",
+      "ansteuerung": true,
+      "ifcKlasse": "IfcActuator",
+      "ifcTyp": "ELECTRICACTUATOR",
+      "standardMontagehoehe": 1.5
+    },
+    {
+      "kennung": "anzeige",
+      "bezeichnung": "Anzeige",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Display"
+        }
+      },
+      "slots": "liste",
+      "ansteuerung": false,
+      "ifcKlasse": "IfcAlarm",
+      "ifcTyp": "NOTDEFINED",
+      "standardMontagehoehe": 1.5
+    },
+    {
+      "kennung": "erzeuger",
+      "bezeichnung": "Erzeuger",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Generator"
+        }
+      },
+      "slots": "keine",
+      "ansteuerung": false,
+      "ifcKlasse": "IfcElectricGenerator",
+      "ifcTyp": "NOTDEFINED",
+      "standardMontagehoehe": 0
+    },
+    {
+      "kennung": "sender",
+      "bezeichnung": "Sender",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Transmitter"
+        }
+      },
+      "slots": "keine",
+      "ansteuerung": false,
+      "ifcKlasse": "IfcCommunicationsAppliance",
+      "ifcTyp": "NOTDEFINED",
+      "standardMontagehoehe": 1.5
+    },
+    {
+      "kennung": "empfaenger",
+      "bezeichnung": "Empfänger",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Receiver"
+        }
+      },
+      "slots": "keine",
+      "ansteuerung": false,
+      "ifcKlasse": "IfcCommunicationsAppliance",
+      "ifcTyp": "NOTDEFINED",
+      "standardMontagehoehe": 1.5
+    },
+    {
+      "kennung": "uebertrager",
+      "bezeichnung": "Übertrager",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Transmission device"
+        }
+      },
+      "slots": "keine",
+      "ansteuerung": false,
+      "ifcKlasse": "IfcCommunicationsAppliance",
+      "ifcTyp": "NOTDEFINED",
+      "standardMontagehoehe": 1.5
+    },
+    {
+      "kennung": "pc",
+      "bezeichnung": "PC",
+      "slots": "keine",
+      "ansteuerung": false,
+      "ifcKlasse": "IfcCommunicationsAppliance",
+      "ifcTyp": "COMPUTER",
+      "standardMontagehoehe": 0.75
+    },
+    {
+      "kennung": "server",
+      "bezeichnung": "Server",
+      "slots": "keine",
+      "ansteuerung": false,
+      "ifcKlasse": "IfcCommunicationsAppliance",
+      "ifcTyp": "COMPUTER",
+      "standardMontagehoehe": 0,
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Server"
+        }
+      }
+    }
+  ],
+  "ueblicheZiele": {
+    "bediengeraet": ["verbraucher", "systemgeraet", "anschlussdose"],
+    "systemgeraet": ["verbraucher", "systemgeraet", "anschlussdose"],
+    "sensor": ["verbraucher", "systemgeraet", "anschlussdose"],
+    "aktor": ["verbraucher", "systemgeraet", "anschlussdose"],
+    "anzeige": ["verbraucher", "systemgeraet", "anschlussdose"]
+  },
+  "ansteuerungen": [
+    {
+      "kennung": "schalten",
+      "bezeichnung": "Schalten",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Switching"
+        }
+      }
+    },
+    {
+      "kennung": "dimmen",
+      "bezeichnung": "Dimmen",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Dimming"
+        }
+      }
+    },
+    {
+      "kennung": "pwm",
+      "bezeichnung": "PWM"
+    },
+    {
+      "kennung": "analog",
+      "bezeichnung": "Analog",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Analogue"
+        }
+      }
+    },
+    {
+      "kennung": "rollo",
+      "bezeichnung": "Rollo",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Roller blind"
+        }
+      }
+    },
+    {
+      "kennung": "jalousie",
+      "bezeichnung": "Jalousie",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Venetian blind"
+        }
+      }
+    },
+    {
+      "kennung": "rgb",
+      "bezeichnung": "RGB"
+    },
+    {
+      "kennung": "rgbw",
+      "bezeichnung": "RGBW"
+    },
+    {
+      "kennung": "rgbww",
+      "bezeichnung": "RGBWW"
+    },
+    {
+      "kennung": "dali",
+      "bezeichnung": "Dali",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "DALI"
+        }
+      }
+    },
+    {
+      "kennung": "zigbee",
+      "bezeichnung": "Zigbee",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Zigbee"
+        }
+      }
+    },
+    {
+      "kennung": "sonstiges",
+      "bezeichnung": "Sonstiges",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Other"
+        }
+      }
+    }
+  ]
+}

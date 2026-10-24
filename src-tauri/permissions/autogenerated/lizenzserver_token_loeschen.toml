@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-lizenzserver-token-loeschen"
+description = "Enables the lizenzserver_token_loeschen command without any pre-configured scope."
+commands.allow = ["lizenzserver_token_loeschen"]
+
+[[permission]]
+identifier = "deny-lizenzserver-token-loeschen"
+description = "Denies the lizenzserver_token_loeschen command without any pre-configured scope."
+commands.deny = ["lizenzserver_token_loeschen"]

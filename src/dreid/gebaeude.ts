@@ -1,0 +1,371 @@
+import type {
+  Blatt,
+  BodenplattenObjekt,
+  Point,
+  RaumObjekt,
+  TreppenObjekt,
+  WandObjekt,
+} from '../document-model'
+import {
+  aussparungenInPlatte,
+  DURCHBRUCH_HOEHE_METER,
+  ermittleWandAnschluesse,
+  ermittleWandTeilstuecke,
+  fensterBruestung,
+  fensterHoehe,
+  oeffnungenAufWand,
+  oeffnungOffen,
+  pfadGesamtLaenge,
+  teilPfad,
+  treppenFormText,
+  treppenTrittplatten,
+  tuerHoehe,
+  versetztePolylinie,
+  type WandOeffnung,
+} from '../document-model'
+import { formatiereZahl, t } from '../sprache'
+import { aussenNormalen } from './aussenwaende'
+import {
+  ermittleTreppenoeffnungen,
+  geschossHoeheNachOben,
+  modellPunkt,
+  type ExportGeschoss,
+  type Punkt3,
+} from '../ifc/export-modell'
+
+export interface SzenenPrisma {
+  id: string
+  blattId: string
+  art: 'wand' | 'oeffnung' | 'treppe' | 'boden' | 'decke'
+  grundriss: Point[]
+  z: number
+  hoehe: number
+  farbe: string
+  deckkraft: number
+  loecher?: Point[][]
+  info: { titel: string; zeilen: string[] } | null
+  aussenNormalen?: Point[]
+}
+
+export interface SzenenText {
+  blattId: string
+  position: Punkt3
+  text: string
+}
+
+export const BODEN_STAERKE_METER = 0.05
+
+const WAND_FARBE = '#cfcac2'
+const WAND_DECKKRAFT = 0.45
+const TREPPE_FARBE = '#b9b2a6'
+const TREPPE_DECKKRAFT = 0.7
+const BODEN_FARBE = '#e6e1d8'
+const BODEN_DECKKRAFT = 0.35
+const DECKE_FARBE = '#ddd8cf'
+
+export const infoMeter = (m: number): string =>
+  t('dreid.info.meter', {
+    wert: formatiereZahl(m, { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
+  })
+
+export function baueGebaeude(
+  blaetter: readonly Blatt[],
+  geschosse: readonly ExportGeschoss[],
+  huelleBlaetter: ReadonlySet<string> = new Set(),
+): { prismen: SzenenPrisma[]; texte: SzenenText[] } {
+  const prismen: SzenenPrisma[] = []
+  const texte: SzenenText[] = []
+  const geschossVon = new Map(geschosse.map((g) => [g.blattId, g]))
+  const treppenoeffnungen = ermittleTreppenoeffnungen(blaetter, geschosse)
+  const ausgespart = (p: SzenenPrisma, oeffnungen: Point[][] | undefined): SzenenPrisma | null => {
+    if (!oeffnungen?.length) return p
+    const loecher = aussparungenInPlatte(p.grundriss, oeffnungen)
+    if (loecher === null) return null
+    return loecher.length ? { ...p, loecher } : p
+  }
+
+  for (const blatt of blaetter) {
+    const geschoss = geschossVon.get(blatt.id)
+    if (!geschoss) continue
+    const m = (p: Point) => modellPunkt(blatt, p)
+    const wandHoehe = geschoss.raumhoehe + geschoss.deckenstaerke
+    const mitHuelle = huelleBlaetter.has(blatt.id)
+    const zeigen = (o: { ifcGuid?: string }) => !(mitHuelle && o.ifcGuid)
+
+    const alleWaende = blatt.objekte.filter((o): o is WandObjekt => o.type === 'wand')
+    for (const o of blatt.objekte) {
+      if (!zeigen(o)) continue
+      if (o.type === 'wand') {
+        const normalen = modellRichtungen(aussenNormalen(o, alleWaende), o.punkte[0], m)
+        for (const p of wandPrismen(o, blatt, geschoss, wandHoehe, m))
+          prismen.push({ ...p, aussenNormalen: normalen })
+      }
+      if (o.type === 'treppe')
+        prismen.push(
+          ...treppenPrismen(o, blatt, geschoss, geschossHoeheNachOben(geschoss, geschosse), m),
+        )
+    }
+
+    const platten = blatt.objekte.filter(
+      (o): o is BodenplattenObjekt => o.type === 'bodenplatte' && o.punkte.length >= 3,
+    )
+    const vonUnten = treppenoeffnungen.vonUnten.get(blatt.id)
+    for (const o of platten) {
+      if (!zeigen(o)) continue
+      const p = ausgespart(bodenplattenPrisma(o, blatt, geschoss, m), vonUnten)
+      if (p) prismen.push(p)
+    }
+
+    const raeume = blatt.objekte.filter(
+      (o): o is RaumObjekt => o.type === 'raum' && o.gueltig && o.umriss.length >= 3,
+    )
+    const bodenflaechen: Point[][] = platten.length
+      ? []
+      : raeume.length
+        ? raeume.filter(zeigen).map((r) => r.umriss.map(m))
+        : rechteckUmWaende(
+            blatt.objekte.filter((o): o is WandObjekt => o.type === 'wand' && zeigen(o)),
+          ).map((ecke) => ecke.map(m))
+    for (const [i, grundriss] of bodenflaechen.entries()) {
+      const p = ausgespart(
+        {
+          id: `boden-${blatt.id}-${i}`,
+          blattId: blatt.id,
+          art: 'boden',
+          grundriss,
+          z: geschoss.kote - BODEN_STAERKE_METER,
+          hoehe: BODEN_STAERKE_METER,
+          farbe: BODEN_FARBE,
+          deckkraft: BODEN_DECKKRAFT,
+          info: null,
+        },
+        vonUnten,
+      )
+      if (p) prismen.push(p)
+    }
+
+    const eigene = treppenoeffnungen.eigene.get(blatt.id)
+    for (const r of raeume.filter(zeigen)) {
+      const p = ausgespart(
+        {
+          id: `decke-${r.id}`,
+          blattId: blatt.id,
+          art: 'decke',
+          grundriss: r.umriss.map(m),
+          z: geschoss.kote + geschoss.raumhoehe,
+          hoehe: r.deckenstaerke ?? geschoss.deckenstaerke,
+          farbe: DECKE_FARBE,
+          deckkraft: 1,
+          info: null,
+        },
+        eigene,
+      )
+      if (p) prismen.push(p)
+    }
+
+    for (const r of raeume)
+      if (r.name.trim())
+        texte.push({
+          blattId: blatt.id,
+          position: { ...m(r.mittelpunkt), z: geschoss.kote + 0.05 },
+          text: r.name,
+        })
+  }
+  return { prismen, texte }
+}
+
+function modellRichtungen(
+  richtungen: readonly Point[],
+  bezug: Point | undefined,
+  m: (p: Point) => Point,
+): Point[] {
+  if (!bezug) return []
+  const a = m(bezug)
+  return richtungen.map((n) => {
+    const b = m({ x: bezug.x + n.x, y: bezug.y + n.y })
+    const l = Math.hypot(b.x - a.x, b.y - a.y) || 1
+    return { x: (b.x - a.x) / l, y: (b.y - a.y) / l }
+  })
+}
+
+function umriss(achse: Point[], halbe: number): Point[] {
+  return [...versetztePolylinie(achse, halbe), ...versetztePolylinie(achse, -halbe).reverse()]
+}
+
+function wandPrismen(
+  wand: WandObjekt,
+  blatt: Blatt,
+  geschoss: ExportGeschoss,
+  hoehe: number,
+  m: (p: Point) => Point,
+): SzenenPrisma[] {
+  const oeffnungen = oeffnungenAufWand(blatt.objekte, wand.id)
+  const teile = ermittleWandTeilstuecke(
+    wand,
+    oeffnungen,
+    ermittleWandAnschluesse(wand, blatt.objekte),
+  )
+  const basis = {
+    blattId: blatt.id,
+    farbe: WAND_FARBE,
+    deckkraft: WAND_DECKKRAFT,
+  }
+  const ergebnis: SzenenPrisma[] = teile.map((teil) => ({
+    ...basis,
+    id: wand.id,
+    art: 'wand' as const,
+    grundriss: [...teil.aussen, ...[...teil.innen].reverse()].map(m),
+    z: geschoss.kote,
+    hoehe,
+    info: {
+      titel: t('dreid.gebaeude.wand'),
+      zeilen: [
+        t('dreid.gebaeude.staerke', { cm: String(Math.round(wand.staerke * 100)) }),
+        t('dreid.info.hoehe', { hoehe: infoMeter(hoehe) }),
+        t('dreid.info.geschoss', { name: geschoss.name }),
+      ],
+    },
+  }))
+
+  const gesamt = pfadGesamtLaenge(wand.punkte)
+  if (gesamt <= 0) return ergebnis
+  for (const o of oeffnungen) {
+    const halbT = o.breite / 2 / gesamt
+    const achse = teilPfad(wand.punkte, Math.max(0, o.t - halbT), Math.min(1, o.t + halbT))
+    if (achse.length < 2) continue
+    const grundriss = umriss(achse, wand.staerke / 2).map(m)
+    const { info, offen } = oeffnungsMasse(o, geschoss)
+    const stuecke: [number, number][] = [
+      [0, offen[0]],
+      [offen[1], hoehe],
+    ]
+    for (const [von, bis] of stuecke)
+      if (bis - von > 1e-3)
+        ergebnis.push({
+          ...basis,
+          id: o.id,
+          art: 'oeffnung',
+          grundriss,
+          z: geschoss.kote + von,
+          hoehe: bis - von,
+          info,
+        })
+  }
+  return ergebnis
+}
+
+function oeffnungsMasse(
+  o: WandOeffnung,
+  geschoss: ExportGeschoss,
+): { offen: [number, number]; info: SzenenPrisma['info'] } {
+  const breite = t('dreid.gebaeude.breite', { breite: infoMeter(o.breite) })
+  const wo = t('dreid.info.geschoss', { name: geschoss.name })
+  const offen = oeffnungOffen(o)
+  if (o.type === 'fenster')
+    return {
+      offen,
+      info: {
+        titel: t('dreid.gebaeude.fenster'),
+        zeilen: [
+          breite,
+          t('dreid.gebaeude.bruestungUndHoehe', {
+            bruestung: infoMeter(fensterBruestung(o)),
+            hoehe: infoMeter(fensterHoehe(o)),
+          }),
+          wo,
+        ],
+      },
+    }
+  if (o.type === 'tuer')
+    return {
+      offen,
+      info: {
+        titel: t('dreid.gebaeude.tuer'),
+        zeilen: [breite, t('dreid.info.hoehe', { hoehe: infoMeter(tuerHoehe(o)) }), wo],
+      },
+    }
+  return {
+    offen,
+    info: {
+      titel: t('dreid.gebaeude.wanddurchbruch'),
+      zeilen: [breite, t('dreid.info.hoehe', { hoehe: infoMeter(DURCHBRUCH_HOEHE_METER) }), wo],
+    },
+  }
+}
+
+function treppenPrismen(
+  treppe: TreppenObjekt,
+  blatt: Blatt,
+  geschoss: ExportGeschoss,
+  geschossHoehe: number,
+  m: (p: Point) => Point,
+): SzenenPrisma[] {
+  const { platten, steigungen, steigung } = treppenTrittplatten(treppe, geschossHoehe)
+  const info = {
+    titel: t('dreid.gebaeude.treppe', { form: treppenFormText(treppe.form) }),
+    zeilen: [
+      t('dreid.gebaeude.steigungen', { n: steigungen, cm: String(Math.round(steigung * 100)) }),
+      t('dreid.info.geschoss', { name: geschoss.name }),
+    ],
+  }
+  return platten.map((p) => ({
+    id: treppe.id,
+    blattId: blatt.id,
+    art: 'treppe',
+    grundriss: p.polygon.map(m),
+    z: geschoss.kote + p.z,
+    hoehe: p.hoehe,
+    farbe: TREPPE_FARBE,
+    deckkraft: TREPPE_DECKKRAFT,
+    info,
+  }))
+}
+
+function bodenplattenPrisma(
+  platte: BodenplattenObjekt,
+  blatt: Blatt,
+  geschoss: ExportGeschoss,
+  m: (p: Point) => Point,
+): SzenenPrisma {
+  return {
+    id: platte.id,
+    blattId: blatt.id,
+    art: 'boden',
+    grundriss: platte.punkte.map(m),
+    z: geschoss.kote + platte.oberkante - platte.staerke,
+    hoehe: platte.staerke,
+    farbe: BODEN_FARBE,
+    deckkraft: BODEN_DECKKRAFT,
+    info: {
+      titel: t('dreid.gebaeude.bodenplatte'),
+      zeilen: [
+        t('dreid.gebaeude.staerke', { cm: String(Math.round(platte.staerke * 100)) }),
+        t('dreid.gebaeude.oberkante', {
+          wert: `${platte.oberkante >= 0 ? '+' : '−'}${infoMeter(Math.abs(platte.oberkante))}`,
+        }),
+        t('dreid.info.geschoss', { name: geschoss.name }),
+      ],
+    },
+  }
+}
+
+function rechteckUmWaende(waende: readonly WandObjekt[]): Point[][] {
+  const punkte = waende.flatMap((w) =>
+    w.punkte.flatMap((p) => [
+      { x: p.x - w.staerke / 2, y: p.y - w.staerke / 2 },
+      { x: p.x + w.staerke / 2, y: p.y + w.staerke / 2 },
+    ]),
+  )
+  if (punkte.length === 0) return []
+  const xs = punkte.map((p) => p.x)
+  const ys = punkte.map((p) => p.y)
+  const [x1, x2, y1, y2] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)]
+  return [
+    [
+      { x: x1, y: y1 },
+      { x: x2, y: y1 },
+      { x: x2, y: y2 },
+      { x: x1, y: y2 },
+    ],
+  ]
+}

@@ -1,0 +1,200 @@
+.kxi-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 105;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 22, 26, 0.5);
+  font-family: inherit;
+}
+
+.kxi-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(1180px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  padding: 14px 16px;
+  box-sizing: border-box;
+  background: var(--flaeche, #ffffff);
+  color: var(--text, #171a1f);
+  border-radius: var(--radius-l, 14px);
+  box-shadow: var(--schatten-3, 0 20px 48px rgba(19, 29, 50, 0.18));
+  font-size: 13px;
+}
+
+.kxi-dialog h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.kxi-dialog h3 {
+  margin: 12px 0 6px;
+  font-size: 13px;
+}
+
+.kxi-dialog button {
+  font: inherit;
+  padding: 5px 10px;
+  border: 1px solid var(--rand-stark, #c4cbd5);
+  border-radius: var(--radius-s, 6px);
+  background: var(--flaeche, #ffffff);
+  color: inherit;
+  cursor: pointer;
+}
+
+.kxi-dialog button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.kxi-dialog button.kxi-primaer {
+  background: var(--akzent, #2f7dd1);
+  border-color: var(--akzent, #2f7dd1);
+  color: var(--akzent-kontrast, #ffffff);
+}
+
+.kxi-dialog button.kxi-klein {
+  padding: 1px 6px;
+  font-size: 12px;
+}
+
+.kxi-hinweis,
+.kxi-leer {
+  margin: 0;
+  color: var(--text-schwach, #5b6573);
+  line-height: 1.45;
+}
+
+.kxi-schritte {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kxi-schritt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.kxi-nummer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--akzent-hell, #e3eefb);
+  color: var(--akzent, #2f7dd1);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.kxi-auswahl {
+  color: var(--text-schwach, #5b6573);
+}
+
+.kxi-vorschau {
+  flex: 1;
+  min-height: 160px;
+  overflow: auto;
+  border: 1px solid var(--rand, #e1e5eb);
+  border-radius: var(--radius-s, 6px);
+  padding: 8px;
+}
+
+.kxi-tabelle {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.kxi-tabelle th,
+.kxi-tabelle td {
+  text-align: left;
+  vertical-align: top;
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--rand, #e1e5eb);
+}
+
+.kxi-tabelle th {
+  position: sticky;
+  top: 0;
+  background: var(--flaeche-gedaempft, #f4f6f8);
+  font-weight: 600;
+}
+
+.kxi-status {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.kxi-status-neu {
+  background: #e2f4e6;
+  color: #1d6b32;
+}
+
+.kxi-status-aktualisiert {
+  background: #e3eefb;
+  color: #1f5fbf;
+}
+
+.kxi-status-fehler {
+  background: #fbe4e2;
+  color: #a3261c;
+}
+
+.kxi-grafik {
+  white-space: nowrap;
+}
+
+.kxi-grafik-name {
+  display: inline-block;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.kxi-grafik-fehlt .kxi-grafik-name {
+  color: #a3261c;
+}
+
+.kxi-grafik-leer .kxi-grafik-name,
+.kxi-grafik-bestehend .kxi-grafik-name {
+  color: var(--text-schwach, #5b6573);
+}
+
+.kxi-meldungen {
+  font-size: 12px;
+  color: var(--text-schwach, #5b6573);
+}
+
+.kxi-fehler {
+  color: #a3261c;
+}
+
+.kxi-dateifehler {
+  padding: 6px 8px;
+  border-radius: var(--radius-s, 6px);
+  background: #fbe4e2;
+  color: #a3261c;
+}
+
+.kxi-fuss {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kxi-zusammenfassung {
+  flex: 1;
+  text-align: right;
+  color: var(--text-schwach, #5b6573);
+}

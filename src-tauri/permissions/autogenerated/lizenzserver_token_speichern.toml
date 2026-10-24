@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-lizenzserver-token-speichern"
+description = "Enables the lizenzserver_token_speichern command without any pre-configured scope."
+commands.allow = ["lizenzserver_token_speichern"]
+
+[[permission]]
+identifier = "deny-lizenzserver-token-speichern"
+description = "Denies the lizenzserver_token_speichern command without any pre-configured scope."
+commands.deny = ["lizenzserver_token_speichern"]

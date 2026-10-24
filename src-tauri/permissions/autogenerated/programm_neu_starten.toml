@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-programm-neu-starten"
+description = "Enables the programm_neu_starten command without any pre-configured scope."
+commands.allow = ["programm_neu_starten"]
+
+[[permission]]
+identifier = "deny-programm-neu-starten"
+description = "Denies the programm_neu_starten command without any pre-configured scope."
+commands.deny = ["programm_neu_starten"]

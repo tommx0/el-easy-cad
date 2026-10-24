@@ -1,0 +1,50 @@
+{
+  "name": "el-easy-cad",
+  "private": true,
+  "version": "0.12.1",
+  "type": "module",
+  "scripts": {
+    "dev": "node skripte/dev.mjs",
+    "dev:web": "node skripte/erzeuge-katalog-seed-index.mjs && vite",
+    "dev:server": "node skripte/erzeuge-katalog-seed-index.mjs && tsx watch server/index.ts",
+    "start": "node skripte/start.mjs",
+    "build": "node skripte/erzeuge-katalog-seed-index.mjs && tsc -b && vite build",
+    "tauri": "tauri",
+    "build:win-tauri": "node skripte/tauri-sidecar-vorbereiten.mjs && node skripte/tauri-bauen.mjs build --target x86_64-pc-windows-msvc",
+    "preview": "vite preview",
+    "typecheck": "node skripte/erzeuge-katalog-seed-index.mjs && tsc -b"
+  },
+  "dependencies": {
+    "@fastify/static": "^10.1.3",
+    "@tauri-apps/api": "^2.9.0",
+    "@tauri-apps/plugin-dialog": "^2.4.0",
+    "@tauri-apps/plugin-fs": "^2.4.4",
+    "dxf-parser": "^1.1.2",
+    "exceljs": "^4.4.0",
+    "fastify": "^5.12.1",
+    "fflate": "^0.8.3",
+    "idb": "^8.0.3",
+    "jspdf": "^4.2.1",
+    "pdfjs-dist": "^6.3.289",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "three": "^0.186.1",
+    "web-ifc": "0.0.78",
+    "zod": "^4.5.4",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.11.4",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.0",
+    "esbuild": "^0.28.2",
+    "javascript-obfuscator": "^5.6.0",
+    "tsx": "^4.23.13",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.2"
+  },
+  "packageManager": "pnpm@12.8.1"
+}

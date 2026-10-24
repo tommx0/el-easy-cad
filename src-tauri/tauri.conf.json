@@ -28,7 +28,9 @@
     "externalBin": ["binaries/node"],
     "resources": {
       "resources/server.cjs": "server.cjs",
-      "resources/dist": "dist"
+      "resources/dist": "dist",
+      "../LICENSE": "LICENSE",
+      "../LICENSES.md": "LICENSES.md"
     }
   }
 }

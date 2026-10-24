@@ -134,7 +134,6 @@ import { gleicheInstallationszonenAb, zonenNichtImBestand } from './installation
 import { useSettingsStore } from './store/settings-store'
 import { istBemassungVariante } from './bemassung-varianten'
 import { uebernehmeSlots } from './slots-uebernehmen'
-import { DATENSCHUTZ_STAND } from './dialogs/DatenschutzInhalt'
 import { VIDEOS } from './handbuch/videos'
 import { AppContext } from './use-app-context'
 import { verbindeSpracheMitEinstellungen } from './sprache-anbindung'
@@ -319,11 +318,6 @@ function erzeugeAppKontext(): AppKontext {
 
   const einstellungenGeladen = uebernehmeAlteEinstellungen(settingsStore)
     .then(() => useSettingsStore.getState().laden(settingsStore))
-    .then(() => {
-      if (useSettingsStore.getState().datenschutzAkzeptiertStand !== DATENSCHUTZ_STAND) {
-        useUiStore.getState().setDatenschutzBestaetigungOffen(true)
-      }
-    })
     .catch(() => undefined)
 
   async function pruefeServer(versuche = 1): Promise<boolean> {

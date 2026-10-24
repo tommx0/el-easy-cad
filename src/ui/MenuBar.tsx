@@ -617,7 +617,6 @@ export function MenuBar() {
         <Befehl schliesse={schliessen} id="hilfe.ueber" icon={<IconInfo />} />
         <Befehl schliesse={schliessen} id="hilfe.meine-lizenz" icon={<IconParagraf />} />
         <Befehl schliesse={schliessen} id="hilfe.lizenzen" icon={<IconParagraf />} />
-        <Befehl schliesse={schliessen} id="hilfe.datenschutz" icon={<IconParagraf />} />
         <MenuTrenner />
         <Befehl schliesse={schliessen} id="hilfe.fehlerprotokoll" icon={<IconFehlerprotokoll />} />
       </Menu>

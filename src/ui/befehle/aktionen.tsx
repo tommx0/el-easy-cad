@@ -675,7 +675,6 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     'hilfe.meine-lizenz': { ausfuehren: () => ui().setMeineLizenzDialogOffen(true) },
     'hilfe.unterstuetzen': { ausfuehren: () => void oeffneAdresse(GITHUB_SPONSORS_URL) },
     'hilfe.lizenzen': { ausfuehren: () => ui().setLizenzenDialogOffen(true) },
-    'hilfe.datenschutz': { ausfuehren: () => ui().setDatenschutzDialogOffen(true) },
     'hilfe.fehlerprotokoll': { ausfuehren: () => ui().setFehlerprotokollDialogOffen(true) },
   }
 

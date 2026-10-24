@@ -17,7 +17,6 @@ import { BlattVerwaltungDialog } from './dialogs/BlattVerwaltungDialog'
 import { EinstellungenDialog } from './dialogs/EinstellungenDialog'
 import { UeberDialog } from './dialogs/UeberDialog'
 import { LizenzenDialog } from './dialogs/LizenzenDialog'
-import { DatenschutzDialog } from './dialogs/DatenschutzDialog'
 import { MeineLizenzDialog } from './dialogs/MeineLizenzDialog'
 import { FehlerprotokollDialog } from './dialogs/FehlerprotokollDialog'
 import { TastenkuerzelDialog } from './dialogs/TastenkuerzelDialog'
@@ -72,7 +71,6 @@ import './App.css'
 import { ServerHinweis } from './ServerHinweis'
 import { ProduktlizenzSperre } from './ProduktlizenzSperre'
 import { DemoHinweisDialog } from './DemoHinweisDialog'
-import { DatenschutzBestaetigungDialog } from './DatenschutzBestaetigungDialog'
 import { ProjekteDialog } from './dialogs/ProjekteDialog'
 import { EinfuehrungDialog } from './dialogs/EinfuehrungDialog'
 import { useSprache } from './sprache-anbindung'
@@ -190,7 +188,6 @@ function AppInhalt() {
       <EinstellungenDialog />
       <UeberDialog />
       <LizenzenDialog />
-      <DatenschutzDialog />
       <MeineLizenzDialog />
       <FehlerprotokollDialog />
       <TastenkuerzelDialog />
@@ -247,7 +244,6 @@ export function App() {
   return (
     <AppProvider>
       <AppInhalt />
-      <DatenschutzBestaetigungDialog />
     </AppProvider>
   )
 }

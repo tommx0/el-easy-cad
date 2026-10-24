@@ -408,7 +408,7 @@ pub fn run() {
                 name: Some(app.package_info().name.clone()),
                 version: Some(app.package_info().version.to_string()),
                 copyright: Some("© 2026 Thomas Marx".into()),
-
+                credits: Some("github.com/tommx0/el-easy-cad".into()),
                 ..Default::default()
             };
             let fenster_menu = tauri::menu::Submenu::with_id_and_items(

@@ -36,13 +36,7 @@ Unternehmens. Alles Übrige in diesem Handbuch gilt unverändert.
 :::nur-desktop
 ## Beim Programmstart {#programmstart}
 
-Bevor Sie arbeiten können, fragt das Programm eines ab:
-
-- **Datenschutzerklärung** – beim allerersten Start und wieder, wenn sich die Erklärung inhaltlich
-  geändert hat. „Gelesen und akzeptiert“ merkt sich die Zustimmung, „Programm beenden“ schließt
-  das Programm.
-
-Danach folgt die Projektübersicht. Ohne kommerzielle Lizenz erscheint beim ersten Start und
+Das Programm öffnet mit der Projektübersicht. Ohne kommerzielle Lizenz erscheint beim ersten Start und
 nach jedem Update außerdem der Hinweis auf die nicht kommerzielle Nutzung, siehe [Programmfassung und Lizenz](#lizenz).
 :::
 

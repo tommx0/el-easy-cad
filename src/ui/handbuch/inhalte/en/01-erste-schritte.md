@@ -38,12 +38,7 @@ In the cloud edition you sign in, and your projects are stored on your company's
 :::nur-desktop
 ## When the program starts {#programmstart}
 
-Before you can start working, the program asks one thing:
-
-- **Privacy policy** – on the very first start, and again whenever its content has changed. “Read
-  and accepted” records your consent; “Quit program” closes the program.
-
-Afterwards comes the project overview. Without a commercial licence, a notice about non-commercial use
+The program opens with the project overview. Without a commercial licence, a notice about non-commercial use
 also appears at the first start and after every update,
 see [Program edition and licence](#lizenz).
 :::

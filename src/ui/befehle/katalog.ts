@@ -353,11 +353,6 @@ const UEBRIGE: Befehl[] = [
     standard: null,
   },
   {
-    id: 'hilfe.datenschutz',
-    gruppe: 'hilfe',
-    standard: null,
-  },
-  {
     id: 'hilfe.fehlerprotokoll',
     gruppe: 'hilfe',
     standard: null,

@@ -1,6 +1,7 @@
 import { useT } from '../sprache-anbindung'
 import { useUiStore } from '../store/ui-store'
-import { UnterstuetzenVerweise } from '../UnterstuetzenVerweise'
+import { PROJEKT_URL } from '../community'
+import { UnterstuetzenVerweise, Verweis } from '../UnterstuetzenVerweise'
 
 export function UeberDialog() {
   const t = useT()
@@ -23,8 +24,11 @@ export function UeberDialog() {
           {t('verwaltungsdialoge.ueber.version', { version: __APP_VERSION__ })}
         </p>
         <p className="dialog-hinweis">{t('community.ueber.lizenz')}</p>
+        <p className="dialog-hinweis">{t('community.ueber.keineDaten')}</p>
         <UnterstuetzenVerweise />
-        <p className="dialog-copyright">© 2026 Thomas Marx</p>
+        <p className="dialog-copyright">
+          © 2026 Thomas Marx · <Verweis url={PROJEKT_URL}>github.com/tommx0/el-easy-cad</Verweis>
+        </p>
         <div className="dialog-aktionen">
           <button type="button" onClick={oeffneLizenzen}>
             {t('verwaltungsdialoge.ueber.lizenzen')}

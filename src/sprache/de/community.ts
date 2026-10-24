@@ -48,5 +48,8 @@ export const community = {
     lizenz:
       'Quellcode unter PolyForm Noncommercial 1.0.0: kostenlos für jede nicht kommerzielle ' +
       'Nutzung. Für die kommerzielle Nutzung gibt es eine Unterstützer-Lizenz.',
+    keineDaten:
+      'Das Programm überträgt keine Daten: Projekte und Einstellungen bleiben auf Ihrem Rechner, ' +
+      'es gibt keine Telemetrie und keine Analyse.',
   },
 }

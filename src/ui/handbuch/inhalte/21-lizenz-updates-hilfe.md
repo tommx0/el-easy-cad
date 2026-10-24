@@ -71,8 +71,9 @@ beheben Fehler und schließen Sicherheitslücken.
 
 ## Datenschutz {#datenschutz}
 
-{{befehl:hilfe.datenschutz}} zeigt die Datenschutzerklärung: Ihre Projektdaten bleiben auf Ihrem
-Rechner, es gibt keine Telemetrie und keine Analyse.
+Das Programm überträgt keine Daten: Ihre Projekte und Einstellungen bleiben auf Ihrem Rechner, es
+gibt keine Telemetrie und keine Analyse. Das steht auch unter {{befehl:hilfe.ueber}}, zusammen mit
+dem Verweis auf die Projektseite.
 
 ## Fehlerprotokoll {#fehlerprotokoll}
 

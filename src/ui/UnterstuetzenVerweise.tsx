@@ -2,7 +2,7 @@ import { oeffneAdresse } from '../persistence'
 import { GITHUB_SPONSORS_URL, PATREON_URL } from './community'
 import { useT } from './sprache-anbindung'
 
-function Verweis({ url, children }: { url: string; children: string }) {
+export function Verweis({ url, children }: { url: string; children: string }) {
   return (
     <a
       href={url}

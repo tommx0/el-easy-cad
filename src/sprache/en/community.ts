@@ -49,5 +49,8 @@ export const community: Texte['community'] = {
     lizenz:
       'Source code under PolyForm Noncommercial 1.0.0: free for any non-commercial use. For ' +
       'commercial use there is a supporter licence.',
+    keineDaten:
+      'The program does not transmit any data: projects and settings stay on your computer, ' +
+      'with no telemetry and no analytics.',
   },
 }

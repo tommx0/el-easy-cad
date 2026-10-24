@@ -68,8 +68,9 @@ security gaps.
 
 ## Privacy {#datenschutz}
 
-{{befehl:hilfe.datenschutz}} shows the privacy policy: your project data stays on your computer,
-and there is no telemetry and no analytics.
+The program does not transmit any data: your projects and settings stay on your computer, and
+there is no telemetry and no analytics. {{befehl:hilfe.ueber}} says so too, together with the link
+to the project page.
 
 ## Error log {#fehlerprotokoll}
 

@@ -1,6 +1,6 @@
 use keyring::Entry;
 
-const KEYRING_DIENST: &str = "de.eleasycad.desktop.tauri";
+const KEYRING_DIENST: &str = "de.eleasycad.community";
 const KEYRING_KONTO: &str = "demo-start";
 
 fn keyring_eintrag() -> Result<Entry, String> {

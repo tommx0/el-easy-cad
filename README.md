@@ -16,6 +16,16 @@ file, nothing is sent anywhere.
 
 > The user interface and the built-in manual are available in German and English.
 
+## Screenshots
+
+![Floor plan with components, routed cables, a trunk and parts lists](public/handbuch/oberflaeche.png)
+*Floor plan with components, automatically routed cables, a trunk and parts lists on the sheet
+(German user interface; English is available too).*
+
+| Distribution board plan | 3D view |
+|---|---|
+| ![Distribution board plan generated from the cables](public/handbuch/ablauf-leitungen-verteilerplan.png) | ![3D view of two storeys](public/handbuch/ablauf-etagen-3d.png) |
+
 ## Licence
 
 el.easy.CAD Community is licensed under the

@@ -17,22 +17,9 @@ auf Planseiten ein kleiner Stempel oben rechts und eine Zeile im Kleingedruckten
 selbst bleibt frei. Beim ersten Start und nach jedem Update erklärt ein kurzer Hinweis, was das
 bedeutet.
 
-**Unterstützer-Lizenz:** Für die gewerbliche oder berufliche Nutzung brauchen Sie eine
-Unterstützer-Lizenz. Sie erhalten sie als Datei, wenn Sie das Projekt unterstützen (siehe
-[Projekt unterstützen](#unterstuetzen)). {{befehl:hilfe.meine-lizenz}} zeigt Ihre Lizenz: auf wen
-sie läuft, Ihre Unterstützer-Stufe, ob sie die kommerzielle Nutzung erlaubt und für welchen
-Zeitraum sie gilt. Dort spielen Sie die Lizenzdatei auch ein.
-
-- Erlaubt Ihre Stufe die kommerzielle Nutzung, entfallen Stempel und Hinweis. Kopfzeile und
-  Kleingedrucktes nennen stattdessen „Offizieller Unterstützer des Projektes“ mit Ihrer Stufe.
-- Erlaubt sie die kommerzielle Nutzung nicht, erscheinen beide Angaben: Ihre Stufe und der
-  Hinweis auf die nicht kommerzielle Nutzung.
-- Läuft die Lizenz ab, gilt wieder die nicht kommerzielle Nutzung; gesperrt wird nichts. Ein
-  Hinweis beim Start nennt das Ablaufdatum.
-
-Zeichnungen, die Sie ohne kommerzielle Lizenz angelegt haben, behalten einen Vermerk darüber –
-auch später mit Lizenz. Beim Öffnen einer solchen Zeichnung erscheint dann ein kurzer Hinweis;
-einen Stempel bekommt sie dadurch nicht.
+Eine gewerbliche oder berufliche Nutzung erlaubt die Lizenz nicht. {{befehl:hilfe.meine-lizenz}}
+zeigt, unter welcher Lizenz das Programm läuft; eine Lizenzdatei, die Sie erhalten haben, spielen
+Sie dort ein.
 :::
 
 :::nur-cloud
@@ -43,16 +30,6 @@ Sie nicht. Läuft der Vertragszeitraum ab, weist ein Hinweis rechtzeitig darauf 
 :::
 
 {{befehl:hilfe.lizenzen}} listet die verwendeten Fremdbibliotheken mit ihren Lizenzen.
-
-:::nur-desktop
-## Projekt unterstützen {#unterstuetzen}
-
-{{befehl:hilfe.unterstuetzen}} öffnet die Unterstützerseite des Projekts in Ihrem Browser. Dort
-wählen Sie eine Stufe; welche Stufen die kommerzielle Nutzung erlauben, steht auf der Seite. Die
-Lizenzdatei erhalten Sie danach vom Projekt. Dieselben Verweise stehen im Hinweis beim Start, in
-„Meine Lizenz“ und unter {{befehl:hilfe.ueber}}. Das Programm selbst überträgt dabei nichts – es
-öffnet nur die Seite.
-:::
 
 :::nur-cloud
 ## Neue Fassungen {#updates}

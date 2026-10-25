@@ -1,8 +1,6 @@
 import type { ProduktlizenzStatus } from '../persistence'
 import type { Uebersetzer } from '../sprache'
 
-export const GITHUB_SPONSORS_URL = 'https://github.com/sponsors/tommx0'
-export const PATREON_URL = ''
 export const PROJEKT_URL = 'https://github.com/tommx0/el-easy-cad'
 
 export function hinweisAktiv(status: ProduktlizenzStatus | null | undefined): boolean {

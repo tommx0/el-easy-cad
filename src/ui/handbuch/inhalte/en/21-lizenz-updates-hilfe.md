@@ -16,21 +16,8 @@ export carries a note to that effect: on plan pages a small stamp at the top rig
 the small print. The drawing area itself stays clear. At the first start and after every update, a
 short notice explains what this means.
 
-**Supporter licence:** For business or professional use you need a supporter licence. You receive
-it as a file when you support the project (see [Support the project](#unterstuetzen)).
-{{befehl:hilfe.meine-lizenz}} shows your licence: who it is issued to, your supporter tier, whether
-it permits commercial use and the period for which it is valid. You also install the licence file
-there.
-
-- If your tier permits commercial use, the stamp and the note disappear. Instead, the header and
-  the small print name you as “Official supporter of the project” with your tier.
-- If it does not permit commercial use, both appear: your tier and the note on non-commercial
-  use.
-- When the licence expires, non-commercial use applies again; nothing is locked. A notice at
-  start-up states the expiry date.
-
-Drawings that you created without a commercial licence keep a note about it – even later, with a
-licence. When you open such a drawing, a short notice appears; the drawing does not get a stamp.
+The licence does not permit business or professional use. {{befehl:hilfe.meine-lizenz}} shows
+which licence the program runs under; if you have received a licence file, you install it there.
 :::
 
 :::nur-cloud
@@ -41,15 +28,6 @@ contract period runs out, a notice points this out in good time.
 :::
 
 {{befehl:hilfe.lizenzen}} lists the third-party libraries used, with their licences.
-
-:::nur-desktop
-## Support the project {#unterstuetzen}
-
-{{befehl:hilfe.unterstuetzen}} opens the project's supporter page in your browser. There you choose
-a tier; the page states which tiers permit commercial use. You then receive the licence file from
-the project. The same links appear in the notice at start-up, in “My licence” and under
-{{befehl:hilfe.ueber}}. The program itself transmits nothing – it only opens the page.
-:::
 
 :::nur-cloud
 ## New versions {#updates}

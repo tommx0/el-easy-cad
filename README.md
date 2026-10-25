@@ -24,10 +24,7 @@ el.easy.CAD Community is licensed under the
 - **Free for any non-commercial use** – private persons, non-profit organisations, schools and
   public institutions as defined by the licence. All features, no time limit. Printouts and
   exports carry the note “Non-commercial use”.
-- **Commercial or professional use requires a supporter licence.** You receive it as a licence
-  file when you support the project via [GitHub Sponsors](https://github.com/sponsors/tommx0).
-  Which tiers include commercial use is stated on the sponsor page. With such a licence the note
-  disappears and printouts name you as an official supporter of the project.
+- **Commercial or professional use is not permitted** under this licence.
 
 The licence text in [LICENSE](LICENSE) is binding. Third-party libraries and their licences are
 listed in [LICENSES.md](LICENSES.md) and in the app under *Hilfe › Lizenzen der
@@ -107,11 +104,8 @@ automatisch verlegen, in Trunks und Kabelschächten über Etagen führen und jed
 Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. KNX Tastsensor oder Schalterkanäle zu Leuchten oder Geräten hinzufüge... kein Problem. Alles läuft auf Ihrem Rechner, es werden keine Daten übertragen.
 
 **Lizenz:** PolyForm Noncommercial 1.0.0 – kostenlos für jede nicht kommerzielle Nutzung, mit
-vollem Funktionsumfang und ohne Zeitbegrenzung. Für die gewerbliche oder berufliche Nutzung
-brauchen Sie eine Unterstützer-Lizenz, die Sie erhalten, wenn Sie das Projekt über
-[GitHub Sponsors](https://github.com/sponsors/tommx0) unterstützen. Welche Stufen die kommerzielle
-Nutzung erlauben, steht auf der Unterstützerseite. Verbindlich ist der englische Lizenztext in
-[LICENSE](LICENSE).
+vollem Funktionsumfang und ohne Zeitbegrenzung. Eine gewerbliche oder berufliche Nutzung erlaubt
+die Lizenz nicht. Verbindlich ist der englische Lizenztext in [LICENSE](LICENSE).
 
 **Herunterladen:** fertige Apps für macOS und Windows unter *Releases*, ohne kommerzielle
 Signatur (macOS: Rechtsklick › Öffnen; Windows: „Weitere Informationen › Trotzdem ausführen“).

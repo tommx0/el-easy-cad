@@ -1,7 +1,7 @@
 import { useT } from '../sprache-anbindung'
 import { useUiStore } from '../store/ui-store'
 import { PROJEKT_URL } from '../community'
-import { UnterstuetzenVerweise, Verweis } from '../UnterstuetzenVerweise'
+import { Verweis } from '../Verweis'
 import { LizenztextKnopf } from './LizenztextDialog'
 
 export function UeberDialog() {
@@ -26,7 +26,6 @@ export function UeberDialog() {
         </p>
         <p className="dialog-hinweis">{t('community.ueber.lizenz')}</p>
         <p className="dialog-hinweis">{t('community.ueber.keineDaten')}</p>
-        <UnterstuetzenVerweise />
         <p className="dialog-copyright">
           © 2026 Thomas Marx · <Verweis url={PROJEKT_URL}>github.com/tommx0/el-easy-cad</Verweis>
         </p>

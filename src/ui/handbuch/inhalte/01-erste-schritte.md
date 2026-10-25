@@ -36,8 +36,8 @@ Unternehmens. Alles Übrige in diesem Handbuch gilt unverändert.
 :::nur-desktop
 ## Beim Programmstart {#programmstart}
 
-Das Programm öffnet mit der Projektübersicht. Ohne kommerzielle Lizenz erscheint beim ersten Start und
-nach jedem Update außerdem der Hinweis auf die nicht kommerzielle Nutzung, siehe [Programmfassung und Lizenz](#lizenz).
+Das Programm öffnet mit der Projektübersicht. Beim ersten Start und nach jedem Update erscheint
+außerdem der Hinweis auf die nicht kommerzielle Nutzung, siehe [Programmfassung und Lizenz](#lizenz).
 :::
 
 ## Das erste Projekt in zehn Minuten {#erstes-projekt}

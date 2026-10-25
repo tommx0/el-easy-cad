@@ -38,8 +38,8 @@ In the cloud edition you sign in, and your projects are stored on your company's
 :::nur-desktop
 ## When the program starts {#programmstart}
 
-The program opens with the project overview. Without a commercial licence, a notice about non-commercial use
-also appears at the first start and after every update,
+The program opens with the project overview. At the first start and after every update, a notice
+about non-commercial use also appears,
 see [Program edition and licence](#lizenz).
 :::
 

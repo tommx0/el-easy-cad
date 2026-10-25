@@ -53,8 +53,7 @@ import { BEFEHLE, BEFEHL_NACH_ID, kuerzelPartner } from './katalog'
 import { werkzeugPasstZuZeichnungsart } from '../werkzeugleiste-reihenfolge'
 import { FANGART_BEFEHL_ID } from '../objektfang-namen'
 import { erzeugeUebersetzer } from '../../sprache'
-import { ausgabeZeile, GITHUB_SPONSORS_URL, hinweisAktiv } from '../community'
-import { oeffneAdresse } from '../../persistence'
+import { ausgabeZeile, hinweisAktiv } from '../community'
 import { planspracheVon } from '../../document-model'
 import { useT } from '../sprache-anbindung'
 
@@ -673,7 +672,6 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     },
     'hilfe.ueber': { ausfuehren: () => ui().setUeberDialogOffen(true) },
     'hilfe.meine-lizenz': { ausfuehren: () => ui().setMeineLizenzDialogOffen(true) },
-    'hilfe.unterstuetzen': { ausfuehren: () => void oeffneAdresse(GITHUB_SPONSORS_URL) },
     'hilfe.lizenzen': { ausfuehren: () => ui().setLizenzenDialogOffen(true) },
     'hilfe.fehlerprotokoll': { ausfuehren: () => ui().setFehlerprotokollDialogOffen(true) },
   }

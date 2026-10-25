@@ -7,7 +7,6 @@ import { useT } from '../sprache-anbindung'
 import { useUiStore } from '../store/ui-store'
 import { useAppContext } from '../use-app-context'
 import { lizenzStatusText } from '../community'
-import { UnterstuetzenVerweise } from '../UnterstuetzenVerweise'
 import { LizenztextKnopf } from './LizenztextDialog'
 
 function restTageText(tage: number | null): string {
@@ -131,8 +130,6 @@ export function MeineLizenzDialog() {
         ) : (
           <p className="dialog-hinweis">{t('verwaltungsdialoge.meineLizenz.wirdGeprueft')}</p>
         )}
-
-        <UnterstuetzenVerweise />
 
         <h3>{t('verwaltungsdialoge.meineLizenz.austauschen')}</h3>
         <DateiAustausch />

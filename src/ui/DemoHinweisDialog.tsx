@@ -4,7 +4,6 @@ import { useUiStore } from './store/ui-store'
 import { useSettingsStore } from './store/settings-store'
 import { useAppContext } from './use-app-context'
 import { useT } from './sprache-anbindung'
-import { UnterstuetzenVerweise } from './UnterstuetzenVerweise'
 
 export function DemoHinweisDialog(_props: { resttage: number }) {
   const { settingsStore } = useAppContext()
@@ -47,11 +46,12 @@ export function DemoHinweisDialog(_props: { resttage: number }) {
         )}
         <p>{t('community.start.kostenlos')}</p>
         <p>{t('community.start.gewerblich')}</p>
-        <UnterstuetzenVerweise />
         <div className="dialog-aktionen">
-          <button type="button" onClick={oeffneMeineLizenz}>
-            {t('community.start.lizenzEinspielen')}
-          </button>
+          {lizenzProblem && (
+            <button type="button" onClick={oeffneMeineLizenz}>
+              {t('community.start.lizenzEinspielen')}
+            </button>
+          )}
           <button type="button" className="primaer" onClick={schliessen}>
             {t('community.start.verstanden')}
           </button>

@@ -27,7 +27,10 @@
     },
     {
       "identifier": "opener:allow-open-url",
-      "allow": [{ "url": "https://github.com/sponsors/*" }, { "url": "https://www.patreon.com/*" }]
+      "allow": [
+        { "url": "https://github.com/tommx0/el-easy-cad" },
+        { "url": "https://github.com/tommx0/el-easy-cad/*" }
+      ]
     }
   ]
 }

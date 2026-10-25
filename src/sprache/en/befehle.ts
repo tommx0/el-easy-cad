@@ -171,7 +171,6 @@ export const befehle: Texte['befehle'] = {
     einfuehrung: 'Getting started…',
     ueber: 'About el.easy.CAD',
     'meine-lizenz': 'My licence…',
-    unterstuetzen: 'Support el.easy.CAD…',
     lizenzen: 'Third-party library licences…',
     datenschutz: 'Privacy policy…',
     fehlerprotokoll: 'Error log…',

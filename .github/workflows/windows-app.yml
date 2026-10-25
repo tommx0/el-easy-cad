@@ -1,0 +1,58 @@
+name: Windows-App
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release-Tag, an das der Installer angehaengt wird
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ env.TAG }}
+
+      - name: pnpm einrichten
+        uses: pnpm/action-setup@v6
+
+      - name: Node einrichten
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Rust einrichten
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+
+      - name: Rust-Cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+
+      - name: Abhaengigkeiten installieren
+        run: pnpm install --frozen-lockfile
+
+      - name: Sidecar vorbereiten
+        run: node skripte/tauri-sidecar-vorbereiten.mjs
+
+      - name: Windows-App bauen
+        run: node skripte/tauri-bauen.mjs build --target x86_64-pc-windows-msvc
+
+      - name: Installer an das Release haengen
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$TAG" src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/*.exe --clobber

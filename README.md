@@ -1,14 +1,17 @@
 # el.easy.CAD Community
 
+I'm still working on this page and also the app – it’ll be improved bit by bit. I’ll be adding more information soon. Feel free to test this app. Please read the manual in the program. There are still some issues with workflows and usability. The development is still in progress. The development is still in progress.
+
+Ich arbeite and dieser Seite und werde sie sowie das Programm stetig verbessern. Weitere Informationen werden bald nachgepflegt. Bitte lest Euch die Online Bedienungsanleitung durch. Noch gibt es einige Verbesserungen in der Bendienbarkeit und den workflows. Die Entwicklung ist noch im Gange. Es handelt sich um eine Entwicklungsversion.
 *Deutsche Fassung weiter unten.*
 
-el.easy.CAD is a desktop CAD tool for electrical and network installation planning. Load a floor
+el.easy.CAD is a desktop Planning tool for electrical, KNX channel and network installation planning. Load a floor
 plan (PDF, DXF, IFC or image) as background, calibrate it, place components from a product
 catalogue, route cables automatically, bundle them in trunks and cable risers across storeys, and
 print or export every sheet as PDF, Excel or IFC. It also draws schematics and distribution board
 diagrams.
 
-The application runs entirely on your computer: a small local server stores projects in a SQLite
+The application runs entirely on your computer (PC and MacOS): a small local server stores projects in a SQLite
 file, nothing is sent anywhere.
 
 > The user interface and the built-in manual are available in German and English.
@@ -98,11 +101,10 @@ Bug reports and suggestions are welcome as issues. Pull requests are not accepte
 
 ## Deutsch
 
-el.easy.CAD ist ein Desktop-CAD für die Elektro- und Netzwerkplanung: Grundriss als Hintergrund
+el.easy.CAD ist ein Desktop-CAD für die Elektro-, KNX Sensorkanalzuordnung und Netzwerkplanung: Grundriss als Hintergrund
 laden (PDF, DXF, IFC, Bild), kalibrieren, Komponenten aus dem Produktkatalog platzieren, Leitungen
 automatisch verlegen, in Trunks und Kabelschächten über Etagen führen und jedes Blatt als PDF,
-Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. Alles läuft auf Ihrem Rechner, es
-werden keine Daten übertragen.
+Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. KNX Tastsensor oder Schalterkanäle zu Leuchten oder Geräten hinzufüge... kein Problem. Alles läuft auf Ihrem Rechner, es werden keine Daten übertragen.
 
 **Lizenz:** PolyForm Noncommercial 1.0.0 – kostenlos für jede nicht kommerzielle Nutzung, mit
 vollem Funktionsumfang und ohne Zeitbegrenzung. Für die gewerbliche oder berufliche Nutzung

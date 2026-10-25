@@ -1,17 +1,17 @@
 # el.easy.CAD Community
 
-I'm still working on this page and also the app – it’ll be improved bit by bit. I’ll be adding more information soon. Feel free to test this app. Please read the manual in the program. There are still some issues with workflows and usability. The development is still in progress. The development is still in progress.
+I'm still working on this page and also the app – it’ll be improved bit by bit. I’ll be adding more information soon. Feel free to test this app. Please read the manual in the program. There are still some issues with workflows and usability. The development is still in progress.
 
-Ich arbeite and dieser Seite und werde sie sowie das Programm stetig verbessern. Weitere Informationen werden bald nachgepflegt. Bitte lest Euch die Online Bedienungsanleitung durch. Noch gibt es einige Verbesserungen in der Bendienbarkeit und den workflows. Die Entwicklung ist noch im Gange. Es handelt sich um eine Entwicklungsversion.
+Ich arbeite an dieser Seite und werde sie sowie das Programm stetig verbessern. Weitere Informationen werden bald nachgepflegt. Bitte lest Euch die Online-Bedienungsanleitung durch. Noch gibt es einige Verbesserungen in der Bedienbarkeit und den Workflows. Die Entwicklung ist noch im Gange. Es handelt sich um eine Entwicklungsversion.
 *Deutsche Fassung weiter unten.*
 
-el.easy.CAD is a desktop Planning tool for electrical, KNX channel and network installation planning. Load a floor
+el.easy.CAD is a desktop planning tool for electrical, KNX channel and network installation planning. Load a floor
 plan (PDF, DXF, IFC or image) as background, calibrate it, place components from a product
 catalogue, route cables automatically, bundle them in trunks and cable risers across storeys, and
 print or export every sheet as PDF, Excel or IFC. It also draws schematics and distribution board
 diagrams.
 
-The application runs entirely on your computer (PC and MacOS): a small local server stores projects in a SQLite
+The application runs entirely on your computer (PC and macOS): a small local server stores projects in a SQLite
 file, nothing is sent anywhere.
 
 > The user interface and the built-in manual are available in German and English.

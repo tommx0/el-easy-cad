@@ -30,6 +30,13 @@ The licence text in [LICENSE](LICENSE) is binding. Third-party libraries and the
 listed in [LICENSES.md](LICENSES.md) and in the app under *Hilfe › Lizenzen der
 Fremdbibliotheken*.
 
+## Disclaimer
+
+el.easy.CAD Community is a planning aid and comes without any warranty. Have every planning
+result checked by a qualified electrician before you use it. Responsibility for the planning and
+for compliance with the recognised rules of technology, in particular DIN VDE, remains with the
+user.
+
 ## Download
 
 Ready-made apps for macOS (Apple Silicon) and Windows are published under *Releases*. They are
@@ -106,6 +113,11 @@ Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. KNX Tastsenso
 **Lizenz:** PolyForm Noncommercial 1.0.0 – kostenlos für jede nicht kommerzielle Nutzung, mit
 vollem Funktionsumfang und ohne Zeitbegrenzung. Eine gewerbliche oder berufliche Nutzung erlaubt
 die Lizenz nicht. Verbindlich ist der englische Lizenztext in [LICENSE](LICENSE).
+
+**Haftungshinweis:** el.easy.CAD Community ist eine Planungshilfe und wird ohne Gewähr
+bereitgestellt. Lassen Sie jedes Planungsergebnis vor der Verwendung durch eine Elektrofachkraft
+prüfen. Die Verantwortung für die Planung und die Einhaltung der anerkannten Regeln der Technik,
+insbesondere DIN VDE, verbleibt beim Verwender.
 
 **Herunterladen:** fertige Apps für macOS und Windows unter *Releases*, ohne kommerzielle
 Signatur (macOS: Rechtsklick › Öffnen; Windows: „Weitere Informationen › Trotzdem ausführen“).

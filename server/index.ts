@@ -1,3 +1,4 @@
+import type { KeyObject } from 'node:crypto'
 import { seedKatalogRegister } from '../src/persistence/catalog-seed'
 import { seedKabeltypen } from '../src/persistence/kabeltyp-seed'
 import { seedInstallationszonen } from '../src/persistence/installationszonen-seed'
@@ -24,8 +25,6 @@ import {
 import { erzeugeServer } from './server'
 import { STDIO_SCHALTER, TOKEN_UMGEBUNG, starteStdioWeiterleitung } from './mcp/stdio-weiterleitung'
 
-const ENTWICKLUNGSBETRIEB = process.env.EL_EASY_CAD_ENTWICKLUNGSLIZENZ === '1'
-
 const ENTWICKLUNGS_LIZENZNEHMER = 'Entwicklung (pnpm dev)'
 
 function stelleEntwicklungslizenzSicher(konfiguration: Konfiguration): void {
@@ -51,7 +50,11 @@ function stelleEntwicklungslizenzSicher(konfiguration: Konfiguration): void {
 }
 
 async function starte(): Promise<void> {
-  const konfiguration = leseKonfiguration()
+  const konfiguration = leseKonfiguration(
+    typeof __ENTWICKLUNGSLIZENZ_GESPERRT__ === 'undefined'
+      ? process.env
+      : { ...process.env, EL_EASY_CAD_ENTWICKLUNGSLIZENZ: undefined },
+  )
 
   const prozessFehlerprotokollierer = erzeugeFehlerprotokollierer(
     konfiguration.fehlerprotokollDatei,
@@ -74,15 +77,20 @@ async function starte(): Promise<void> {
   })
 
   const { db, migration } = oeffneDatenbank(konfiguration.datenbankDatei)
-  if (ENTWICKLUNGSBETRIEB) stelleEntwicklungslizenzSicher(konfiguration)
+  let entwicklungsSchluessel: KeyObject | undefined
+  if (
+    typeof __ENTWICKLUNGSLIZENZ_GESPERRT__ === 'undefined' &&
+    process.env.EL_EASY_CAD_ENTWICKLUNGSLIZENZ === '1'
+  ) {
+    stelleEntwicklungslizenzSicher(konfiguration)
+    entwicklungsSchluessel = leseEntwicklungsOeffentlichenSchluessel()
+  }
   const app = await erzeugeServer(
     { db, konfiguration },
     {
       protokoll: true,
       lizenzPruefung: true,
-      oeffentlicherSchluessel: ENTWICKLUNGSBETRIEB
-        ? leseEntwicklungsOeffentlichenSchluessel()
-        : undefined,
+      oeffentlicherSchluessel: entwicklungsSchluessel,
     },
   )
 

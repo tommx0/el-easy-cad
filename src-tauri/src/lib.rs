@@ -233,6 +233,7 @@ fn starte_begleitserver(handle: &AppHandle) -> Result<CommandChild, String> {
         .current_dir(&ressourcen)
         .args([server_datei.clone()])
         .env("EL_EASY_CAD_STATISCH", statisch_verzeichnis.clone())
+        .env("EL_EASY_CAD_ENTWICKLUNGSLIZENZ", "")
         .spawn()
         .map_err(|fehler| {
             format!(

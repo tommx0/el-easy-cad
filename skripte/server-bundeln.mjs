@@ -28,7 +28,10 @@ export async function baueFrontendUndServerBundle(version, serverBundlePfad) {
       format: 'cjs',
       target: 'node22',
       external: ['node:*'],
-      define: { __APP_VERSION__: JSON.stringify(version) },
+      define: {
+        __APP_VERSION__: JSON.stringify(version),
+        __ENTWICKLUNGSLIZENZ_GESPERRT__: 'true',
+      },
       minify: true,
     })
   } catch (esbuildFehler) {
@@ -111,7 +114,7 @@ async function pruefeServerBundleSmoke(serverBundlePfad) {
       EL_EASY_CAD_DATEN: datenordner,
       EL_EASY_CAD_PORT: String(port),
       EL_EASY_CAD_DEMO_START: '2000-01-01',
-      EL_EASY_CAD_ENTWICKLUNGSLIZENZ: '',
+      EL_EASY_CAD_ENTWICKLUNGSLIZENZ: '1',
     },
     stdio: ['ignore', 'pipe', 'pipe'],
   })

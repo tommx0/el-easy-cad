@@ -7,7 +7,7 @@ import {
   istSchaltplan,
 } from '../../document-model'
 import { erzeugeZeichnungAendernCommand, FANGARTEN_RANGFOLGE } from '../../tools'
-import { ladeAssetHoch, assetUrl } from '../../persistence'
+import { ladeAssetHoch, assetUrl, type UpdateSuche } from '../../persistence'
 import { useAppContext, useAktivesBlatt, useProject } from '../use-app-context'
 import { useUiStore } from '../store/ui-store'
 import { KabeltypFeld } from '../components/KabeltypFeld'
@@ -76,6 +76,39 @@ function LizenzVerweis() {
       <div className="dialog-aktionen">
         <button type="button" onClick={oeffnen}>
           {t('verwaltungsdialoge.einstellungenDialog.lizenz.oeffnen')}
+        </button>
+      </div>
+    </>
+  )
+}
+
+function UpdateAbschnitt() {
+  const t = useT()
+  const { settingsStore } = useAppContext()
+  const updateSuche = useSettingsStore((s) => s.updateSuche)
+  const setUpdateSuche = useSettingsStore((s) => s.setUpdateSuche)
+  function jetztSuchen() {
+    useUiStore.getState().setEinstellungenOffen(false)
+    useUiStore.getState().setUpdateDialog({ art: 'frage', anlass: 'menue' })
+  }
+  return (
+    <>
+      <h3>{t('community.update.einstellungTitel')}</h3>
+      <label className="dialog-feld">
+        {t('community.update.einstellung')}
+        <select
+          value={updateSuche}
+          onChange={(e) => setUpdateSuche(settingsStore, e.target.value as UpdateSuche)}
+        >
+          <option value="fragen">{t('community.update.einstellungFragen')}</option>
+          <option value="immer">{t('community.update.einstellungImmer')}</option>
+          <option value="nie">{t('community.update.einstellungNie')}</option>
+        </select>
+      </label>
+      <p className="dialog-hinweis">{t('community.update.hinweisGithub')}</p>
+      <div className="dialog-aktionen">
+        <button type="button" onClick={jetztSuchen}>
+          {t('community.update.einstellungJetzt')}
         </button>
       </div>
     </>
@@ -684,7 +717,12 @@ export function EinstellungenDialog() {
             {tab === 'werkzeugleiste' && <WerkzeugleisteEinstellungenTab />}
             {tab === 'symbolleiste' && <SymbolleisteEinstellungenTab />}
             {tab === 'ki' && <KiAssistentEinstellungen />}
-            {tab === 'lizenz' && <LizenzVerweis />}
+            {tab === 'lizenz' && (
+              <>
+                <LizenzVerweis />
+                <UpdateAbschnitt />
+              </>
+            )}
           </div>
         </div>
 

@@ -44,11 +44,38 @@ export const community: Texte['community'] = {
       'el.easy.CAD Community is licensed under the PolyForm Noncommercial License 1.0.0. The ' +
       'licence text below is binding.',
   },
+  update: {
+    frageTitel: 'Check for updates',
+    frage: 'Should el.easy.CAD Community check on GitHub whether a newer version is available?',
+    hinweisGithub:
+      'To do so, the program sends a request to GitHub (api.github.com). GitHub learns your IP ' +
+      'address and the time of the request; no projects or settings are transmitted.',
+    merken: 'Remember my answer (can be changed in the settings under “Licence”)',
+    suchen: 'Check',
+    nichtSuchen: 'Do not check',
+    sucht: 'Checking GitHub …',
+    gefundenTitel: 'Update available',
+    gefunden: '{name} is available on GitHub. You are using {aktuell}.',
+    releaseOeffnen: 'Open release',
+    aktuellTitel: 'No update available',
+    aktuell: 'You are using the latest version ({aktuell}).',
+    fehlerTitel: 'Check failed',
+    fehler:
+      'GitHub could not be reached or did not respond as expected ({grund}). You can also find ' +
+      'new versions directly on the project page:',
+    einstellungTitel: 'Updates',
+    einstellung: 'At program start',
+    einstellungFragen: 'ask whether to check for updates',
+    einstellungImmer: 'always check, without asking',
+    einstellungNie: 'never check',
+    einstellungJetzt: 'Check now…',
+  },
   ueber: {
     fassung: 'Community edition',
     lizenz: 'Source code under PolyForm Noncommercial 1.0.0: free for any non-commercial use.',
     keineDaten:
       'The program does not transmit any data: projects and settings stay on your computer, ' +
-      'with no telemetry and no analytics.',
+      'with no telemetry and no analytics. Only if you allow it does it ask GitHub for a newer ' +
+      'version.',
   },
 }

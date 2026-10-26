@@ -43,6 +43,33 @@ export const community = {
       'el.easy.CAD Community steht unter der PolyForm Noncommercial License 1.0.0. Verbindlich ' +
       'ist der folgende englische Lizenztext.',
   },
+  update: {
+    frageTitel: 'Nach Updates suchen',
+    frage: 'Soll el.easy.CAD Community auf GitHub nachsehen, ob eine neuere Fassung bereitsteht?',
+    hinweisGithub:
+      'Dafür sendet das Programm eine Anfrage an GitHub (api.github.com). GitHub erfährt dabei ' +
+      'Ihre IP-Adresse und den Zeitpunkt der Anfrage; Projekte und Einstellungen werden nicht ' +
+      'übertragen.',
+    merken: 'Antwort merken (in den Einstellungen unter „Lizenz“ änderbar)',
+    suchen: 'Suchen',
+    nichtSuchen: 'Nicht suchen',
+    sucht: 'Suche auf GitHub …',
+    gefundenTitel: 'Update verfügbar',
+    gefunden: '{name} steht auf GitHub bereit. Sie verwenden {aktuell}.',
+    releaseOeffnen: 'Release öffnen',
+    aktuellTitel: 'Kein Update verfügbar',
+    aktuell: 'Sie verwenden die neueste Fassung ({aktuell}).',
+    fehlerTitel: 'Suche fehlgeschlagen',
+    fehler:
+      'GitHub war nicht erreichbar oder hat nicht wie erwartet geantwortet ({grund}). Neue ' +
+      'Fassungen finden Sie auch direkt auf der Projektseite:',
+    einstellungTitel: 'Updates',
+    einstellung: 'Beim Programmstart',
+    einstellungFragen: 'fragen, ob nach Updates gesucht werden soll',
+    einstellungImmer: 'immer suchen, ohne Nachfrage',
+    einstellungNie: 'nie suchen',
+    einstellungJetzt: 'Jetzt suchen…',
+  },
   ueber: {
     fassung: 'Community-Fassung',
     lizenz:
@@ -50,6 +77,7 @@ export const community = {
       'Nutzung.',
     keineDaten:
       'Das Programm überträgt keine Daten: Projekte und Einstellungen bleiben auf Ihrem Rechner, ' +
-      'es gibt keine Telemetrie und keine Analyse.',
+      'es gibt keine Telemetrie und keine Analyse. Nur wenn Sie es erlauben, fragt es bei GitHub ' +
+      'nach einer neueren Fassung.',
   },
 }

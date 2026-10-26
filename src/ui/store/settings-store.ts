@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { AppSettings, SettingsStore } from '../../persistence'
+import type { AppSettings, SettingsStore, UpdateSuche } from '../../persistence'
 import { STANDARD_INSTALLATIONSHOEHEN_CM } from '../../persistence'
 import {
   bereinigterKombinationsFaktor,
@@ -88,6 +88,7 @@ interface SettingsState {
   stromkreisImPanel: boolean
   sprache: string | null
   communityHinweisVersion: string | null
+  updateSuche: UpdateSuche
   verknuepfungNachLeitung: boolean
   leitungenErstNachLoslassen: boolean
   geladen: boolean
@@ -143,6 +144,7 @@ interface SettingsState {
   setStromkreisImPanel: (store: SettingsStore, wert: boolean) => void
   setSprache: (store: SettingsStore, wert: string | null) => void
   setCommunityHinweisVersion: (store: SettingsStore, wert: string) => void
+  setUpdateSuche: (store: SettingsStore, wert: UpdateSuche) => void
   setVerknuepfungNachLeitung: (store: SettingsStore, wert: boolean) => void
   setLeitungenErstNachLoslassen: (store: SettingsStore, wert: boolean) => void
 }
@@ -218,6 +220,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   stromkreisImPanel: true,
   sprache: null,
   communityHinweisVersion: null,
+  updateSuche: 'fragen',
   verknuepfungNachLeitung: true,
   leitungenErstNachLoslassen: false,
   geladen: false,
@@ -306,6 +309,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
       stromkreisImPanel: gespeichert.stromkreisImPanel ?? true,
       sprache: gespeichert.sprache ?? null,
       communityHinweisVersion: gespeichert.communityHinweisVersion ?? null,
+      updateSuche: gespeichert.updateSuche ?? 'fragen',
       verknuepfungNachLeitung: gespeichert.verknuepfungNachLeitung ?? true,
       leitungenErstNachLoslassen: gespeichert.leitungenErstNachLoslassen ?? false,
       geladen: true,
@@ -632,6 +636,12 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     if (get().communityHinweisVersion === wert) return
     set({ communityHinweisVersion: wert })
     void store.speichern({ communityHinweisVersion: wert })
+  },
+
+  setUpdateSuche: (store, wert) => {
+    if (get().updateSuche === wert) return
+    set({ updateSuche: wert })
+    void store.speichern({ updateSuche: wert })
   },
 
   setSprache: (store, wert) => {

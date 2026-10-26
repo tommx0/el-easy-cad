@@ -39,8 +39,15 @@ is available, the program notifies you – {{befehl:hilfe.neu-laden}} fetches it
 :::nur-desktop
 ## Updates {#updates}
 
-The program does not check for new versions by itself. New versions are available for download on
-the project page; you install them just like the first installation. Your projects are kept.
+At program start, a dialog asks whether to check GitHub for a newer version. Only if you choose
+“Check” does the program send a request to GitHub (api.github.com); GitHub learns your IP address
+and the time of the request, no projects or settings are transmitted. If a newer version is
+available, the dialog names it, and “Open release” shows the page with the installation packages.
+With “Remember my answer” ticked, the program checks at every start without asking – and only
+speaks up when it has found something – or never again. You can change this in the settings on
+the “Licence” tab under “Updates”. {{befehl:hilfe.update-suche}} checks manually at any time.
+
+You install a new version just like the first installation. Your projects are kept.
 
 Please install updates promptly once you hear about a new version. They fix errors and close
 security gaps.
@@ -49,8 +56,9 @@ security gaps.
 ## Privacy {#datenschutz}
 
 The program does not transmit any data: your projects and settings stay on your computer, and
-there is no telemetry and no analytics. {{befehl:hilfe.ueber}} says so too, together with the link
-to the project page.
+there is no telemetry and no analytics. The only outside connection is the check for updates on
+GitHub, and only if you allow it ([Updates](#updates)). {{befehl:hilfe.ueber}} says so too,
+together with the link to the project page.
 
 ## Error log {#fehlerprotokoll}
 

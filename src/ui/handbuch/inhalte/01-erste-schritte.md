@@ -38,6 +38,8 @@ Unternehmens. Alles Übrige in diesem Handbuch gilt unverändert.
 
 Das Programm öffnet mit der Projektübersicht. Beim ersten Start und nach jedem Update erscheint
 außerdem der Hinweis auf die nicht kommerzielle Nutzung, siehe [Programmfassung und Lizenz](#lizenz).
+Danach fragt ein Dialog, ob auf GitHub nach Updates gesucht werden soll, siehe
+[Aktualisierungen](#updates).
 :::
 
 ## Das erste Projekt in zehn Minuten {#erstes-projekt}

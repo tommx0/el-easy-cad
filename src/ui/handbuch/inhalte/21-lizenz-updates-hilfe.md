@@ -41,9 +41,16 @@ eine neuere Fassung vor, meldet das Programm sich – {{befehl:hilfe.neu-laden}}
 :::nur-desktop
 ## Aktualisierungen {#updates}
 
-Das Programm sucht nicht selbst nach neuen Fassungen. Neue Fassungen stehen auf der Projektseite
-zum Herunterladen bereit; Sie installieren sie wie die Erstinstallation. Ihre Projekte bleiben
-dabei erhalten.
+Beim Programmstart fragt ein Dialog, ob auf GitHub nach einer neueren Fassung gesucht werden soll.
+Nur wenn Sie „Suchen“ wählen, sendet das Programm eine Anfrage an GitHub (api.github.com); GitHub
+erfährt dabei Ihre IP-Adresse und den Zeitpunkt der Anfrage, Projekte und Einstellungen werden
+nicht übertragen. Liegt eine neuere Fassung vor, nennt der Dialog sie, und „Release öffnen“ zeigt
+die Seite mit den Installationspaketen. Mit dem Haken „Antwort merken“ sucht das Programm künftig
+bei jedem Start ohne Nachfrage – und meldet sich dann nur, wenn es etwas gefunden hat – oder
+gar nicht mehr. Das lässt sich in den Einstellungen im Reiter „Lizenz“ unter „Updates“ wieder
+ändern. {{befehl:hilfe.update-suche}} sucht jederzeit von Hand.
+
+Sie installieren eine neue Fassung wie die Erstinstallation. Ihre Projekte bleiben dabei erhalten.
 
 Spielen Sie Aktualisierungen bitte zeitnah ein, sobald Sie von einer neuen Fassung erfahren. Sie
 beheben Fehler und schließen Sicherheitslücken.
@@ -52,8 +59,9 @@ beheben Fehler und schließen Sicherheitslücken.
 ## Datenschutz {#datenschutz}
 
 Das Programm überträgt keine Daten: Ihre Projekte und Einstellungen bleiben auf Ihrem Rechner, es
-gibt keine Telemetrie und keine Analyse. Das steht auch unter {{befehl:hilfe.ueber}}, zusammen mit
-dem Verweis auf die Projektseite.
+gibt keine Telemetrie und keine Analyse. Die einzige Verbindung nach außen ist die Suche nach
+Updates bei GitHub, und die nur, wenn Sie es erlauben ([Aktualisierungen](#updates)). Das steht
+auch unter {{befehl:hilfe.ueber}}, zusammen mit dem Verweis auf die Projektseite.
 
 ## Fehlerprotokoll {#fehlerprotokoll}
 

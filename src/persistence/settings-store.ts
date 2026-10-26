@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import type { UpdateSuche } from './update-suche'
 
 export const STANDARD_INSTALLATIONSHOEHEN_CM: readonly number[] = [30, 110]
 
@@ -52,6 +53,7 @@ export interface AppSettings {
   stromkreisImPanel: boolean
   sprache: string | null
   communityHinweisVersion: string | null
+  updateSuche: UpdateSuche
   verknuepfungNachLeitung: boolean
   leitungenErstNachLoslassen: boolean
 }
@@ -167,6 +169,7 @@ export const appSettingsPatchSchema = z.object({
   stromkreisImPanel: z.boolean().optional(),
   sprache: z.string().nullable().optional(),
   communityHinweisVersion: z.string().nullable().optional(),
+  updateSuche: z.enum(['fragen', 'immer', 'nie']).optional(),
   verknuepfungNachLeitung: z.boolean().optional(),
   leitungenErstNachLoslassen: z.boolean().optional(),
 })

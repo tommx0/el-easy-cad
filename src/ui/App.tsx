@@ -73,6 +73,7 @@ import './App.css'
 import { ServerHinweis } from './ServerHinweis'
 import { ProduktlizenzSperre } from './ProduktlizenzSperre'
 import { DemoHinweisDialog } from './DemoHinweisDialog'
+import { UpdateDialog, UpdateStartPruefung } from './dialogs/UpdateDialog'
 import { ProjekteDialog } from './dialogs/ProjekteDialog'
 import { EinfuehrungDialog } from './dialogs/EinfuehrungDialog'
 import { useSprache } from './sprache-anbindung'
@@ -163,6 +164,7 @@ function AppInhalt() {
       {betriebsmodus === 'demo' && (
         <DemoHinweisDialog resttage={produktlizenzStatus?.resttageDemo ?? 0} />
       )}
+      <UpdateStartPruefung />
       <BefehleProvider>
         <GlobaleTastenkuerzel />
         <Kopfzeile />
@@ -240,6 +242,7 @@ function AppInhalt() {
       <GridVerteilenDialog />
       <AutomatischAnordnenDialog />
       <VerteilenAbstandDialog />
+      <UpdateDialog />
     </div>
   )
 }

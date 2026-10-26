@@ -676,6 +676,9 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     },
     'hilfe.ueber': { ausfuehren: () => ui().setUeberDialogOffen(true) },
     'hilfe.meine-lizenz': { ausfuehren: () => ui().setMeineLizenzDialogOffen(true) },
+    'hilfe.update-suche': {
+      ausfuehren: () => ui().setUpdateDialog({ art: 'frage', anlass: 'menue' }),
+    },
     'hilfe.lizenzen': { ausfuehren: () => ui().setLizenzenDialogOffen(true) },
     'hilfe.fehlerprotokoll': { ausfuehren: () => ui().setFehlerprotokollDialogOffen(true) },
   }

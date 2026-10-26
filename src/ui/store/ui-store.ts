@@ -45,6 +45,7 @@ import type {
   EinstellungsSicherung,
   GeoeffnetesBibliothekPaket,
   ProduktlizenzStatus,
+  VerfuegbaresUpdate,
 } from '../../persistence'
 import type { IfcGeschossInfo, IfcImportSitzung, PdfImportSitzung } from '../../rendering'
 import type { Grundrisse, IfcBauteilfunde } from '../../ifc'
@@ -299,6 +300,9 @@ export interface BestaettigungZustand {
 export type EinstellungenAustausch =
   { art: 'sichern' } | { art: 'einspielen'; sicherung: EinstellungsSicherung; dateiname: string }
 
+export type UpdateDialogZustand =
+  { art: 'frage'; anlass: 'start' | 'menue' } | { art: 'gefunden'; update: VerfuegbaresUpdate }
+
 interface UiState {
   aktivesToolId: string
   rasterSichtbar: boolean
@@ -381,6 +385,8 @@ interface UiState {
   datenschutzDialogOffen: boolean
   einfuehrungDialog: { clipId: string } | null
   meineLizenzDialogOffen: boolean
+  updateDialog: UpdateDialogZustand | null
+  starthinweisErledigt: boolean
   tastenkuerzelDialogOffen: boolean
   handbuchDialog: { anker: string | null } | null
   handbuchKapitel: string | null
@@ -547,6 +553,8 @@ interface UiState {
   setDatenschutzDialogOffen: (v: boolean) => void
   setEinfuehrungDialog: (v: { clipId: string } | null) => void
   setMeineLizenzDialogOffen: (v: boolean) => void
+  setUpdateDialog: (v: UpdateDialogZustand | null) => void
+  setStarthinweisErledigt: () => void
   setTastenkuerzelDialogOffen: (v: boolean) => void
   setHandbuchDialog: (v: { anker: string | null } | null) => void
   setHandbuchKapitel: (v: string) => void
@@ -656,6 +664,8 @@ export const useUiStore = create<UiState>((set) => ({
   datenschutzDialogOffen: false,
   einfuehrungDialog: null,
   meineLizenzDialogOffen: false,
+  updateDialog: null,
+  starthinweisErledigt: false,
   tastenkuerzelDialogOffen: false,
   handbuchDialog: null,
   handbuchKapitel: null,
@@ -838,6 +848,8 @@ export const useUiStore = create<UiState>((set) => ({
   setDatenschutzDialogOffen: (v) => set({ datenschutzDialogOffen: v }),
   setEinfuehrungDialog: (v) => set({ einfuehrungDialog: v }),
   setMeineLizenzDialogOffen: (v) => set({ meineLizenzDialogOffen: v }),
+  setUpdateDialog: (v) => set({ updateDialog: v }),
+  setStarthinweisErledigt: () => set({ starthinweisErledigt: true }),
   setTastenkuerzelDialogOffen: (v) => set({ tastenkuerzelDialogOffen: v }),
   setHandbuchDialog: (v) => set({ handbuchDialog: v }),
   setHandbuchKapitel: (v) => set({ handbuchKapitel: v }),
@@ -910,6 +922,7 @@ export function istModalerDialogOffen(s: UiState = useUiStore.getState()): boole
     s.datenschutzDialogOffen ||
     s.einfuehrungDialog !== null ||
     s.meineLizenzDialogOffen ||
+    s.updateDialog !== null ||
     s.tastenkuerzelDialogOffen ||
     s.handbuchDialog !== null ||
     s.fehlerprotokollDialogOffen ||

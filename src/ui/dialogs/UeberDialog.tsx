@@ -1,6 +1,6 @@
 import { useT } from '../sprache-anbindung'
 import { useUiStore } from '../store/ui-store'
-import { PROJEKT_URL } from '../community'
+import { COMMUNITY_VERSION, PROJEKT_URL } from '../community'
 import { Verweis } from '../Verweis'
 import { LizenztextKnopf } from './LizenztextDialog'
 
@@ -22,7 +22,7 @@ export function UeberDialog() {
         <p>{t('verwaltungsdialoge.ueber.beschreibung')}</p>
         <p>
           {t('community.ueber.fassung')} ·{' '}
-          {t('verwaltungsdialoge.ueber.version', { version: __APP_VERSION__ })}
+          {t('verwaltungsdialoge.ueber.version', { version: COMMUNITY_VERSION })}
         </p>
         <p className="dialog-hinweis">{t('community.ueber.lizenz')}</p>
         <p className="dialog-hinweis">{t('community.ueber.keineDaten')}</p>

@@ -175,6 +175,7 @@ export const befehle = {
     einfuehrung: 'Erste Schritte…',
     ueber: 'Über el.easy.CAD',
     'meine-lizenz': 'Meine Lizenz…',
+    'update-suche': 'Nach Updates suchen…',
     lizenzen: 'Lizenzen der Fremdbibliotheken…',
     datenschutz: 'Datenschutzerklärung…',
     fehlerprotokoll: 'Fehlerprotokoll…',

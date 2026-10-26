@@ -3,6 +3,10 @@ import type { Uebersetzer } from '../sprache'
 
 export const PROJEKT_URL = 'https://github.com/tommx0/el-easy-cad'
 
+export const COMMUNITY_AUSGABE = 4
+
+export const COMMUNITY_VERSION = `${__APP_VERSION__}-community.${COMMUNITY_AUSGABE}`
+
 export function hinweisAktiv(status: ProduktlizenzStatus | null | undefined): boolean {
   return status?.kommerziell !== true
 }

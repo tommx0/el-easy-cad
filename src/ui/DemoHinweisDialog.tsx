@@ -1,24 +1,21 @@
-import { useState } from 'react'
 import { formatiereAblaufdatum } from './ablaufdatum'
 import { useUiStore } from './store/ui-store'
 import { useSettingsStore } from './store/settings-store'
 import { useAppContext } from './use-app-context'
 import { useT } from './sprache-anbindung'
+import { useStarthinweisSichtbar } from './starthinweis'
 
 export function DemoHinweisDialog(_props: { resttage: number }) {
   const { settingsStore } = useAppContext()
   const t = useT()
-  const [weggeklickt, setWeggeklickt] = useState(false)
-  const geladen = useSettingsStore((s) => s.geladen)
-  const gesehen = useSettingsStore((s) => s.communityHinweisVersion)
+  const sichtbar = useStarthinweisSichtbar()
   const status = useUiStore((s) => s.produktlizenzStatus)
 
   const lizenzProblem = status?.status === 'abgelaufen' || status?.status === 'ungueltig'
-  if (weggeklickt || !geladen) return null
-  if (!lizenzProblem && gesehen === __APP_VERSION__) return null
+  if (!sichtbar) return null
 
   const schliessen = () => {
-    setWeggeklickt(true)
+    useUiStore.getState().setStarthinweisErledigt()
     useSettingsStore.getState().setCommunityHinweisVersion(settingsStore, __APP_VERSION__)
   }
   const oeffneMeineLizenz = () => {

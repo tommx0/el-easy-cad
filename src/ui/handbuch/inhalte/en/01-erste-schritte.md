@@ -41,6 +41,7 @@ In the cloud edition you sign in, and your projects are stored on your company's
 The program opens with the project overview. At the first start and after every update, a notice
 about non-commercial use also appears,
 see [Program edition and licence](#lizenz).
+After that, a dialog asks whether to check GitHub for updates, see [Updates](#updates).
 :::
 
 ## Your first project in ten minutes {#erstes-projekt}

@@ -31,7 +31,9 @@ What opens is a copy for viewing – changes you make there do not flow back int
 want to keep them, save the copy in Excel under a new name. In the browser version the button
 downloads the file, because a web page may not start programs.
 
-{{befehl:datei.neue-zeichnung}} creates an empty drawing in the open project.
+{{befehl:datei.neue-zeichnung}} creates an empty drawing in the open project. For a floor plan,
+the [print area setup](#zeichenflaeche-einrichten) opens straight away – as for a new sheet;
+**Cancel** leaves it for later.
 
 ## Floor plan or schematic {#zeichnungsart}
 

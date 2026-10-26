@@ -8,7 +8,8 @@ chains, however, apply to the whole drawing.
 
 Above the drawing there is a tab for each sheet. A click switches sheet, a double-click renames it, and
 dragging changes the order. **+ Sheet** adds a new one. The [print area setup](#zeichenflaeche-einrichten)
-opens straight away, because a sheet without a print area cannot be printed. If you want to set it up
+opens straight away, because a sheet without a print area cannot be printed. The same happens for the
+first sheet when a newly created floor plan is opened for the first time. If you want to set it up
 later, close the dialogue with **Cancel**. In a [schematic](#zeichnungsart) this does not apply: there,
 every new sheet already comes with its fixed print area.
 

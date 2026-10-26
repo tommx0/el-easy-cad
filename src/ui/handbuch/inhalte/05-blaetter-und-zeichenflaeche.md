@@ -9,7 +9,9 @@ Katalog, Ebenen, Leitungsnummern und Trunkketten gelten dagegen für die ganze Z
 Über der Zeichnung liegt je Blatt ein Register. Ein Klick wechselt das Blatt, ein Doppelklick
 benennt es um, Ziehen ändert die Reihenfolge. **+ Blatt** legt ein neues an – dabei öffnet sich
 sofort [Zeichenfläche einrichten](#zeichenflaeche-einrichten), denn ohne Zeichenfläche ist ein
-Blatt nicht druckbar. Wer sie später festlegen will, schließt den Dialog mit **Abbrechen**. In
+Blatt nicht druckbar. Dasselbe geschieht beim ersten Öffnen einer neu angelegten
+Bauplan-Zeichnung für ihr erstes Blatt. Wer sie später festlegen will, schließt den Dialog mit
+**Abbrechen**. In
 einem [Schaltplan](#zeichnungsart) entfällt das: Dort bringt jedes neue Blatt seine feste
 Zeichenfläche schon mit.
 

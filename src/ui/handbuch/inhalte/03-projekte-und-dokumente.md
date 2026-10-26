@@ -33,7 +33,9 @@ kommen nicht ins Projekt zurück. Speichern Sie sie bei Bedarf in Excel unter ei
 der Browser-Fassung lädt der Knopf die Datei herunter, weil eine Webseite keine Programme starten
 darf.
 
-{{befehl:datei.neue-zeichnung}} legt eine leere Zeichnung im laufenden Projekt an.
+{{befehl:datei.neue-zeichnung}} legt eine leere Zeichnung im laufenden Projekt an. Bei einem
+Bauplan öffnet sich danach gleich [Zeichenfläche einrichten](#zeichenflaeche-einrichten) – wie bei
+einem neuen Blatt; **Abbrechen** verschiebt das auf später.
 
 ## Bauplan oder Schaltplan {#zeichnungsart}
 

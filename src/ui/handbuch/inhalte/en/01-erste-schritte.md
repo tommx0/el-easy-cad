@@ -46,13 +46,15 @@ see [Program edition and licence](#lizenz).
 ## Your first project in ten minutes {#erstes-projekt}
 
 1. The program starts with the project overview ({{befehl:datei.projekte}}). There, add a customer,
-   below it a project, and below that a document of the type “Drawing”.
+   below it a project, and below that a document of the type “Drawing”. When a floor plan is
+   opened for the first time, the program asks for the print area straight away – paper size,
+   orientation and scale.
 2. Load the floor plan: {{befehl:datei.import-hintergrund}}. PDF, DXF, PNG and JPG are read; for a
    multi-page PDF you choose the page and the section.
 3. Bring the plan to scale: {{befehl:werkzeug.kalibrieren}}, click a known distance in the plan and
    type its true length. Without this step, neither the lengths nor the scale are correct.
-4. Set up the print area: {{befehl:blatt.zeichenflaeche-einrichten}} – paper size, orientation and
-   scale. Whatever lies in it ends up on paper later.
+4. Check the print area: if the paper size or scale no longer fits after calibrating, change it
+   with {{befehl:blatt.zeichenflaeche-einrichten}}. Whatever lies in it ends up on paper later.
 5. Place the first component: {{befehl:werkzeug.komponente}}, choose a product in the catalogue and
    click on the plan.
 6. Connect two components: {{befehl:werkzeug.leitung}}, click the connection point of the first

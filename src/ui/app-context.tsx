@@ -102,6 +102,7 @@ import {
   type IfcHuelle,
 } from '../ifc'
 import { DokumentSitzung } from './dokument-sitzung'
+import { fuehreZurZeichenflaecheDesNeuenPlans } from './blatt-anlegen'
 import {
   bauplanZeichnungen,
   tabellenVerknuepfung,
@@ -631,9 +632,10 @@ function erzeugeAppKontext(): AppKontext {
                     verteilerKennzeichen: fuerVerteiler,
                   })
                 : await dokumentStore.lege(offen.projektId, { typ: 'zeichnung', name })
-              await sitzung.oeffne(dokument.id, alsZeichnungsart(auswahl), plansprache)
+              const neu = await sitzung.oeffne(dokument.id, alsZeichnungsart(auswahl), plansprache)
               useUiStore.getState().setAuswahlIds([])
               useUiStore.getState().verlegeVorgabenZuruecksetzen()
+              if (neu) fuehreZurZeichenflaecheDesNeuenPlans(doc)
               useUiStore
                 .getState()
                 .zeigeToast(t('aktionen.app.zeichnungAngelegt', { name: dokument.name }))
@@ -680,7 +682,7 @@ function erzeugeAppKontext(): AppKontext {
     neuePlansprache?: Sprache,
   ) {
     try {
-      await sitzung.oeffne(dokumentId, neueZeichnungsart, neuePlansprache)
+      const neu = await sitzung.oeffne(dokumentId, neueZeichnungsart, neuePlansprache)
       useUiStore.getState().setAuswahlIds([])
       useUiStore.getState().verlegeVorgabenZuruecksetzen()
       const offen = sitzung.getOffenesDokument()
@@ -709,6 +711,7 @@ function erzeugeAppKontext(): AppKontext {
         meldungen.push(t('aktionen.app.testversionBegonnen'))
       }
       useUiStore.getState().zeigeToast(meldungen.join(' '))
+      if (neu) fuehreZurZeichenflaecheDesNeuenPlans(doc)
       void ladeHintergruendeAllerBlaetterVor()
     } catch (fehler) {
       meldeFehler(fehler, t('aktionen.app.oeffnenFehler'))

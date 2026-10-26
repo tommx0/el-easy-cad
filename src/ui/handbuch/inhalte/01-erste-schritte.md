@@ -43,13 +43,16 @@ außerdem der Hinweis auf die nicht kommerzielle Nutzung, siehe [Programmfassung
 ## Das erste Projekt in zehn Minuten {#erstes-projekt}
 
 1. Das Programm startet mit der Projektübersicht ({{befehl:datei.projekte}}). Legen Sie dort
-   einen Kunden, darunter ein Projekt und darunter ein Dokument der Art „Zeichnung“ an.
+   einen Kunden, darunter ein Projekt und darunter ein Dokument der Art „Zeichnung“ an. Beim
+   ersten Öffnen eines Bauplans fragt das Programm gleich nach der Zeichenfläche – Papierformat,
+   Ausrichtung und Maßstab.
 2. Laden Sie den Grundriss: {{befehl:datei.import-hintergrund}}. PDF, DXF, PNG und JPG werden
    gelesen; bei einer mehrseitigen PDF wählen Sie Seite und Ausschnitt aus.
 3. Bringen Sie den Plan auf Maß: {{befehl:werkzeug.kalibrieren}}, eine bekannte Strecke im Plan
    abklicken, das wahre Maß eintippen. Ohne diesen Schritt stimmen weder Längen noch Maßstab.
-4. Richten Sie die Zeichenfläche ein: {{befehl:blatt.zeichenflaeche-einrichten}} – Papierformat,
-   Ausrichtung und Maßstab. Was darin liegt, kommt später aufs Papier.
+4. Prüfen Sie die Zeichenfläche: Passen Format oder Maßstab nach dem Kalibrieren nicht mehr,
+   ändern Sie sie mit {{befehl:blatt.zeichenflaeche-einrichten}}. Was darin liegt, kommt später
+   aufs Papier.
 5. Setzen Sie die erste Komponente: {{befehl:werkzeug.komponente}}, im Katalog ein Produkt
    wählen, auf den Plan klicken.
 6. Verbinden Sie zwei Komponenten: {{befehl:werkzeug.leitung}}, auf den Dockpunkt der ersten

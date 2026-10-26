@@ -110,7 +110,7 @@ export class DokumentSitzung {
     dokumentId: string,
     neueZeichnungsart?: Zeichnungsart,
     neuePlansprache: Sprache = oberflaechensprache(),
-  ): Promise<void> {
+  ): Promise<boolean> {
     await this.speichereJetzt()
 
     const dokument = await this.dokumente.hole(dokumentId)
@@ -144,9 +144,10 @@ export class DokumentSitzung {
     }
     this.aktiv = true
     this.setzeZustand({ art: 'ruht' })
-    if (dokument.typ === 'zeichnung' && !dokument.inhalt.inhalt && neueZeichnungsart) {
-      await this.speichereJetzt()
-    }
+    const neuAngelegt =
+      dokument.typ === 'zeichnung' && !dokument.inhalt.inhalt && !!neueZeichnungsart
+    if (neuAngelegt) await this.speichereJetzt()
+    return neuAngelegt
   }
 
   async legeZeichnungAn(projektId: string, zeichnung: Zeichnung): Promise<DokumentMeta> {

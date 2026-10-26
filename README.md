@@ -27,6 +27,46 @@ your drawings – see [Working with an AI assistant](#working-with-an-ai-assista
 |---|---|
 | ![Distribution board plan generated from the cables](public/handbuch/ablauf-leitungen-verteilerplan.png) | ![3D view of two storeys](public/handbuch/ablauf-etagen-3d.png) |
 
+## From floor plan to distribution board diagram – with KNX actuators
+
+el.easy.CAD turns a furnished floor plan into a complete distribution board diagram – if you like,
+without drawing a single cable:
+
+1. **Plan the rooms.** Every component has a *circuit*: the room circuit (default for sockets and
+   luminaires), an additional numbered circuit in the room, or a circuit of its own, single- or
+   three-phase (cooker, instantaneous water heater). Small rooms can share a circuit. Which
+   push button switches which luminaire is a *control assignment*: draw it with the tool from a KNX
+   push button or presence detector to the luminaires – several targets become a device group –
+   or tick *KNX* at the control type.
+2. **Suggest the board layout.** Place a distribution board and choose *Suggest board layout from
+   rooms …*: one RCD per sheet, one miniature circuit breaker with an outgoing terminal per
+   circuit, phases in rotation, labels from the room names. Every component now shows its circuit
+   (“UV1-F4 / X1:3”), even though no cable leads to the board. Drawn cables can also be connected
+   to terminals instead.
+3. **Assign KNX actuators.** *Assign KNX actuators …* finds every terminal whose loads are switched
+   via KNX and derives the channel type from the control type: switching, dimming, or blinds as a
+   channel pair. It fills free channels of existing actuators and creates as few new ones as
+   possible, with a reserve (default 20 %). Channel names come from the device group or the room;
+   the channel sits between breaker and terminal (F3 → K1:A1 → X1:5).
+4. **Create the diagram.** *Create distribution board diagram …* proposes device tag and name, how
+   many breakers and terminals fit on a sheet and how an RCD is split, shows a preview and creates
+   the schematic as a new drawing linked to the board (+UV1): a supply sheet, circuit sheets with
+   busbars in wire colours, breakers, actuator channels as contacts (a dimmer channel as a triac)
+   and terminals labelled with their destination – plus actuator sheets with cross-references
+   from every channel to its contact.
+5. **Lists for the installation.** Circuit directory, equipment list and the *actuator channel
+   list* per actuator – function, room, load, circuit, terminal and the KNX device and rocker that
+   triggers it: a template for ETS programming and for acceptance. Everything can be exported to
+   Excel.
+
+When the planning changes, suggest the layout again: existing entries keep their tags and labels,
+new ones are added, and el.easy.CAD offers to recreate the linked diagram. The tree of the board
+stays editable by hand at any time. The AI assistant can take over steps 2 to 4 as well.
+
+| Assign KNX actuators | Generated circuit sheet |
+|---|---|
+| ![Assign KNX actuators: the luminaire group gets channel A1 of a new switching actuator](public/handbuch/ablauf-wirk-aktoren.png) | ![Circuit sheet of a generated distribution board diagram](public/handbuch/ablauf-raeume-plan.png) |
+
 ## Working with an AI assistant (MCP)
 
 el.easy.CAD has a built-in interface for AI assistants such as **Claude** (Claude Code or Claude
@@ -160,6 +200,41 @@ el.easy.CAD ist ein Desktop-CAD für die Elektro-, KNX Sensorkanalzuordnung und 
 laden (PDF, DXF, IFC, Bild), kalibrieren, Komponenten aus dem Produktkatalog platzieren, Leitungen
 automatisch verlegen, in Trunks und Kabelschächten über Etagen führen und jedes Blatt als PDF,
 Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. KNX Tastsensor oder Schalterkanäle zu Leuchten oder Geräten hinzufüge... kein Problem. Alles läuft auf Ihrem Rechner, el.easy.CAD selbst überträgt keine Daten.
+
+**Vom Bauplan zum Verteilerplan – mit KNX-Aktoren:** Aus einem bestückten Bauplan erzeugt
+el.easy.CAD den kompletten Verteilerplan, auf Wunsch ganz ohne gezeichnete Leitung:
+
+1. **Räume planen.** Jede Komponente hat einen *Stromkreis*: den Raumstromkreis (Vorgabe bei
+   Steckdosen und Leuchten), einen weiteren nummerierten im Raum oder einen eigenen, ein- oder
+   dreipolig (Herd, Durchlauferhitzer). Kleine Räume teilen sich einen Stromkreis. Welcher Taster
+   welche Leuchte schaltet, ist eine *Wirkverbindung*: mit dem Werkzeug vom KNX-Tastsensor oder
+   Präsenzmelder zu den Leuchten gezogen – mehrere Ziele werden zur Gerätegruppe – oder per Haken
+   *KNX* an der Ansteuerung.
+2. **Bestückung vorschlagen.** Verteiler setzen, *Bestückung aus Räumen vorschlagen …*: je Blatt
+   ein RCD, je Stromkreis ein Leitungsschutzschalter mit Abgangsklemme, Phasen reihum,
+   Beschriftungen aus den Raumnamen. Jede Komponente kennt danach ihren Stromkreis
+   („UV1-F4 / X1:3“), obwohl keine Leitung zum Verteiler führt. Gezeichnete Leitungen lassen sich
+   alternativ direkt auf Klemmen anschließen.
+3. **KNX-Aktoren zuordnen.** *KNX-Aktoren zuordnen …* findet alle Klemmen, deren Verbraucher über
+   KNX geschaltet werden, und leitet die Kanalart aus der Ansteuerung ab: Schalten, Dimmen oder
+   Jalousie als Kanalpaar. Freie Kanäle vorhandener Aktoren werden zuerst belegt, für den Rest
+   entstehen möglichst wenige neue Aktoren mit Reserve (Vorgabe 20 %). Kanalnamen kommen aus
+   Gerätegruppe oder Raum; der Kanal sitzt zwischen LS und Klemme (F3 → K1:A1 → X1:5).
+4. **Verteilerplan erzeugen.** *Verteilerplan erzeugen …* schlägt Kennzeichen und Namen vor, fragt
+   nach Sicherungen und Klemmen je Blatt und der Aufteilung der RCDs, zeigt eine Vorschau und legt
+   den Schaltplan als neue, über +UV1 verknüpfte Zeichnung an: Einspeiseblatt, Stromkreisblätter
+   mit Sammelschienen in Aderfarben, LS, Aktorkanälen als Kontakte (ein Dimmkanal als Triac) und
+   Klemmen mit Zielbezeichnung – dazu Aktorblätter mit Querverweisen von jedem Kanal auf seinen
+   Kontakt.
+5. **Listen für die Ausführung.** Stromkreisverzeichnis, Betriebsmittelliste und je Aktor die
+   *Aktorkanalliste* mit Funktion, Raum, Verbraucher, Stromkreis, Klemme und dem auslösenden
+   KNX-Gerät samt Wippe – Vorlage für die ETS-Programmierung und die Abnahme. Alles auch als
+   Excel-Export.
+
+Ändert sich die Planung, schlagen Sie die Bestückung erneut vor: Vorhandenes behält Kennzeichen und
+Beschriftung, Neues kommt dazu, und el.easy.CAD bietet an, den verknüpften Plan neu zu erzeugen.
+Der Baum des Verteilers bleibt jederzeit von Hand bearbeitbar. Die Schritte 2 bis 4 übernimmt auf
+Wunsch auch der KI-Assistent.
 
 **Mit einem KI-Assistenten arbeiten (MCP):** Über das Model Context Protocol lässt sich ein
 KI-Assistent wie **Claude** (Claude Code oder Claude Desktop) an el.easy.CAD anbinden. Fragen Sie

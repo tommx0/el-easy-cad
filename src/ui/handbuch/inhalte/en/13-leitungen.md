@@ -179,11 +179,13 @@ A filled **junction dot** appears wherever connected wires branch – that is, w
 
 In the schematic you can place a component directly onto existing wires, for example a circuit breaker into a continuous phase:
 
-- **Inserting:** If wires run through the poles of the new component while you place it, each one is cut at the upper contact and continued from the lower one – the piece between them is dropped. Already in the preview, the affected wires are highlighted in blue with their new course. One undo step takes back component and cut together.
+- **Inserting:** If wires run through the poles of the new component while you place it, each one is cut at the upper contact and continued from the lower one – the piece between them is dropped. For components with contacts on the left and right, the same applies to horizontal wires. Already in the preview, the affected wires are highlighted in blue with their new course. One undo step takes back component and cut together.
+- **Snapping:** You do not have to hit the wire exactly. If it lies anywhere within the outline of the component, the preview jumps across the wire until the nearest pole sits on it. If the wire runs across the poles – say a circuit breaker over a horizontal piece – the preview turns by 90° with it. If you rotated it yourself with the space bar, your rotation stays. This works on every straight piece of a wire with bends.
+- **Drawing through:** If you draw a wire straight through a row of components – for example from the left contact of the first, holding **Ctrl** (tablet: **Straight**), to the right contact of the last, or via your own intermediate points – it is split at every component when you finish. You get partial wires from contact to contact that follow when you move a component. If the wire runs next to a pole but within the outline, it bends at right angles to the contact. Automatic routing, on the other hand, keeps the wire clear of the components.
 - **Phase-correct:** If a pole carries a terminal designation (L1, L2, L3, N, PE …), it receives the wire of the same name under the component – even if that wire lies elsewhere; it is then routed at right angles to its pole. Poles without a designation take the wire that runs through them. A wire with a different name never connects to a designated pole.
 - **Removing:** If you delete a component with one wire above and one below each pole, both become one continuous line without a gap. It keeps the name and appearance of the wire at the upper contact. If no wire, or more than one, hangs at a contact, the lines there end freely as before.
 
-This applies to newly placed components; when you move an existing component, nothing is cut. Multi-pole connections drawn as a single line are not inserted.
+This also applies when you drag a single existing component onto a wire: it snaps on while you drag and is inserted when you release it. A pole that already has one of the component's own wires stays untouched. Moving several components at once or moving with the arrow keys cuts nothing. Multi-pole connections drawn as a single line are not inserted.
 
 ## Potentials {#potential}
 

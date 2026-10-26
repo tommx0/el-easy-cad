@@ -4,6 +4,7 @@ import type { Point } from '../../document-model/geometry'
 import { distance } from '../../document-model/geometry'
 import type {
   SymbolBild,
+  SymbolEinstellungsAenderung,
   SymbolElement,
   SymbolPinsel,
   SymbolStrich,
@@ -12,6 +13,7 @@ import type {
 } from '../../document-model/symbol-zeichnung'
 import {
   SYMBOL_TEXT_GROESSE,
+  aendereVektorForm,
   eingepassteBildFlaeche,
   istSymbolZeichnungLeer,
   leereSymbolZeichnung,
@@ -20,7 +22,7 @@ import {
   symbolZeichnungBreite,
 } from '../../document-model/symbol-zeichnung'
 import {
-  symbolZeichnungAusSvg,
+  bearbeitbareSymbolZeichnung,
   symbolZeichnungZuSvg,
 } from '../../document-model/symbol-zeichnung-svg'
 import { zeichneSymbolZeichnung } from '../../rendering/symbol-zeichnung-renderer'
@@ -104,7 +106,7 @@ function anfangsZeichnung(
 ): SymbolZeichnung {
   const breite = symbolZeichnungBreite(breitenFaktor)
   const hoehe = symbolZeichnungBreite(hoehenFaktor)
-  const gelesen = symbolZeichnungAusSvg(svg)
+  const gelesen = bearbeitbareSymbolZeichnung(svg, breitenFaktor, hoehenFaktor)
   return gelesen
     ? { ...gelesen, breite, hoehe }
     : leereSymbolZeichnung(breitenFaktor ?? 1, hoehenFaktor ?? 1)
@@ -406,6 +408,7 @@ export function SymbolZeichnerDialog({
   useEffect(
     () => () => {
       if (rahmenAnforderung.current) cancelAnimationFrame(rahmenAnforderung.current)
+      rahmenAnforderung.current = 0
     },
     [],
   )
@@ -573,6 +576,16 @@ export function SymbolZeichnerDialog({
     setEinstellungen((s) => ({ ...s, [schluessel]: wert }))
     if (werkzeugId !== 'auswahl' || zustand.auswahl.length === 0) return
     const abbildung = (el: SymbolElement): SymbolElement => {
+      if (el.art === 'vektor') {
+        if (schluessel === 'pinsel') return el
+        const aenderung = (
+          schluessel === 'gefuellt'
+            ? { schluessel, wert, fuellFarbe: einstellungen.fuellFarbe }
+            : { schluessel, wert }
+        ) as SymbolEinstellungsAenderung
+        const form = aendereVektorForm(el.form, aenderung)
+        return form === el.form ? el : { ...el, form }
+      }
       if (schluessel === 'strich' && 'strich' in el && el.strich !== wert) {
         return { ...el, strich: wert as SymbolStrich }
       }
@@ -851,7 +864,7 @@ export function SymbolZeichnerDialog({
                       className={einstellungen.pinsel === g.wert ? 'aktiv' : undefined}
                       onClick={() => einstellungAendern('pinsel', g.wert)}
                     >
-                      {g.label}
+                      {t(g.label)}
                     </button>
                   ))}
                 </div>
@@ -877,7 +890,7 @@ export function SymbolZeichnerDialog({
                       className={einstellungen.textGroesse === g.wert ? 'aktiv' : undefined}
                       onClick={() => einstellungAendern('textGroesse', g.wert)}
                     >
-                      {g.label}
+                      {t(g.label)}
                     </button>
                   ))}
                 </div>
@@ -945,6 +958,11 @@ export function SymbolZeichnerDialog({
             <button type="button" onClick={einpassen}>
               {t('katalogdialoge.symbolZeichner.einpassen')}
             </button>
+            {zustand.zeichnung.elemente.some((e) => e.art === 'vektor') && (
+              <p className="symbolzeichner-hinweis">
+                {t('katalogdialoge.symbolZeichner.vektorHinweis')}
+              </p>
+            )}
             <p className="symbolzeichner-hinweis">
               {t('katalogdialoge.symbolZeichner.navigationHinweis')}
             </p>

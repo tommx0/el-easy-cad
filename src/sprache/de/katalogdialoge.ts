@@ -231,7 +231,7 @@ export const katalogdialoge = {
         entfernen: 'Eigenes Symbol entfernen (dann wieder geerbt)',
       },
     },
-    gezeichnetesBearbeiten: 'Gezeichnetes Symbol bearbeiten',
+    gezeichnetesBearbeiten: 'Symbol im Zeichner bearbeiten',
     eigenesZeichnen: 'Eigenes Symbol zeichnen',
     bearbeitenKlein: 'bearbeiten…',
     zeichnenKlein: 'zeichnen…',
@@ -554,6 +554,8 @@ export const katalogdialoge = {
     textgroesse: 'Textgröße',
     vorlageUebernehmen: 'Vorlage übernehmen',
     vorlageFehler: 'Die Vorlage konnte nicht übernommen werden.',
+    vektorHinweis:
+      'Übernommenes Symbol: Teile lassen sich auswählen, verschieben, umfärben, radieren und löschen. Neues zeichnen Sie wie gewohnt dazu.',
     bildgroesse: 'Bildgröße',
     bildgroesseProzent: 'Bildgröße (%)',
     zeichenwerkzeuge: 'Zeichenwerkzeuge',

@@ -10,7 +10,7 @@
         "beschreibung": "Generic installation plan symbols to DIN – switches, socket outlets, luminaires, communication and roller shutter technology."
       }
     },
-    "seed_version": 23
+    "seed_version": 24
   },
   "komponenten": [
     {
@@ -571,7 +571,7 @@
           "farbe_ausfuehrung": "Tastdimmer"
         }
       ],
-      "seed_version": 5
+      "seed_version": 6
     },
     {
       "id": "steckdose-1fach",
@@ -1276,7 +1276,7 @@
       "technische_daten": {
         "Docking": "SONDERFALL - Leitung/Trunk dockt ueberall am aeusseren Rechteck an, wie beim Kabelschacht"
       },
-      "seed_version": 15
+      "seed_version": 16
     },
     {
       "id": "tae-dose",
@@ -2025,7 +2025,7 @@
         "spalten": 1,
         "zeilen": 1
       },
-      "seed_version": 12
+      "seed_version": 13
     },
     {
       "id": "katalog-cdfb4dbb-f6de-4a29-b0a7-90a070f83d08",
@@ -2105,7 +2105,7 @@
           "id": "variante-e32b32a0-0aef-471f-a8a2-37d8b52d5654"
         }
       ],
-      "seed_version": 4
+      "seed_version": 5
     },
     {
       "id": "tastsensor-knx-2-fach",
@@ -2163,7 +2163,7 @@
         "spalten": 1,
         "zeilen": 2
       },
-      "seed_version": 13
+      "seed_version": 14
     },
     {
       "id": "tastsensor-knx-3-fach",
@@ -2221,7 +2221,7 @@
         "spalten": 1,
         "zeilen": 3
       },
-      "seed_version": 14
+      "seed_version": 15
     },
     {
       "id": "tastsensor-knx-4-fach",
@@ -2279,7 +2279,7 @@
         "spalten": 1,
         "zeilen": 4
       },
-      "seed_version": 16
+      "seed_version": 17
     },
     {
       "id": "bewegungsmelder-knx",
@@ -2389,7 +2389,7 @@
           "farbe_ausfuehrung": "Aufputz"
         }
       ],
-      "seed_version": 6
+      "seed_version": 7
     },
     {
       "id": "praesenzmelder-knx-decke",
@@ -2501,7 +2501,7 @@
           "farbe_ausfuehrung": "Aufputz"
         }
       ],
-      "seed_version": 7
+      "seed_version": 8
     },
     {
       "id": "katalog-5f0b77e8-eadf-4a3c-bfe4-64e329825740",
@@ -2630,7 +2630,7 @@
           "farbe_ausfuehrung": "4 fach"
         }
       ],
-      "seed_version": 6
+      "seed_version": 7
     },
     {
       "id": "leerkomponente",
@@ -2721,7 +2721,7 @@
       "ifcKlasse": "IfcOutlet",
       "ifcTyp": "POWEROUTLET",
       "kennzeichenBuchstabe": "X",
-      "seed_version": 5
+      "seed_version": 6
     }
   ]
 }

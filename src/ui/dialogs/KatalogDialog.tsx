@@ -239,7 +239,7 @@ export function KatalogDialog() {
 
   async function symbolZeichnen(
     ziel: GrafikZiel,
-    eigenes: { svg: string | null; gezeichnet: boolean },
+    eigenes: { svg: string | null; bearbeitbar: boolean },
   ) {
     const variante =
       ziel.art === 'variante' ? entwurf.varianten.find((v) => v.id === ziel.id) : null
@@ -249,7 +249,7 @@ export function KatalogDialog() {
             {
               name: t('katalogdialoge.katalogDialog.vorlageSymbolVariante'),
               assetId: variante.symbolAssetId,
-              vorausgewaehlt: !eigenes.gezeichnet,
+              vorausgewaehlt: !eigenes.bearbeitbar,
             },
             {
               name: t('katalogdialoge.katalogDialog.vorlageSymbolHaupt'),
@@ -268,7 +268,7 @@ export function KatalogDialog() {
             {
               name: t('katalogdialoge.katalogDialog.vorlageBisherigesSymbol'),
               assetId: entwurf.symbolAssetId,
-              vorausgewaehlt: !eigenes.gezeichnet,
+              vorausgewaehlt: !eigenes.bearbeitbar,
             },
             {
               name: t('katalogdialoge.katalogDialog.grafik.produktbild.titel'),
@@ -280,7 +280,7 @@ export function KatalogDialog() {
     try {
       for (const k of kandidaten) {
         const istEigenesGezeichnet =
-          eigenes.gezeichnet &&
+          eigenes.bearbeitbar &&
           k.assetId === (variante ? variante.symbolAssetId : entwurf.symbolAssetId)
         if (!k.assetId || gesehen.has(k.assetId) || istEigenesGezeichnet) continue
         gesehen.add(k.assetId)
@@ -296,9 +296,9 @@ export function KatalogDialog() {
       meldeFehler(fehler)
     }
     const anfangsSvg =
-      variante && !variante.symbolAssetId && hauptSymbol.gezeichnet
+      variante && !variante.symbolAssetId && hauptSymbol.bearbeitbar
         ? hauptSymbol.svg
-        : eigenes.gezeichnet
+        : eigenes.bearbeitbar
           ? eigenes.svg
           : null
     setZeichner({ ziel, anfangsSvg, vorlagen })
@@ -1330,7 +1330,7 @@ export function KatalogDialog() {
                 onEntfernen={() => setEntwurf((s) => ({ ...s, symbolAssetId: null }))}
                 catalogStore={catalogStore}
                 zeichnen={{
-                  gezeichnet: hauptSymbol.gezeichnet,
+                  bearbeitbar: hauptSymbol.bearbeitbar,
                   onZeichnen: () => void symbolZeichnen({ art: 'haupt' }, hauptSymbol),
                 }}
               />
@@ -1566,7 +1566,7 @@ function BildAuswahl({
   onHochladen: (datei: File) => Promise<void>
   onEntfernen: () => void
   catalogStore: ReturnType<typeof useAppContext>['catalogStore']
-  zeichnen?: { gezeichnet: boolean; onZeichnen: () => void }
+  zeichnen?: { bearbeitbar: boolean; onZeichnen: () => void }
 }) {
   const vorschauBild = useMemo(() => alsKatalogBild(assetId), [assetId])
   const vorschauUrl = useKatalogBildUrl(vorschauBild, catalogStore)
@@ -1598,7 +1598,7 @@ function BildAuswahl({
         <div className="katalog-bildauswahl-knoepfe">
           {zeichnen && (
             <button type="button" onClick={zeichnen.onZeichnen}>
-              {zeichnen.gezeichnet
+              {zeichnen.bearbeitbar
                 ? t('katalogdialoge.katalogDialog.symbolBearbeiten')
                 : t('katalogdialoge.katalogDialog.symbolZeichnen')}
             </button>
@@ -1636,7 +1636,7 @@ function VarianteGrafikFeld({
   onHochladen: (datei: File) => void
   onEntfernen: () => void
   catalogStore: ReturnType<typeof useAppContext>['catalogStore']
-  onZeichnen?: (eigenes: { svg: string | null; gezeichnet: boolean }) => void
+  onZeichnen?: (eigenes: { svg: string | null; bearbeitbar: boolean }) => void
 }) {
   const t = useT()
   const text = (schluessel: keyof VarianteGrafikTexte) =>
@@ -1668,12 +1668,12 @@ function VarianteGrafikFeld({
           type="button"
           onClick={() => onZeichnen(eigenes)}
           title={
-            eigenes.gezeichnet
+            eigenes.bearbeitbar
               ? t('katalogdialoge.katalogDialog.gezeichnetesBearbeiten')
               : t('katalogdialoge.katalogDialog.eigenesZeichnen')
           }
         >
-          {eigenes.gezeichnet
+          {eigenes.bearbeitbar
             ? t('katalogdialoge.katalogDialog.bearbeitenKlein')
             : t('katalogdialoge.katalogDialog.zeichnenKlein')}
         </button>

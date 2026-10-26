@@ -137,18 +137,28 @@ export function erzeugeSymbolAuswahlWerkzeug(): SymbolWerkzeug {
     return boundingBoxFromPoints([start, ende])
   }
 
-  function textBearbeiten(
-    element: Extract<SymbolElement, { art: 'text' }>,
-    k: SymbolWerkzeugKontext,
-  ) {
-    k.frageText(element.position, element.text, (text) => {
+  function textVon(element: SymbolElement): { position: Point; text: string } | null {
+    if (element.art === 'text') return element
+    if (element.art === 'vektor' && element.form.art === 'text') return element.form
+    return null
+  }
+
+  function mitText(element: SymbolElement, text: string): SymbolElement {
+    if (element.art === 'text') return { ...element, text }
+    if (element.art === 'vektor' && element.form.art === 'text')
+      return { ...element, form: { ...element.form, text } }
+    return element
+  }
+
+  function textBearbeiten(element: SymbolElement, k: SymbolWerkzeugKontext) {
+    const vorher = textVon(element)
+    if (!vorher) return
+    k.frageText(vorher.position, vorher.text, (text) => {
       if (text === null) return
       k.zustand.aendere(t('katalogdialoge.symbolWerkzeuge.textAendern'), (z) => {
         const bereinigt = text.replace(/\s+$/, '')
         const elemente = bereinigt.trim()
-          ? z.elemente.map((e) =>
-              e.id === element.id && e.art === 'text' ? { ...e, text: bereinigt } : e,
-            )
+          ? z.elemente.map((e) => (e.id === element.id ? mitText(e, bereinigt) : e))
           : z.elemente.filter((e) => e.id !== element.id)
         return { ...z, elemente }
       })
@@ -170,7 +180,7 @@ export function erzeugeSymbolAuswahlWerkzeug(): SymbolWerkzeug {
         modus = { art: 'rahmen', start: e.roh, ende: e.roh, umschalt: e.umschalt }
         return
       }
-      if (e.doppelklick && treffer.art === 'text') {
+      if (e.doppelklick && textVon(treffer)) {
         modus = null
         textBearbeiten(treffer, k)
         return

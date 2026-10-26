@@ -255,6 +255,13 @@ in der Größe ändern.
   gewählte Farbe gilt für neue Elemente und für die Auswahl. Im Plan erscheint jedes Symbol in
   seinen eigenen Farben, solange die Komponente die Standardfarbe hat. Wählen Sie an der
   Komponente eine andere Farbe, wird das Symbol wie jedes andere in dieser Farbe eingefärbt.
+- **Vorhandenes Symbol ändern:** Auch ein mitgeliefertes, hochgeladenes oder im Katalog-Studio
+  gezeichnetes Symbol öffnet **Symbol bearbeiten…** mit allen seinen Teilen, statt dass Sie neu
+  zeichnen müssen. Die Teile lassen sich auswählen, verschieben, umfärben, radieren und löschen;
+  Strich- und Textgröße stellen Sie wie gewohnt ein, Texte ändern Sie per Doppelklick. Die Form
+  eines Teils selbst (etwa die Kurve eines Bogens) bleibt, wie sie ist – Neues zeichnen Sie dazu.
+  Enthält ein SVG etwas, das sich nicht verlustfrei übernehmen lässt (Masken, Farbverläufe), steht
+  es wie bisher nur als Vorlage im Hintergrund.
 
 ## Viele Komponenten auf einmal: Excel-Import {#excel-import}
 

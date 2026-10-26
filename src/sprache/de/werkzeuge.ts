@@ -434,6 +434,10 @@ export const werkzeuge = {
       other: 'Schaltverbindung zeichnen ({n} Adern)',
     },
     keinWeg: 'Kein freier Weg zum Ziel gefunden - anderen Zielpunkt wählen.',
+    durchgeschleift: {
+      one: 'Verbindung durch {n} Bauteil gezogen und dort aufgeteilt.',
+      other: 'Verbindung durch {n} Bauteile gezogen und dort aufgeteilt.',
+    },
     adern: 'Adern',
     pole: 'Pole',
     mehrlinig: 'Mehrlinig',
@@ -478,6 +482,10 @@ export const werkzeuge = {
       one: '{n} durchlaufende Leitung konnte nicht kollisionsfrei neu geroutet werden - bitte manuell nachbearbeiten.',
       other:
         '{n} durchlaufende Leitungen konnten nicht kollisionsfrei neu geroutet werden - bitte manuell nachbearbeiten.',
+    },
+    eingeschleift: {
+      one: 'Komponente in {n} Verbindung eingeschleift.',
+      other: 'Komponente in {n} Verbindungen eingeschleift.',
     },
     angeschlossenNichtGeroutet: {
       one: '{n} angeschlossene Leitung konnte nicht kollisionsfrei neu geroutet werden - bitte manuell nachbearbeiten.',

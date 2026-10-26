@@ -1,15 +1,23 @@
 import type { Point } from './geometry'
 import { type SymbolFarbe, symbolFarbwert } from './symbol-palette'
-import type { SymbolElement, SymbolRadierung, SymbolZeichnung } from './symbol-zeichnung'
+import type {
+  SymbolElement,
+  SymbolRadierung,
+  SymbolVektor,
+  SymbolZeichnung,
+} from './symbol-zeichnung'
+import { elementSvg as vektorSvg } from './studio-zeichnung/svg-export'
 import {
   SYMBOL_SCHRIFT,
   SYMBOL_STRICH_BREITE,
   SYMBOL_TEXT_GROESSE,
   SYMBOL_TEXT_ZEILENHOEHE,
   bogenSpanne,
+  symbolZeichnungBreite,
   symbolZeichnungIstFarbig,
   symbolZeichnungSchema,
 } from './symbol-zeichnung'
+import { svgImportieren } from './studio-zeichnung/svg-import'
 
 export const SYMBOL_ZEICHNUNG_METADATEN_ID = 'el-easy-cad-symbolzeichnung'
 
@@ -102,6 +110,8 @@ function elementSvg(element: SymbolElement): string {
     }
     case 'bild':
       return `<image href="${xmlText(element.datenUrl)}" x="${zahl(element.ecke.x)}" y="${zahl(element.ecke.y)}" width="${zahl(element.breite)}" height="${zahl(element.hoehe)}" preserveAspectRatio="none"/>`
+    case 'vektor':
+      return vektorSvg(element.form)
   }
 }
 
@@ -165,4 +175,39 @@ export function symbolZeichnungAusSvg(svg: string | null | undefined): SymbolZei
 export function symbolSvgIstFarbig(svg: string | null | undefined): boolean {
   const zeichnung = symbolZeichnungAusSvg(svg)
   return zeichnung !== null && symbolZeichnungIstFarbig(zeichnung)
+}
+
+export function symbolZeichnungAusFremdemSvg(
+  svg: string | null | undefined,
+  breitenFaktor = 1,
+  hoehenFaktor = 1,
+): SymbolZeichnung | null {
+  if (!svg || !/<svg\b/i.test(svg)) return null
+  let ergebnis: ReturnType<typeof svgImportieren>
+  try {
+    ergebnis = svgImportieren(svg, breitenFaktor, hoehenFaktor)
+  } catch {
+    return null
+  }
+  if (ergebnis.hinweise.length > 0 || ergebnis.zeichnung.elemente.length === 0) return null
+  const zeichnung: SymbolZeichnung = {
+    version: 1,
+    breite: symbolZeichnungBreite(breitenFaktor),
+    hoehe: symbolZeichnungBreite(hoehenFaktor),
+    elemente: ergebnis.zeichnung.elemente.map((element): SymbolVektor => {
+      const { radierungen, ...form } = element
+      return { id: form.id, radierungen: radierungen ?? [], art: 'vektor', form }
+    }),
+  }
+  return symbolZeichnungSchema.safeParse(zeichnung).success ? zeichnung : null
+}
+
+export function bearbeitbareSymbolZeichnung(
+  svg: string | null | undefined,
+  breitenFaktor = 1,
+  hoehenFaktor = 1,
+): SymbolZeichnung | null {
+  return (
+    symbolZeichnungAusSvg(svg) ?? symbolZeichnungAusFremdemSvg(svg, breitenFaktor, hoehenFaktor)
+  )
 }

@@ -10,7 +10,9 @@ Werkzeug dorthin zurück.
   entfernt es wieder.
 - **Rahmen aufziehen** (auf freier Fläche beginnen) wählt je nach Richtung:
   - von **links nach rechts** nur, was ganz im Rahmen liegt,
-  - von **rechts nach links** zusätzlich alles, was der Rahmen nur berührt.
+  - von **rechts nach links** zusätzlich alles, was der Rahmen nur berührt. Verbindungen,
+    Leitungen, Trunks, Linien und Polylinien zählen dabei nur, wenn der Rahmen die Linie selbst
+    berührt – nicht schon, wenn er in der Fläche zwischen ihren Knicken liegt.
 
   Mit gehaltener **Strg**- bzw. **Cmd**-Taste erweitert der Rahmen die bestehende Auswahl, statt sie zu
   ersetzen.

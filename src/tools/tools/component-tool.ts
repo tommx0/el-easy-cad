@@ -23,6 +23,7 @@ import {
   naechstesFreiesKennzeichen,
   neueObjektBasis,
   positionFuerFangpunkt,
+  rasteAufLinieEin,
   schleifeEin,
 } from '../../document-model'
 import {
@@ -220,6 +221,13 @@ export function erzeugeKomponentenTool(art: 'komponente' | 'knx-aktor' = 'kompon
     }
   }
 
+  function aufLinie(ctx: ToolContext, objekt: KomponentenObjekt): KomponentenObjekt {
+    if (magnetZiel || !istSchaltplan(ctx.doc.getZeichnung())) return objekt
+    const blatt = ctx.doc.getBlatt(ctx.aktivesBlattId())
+    if (!blatt) return objekt
+    return rasteAufLinieEin(blatt.objekte, objekt, vorschauDrehung === 0) ?? objekt
+  }
+
   return {
     id: art,
     get bezeichnung() {
@@ -348,14 +356,15 @@ export function erzeugeKomponentenTool(art: 'komponente' | 'knx-aktor' = 'kompon
           ),
         )
       } else if (istSchaltplan(ctx.doc.getZeichnung())) {
+        const eingerastet = aufLinie(ctx, objekt)
         ctx.commands.execute(
           erzeugeObjektAendernCommand(
             ctx.doc,
             ctx.aktivesBlattId(),
             t('werkzeuge.komponente.platzierenLabel'),
             (objekte) => {
-              const ergebnis = schleifeEin([...objekte, objekt], objekt.id)
-              eingeschleift = ergebnis.linien.length / 2
+              const ergebnis = schleifeEin([...objekte, eingerastet], eingerastet.id)
+              eingeschleift = ergebnis.anzahl
               return ergebnis.objekte
             },
           ),
@@ -383,7 +392,7 @@ export function erzeugeKomponentenTool(art: 'komponente' | 'knx-aktor' = 'kompon
       const roh = erzeugeInstanz(ctx, vorschauPosition)
       if (!roh) return
       const wand = anDerWand(ctx, roh)
-      const objekt = wand ?? mitMagnet(roh)
+      const objekt = wand ?? aufLinie(ctx, mitMagnet(roh))
       if (magnetZiel) {
         zeichneSlotHighlight(g, ctx.view, magnetZiel)
       }

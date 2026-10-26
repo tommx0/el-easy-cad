@@ -1,6 +1,7 @@
 export const statuszeile = {
   aria: 'Statuszeile',
   kiVerbunden: 'KI verbunden',
+  modulArbeitet: '{name} arbeitet …',
   kiBereit: 'KI bereit',
   kiBereitTitel: 'KI-Schnittstelle eingeschaltet – noch keine Anfrage in den letzten Minuten.',
   laengeTitel:

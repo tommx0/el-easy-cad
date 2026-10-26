@@ -73,6 +73,17 @@ export const server: Texte['server'] = {
     aufrufUnbekannt: 'The call is unknown or has already expired.',
     verbindungUnbekannt: 'Unknown connection.',
   },
+  zusatzmodule: {
+    keinPaket: 'The file is not a readable el.easy.CAD add-on module (.eecmod).',
+    manifestFehlt: 'The module is missing “manifest.json”.',
+    manifestUngueltig: '“manifest.json” in the module is invalid: {fehler}',
+    codeFehlt: 'The module is missing “modul.js”.',
+    pfadUngueltig: 'The module contains a disallowed file path: “{pfad}”.',
+    zuGross: 'The unpacked module is larger than {hoechstens} MB.',
+    appZuAlt: 'The module “{name}” requires el.easy.CAD {mindestens} or later (installed: {app}).',
+    nichtGefunden: 'Module not installed.',
+    dateiNichtGefunden: 'File not found in the module.',
+  },
   austausch: {
     projektZuGross:
       'At around {groesse} MB, the project is too large for exchange (at most {hoechstens} MB). Remove backgrounds or documents that are no longer needed and export again.',

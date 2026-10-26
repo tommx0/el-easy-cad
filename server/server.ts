@@ -23,6 +23,7 @@ import { registriereInstallationszonenRouten } from './routen/installationszonen
 import { registriereProjektRouten } from './routen/projekte'
 import { registriereProduktlizenzRouten } from './routen/produktlizenz'
 import { registriereStatusRouten } from './routen/status'
+import { registriereZusatzmodulRouten } from './routen/zusatzmodule'
 
 export interface ServerKontext {
   db: DatabaseSync
@@ -96,6 +97,7 @@ export async function erzeugeServer(
   registriereRegelwerkRouten(app, kontext)
   registriereAustauschRouten(app, kontext, demoOptionen)
   registriereKiRouten(app, kontext, new KiBruecke())
+  registriereZusatzmodulRouten(app, kontext)
 
   const statisch = kontext.konfiguration.statischesVerzeichnis
   if (statisch) {

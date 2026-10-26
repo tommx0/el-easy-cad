@@ -9,6 +9,8 @@ export const menue: Texte['menue'] = {
   ansicht: 'View',
   katalog: 'Catalogue',
   extras: 'Extras',
+  module: 'Add-ons',
+  keineModule: 'No add-ons installed',
   hilfe: 'Help',
   zuletztBearbeitet: 'Recently edited',
   nochKeineDokumente: 'No documents yet',

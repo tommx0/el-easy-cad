@@ -21,7 +21,7 @@ import {
   type Verknuepfung,
 } from './verknuepfung'
 
-export function verbindeKiSchnittstelle(teile: {
+export function erzeugeKiKontext(teile: {
   doc: DocumentStore
   commands: CommandStack
   catalogStore: CatalogStore
@@ -29,10 +29,10 @@ export function verbindeKiSchnittstelle(teile: {
   verknuepfung: Verknuepfung
   aktivesWerkzeug: () => string
   oeffneDokument: (dokumentId: string) => Promise<void>
-}): KiBruecke {
+}): KiKontext {
   const { doc, commands, catalogStore, sitzung, verknuepfung, aktivesWerkzeug, oeffneDokument } =
     teile
-  const kontext: KiKontext = {
+  return {
     doc,
     commands,
     routingSettings: () => useSettingsStore.getState().routing,
@@ -130,7 +130,9 @@ export function verbindeKiSchnittstelle(teile: {
       )
     },
   }
+}
 
+export function verbindeKiSchnittstelle(kontext: KiKontext): KiBruecke {
   const bruecke = new KiBruecke((aufruf) => fuehreKiWerkzeugAus(aufruf, kontext))
   bruecke.subscribe((zustand) => {
     const ui = useUiStore.getState()

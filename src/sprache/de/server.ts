@@ -73,6 +73,18 @@ export const server = {
     aufrufUnbekannt: 'Der Aufruf ist unbekannt oder schon abgelaufen.',
     verbindungUnbekannt: 'Unbekannte Verbindung.',
   },
+  zusatzmodule: {
+    keinPaket: 'Die Datei ist kein lesbares el.easy.CAD-Modul (.eecmod).',
+    manifestFehlt: 'Im Modul fehlt "manifest.json".',
+    manifestUngueltig: '"manifest.json" im Modul ist ungültig: {fehler}',
+    codeFehlt: 'Im Modul fehlt "modul.js".',
+    pfadUngueltig: 'Das Modul enthält einen unzulässigen Dateipfad: "{pfad}".',
+    zuGross: 'Das Modul ist entpackt größer als {hoechstens} MB.',
+    appZuAlt:
+      'Das Modul "{name}" benötigt el.easy.CAD {mindestens} oder neuer (installiert: {app}).',
+    nichtGefunden: 'Modul nicht installiert.',
+    dateiNichtGefunden: 'Datei im Modul nicht gefunden.',
+  },
   austausch: {
     projektZuGross:
       'Das Projekt ist mit rund {groesse} MB zu groß für den Austausch (höchstens {hoechstens} MB). Nicht mehr benötigte Hintergründe oder Dokumente entfernen und erneut exportieren.',

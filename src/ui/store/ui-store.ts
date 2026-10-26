@@ -4,7 +4,13 @@ import {
   STANDARD_WAND_STAERKE,
   WAND_STAERKE_MIN,
 } from '../../document-model'
-import type { EtagenRichtung, GruppenAngaben, GruppenVorgabe, KiStatus } from '../../document-model'
+import type {
+  EtagenRichtung,
+  GruppenAngaben,
+  GruppenVorgabe,
+  KiStatus,
+  ZusatzmodulVorschau,
+} from '../../document-model'
 import {
   STANDARD_BAUTEIL_VORGABEN,
   STANDARD_VERLEGE_VORGABEN,
@@ -379,6 +385,8 @@ interface UiState {
   handbuchDialog: { anker: string | null } | null
   handbuchKapitel: string | null
   fehlerprotokollDialogOffen: boolean
+  moduleDialog: 'anzeigen' | 'entfernen' | null
+  modulHinzufuegen: { datei: File; vorschau: ZusatzmodulVorschau } | null
   datenschutzBestaetigungOffen: boolean
   eulaBestaetigungOffen: boolean
   toast: string | null
@@ -543,6 +551,8 @@ interface UiState {
   setHandbuchDialog: (v: { anker: string | null } | null) => void
   setHandbuchKapitel: (v: string) => void
   setFehlerprotokollDialogOffen: (v: boolean) => void
+  setModuleDialog: (v: 'anzeigen' | 'entfernen' | null) => void
+  setModulHinzufuegen: (v: { datei: File; vorschau: ZusatzmodulVorschau } | null) => void
   setDatenschutzBestaetigungOffen: (v: boolean) => void
   setEulaBestaetigungOffen: (v: boolean) => void
   zeigeToast: (text: string) => void
@@ -650,6 +660,8 @@ export const useUiStore = create<UiState>((set) => ({
   handbuchDialog: null,
   handbuchKapitel: null,
   fehlerprotokollDialogOffen: false,
+  moduleDialog: null,
+  modulHinzufuegen: null,
   toast: null,
   offenesDokument: null,
   hintergrundLadefortschritt: null,
@@ -830,6 +842,8 @@ export const useUiStore = create<UiState>((set) => ({
   setHandbuchDialog: (v) => set({ handbuchDialog: v }),
   setHandbuchKapitel: (v) => set({ handbuchKapitel: v }),
   setFehlerprotokollDialogOffen: (v) => set({ fehlerprotokollDialogOffen: v }),
+  setModuleDialog: (v) => set({ moduleDialog: v }),
+  setModulHinzufuegen: (v) => set({ modulHinzufuegen: v }),
   setDatenschutzBestaetigungOffen: (v) => set({ datenschutzBestaetigungOffen: v }),
   setEulaBestaetigungOffen: (v) => set({ eulaBestaetigungOffen: v }),
   setOffenesDokument: (dokument) => set({ offenesDokument: dokument }),
@@ -899,6 +913,8 @@ export function istModalerDialogOffen(s: UiState = useUiStore.getState()): boole
     s.tastenkuerzelDialogOffen ||
     s.handbuchDialog !== null ||
     s.fehlerprotokollDialogOffen ||
+    s.moduleDialog !== null ||
+    s.modulHinzufuegen !== null ||
     s.datenschutzBestaetigungOffen ||
     s.eulaBestaetigungOffen ||
     s.druckExportDialog !== null ||

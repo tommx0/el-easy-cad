@@ -117,6 +117,16 @@ export const aktionen = {
     keineZeichnungOffen:
       'Das offene Dokument „{name}“ ist keine Zeichnung – bitte eine Zeichnung öffnen.',
   },
+  zusatzmodule: {
+    laeuftBereits: 'Es arbeitet bereits ein Modul – bitte warten, bis es fertig ist.',
+    befehlFehlt: 'Das Modul „{name}“ kennt den Befehl „{befehl}“ nicht.',
+    befehlFehler: '{name}: Fehler – Änderungen zurückgenommen. {fehler}',
+    ladefehler: 'Das Modul „{name}“ ließ sich nicht laden und wurde abgeschaltet: {fehler}',
+    keinAktivieren: '„modul.js“ exportiert keine Funktion „aktivieren“.',
+    keineBefehle: '„aktivieren“ hat keine Befehle geliefert.',
+    installiert: 'Modul „{name}“ {version} installiert.',
+    entfernt: 'Modul „{name}“ entfernt.',
+  },
   lizenzModule: {
     bim: 'BIM (IFC-Import und -Export)',
   },

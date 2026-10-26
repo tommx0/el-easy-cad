@@ -115,6 +115,16 @@ export const aktionen: Texte['aktionen'] = {
     keineZeichnung: 'No drawing is open in el.easy.CAD – please open one.',
     keineZeichnungOffen: 'The open document “{name}” is not a drawing – please open a drawing.',
   },
+  zusatzmodule: {
+    laeuftBereits: 'An add-on is already running – please wait until it has finished.',
+    befehlFehlt: 'The add-on “{name}” has no command “{befehl}”.',
+    befehlFehler: '{name}: error – changes undone. {fehler}',
+    ladefehler: 'The add-on “{name}” could not be loaded and has been switched off: {fehler}',
+    keinAktivieren: '“modul.js” does not export a function “aktivieren”.',
+    keineBefehle: '“aktivieren” did not return any commands.',
+    installiert: 'Add-on “{name}” {version} installed.',
+    entfernt: 'Add-on “{name}” removed.',
+  },
   lizenzModule: {
     bim: 'BIM (IFC import and export)',
   },

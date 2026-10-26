@@ -142,3 +142,34 @@ The **AI may only read** box forbids the assistant any change. Sheets that are v
 the BIM module are not handed to the assistant as an image either.
 
 Like any program output, the assistant's answers should be checked before you rely on them.
+
+## Add-ons {#zusatzmodule}
+
+Add-ons are separate pieces of software that fit into el.easy.CAD – for example an add-on that
+places socket outlets in every room. An add-on comes as a file with the extension **.eecmod** and
+is managed from the **Add-ons** menu:
+
+- {{befehl:module.hinzufuegen}} chooses an `.eecmod`. el.easy.CAD checks the file and, before
+  installing, shows the add-on's name, version, manufacturer and commands. If the add-on is
+  already installed, it says which version will be replaced; an older version is only installed
+  after you confirm it explicitly.
+- {{befehl:module.anzeigen}} lists all installed add-ons. The **active** box switches an add-on
+  off without removing it – it then only disappears from the menu.
+- {{befehl:module.entfernen}} opens the same list; **Remove** deletes the add-on after a
+  confirmation. Drawings edited with the add-on stay unchanged and can still be opened, printed and
+  edited without it.
+
+Below the separator in the **Add-ons** menu are the commands of the active add-ons – one submenu
+per add-on, or the entry itself if it has only one command. While an add-on is working, the status
+bar shows “… is working …”, and the drawing area waits until it has finished.
+
+Everything an add-on command changes in the drawing is **one undo step** named after the add-on –
+{{kuerzel:bearbeiten.rueckgaengig}} undoes it. If a command stops with an error, el.easy.CAD undoes
+its changes by itself and records the error in the error log. If an add-on cannot be loaded at all
+– for example because it was built for a different version of el.easy.CAD –, el.easy.CAD switches
+it off; the list gives the reason. An add-on that was not tested with your version is marked with
+⚠ there but keeps running.
+
+**Trust:** Add-ons have full access to el.easy.CAD and your projects. They are not signed –
+el.easy.CAD cannot check who built an add-on. Only install add-ons from manufacturers you trust.
+Like any program output, what an add-on creates should be checked.

@@ -53,6 +53,7 @@ import { BEFEHLE, BEFEHL_NACH_ID, kuerzelPartner } from './katalog'
 import { werkzeugPasstZuZeichnungsart } from '../werkzeugleiste-reihenfolge'
 import { FANGART_BEFEHL_ID } from '../objektfang-namen'
 import { useT } from '../sprache-anbindung'
+import { waehleZusatzmodulZumHinzufuegen } from '../zusatzmodule/hinzufuegen'
 
 export interface Befehlsaktion {
   ausfuehren: () => void
@@ -662,6 +663,9 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     },
     'extras.einstellungen-einspielen': { ausfuehren: () => void waehleEinstellungsDatei() },
     'extras.modulfelder-reparieren': { ausfuehren: modulfelderReparieren },
+    'module.hinzufuegen': { ausfuehren: () => void waehleZusatzmodulZumHinzufuegen() },
+    'module.anzeigen': { ausfuehren: () => ui().setModuleDialog('anzeigen') },
+    'module.entfernen': { ausfuehren: () => ui().setModuleDialog('entfernen') },
     'hilfe.handbuch': {
       ausfuehren: () =>
         ui().setHandbuchDialog({

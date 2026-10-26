@@ -7,6 +7,8 @@ export const menue = {
   ansicht: 'Ansicht',
   katalog: 'Katalog',
   extras: 'Extras',
+  module: 'Module',
+  keineModule: 'Keine Module installiert',
   hilfe: 'Hilfe',
   zuletztBearbeitet: 'Zuletzt bearbeitet',
   nochKeineDokumente: 'Noch keine Dokumente',

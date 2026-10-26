@@ -16,6 +16,7 @@ export class CommandStack {
   private redoStack: Command[] = []
   private listeners = new Set<StackListener>()
   private sperre: { pruefe: () => string | null; melde: (grund: string) => void } | null = null
+  private sammlung: Command[] | null = null
 
   setzeSperre(pruefe: () => string | null, melde: (grund: string) => void) {
     this.sperre = { pruefe, melde }
@@ -32,8 +33,11 @@ export class CommandStack {
   execute(command: Command): boolean {
     if (this.istGesperrt(command)) return false
     command.do()
-    this.undoStack.push(command)
-    this.redoStack = []
+    if (this.sammlung) this.sammlung.push(command)
+    else {
+      this.undoStack.push(command)
+      this.redoStack = []
+    }
     this.notify()
     return true
   }
@@ -43,12 +47,20 @@ export class CommandStack {
       command.undo()
       return
     }
-    this.undoStack.push(command)
-    this.redoStack = []
+    if (this.sammlung) this.sammlung.push(command)
+    else {
+      this.undoStack.push(command)
+      this.redoStack = []
+    }
     this.notify()
   }
 
   undo() {
+    if (this.sammlung) {
+      this.sammlung.pop()?.undo()
+      this.notify()
+      return
+    }
     const command = this.undoStack.pop()
     if (!command) return
     command.undo()
@@ -57,6 +69,7 @@ export class CommandStack {
   }
 
   redo() {
+    if (this.sammlung) return
     const command = this.redoStack.pop()
     if (!command) return
     command.do()
@@ -80,7 +93,36 @@ export class CommandStack {
     return this.redoStack.length ? this.redoStack[this.redoStack.length - 1].label : null
   }
 
+  beginneSammlung() {
+    if (this.sammlung) throw new Error('Es laeuft bereits eine Sammlung.')
+    this.sammlung = []
+  }
+
+  beendeSammlung(label: string): Command | null {
+    const gesammelt = this.sammlung
+    this.sammlung = null
+    if (!gesammelt || gesammelt.length === 0) return null
+    const command = new CompositeCommand(label, gesammelt)
+    this.undoStack.push(command)
+    this.redoStack = []
+    this.notify()
+    return command
+  }
+
+  verwirfSammlung() {
+    const gesammelt = this.sammlung
+    this.sammlung = null
+    if (!gesammelt) return
+    for (let i = gesammelt.length - 1; i >= 0; i--) gesammelt[i].undo()
+    this.notify()
+  }
+
+  sammeltGerade(): boolean {
+    return this.sammlung !== null
+  }
+
   clear() {
+    this.sammlung = null
     this.undoStack = []
     this.redoStack = []
     this.notify()

@@ -12,7 +12,8 @@ print or export every sheet as PDF, Excel or IFC. It also draws schematics and d
 diagrams.
 
 The application runs entirely on your computer (PC and macOS): a small local server stores projects in a SQLite
-file, nothing is sent anywhere.
+file, and el.easy.CAD itself sends nothing anywhere. An optional AI assistant can read and edit
+your drawings – see [Working with an AI assistant](#working-with-an-ai-assistant-mcp).
 
 > The user interface and the built-in manual are available in German and English.
 
@@ -25,6 +26,46 @@ file, nothing is sent anywhere.
 | Distribution board plan | 3D view |
 |---|---|
 | ![Distribution board plan generated from the cables](public/handbuch/ablauf-leitungen-verteilerplan.png) | ![3D view of two storeys](public/handbuch/ablauf-etagen-3d.png) |
+
+## Working with an AI assistant (MCP)
+
+el.easy.CAD has a built-in interface for AI assistants such as **Claude** (Claude Code or Claude
+Desktop), based on the [Model Context Protocol](https://modelcontextprotocol.io). Ask about the
+open drawing in plain language – or let the assistant do the drawing work for you.
+
+- **Ask:** “Which cables have a free end?”, “How many socket outlets are on the upper floor?”,
+  “Show me the distribution tree of +UV1”, “Are any terminal numbers assigned twice?” The
+  assistant reads sheets and objects, rooms, the catalogue, every list (parts list, cable list
+  with lengths, circuit directory and more), the distribution tree, a check for anomalies and
+  screenshots of the sheets.
+- **Edit:** set properties on many objects at once (label, height, mounting location, surface or
+  flush mounting, circuit, KNX, variable texts, cable type …), delete, move and rotate objects,
+  swap components for another catalogue entry, add sheets.
+- **Draw floor plans:** place components from the catalogue – at a point, in the middle of a room
+  or on a wall at a given distance and height, lined up like by hand –, route cables
+  automatically (also through trunks to a free switch port or into the distribution board, with
+  connection to a terminal), create trunks, walls, rooms, doors and windows.
+- **Draw schematics:** place devices in a grid field (“C3”), set potentials and draw connections
+  from terminal to terminal (“A1” → “13”), single-line, multi-pole or multi-line, with branches –
+  and arrange the devices automatically.
+- **Plan distribution boards:** propose the equipment from the rooms, edit the distribution tree,
+  assign KNX actuators, renumber a terminal strip and generate the distribution board diagram.
+
+Device tags, terminal and cable numbers are assigned exactly as if you had drawn by hand.
+
+**You stay in control.** The interface is off by default. Once switched on, it only answers on
+this computer and only to requests with its access token; *AI may only read* forbids every
+change. Each change by the assistant is a single undo step starting with “AI:” and is listed in
+the AI log, and while you are working with a drawing tool it changes nothing. You bring the
+language model with your own account: whatever the assistant reads – including room names and
+screenshots – goes to its provider, for Claude to Anthropic.
+
+**Setting up:** *Extras › Program settings… › AI assistant*, agree to the note on data sharing,
+then run the displayed `claude mcp add …` command once (Claude Code) or copy the displayed block
+into `claude_desktop_config.json` (Claude Desktop). The manual in the app describes everything
+in the chapter *Working with an AI assistant*.
+
+As with every result of the program: check what the assistant does before you rely on it.
 
 ## Licence
 
@@ -118,7 +159,40 @@ Bug reports and suggestions are welcome as issues.
 el.easy.CAD ist ein Desktop-CAD für die Elektro-, KNX Sensorkanalzuordnung und Netzwerkplanung: Grundriss als Hintergrund
 laden (PDF, DXF, IFC, Bild), kalibrieren, Komponenten aus dem Produktkatalog platzieren, Leitungen
 automatisch verlegen, in Trunks und Kabelschächten über Etagen führen und jedes Blatt als PDF,
-Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. KNX Tastsensor oder Schalterkanäle zu Leuchten oder Geräten hinzufüge... kein Problem. Alles läuft auf Ihrem Rechner, es werden keine Daten übertragen.
+Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. KNX Tastsensor oder Schalterkanäle zu Leuchten oder Geräten hinzufüge... kein Problem. Alles läuft auf Ihrem Rechner, el.easy.CAD selbst überträgt keine Daten.
+
+**Mit einem KI-Assistenten arbeiten (MCP):** Über das Model Context Protocol lässt sich ein
+KI-Assistent wie **Claude** (Claude Code oder Claude Desktop) an el.easy.CAD anbinden. Fragen Sie
+in eigenen Worten nach der offenen Zeichnung – „Welche Leitungen haben ein freies Ende?“, „Wie
+viele Steckdosen stehen im Obergeschoss?“, „Sind Klemmennummern doppelt vergeben?“ – oder lassen
+Sie ihn mitzeichnen:
+
+- **Lesen:** Blätter und Objekte, Räume, Katalog, alle Listen (Stückliste, Leitungsliste mit
+  Längen, Stromkreisverzeichnis …), den Verteilerbaum, eine Prüfung auf Auffälligkeiten und
+  Bildschirmfotos der Blätter.
+- **Ändern:** Eigenschaften an vielen Objekten auf einmal setzen (Beschriftung, Höhe, Montageort,
+  AP/UP, Stromkreis, KNX, variable Texte, Kabeltyp …), Objekte löschen, verschieben, drehen,
+  Komponenten austauschen, Blätter anlegen.
+- **Bauplan zeichnen:** Komponenten aus dem Katalog setzen – an einen Punkt, in die Raummitte oder
+  an eine Wand mit Abstand und Höhe –, Leitungen per Autorouting verlegen (auch durch Trunks bis
+  zum freien Switch-Port oder in den Verteiler, mit Anschluss auf eine Klemme), Trunks, Wände,
+  Räume, Türen und Fenster anlegen.
+- **Schaltplan zeichnen:** Bauteile in ein Netzfeld („C3“) setzen, Potentiale setzen,
+  Schaltverbindungen von Kontakt zu Kontakt ziehen („A1“ → „13“), einlinig, mehrpolig oder
+  mehrlinig, mit Abzweig – und die Bauteile automatisch anordnen.
+- **Verteiler planen:** Bestückung aus den Räumen vorschlagen, den Verteilerbaum bearbeiten,
+  KNX-Aktoren zuordnen, eine Klemmenleiste neu nummerieren und den Verteilerplan erzeugen.
+
+Kennzeichen, Klemmen- und Leitungsnummern vergibt el.easy.CAD dabei genauso wie beim Zeichnen von
+Hand. **Sie behalten die Kontrolle:** Ab Werk ist die Schnittstelle aus; eingeschaltet antwortet
+sie nur auf diesem Rechner und nur mit Zugangstoken, der Haken „KI darf nur lesen“ verbietet jede
+Änderung. Jede Änderung ist ein eigener Rückgängig-Schritt („KI: …“) und steht im KI-Protokoll;
+solange Sie mit einem Zeichenwerkzeug arbeiten, ändert der Assistent nichts. Das Sprachmodell
+bringen Sie über Ihr eigenes Konto mit – was der Assistent liest, auch Raumnamen und
+Bildschirmfotos, geht an dessen Anbieter, bei Claude an Anthropic. Einschalten unter
+*Extras › Programmeinstellungen… › KI-Assistent*; Einzelheiten im Kapitel „Mit einem
+KI-Assistenten arbeiten“ der Bedienungsanleitung. Wie jede Programmausgabe sind auch die
+Ergebnisse des Assistenten vor der Verwendung zu prüfen.
 
 **Lizenz:** PolyForm Noncommercial 1.0.0 – kostenlos für jede nicht kommerzielle Nutzung, mit
 vollem Funktionsumfang und ohne Zeitbegrenzung. Eine gewerbliche oder berufliche Nutzung erlaubt

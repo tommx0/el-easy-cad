@@ -7,7 +7,7 @@
         "name": "Safety and security systems"
       }
     },
-    "seed_version": 2
+    "seed_version": 3
   },
   "komponenten": [
     {
@@ -467,6 +467,21 @@
       "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"linie\",\"id\":\"emvjeltuj5g3\",\"a\":{\"x\":4,\"y\":96},\"b\":{\"x\":96,\"y\":96},\"strich\":2.5,\"strichFarbe\":\"rot\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvjeltuj5g4\",\"a\":{\"x\":96,\"y\":4},\"b\":{\"x\":4,\"y\":4},\"strich\":2.5,\"strichFarbe\":\"rot\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvjeltuj5g5\",\"a\":{\"x\":4,\"y\":4},\"b\":{\"x\":4,\"y\":96},\"strich\":2.5,\"strichFarbe\":\"rot\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"text\",\"id\":\"emvjeltuj5g7\",\"position\":{\"x\":12.021600000000001,\"y\":84.76393999999999},\"text\":\"S\",\"groesse\":33,\"ausrichtung\":\"links\",\"drehung\":0,\"fett\":false,\"farbe\":\"rot\"},{\"art\":\"polylinie\",\"id\":\"emvjeltuj5g9\",\"punkte\":[{\"x\":74.64159543695293,\"y\":29.423779436952927},{\"x\":91.242772,\"y\":25.70326},{\"x\":91.242772,\"y\":25.70326},{\"x\":87.52225256304708,\"y\":42.30443656304708}],\"geschlossen\":true,\"strich\":0,\"strichFarbe\":\"rot\",\"gestrichelt\":false,\"fuellung\":\"rot\"},{\"art\":\"polylinie\",\"id\":\"emvjeltuj5gb\",\"punkte\":[{\"x\":57.760423436952934,\"y\":12.54260743695292},{\"x\":74.34918,\"y\":8.834508},{\"x\":74.34918,\"y\":8.834508},{\"x\":70.64108056304707,\"y\":25.42326456304707}],\"geschlossen\":true,\"strich\":0,\"strichFarbe\":\"rot\",\"gestrichelt\":false,\"fuellung\":\"rot\"},{\"art\":\"linie\",\"id\":\"emvjeltuj5gc\",\"a\":{\"x\":96,\"y\":96},\"b\":{\"x\":96,\"y\":4},\"strich\":2.5,\"strichFarbe\":\"rot\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvjeltuj5gd\",\"a\":{\"x\":16.396724,\"y\":36.667452},\"b\":{\"x\":62.734456,\"y\":83.005276},\"strich\":2.5,\"strichFarbe\":\"rot\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvjeltuj5ge\",\"a\":{\"x\":81.081924,\"y\":35.864108},\"b\":{\"x\":52.101555999999995,\"y\":64.844476},\"strich\":2.5,\"strichFarbe\":\"rot\",\"gestrichelt\":false,\"fuellung\":\"keine\"},{\"art\":\"linie\",\"id\":\"emvjeltuj5gf\",\"a\":{\"x\":63.997892,\"y\":18.780076000000008},\"b\":{\"x\":35.017523999999995,\"y\":47.760444},\"strich\":2.5,\"strichFarbe\":\"rot\",\"gestrichelt\":false,\"fuellung\":\"keine\"}]}</metadata><line x1=\"4\" y1=\"96\" x2=\"96\" y2=\"96\" stroke=\"#c8102e\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"96\" y1=\"4\" x2=\"4\" y2=\"4\" stroke=\"#c8102e\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"4\" y1=\"4\" x2=\"4\" y2=\"96\" stroke=\"#c8102e\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><text font-family=\"Arial, Helvetica, sans-serif\" font-size=\"33\" text-anchor=\"start\" dominant-baseline=\"central\" fill=\"#c8102e\"><tspan x=\"12.02\" y=\"84.76\">S</tspan></text><polygon points=\"74.64,29.42 91.24,25.7 91.24,25.7 87.52,42.3\" stroke=\"none\" fill=\"#c8102e\"/><polygon points=\"57.76,12.54 74.35,8.83 74.35,8.83 70.64,25.42\" stroke=\"none\" fill=\"#c8102e\"/><line x1=\"96\" y1=\"96\" x2=\"96\" y2=\"4\" stroke=\"#c8102e\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"16.4\" y1=\"36.67\" x2=\"62.73\" y2=\"83.01\" stroke=\"#c8102e\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"81.08\" y1=\"35.86\" x2=\"52.1\" y2=\"64.84\" stroke=\"#c8102e\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/><line x1=\"64\" y1=\"18.78\" x2=\"35.02\" y2=\"47.76\" stroke=\"#c8102e\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"/></svg>",
       "symbolFarbig": true,
       "seed_version": 2
+    },
+    {
+      "id": "katalog-1a957e17-5276-4295-bb2a-ec2b6389ccb5",
+      "name": "Melder",
+      "uebersetzungen": {
+        "en": {
+          "name": "Detector",
+          "kategorie": "Symbols"
+        }
+      },
+      "kategorie": "Symbole",
+      "herkunft": "standard",
+      "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"ellipse\",\"id\":\"emelderkreis\",\"mitte\":{\"x\":50,\"y\":50},\"rx\":25,\"ry\":25,\"drehung\":0,\"strich\":0,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"gelb\"}]}</metadata><circle cx=\"50\" cy=\"50\" r=\"25\" stroke=\"none\" fill=\"#f2b700\"/></svg>",
+      "symbolFarbig": true,
+      "seed_version": 1
     },
     {
       "id": "katalog-83cd5806-2d0c-4369-b043-9ca93830ca23",

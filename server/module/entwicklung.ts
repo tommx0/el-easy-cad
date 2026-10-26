@@ -9,6 +9,7 @@ import {
   type ZusatzmodulManifest,
 } from '../../src/document-model'
 import { serverText, type ServerText } from '../sprache'
+import { pfadImOrdner } from './pfad'
 
 const DATEIEN_MAX = 2000
 
@@ -77,6 +78,7 @@ export function leseEntwicklungsordner(ordner: string): EntwicklungsFund {
 
 export function leseEntwicklungsDatei(ordner: string, pfad: string): Buffer | null {
   if (!istSichererModulPfad(pfad)) return null
-  const datei = join(ordner, pfad)
+  const datei = pfadImOrdner(ordner, pfad)
+  if (!datei) return null
   return statSync(datei, { throwIfNoEntry: false })?.isFile() ? readFileSync(datei) : null
 }

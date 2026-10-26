@@ -114,6 +114,14 @@ export function istSichererModulPfad(pfad: string): boolean {
     .every((teil) => teil.length > 0 && teil !== '.' && teil !== '..' && /^[\w.-]+$/.test(teil))
 }
 
+export function istGueltigeModulKennung(kennung: string): boolean {
+  return kennungSchema.safeParse(kennung).success
+}
+
+export function istGueltigeModulVersion(version: string): boolean {
+  return versionSchema.safeParse(version).success
+}
+
 export const ZUSATZMODUL_KI_VORSATZ = 'modul_'
 
 export function zusatzmodulKiWerkzeugName(kennung: string, befehlId: string): string {

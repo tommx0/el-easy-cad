@@ -22,6 +22,13 @@ export class ToolManager {
     this.tools.set(tool.id, tool)
   }
 
+  entferne(id: string) {
+    if (!this.tools.has(id)) return
+    if (this.aktivesToolId === id) this.aktiviere('auswahl')
+    this.tools.delete(id)
+    this.notify()
+  }
+
   alleTools(): Tool[] {
     return Array.from(this.tools.values())
   }

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import type { SettingsStore } from '../../persistence'
 import {
   befehleMitModulen,
-  BEFEHL_NACH_ID,
+  befehlNachId,
   befehlName,
   gruppenName,
   werkzeugTastenHinweis,
@@ -85,7 +85,7 @@ export function TastenkuerzelEinstellungen({ settingsStore }: { settingsStore: S
       return
     }
     const bisherigerId = Object.keys(belegung).find(
-      (id) => id !== befehlId && !BEFEHL_NACH_ID[id]?.kuerzelWie && belegung[id] === kuerzel,
+      (id) => id !== befehlId && !befehlNachId(id)?.kuerzelWie && belegung[id] === kuerzel,
     )
     if (bisherigerId) {
       setKonflikt({ befehlId, kuerzel, bisherigerId })

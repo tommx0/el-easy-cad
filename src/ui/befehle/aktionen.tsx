@@ -37,6 +37,7 @@ import { bibliothekHerunterladen, waehleUndOeffneBibliothek } from '../bibliothe
 import { useKatalogStore } from '../store/katalog-store'
 import { useSettingsStore } from '../store/settings-store'
 import { useUiStore } from '../store/ui-store'
+import { useZusatzmodulStore } from '../store/zusatzmodul-store'
 import { WERKZEUG_ABSCHNITT } from '../handbuch/kapitel'
 import {
   useAktivesBlatt,
@@ -49,7 +50,7 @@ import { useFreigeschalteteModule, useHatModul } from '../lizenz-module'
 import { ladePdfLinienGemerkt } from '../hintergrund-fang-quelle'
 import { ALLE_BLATT_SICHTBARKEITEN, type BlattSichtbarkeitBefehl } from './blatt-sichtbarkeit'
 import { tabellenVerknuepfung } from '../verknuepfung'
-import { BEFEHLE, BEFEHL_NACH_ID, kuerzelPartner } from './katalog'
+import { alleBefehle, BEFEHLE, BEFEHL_NACH_ID, kuerzelPartner } from './katalog'
 import { werkzeugPasstZuZeichnungsart } from '../werkzeugleiste-reihenfolge'
 import { FANGART_BEFEHL_ID } from '../objektfang-namen'
 import { useT } from '../sprache-anbindung'
@@ -86,6 +87,7 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     dokumentStore,
     settingsStore,
     verknuepfung,
+    zusatzmodule,
   } = useAppContext()
   const blatt = useAktivesBlatt()
   const zeichnung = useProject()
@@ -96,6 +98,8 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
   const klemmbrettGefuellt = useUiStore((s) => s.klemmbrettGefuellt)
   const setAuswahlIds = useUiStore((s) => s.setAuswahlIds)
   const zeigeToast = useUiStore((s) => s.zeigeToast)
+  useZusatzmodulStore((s) => s.eintraege)
+  const modulLaeuft = useZusatzmodulStore((s) => s.laufend !== null)
   const wasserzeichenAktiv = useUiStore((s) => s.produktlizenzStatus?.betriebsmodus === 'demo')
   const lizenznehmer = useUiStore((s) =>
     s.produktlizenzStatus?.status === 'gueltig'
@@ -711,6 +715,18 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
         (befehl.werkzeugId === 'hintergrund-ausblenden' && !blatt.hintergrund) ||
         (befehl.werkzeugId === 'zeichenflaeche-verschieben' &&
           (!blatt.zeichenflaeche || schaltplan)),
+    }
+  }
+
+  for (const befehl of alleBefehle()) {
+    const modul = befehl.zusatzmodul
+    if (!modul) continue
+    aktionen[befehl.id] = {
+      ausfuehren: () => void zusatzmodule.fuehreAus(modul.kennung, modul.befehlId),
+      deaktiviert:
+        modulLaeuft ||
+        (modul.nurZeichnungsart !== undefined &&
+          modul.nurZeichnungsart !== zeichnung.zeichnungsart),
     }
   }
 

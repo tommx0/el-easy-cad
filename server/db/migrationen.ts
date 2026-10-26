@@ -170,6 +170,10 @@ CREATE TABLE zusatzmodule (
 );
 `
 
+const ZUSATZMODULE_KI = `
+ALTER TABLE zusatzmodule ADD COLUMN ki INTEGER NOT NULL DEFAULT 1;
+`
+
 export const MIGRATIONEN: Migration[] = [
   { version: 1, name: 'grundschema', sql: GRUNDSCHEMA },
   { version: 2, name: 'katalogregister', sql: KATALOGREGISTER },
@@ -177,6 +181,7 @@ export const MIGRATIONEN: Migration[] = [
   { version: 4, name: 'kabeltypen', sql: KABELTYPEN },
   { version: 5, name: 'installationszonen', sql: INSTALLATIONSZONEN },
   { version: 6, name: 'zusatzmodule', sql: ZUSATZMODULE },
+  { version: 7, name: 'zusatzmodule-ki', sql: ZUSATZMODULE_KI },
 ]
 
 export function leseSchemaVersion(db: DatabaseSync): number {

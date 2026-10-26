@@ -83,6 +83,10 @@ export const server: Texte['server'] = {
     appZuAlt: 'The module “{name}” requires el.easy.CAD {mindestens} or later (installed: {app}).',
     nichtGefunden: 'Module not installed.',
     dateiNichtGefunden: 'File not found in the module.',
+    ordnerFehlt: 'No folder has been specified for developer mode.',
+    ordnerOhneManifest: 'There is no readable “manifest.json” in the folder “{ordner}”.',
+    schluesselUngueltig: 'Invalid key for an add-on setting.',
+    einstellungZuGross: 'The add-on setting is larger than {hoechstens} KB.',
   },
   austausch: {
     projektZuGross:

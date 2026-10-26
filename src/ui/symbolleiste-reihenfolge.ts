@@ -2,6 +2,7 @@ import { t, type Schluessel } from '../sprache'
 import { FANGARTEN_RANGFOLGE } from '../tools'
 import { ALLE_BLATT_SICHTBARKEITEN } from './befehle/blatt-sichtbarkeit'
 import { FANGART_BEFEHL_ID } from './objektfang-namen'
+import { zusatzmodulBefehlIds } from './befehle/katalog'
 
 export type SymbolleistenBereich =
   'datei' | 'bearbeiten' | 'blatt' | 'ansicht' | 'katalog' | 'extras'
@@ -363,7 +364,7 @@ export function vollstaendigeSymbolleiste(
   eigeneReihenfolge: readonly string[],
   gruppen: readonly SymbolleistenGruppe[] = [],
 ): string[] {
-  const angebot = SYMBOLLEISTE_ANGEBOT.map((eintrag) => eintrag.id)
+  const angebot = [...SYMBOLLEISTE_ANGEBOT.map((eintrag) => eintrag.id), ...zusatzmodulBefehlIds()]
   const gruppenIds = gruppen.map((gruppe) => gruppe.id)
   const gruppiert = new Set(gruppen.flatMap((gruppe) => gruppe.befehle))
   const bekannt = new Set([...angebot, ...gruppenIds])

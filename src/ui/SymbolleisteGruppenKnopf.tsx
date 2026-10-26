@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import type { Aktionskarte } from './befehle/aktionen'
-import { BEFEHL_NACH_ID, befehlName } from './befehle/katalog'
+import { befehlNachId, befehlName } from './befehle/katalog'
 import { anzeige } from './befehle/kuerzel'
 import { BefehlIcon } from './befehle/BefehlIcon'
 import { IconPfeilUnten } from './components/Icons'
@@ -51,7 +51,7 @@ export function SymbolleisteGruppenKnopf({ gruppe, befehle }: Props) {
   }
 
   const mitglieder = gruppe.befehle
-    .map((id) => ({ id, eintrag: BEFEHL_NACH_ID[id], aktion: befehle[id] }))
+    .map((id) => ({ id, eintrag: befehlNachId(id), aktion: befehle[id] }))
     .filter((eintrag) => eintrag.eintrag && eintrag.aktion)
 
   return (

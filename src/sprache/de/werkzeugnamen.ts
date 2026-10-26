@@ -1,4 +1,5 @@
 export const werkzeugnamen = {
+  'zusatzmodul-abfrage': 'Modul-Abfrage',
   auswahl: 'Auswahl',
   komponente: 'Komponente',
   leitung: 'Leitung',

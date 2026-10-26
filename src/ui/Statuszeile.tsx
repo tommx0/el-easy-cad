@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent, type FormEvent } from 'react'
 import { istSchaltplan, planMassstabNenner, planMassstabText } from '../document-model'
-import { useAktivesBlatt, useProject } from './use-app-context'
+import { useAktivesBlatt, useAppContext, useProject } from './use-app-context'
+import { formatiereZahl } from '../sprache/format'
 import { useUiStore } from './store/ui-store'
 import { useZusatzmodulStore } from './store/zusatzmodul-store'
 import { WerkzeugIcon } from './components/Icons'
@@ -86,14 +87,29 @@ function KiKennzeichen() {
 
 function ZusatzmodulKennzeichen() {
   const t = useT()
+  const { zusatzmodule } = useAppContext()
   const laufend = useZusatzmodulStore((s) => s.laufend)
   const name = useZusatzmodulStore(
     (s) => s.eintraege.find((e) => e.manifest.kennung === laufend?.kennung)?.manifest.name,
   )
   if (!laufend) return null
+  const fortschritt = laufend.fortschritt
+  const text = `${name ?? laufend.kennung}: ${fortschritt?.text ?? laufend.titel} …`
+  const anteil =
+    fortschritt?.anteil === null || fortschritt?.anteil === undefined
+      ? null
+      : formatiereZahl(fortschritt.anteil * 100, { maximumFractionDigits: 0 })
   return (
-    <span className="statuszeile-modul">
-      {t('statuszeile.modulArbeitet', { name: name ?? laufend.kennung })}
+    <span className="statuszeile-modul" title={t('statuszeile.modulAbbrechenTitel')}>
+      {anteil === null ? text : `${text} ${anteil} %`}
+      <button
+        type="button"
+        className="statuszeile-modul-abbrechen"
+        aria-label={t('statuszeile.modulAbbrechen')}
+        onClick={() => zusatzmodule.abbrechen()}
+      >
+        ✕
+      </button>
     </span>
   )
 }

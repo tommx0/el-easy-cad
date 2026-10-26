@@ -30,6 +30,7 @@ Die Einstellungen sind auf Reiter verteilt:
 | Tastenkürzel | | Siehe [Eigene Kürzel vergeben](#kuerzel-vergeben) |
 | Werkzeugleiste, Symbolleiste | | Inhalt und Reihenfolge, siehe [Oberfläche anpassen](#symbolleiste-anpassen) |
 | KI-Assistent | | Die Schnittstelle für Claude und andere KI-Assistenten, siehe [Mit einem KI-Assistenten arbeiten](#ki-assistent) |
+| Module | Entwicklermodus | Ein Modul direkt aus einem Ordner laden, siehe [Zusatzmodule](#zusatzmodule) |
 | Lizenz | | Status der Lizenz, Verweis auf [Meine Lizenz](#lizenz) |
 
 ## Einstellungen sichern und mitnehmen {#einstellungen-sichern}
@@ -163,15 +164,52 @@ wird über das Menü **Module** verwaltet:
   sich auch ohne das Modul öffnen, drucken und weiterbearbeiten.
 
 Unter dem Trenner im Menü **Module** stehen die Befehle der aktiven Module – je Modul ein
-Untermenü, bei nur einem Befehl direkt der Eintrag. Während ein Modul arbeitet, steht in der
-Statuszeile „… arbeitet …“, und die Zeichenfläche ruht so lange.
+Untermenü, bei nur einem Befehl direkt der Eintrag. Diese Befehle lassen sich wie alle anderen in
+die [Symbolleiste](#symbolleiste-anpassen) aufnehmen und mit einem [eigenen Kürzel](#kuerzel-vergeben)
+belegen; sie stehen dort in der Gruppe „Module“ mit dem Icon des Moduls oder einem Puzzleteil.
+Ist das Modul entfernt oder abgeschaltet, verschwinden sie, und beim erneuten Installieren sind
+Platz und Kürzel wieder da.
+
+Ein Modul kann nachfragen: mit einem **Formular** im Stil von el.easy.CAD (oft mit den zuletzt
+gewählten Werten vorbelegt), mit einer Ja/Nein-Frage oder **im Plan** – dann steht ein Hinweis in
+der Statuszeile („Verteiler anklicken“, „Rechteck aufziehen“), und Sie klicken Punkte oder Objekte
+an oder ziehen ein Rechteck auf. Bei mehreren Objekten beendet Enter die Wahl. Esc beendet nur
+diese Nachfrage; was dann geschieht, entscheidet das Modul.
+
+Manche Module bringen ein eigenes **Panel** mit: entweder als aufklappbarer Abschnitt rechts unter
+den Eigenschaften oder als schwebendes Fenster über der Zeichenfläche, das sich am Kopf verschieben
+und mit ✕ schließen lässt. Solche Module laden schon beim Programmstart, damit ihr Panel gleich
+da ist.
+
+Während ein Modulbefehl arbeitet, steht in der Statuszeile „‹Modul›: ‹Befehl› …“, auf Wunsch mit
+Fortschritt in Prozent; Zeichenfläche und Tastatur ruhen so lange. **Esc** oder **✕** im
+Kennzeichen bricht den Befehl ab.
 
 Alles, was ein Modulbefehl an der Zeichnung ändert, ist **ein Rückgängig-Schritt** mit dem Namen
 des Moduls – {{kuerzel:bearbeiten.rueckgaengig}} nimmt ihn zurück. Bricht ein Befehl mit einem
-Fehler ab, nimmt el.easy.CAD seine Änderungen von selbst zurück und vermerkt den Fehler im
-Fehlerprotokoll. Lässt sich ein Modul gar nicht laden – etwa weil es für eine andere Version von
-el.easy.CAD gebaut wurde –, schaltet el.easy.CAD es ab; die Liste nennt den Grund. Ein Modul, das
-nicht mit Ihrer Version getestet wurde, ist dort mit ⚠ gekennzeichnet, läuft aber weiter.
+Fehler ab oder brechen Sie ihn ab, nimmt el.easy.CAD seine Änderungen von selbst zurück; einen
+Fehler vermerkt es im Fehlerprotokoll. Lässt sich ein Modul gar nicht laden – etwa weil es für eine
+andere Version von el.easy.CAD gebaut wurde –, schaltet el.easy.CAD es ab; die Liste nennt den
+Grund. Ein Modul, das nicht mit Ihrer Version getestet wurde, ist dort mit ⚠ gekennzeichnet, läuft
+aber weiter.
+
+Ein Modul kann eigene Angaben an Objekten ablegen. Sie bleiben in der Zeichnung, gehen mit Kopien
+mit und stören nicht, wenn das Modul fehlt. Seine Einstellungen (etwa die zuletzt gewählten
+Formularwerte) merkt sich el.easy.CAD auf diesem Rechner; beim Entfernen fragt der Dialog, ob sie
+mit gelöscht werden sollen.
+
+**Mit dem KI-Assistenten:** Sieht ein Modul es vor, kann auch Claude seine Befehle aufrufen
+(siehe [Mit einem KI-Assistenten arbeiten](#ki-assistent)). Dann erscheint kein Formular: Claude
+gibt die Werte mit, alles andere gilt wie zuletzt gewählt; statt eines Klicks im Plan nennt er das
+Objekt. Die Änderung ist ein Rückgängig-Schritt, der mit „KI:“ beginnt. Im Dialog „Module“ schaltet
+der Haken **für KI-Assistent** das je Modul ab; **KI darf nur lesen** sperrt ändernde Modulbefehle
+wie alle anderen.
+
+**Module entwickeln:** Im Reiter **Module** der Einstellungen schaltet der **Entwicklermodus** ein
+Modul direkt aus einem Ordner dieses Rechners ein – dem Ordner mit `manifest.json` und `modul.js`.
+Es steht dann mit dem Kennzeichen **Entwicklung** in der Liste und im Menü, und el.easy.CAD lädt es
+vor jedem Befehl neu, wenn sich eine Datei geändert hat; **Jetzt neu laden** erzwingt das sofort.
+Hat es dieselbe Kennung wie ein installiertes Modul, ersetzt es dieses, solange der Modus an ist.
 
 **Vertrauen:** Module haben vollen Zugriff auf el.easy.CAD und Ihre Projekte. Sie sind nicht
 signiert – el.easy.CAD kann nicht prüfen, wer ein Modul gebaut hat. Installieren Sie nur Module

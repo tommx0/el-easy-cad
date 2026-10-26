@@ -22,6 +22,7 @@ import { erzeugeIfcAusrichtenTool } from './ifc-ausrichten-tool'
 import { erzeugeIfcBauteileVorschauTool } from './ifc-bauteile-vorschau-tool'
 import { erzeugeZeichenflaecheTool } from './zeichenflaeche-tool'
 import { erzeugeZoomFensterTool } from './zoom-window-tool'
+import { erzeugeZusatzmodulAbfrageTool } from './zusatzmodul-abfrage-tool'
 import { erzeugeKomponentenTool } from './component-tool'
 import { erzeugeLeitungTool } from './leitung-tool'
 import { erzeugeSchaltverbindungTool } from './schaltverbindung-tool'
@@ -148,4 +149,11 @@ export {
   erzeugeErkennungsProbeTool,
   erzeugeZeichenflaecheTool,
   erzeugeZoomFensterTool,
+  erzeugeZusatzmodulAbfrageTool,
 }
+export {
+  ZUSATZMODUL_ABFRAGE_TOOL_ID,
+  type ZusatzmodulAbfrageAuftrag,
+  type ZusatzmodulAbfrageErgebnis,
+  type ZusatzmodulAbfrageTool,
+} from './zusatzmodul-abfrage-tool'

@@ -1,4 +1,8 @@
-import type { ZusatzmodulEintrag, ZusatzmodulVorschau } from '../document-model'
+import type {
+  ZusatzmodulEintrag,
+  ZusatzmodulEntwicklung,
+  ZusatzmodulVorschau,
+} from '../document-model'
 import { API_BASIS, holeJson, sendeDatei, sendeJson } from './api-client'
 import { waehleDatei } from './projekt-austausch'
 
@@ -31,8 +35,50 @@ export function setzeZusatzmodulAktiv(
   })
 }
 
-export function entferneZusatzmodul(kennung: string): Promise<unknown> {
-  return sendeJson('DELETE', `/zusatzmodule/${encodeURIComponent(kennung)}`)
+export function setzeZusatzmodulKiFreigabe(
+  kennung: string,
+  kiFreigabe: boolean,
+): Promise<ZusatzmodulEintrag> {
+  return sendeJson<ZusatzmodulEintrag>('PUT', `/zusatzmodule/${encodeURIComponent(kennung)}`, {
+    kiFreigabe,
+  })
+}
+
+export function entferneZusatzmodul(
+  kennung: string,
+  einstellungenLoeschen = true,
+): Promise<unknown> {
+  const abfrage = einstellungenLoeschen ? '' : '?einstellungen=behalten'
+  return sendeJson('DELETE', `/zusatzmodule/${encodeURIComponent(kennung)}${abfrage}`)
+}
+
+function einstellungsPfad(kennung: string, schluessel: string): string {
+  return `/zusatzmodule/${encodeURIComponent(kennung)}/einstellungen/${encodeURIComponent(schluessel)}`
+}
+
+export async function leseZusatzmodulEinstellung(
+  kennung: string,
+  schluessel: string,
+): Promise<unknown> {
+  return (await holeJson<{ wert: unknown }>(einstellungsPfad(kennung, schluessel))).wert
+}
+
+export async function schreibeZusatzmodulEinstellung(
+  kennung: string,
+  schluessel: string,
+  wert: unknown,
+): Promise<void> {
+  await sendeJson('PUT', einstellungsPfad(kennung, schluessel), { wert })
+}
+
+export function leseZusatzmodulEntwicklung(): Promise<ZusatzmodulEntwicklung> {
+  return holeJson<ZusatzmodulEntwicklung>('/zusatzmodule-entwicklung')
+}
+
+export function setzeZusatzmodulEntwicklung(
+  wert: Pick<ZusatzmodulEntwicklung, 'aktiv' | 'ordner'>,
+): Promise<ZusatzmodulEntwicklung> {
+  return sendeJson<ZusatzmodulEntwicklung>('PUT', '/zusatzmodule-entwicklung', wert)
 }
 
 export function zusatzmodulDateiUrl(kennung: string, version: string, pfad: string): string {

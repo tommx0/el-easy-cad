@@ -9,6 +9,7 @@ import { alleZeilen, ausSqlBoolean, eineZeile, jetzt, zuSqlBoolean } from './hil
 interface ModulZeile {
   kennung: string
   aktiv: number
+  ki: number
   installiert_am: string
   fehler: string | null
   manifest: string
@@ -23,13 +24,14 @@ function geparst(zeile: ModulZeile): ZusatzmodulEintrag | null {
       aktiv: ausSqlBoolean(zeile.aktiv),
       installiertAm: zeile.installiert_am,
       fehler: zeile.fehler,
+      kiFreigabe: ausSqlBoolean(zeile.ki),
     }
   } catch {
     return null
   }
 }
 
-const SPALTEN = 'kennung, aktiv, installiert_am, fehler, manifest'
+const SPALTEN = 'kennung, aktiv, ki, installiert_am, fehler, manifest'
 
 export function leseZusatzmodule(db: DatabaseSync): ZusatzmodulEintrag[] {
   return alleZeilen<ModulZeile>(db.prepare(`SELECT ${SPALTEN} FROM zusatzmodule`))
@@ -58,7 +60,7 @@ export function schreibeZusatzmodul(
        version = excluded.version, aktiv = 1, installiert_am = excluded.installiert_am,
        fehler = NULL, manifest = excluded.manifest`,
   ).run(manifest.kennung, manifest.version, installiertAm, JSON.stringify(manifest))
-  return { manifest, aktiv: true, installiertAm, fehler: null }
+  return leseZusatzmodul(db, manifest.kennung)!
 }
 
 export function setzeZusatzmodulAktiv(
@@ -70,6 +72,18 @@ export function setzeZusatzmodulAktiv(
   db.prepare('UPDATE zusatzmodule SET aktiv = ?, fehler = ? WHERE kennung = ?').run(
     zuSqlBoolean(aktiv),
     fehler,
+    kennung,
+  )
+  return leseZusatzmodul(db, kennung)
+}
+
+export function setzeZusatzmodulKi(
+  db: DatabaseSync,
+  kennung: string,
+  freigabe: boolean,
+): ZusatzmodulEintrag | undefined {
+  db.prepare('UPDATE zusatzmodule SET ki = ? WHERE kennung = ?').run(
+    zuSqlBoolean(freigabe),
     kennung,
   )
   return leseZusatzmodul(db, kennung)

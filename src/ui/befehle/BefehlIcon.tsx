@@ -65,6 +65,7 @@ import {
   IconTastatur,
   IconVollbild,
   IconWerkzeugSchluessel,
+  IconZusatzmodul,
   IconWiederholen,
   IconZeichenflaeche,
   IconZeichnungExport,
@@ -76,7 +77,7 @@ import {
   WerkzeugIcon,
   FangartIcon,
 } from '../components/Icons'
-import { BEFEHL_NACH_ID } from './katalog'
+import { befehlNachId } from './katalog'
 import { FANGARTEN_RANGFOLGE } from '../../tools'
 import { FANGART_BEFEHL_ID } from '../objektfang-namen'
 
@@ -162,6 +163,9 @@ const BEFEHL_ICONS: Record<string, () => ReactNode> = {
 export function BefehlIcon({ id }: { id: string }) {
   const Bild = BEFEHL_ICONS[id]
   if (Bild) return <Bild />
-  const werkzeugId = BEFEHL_NACH_ID[id]?.werkzeugId
+  const befehl = befehlNachId(id)
+  if (befehl?.iconUrl) return <img className="befehl-icon-bild" src={befehl.iconUrl} alt="" />
+  if (befehl?.zusatzmodul) return <IconZusatzmodul />
+  const werkzeugId = befehl?.werkzeugId
   return werkzeugId ? <WerkzeugIcon id={werkzeugId} /> : null
 }

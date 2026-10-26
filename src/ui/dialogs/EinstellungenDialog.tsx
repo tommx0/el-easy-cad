@@ -54,6 +54,7 @@ function SpracheAbschnitt() {
     </>
   )
 }
+import { ZusatzmodulEinstellungen } from './ZusatzmodulEinstellungen'
 import { KiAssistentEinstellungen } from './KiAssistentEinstellungen'
 import { BeschriftungGroesseInhalt } from './BeschriftungGroesseDialog'
 import { ZahlenFeld } from '../ZahlenFeld'
@@ -635,6 +636,7 @@ type EinstellungenTab =
   | 'werkzeugleiste'
   | 'symbolleiste'
   | 'ki'
+  | 'module'
   | 'lizenz'
 
 const TABS: { id: EinstellungenTab; label: Schluessel }[] = [
@@ -648,6 +650,7 @@ const TABS: { id: EinstellungenTab; label: Schluessel }[] = [
   { id: 'werkzeugleiste', label: 'verwaltungsdialoge.einstellungenDialog.reiter.werkzeugleiste' },
   { id: 'symbolleiste', label: 'verwaltungsdialoge.einstellungenDialog.reiter.symbolleiste' },
   { id: 'ki', label: 'verwaltungsdialoge.einstellungenDialog.reiter.ki' },
+  { id: 'module', label: 'verwaltungsdialoge.einstellungenDialog.reiter.module' },
   { id: 'lizenz', label: 'verwaltungsdialoge.einstellungenDialog.reiter.lizenz' },
 ]
 
@@ -691,6 +694,7 @@ export function EinstellungenDialog() {
             {tab === 'werkzeugleiste' && <WerkzeugleisteEinstellungenTab />}
             {tab === 'symbolleiste' && <SymbolleisteEinstellungenTab />}
             {tab === 'ki' && <KiAssistentEinstellungen />}
+            {tab === 'module' && <ZusatzmodulEinstellungen />}
             {tab === 'lizenz' && <LizenzVerweis />}
           </div>
         </div>

@@ -1,4 +1,9 @@
-import { ungetesteteAppVersion, type ZusatzmodulEintrag } from '../../document-model'
+import { useState } from 'react'
+import {
+  ungetesteteAppVersion,
+  zusatzmodulLadeVersion,
+  type ZusatzmodulEintrag,
+} from '../../document-model'
 import { zusatzmodulDateiUrl } from '../../persistence'
 import { formatiereDatum } from '../../sprache/format'
 import { useT } from '../sprache-anbindung'
@@ -12,9 +17,12 @@ export function ZusatzmoduleDialog() {
   const modus = useUiStore((s) => s.moduleDialog)
   const eintraege = useZusatzmodulStore((s) => s.eintraege)
   const { zusatzmodule } = useAppContext()
+  const [frage, setFrage] = useState<string | null>(null)
+  const [einstellungenLoeschen, setEinstellungenLoeschen] = useState(true)
   if (!modus) return null
 
   function schliessen() {
+    setFrage(null)
     useUiStore.getState().setModuleDialog(null)
   }
 
@@ -28,17 +36,10 @@ export function ZusatzmoduleDialog() {
 
   function entfernen(eintrag: ZusatzmodulEintrag) {
     const { name, kennung } = eintrag.manifest
-    useUiStore.getState().oeffneBestaetigung({
-      titel: t('verwaltungsdialoge.zusatzmodule.entfernenTitel'),
-      nachricht: t('verwaltungsdialoge.zusatzmodule.entfernenFrage', { name }),
-      bestaetigenText: t('verwaltungsdialoge.zusatzmodule.entfernen'),
-      callback: (bestaetigt) => {
-        if (!bestaetigt) return
-        void mitMeldung(async () => {
-          await zusatzmodule.entferne(kennung)
-          useUiStore.getState().zeigeToast(t('aktionen.zusatzmodule.entfernt', { name }))
-        })
-      },
+    setFrage(null)
+    void mitMeldung(async () => {
+      await zusatzmodule.entferne(kennung, einstellungenLoeschen)
+      useUiStore.getState().zeigeToast(t('aktionen.zusatzmodule.entfernt', { name }))
     })
   }
 
@@ -65,6 +66,7 @@ export function ZusatzmoduleDialog() {
             {eintraege.map((eintrag) => {
               const { manifest } = eintrag
               const ungetestet = ungetesteteAppVersion(manifest, __APP_VERSION__)
+              const entwicklung = eintrag.entwicklung !== undefined
               return (
                 <li key={manifest.kennung} className="zusatzmodul-zeile">
                   <label
@@ -74,6 +76,7 @@ export function ZusatzmoduleDialog() {
                     <input
                       type="checkbox"
                       checked={eintrag.aktiv}
+                      disabled={entwicklung}
                       aria-label={t('verwaltungsdialoge.zusatzmodule.aktiv')}
                       onChange={(e) => {
                         const aktiv = e.target.checked
@@ -84,7 +87,11 @@ export function ZusatzmoduleDialog() {
                   <span className="zusatzmodul-icon">
                     {manifest.icon && (
                       <img
-                        src={zusatzmodulDateiUrl(manifest.kennung, manifest.version, manifest.icon)}
+                        src={zusatzmodulDateiUrl(
+                          manifest.kennung,
+                          zusatzmodulLadeVersion(eintrag),
+                          manifest.icon,
+                        )}
                         alt=""
                       />
                     )}
@@ -94,13 +101,39 @@ export function ZusatzmoduleDialog() {
                       <strong>{manifest.name}</strong>
                       <span>{manifest.version}</span>
                       <span>{manifest.hersteller}</span>
+                      {entwicklung && (
+                        <span
+                          className="zusatzmodul-entwicklung"
+                          title={t('verwaltungsdialoge.zusatzmodule.entwicklungHinweis')}
+                        >
+                          {t('verwaltungsdialoge.zusatzmodule.entwicklung')}
+                        </span>
+                      )}
                     </div>
                     {manifest.beschreibung && <div>{manifest.beschreibung}</div>}
-                    <div className="zusatzmodul-leise">
-                      {t('verwaltungsdialoge.zusatzmodule.installiertAm', {
-                        datum: formatiereDatum(eintrag.installiertAm),
-                      })}
-                    </div>
+                    {manifest.befehle.some((b) => b.ki) && (
+                      <label className="zusatzmodul-ki">
+                        <input
+                          type="checkbox"
+                          checked={eintrag.kiFreigabe}
+                          disabled={entwicklung}
+                          onChange={(e) => {
+                            const frei = e.target.checked
+                            void mitMeldung(() =>
+                              zusatzmodule.setzeKiFreigabe(manifest.kennung, frei),
+                            )
+                          }}
+                        />
+                        {t('verwaltungsdialoge.zusatzmodule.kiFreigabe')}
+                      </label>
+                    )}
+                    {!entwicklung && (
+                      <div className="zusatzmodul-leise">
+                        {t('verwaltungsdialoge.zusatzmodule.installiertAm', {
+                          datum: formatiereDatum(eintrag.installiertAm),
+                        })}
+                      </div>
+                    )}
                     {ungetestet && (
                       <div className="zusatzmodul-warnung">
                         ⚠{' '}
@@ -122,13 +155,40 @@ export function ZusatzmoduleDialog() {
                       </div>
                     )}
                   </div>
-                  <button
-                    type="button"
-                    className={modus === 'entfernen' ? 'gefahr' : undefined}
-                    onClick={() => entfernen(eintrag)}
-                  >
-                    {t('verwaltungsdialoge.zusatzmodule.entfernen')}
-                  </button>
+                  {!entwicklung && (
+                    <button
+                      type="button"
+                      className={modus === 'entfernen' ? 'gefahr' : undefined}
+                      onClick={() => setFrage(manifest.kennung)}
+                    >
+                      {t('verwaltungsdialoge.zusatzmodule.entfernen')}
+                    </button>
+                  )}
+                  {frage === manifest.kennung && (
+                    <div className="zusatzmodul-frage">
+                      <p>
+                        {t('verwaltungsdialoge.zusatzmodule.entfernenFrage', {
+                          name: manifest.name,
+                        })}
+                      </p>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={einstellungenLoeschen}
+                          onChange={(e) => setEinstellungenLoeschen(e.target.checked)}
+                        />
+                        {t('verwaltungsdialoge.zusatzmodule.einstellungenLoeschen')}
+                      </label>
+                      <div className="dialog-aktionen">
+                        <button type="button" onClick={() => setFrage(null)}>
+                          {t('verwaltungsdialoge.allgemein.abbrechen')}
+                        </button>
+                        <button type="button" className="gefahr" onClick={() => entfernen(eintrag)}>
+                          {t('verwaltungsdialoge.zusatzmodule.entfernen')}
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </li>
               )
             })}

@@ -15,6 +15,7 @@ import { anfrageSprache, serverText } from '../sprache'
 import type { KiBruecke } from '../mcp/bruecke'
 import { bearbeiteMcpNachricht, type JsonRpcAntwort } from '../mcp/protokoll'
 import { stdioAufruf } from '../mcp/stdio-weiterleitung'
+import { zusatzmodulKiWerkzeuge } from '../module/bestand'
 import type { ServerKontext } from '../server'
 
 const ANTWORT_GROESSE_MAX = 25 * 1024 * 1024
@@ -176,7 +177,10 @@ export function registriereKiRouten(
       }
     }
     const mcpKontext = {
-      werkzeuge: kiWerkzeuge(sprache),
+      werkzeuge: [
+        ...kiWerkzeuge(sprache),
+        ...zusatzmodulKiWerkzeuge(kontext.db, kontext.konfiguration.datenordner, sprache),
+      ],
       sprache,
       nurLesen: einstellungen.nurLesen,
       serverVersion: APP_VERSION,

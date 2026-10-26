@@ -84,6 +84,10 @@ export const server = {
       'Das Modul "{name}" benötigt el.easy.CAD {mindestens} oder neuer (installiert: {app}).',
     nichtGefunden: 'Modul nicht installiert.',
     dateiNichtGefunden: 'Datei im Modul nicht gefunden.',
+    ordnerFehlt: 'Für den Entwicklermodus ist kein Ordner angegeben.',
+    ordnerOhneManifest: 'Im Ordner „{ordner}“ liegt keine lesbare „manifest.json“.',
+    schluesselUngueltig: 'Ungültiger Schlüssel für eine Modul-Einstellung.',
+    einstellungZuGross: 'Die Modul-Einstellung ist größer als {hoechstens} KB.',
   },
   austausch: {
     projektZuGross:

@@ -143,6 +143,7 @@ interface SettingsState {
   setSprache: (store: SettingsStore, wert: string | null) => void
   setVerknuepfungNachLeitung: (store: SettingsStore, wert: boolean) => void
   setLeitungenErstNachLoslassen: (store: SettingsStore, wert: boolean) => void
+  leiteBefehleNeuAb: () => void
 }
 
 function abgeleitet(tastenkuerzel: Record<string, string | null>) {
@@ -640,6 +641,18 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     if (get().leitungenErstNachLoslassen === wert) return
     set({ leitungenErstNachLoslassen: wert })
     void store.speichern({ leitungenErstNachLoslassen: wert })
+  },
+
+  leiteBefehleNeuAb: () => {
+    const s = get()
+    set({
+      ...abgeleitet(s.tastenkuerzel),
+      ...abgeleiteteSymbolleiste(
+        s.symbolleisteReihenfolge,
+        s.symbolleisteEingeblendet,
+        s.symbolleisteGruppen,
+      ),
+    })
   },
 
   setEinfuehrungBeimStartZeigen: (store, wert) => {

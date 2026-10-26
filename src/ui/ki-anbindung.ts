@@ -1,4 +1,4 @@
-import type { DocumentStore } from '../document-model'
+import type { DocumentStore, KiAntwort, KiAufruf } from '../document-model'
 import { nurAnsichtGrund } from '../document-model'
 import { erzeugeBildschirmfoto } from '../druck'
 import { assetUrl, KiBruecke, leseKiStatus, type CatalogStore } from '../persistence'
@@ -132,8 +132,13 @@ export function erzeugeKiKontext(teile: {
   }
 }
 
-export function verbindeKiSchnittstelle(kontext: KiKontext): KiBruecke {
-  const bruecke = new KiBruecke((aufruf) => fuehreKiWerkzeugAus(aufruf, kontext))
+export function verbindeKiSchnittstelle(
+  kontext: KiKontext,
+  weitere?: (aufruf: KiAufruf) => Promise<KiAntwort> | null,
+): KiBruecke {
+  const bruecke = new KiBruecke(
+    (aufruf) => weitere?.(aufruf) ?? fuehreKiWerkzeugAus(aufruf, kontext),
+  )
   bruecke.subscribe((zustand) => {
     const ui = useUiStore.getState()
     ui.setKiBrueckeVerbunden(zustand.verbunden)

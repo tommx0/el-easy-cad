@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { SettingsStore } from '../../persistence'
-import { BEFEHL_NACH_ID } from '../befehle/katalog'
+import { befehlNachId } from '../befehle/katalog'
 import { BefehlIcon } from '../befehle/BefehlIcon'
 import { IconPapierkorb, IconPfeilUnten, IconStift } from '../components/Icons'
 import { useT } from '../sprache-anbindung'
@@ -261,7 +261,7 @@ export function SymbolleisteEinstellungen({ settingsStore }: { settingsStore: Se
                       </p>
                     )}
                     {gruppe.befehle.map((befehlId, mitgliedIndex) => {
-                      const befehl = BEFEHL_NACH_ID[befehlId]
+                      const befehl = befehlNachId(befehlId)
                       if (befehl?.modul && !module.includes(befehl.modul)) return null
                       return (
                         <div
@@ -312,7 +312,7 @@ export function SymbolleisteEinstellungen({ settingsStore }: { settingsStore: Se
             )
           }
 
-          const befehl = BEFEHL_NACH_ID[id]
+          const befehl = befehlNachId(id)
           if (befehl?.modul && !module.includes(befehl.modul)) return null
           const versteckt = !sichtbar.includes(id)
           const bereich = SYMBOLLEISTE_BEREICH[id]

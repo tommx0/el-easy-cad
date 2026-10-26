@@ -121,7 +121,9 @@ import type { IfcBauteileJeBlatt } from './ifc-bauteile'
 import { bereiteIfcBauteileAuf } from './ifc-bauteile'
 import { meldeNurAnsicht, nurAnsichtMeldung } from './nur-ansicht'
 import { freigeschalteteModule, hatModul } from './lizenz-module'
-import { ladeKiStatus, verbindeKiSchnittstelle } from './ki-anbindung'
+import { erzeugeKiKontext, ladeKiStatus, verbindeKiSchnittstelle } from './ki-anbindung'
+import { erzeugeZusatzmodulWirt } from './zusatzmodule/anbindung'
+import type { ZusatzmodulWirt } from './zusatzmodule/wirt'
 import type {
   HintergrundIfcImportErgebnis,
   IfcAbweichungenZustand,
@@ -214,6 +216,7 @@ export interface AppKontext {
     abbrechen: () => void
   }
   importiereProduktlizenzDatei: (rohdaten: unknown) => Promise<void>
+  zusatzmodule: ZusatzmodulWirt
 }
 
 export function AppProvider({ children }: { children: ReactNode }) {
@@ -274,7 +277,7 @@ function erzeugeAppKontext(): AppKontext {
     verknuepftesKennzeichen = jetzt
     aktualisiereVerknuepfung()
   })
-  verbindeKiSchnittstelle({
+  const kiKontext = erzeugeKiKontext({
     doc,
     commands,
     catalogStore,
@@ -282,6 +285,13 @@ function erzeugeAppKontext(): AppKontext {
     verknuepfung,
     aktivesWerkzeug: () => toolManager.getAktivesToolId(),
     oeffneDokument: (dokumentId) => oeffneDokument(dokumentId),
+  })
+  verbindeKiSchnittstelle(kiKontext)
+  const zusatzmodule = erzeugeZusatzmodulWirt({
+    doc,
+    commands,
+    kiKontext,
+    app: () => kontext,
   })
   const kameraProBlatt = new Map<string, KameraZustand>()
   const canvasGroesse = { breite: 0, hoehe: 0 }
@@ -348,6 +358,7 @@ function erzeugeAppKontext(): AppKontext {
       await useKabeltypStore.getState().laden(kabeltypStore)
       await optional(() => useInstallationszonenStore.getState().laden(installationszonenStore))
       await ladeKiStatus()
+      await zusatzmodule.laden()
       const gesichert = await catalogStore.holeUmstellungsHinweis()
       if (gesichert.length > 0) {
         useUiStore
@@ -540,7 +551,7 @@ function erzeugeAppKontext(): AppKontext {
   }
 
   const toolManager = new ToolManager(toolContext, 'auswahl')
-  toolManager.setzeSperre(() => sperrgrundAktivesBlatt() !== null)
+  toolManager.setzeSperre(() => sperrgrundAktivesBlatt() !== null || commands.sammeltGerade())
   for (const tool of erzeugeStandardWerkzeuge()) toolManager.registriere(tool)
   toolManager.registriere(erzeugeZoomFensterTool())
   toolManager.initialisiere()
@@ -1328,7 +1339,7 @@ function erzeugeAppKontext(): AppKontext {
     }
   }
 
-  return {
+  const kontext: AppKontext = {
     doc,
     commands,
     toolManager,
@@ -1371,5 +1382,7 @@ function erzeugeAppKontext(): AppKontext {
         void invoke('programm_neu_starten')
       }
     },
+    zusatzmodule,
   }
+  return kontext
 }

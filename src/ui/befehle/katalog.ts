@@ -6,7 +6,15 @@ import type { Kuerzel } from './kuerzel'
 import { t, type Schluessel, type Uebersetzer } from '../../sprache'
 
 export type BefehlGruppe =
-  'werkzeuge' | 'datei' | 'bearbeiten' | 'blatt' | 'ansicht' | 'katalog' | 'extras' | 'hilfe'
+  | 'werkzeuge'
+  | 'datei'
+  | 'bearbeiten'
+  | 'blatt'
+  | 'ansicht'
+  | 'katalog'
+  | 'extras'
+  | 'module'
+  | 'hilfe'
 
 export function befehlName(id: string, uebersetze: Uebersetzer = t): string {
   return uebersetze(`befehle.${id}` as Schluessel)
@@ -340,6 +348,9 @@ const UEBRIGE: Befehl[] = [
     gruppe: 'extras',
     standard: null,
   },
+  { id: 'module.hinzufuegen', gruppe: 'module', standard: null },
+  { id: 'module.anzeigen', gruppe: 'module', standard: null },
+  { id: 'module.entfernen', gruppe: 'module', standard: null },
   {
     id: 'hilfe.handbuch',
     gruppe: 'hilfe',

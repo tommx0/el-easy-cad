@@ -19,6 +19,8 @@ import { UeberDialog } from './dialogs/UeberDialog'
 import { LizenzenDialog } from './dialogs/LizenzenDialog'
 import { MeineLizenzDialog } from './dialogs/MeineLizenzDialog'
 import { FehlerprotokollDialog } from './dialogs/FehlerprotokollDialog'
+import { ZusatzmoduleDialog } from './dialogs/ZusatzmoduleDialog'
+import { ZusatzmodulHinzufuegenDialog } from './dialogs/ZusatzmodulHinzufuegenDialog'
 import { TastenkuerzelDialog } from './dialogs/TastenkuerzelDialog'
 import { HandbuchDialog } from './dialogs/HandbuchDialog'
 import { KatalogDialog } from './dialogs/KatalogDialog'
@@ -189,6 +191,8 @@ function AppInhalt() {
       <UeberDialog />
       <LizenzenDialog />
       <MeineLizenzDialog />
+      <ZusatzmoduleDialog />
+      <ZusatzmodulHinzufuegenDialog />
       <FehlerprotokollDialog />
       <TastenkuerzelDialog />
       <HandbuchDialog />

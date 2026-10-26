@@ -145,3 +145,35 @@ auch dem Assistenten nicht als Bild heraus.
 
 Die Antworten des Assistenten sind wie jede Programmausgabe zu prüfen, bevor Sie sich darauf
 verlassen.
+
+## Zusatzmodule {#zusatzmodule}
+
+Zusatzmodule sind eigenständige Programmteile, die sich in el.easy.CAD einfügen – etwa ein Modul,
+das in allen Räumen Steckdosen setzt. Ein Modul kommt als Datei mit der Endung **.eecmod** und
+wird über das Menü **Module** verwaltet:
+
+- {{befehl:module.hinzufuegen}} wählt eine `.eecmod`. el.easy.CAD prüft die Datei und zeigt vor
+  dem Installieren Name, Version, Hersteller und die Befehle des Moduls. Ist das Modul schon
+  installiert, steht dort, welche Version es ersetzt; eine ältere Version spielt el.easy.CAD nur
+  nach ausdrücklicher Bestätigung ein.
+- {{befehl:module.anzeigen}} listet alle installierten Module. Der Haken **aktiv** schaltet ein
+  Modul ab, ohne es zu entfernen – es verschwindet dann nur aus dem Menü.
+- {{befehl:module.entfernen}} öffnet dieselbe Liste; **Entfernen** löscht das Modul nach einer
+  Rückfrage. Zeichnungen, die mit dem Modul bearbeitet wurden, bleiben unverändert und lassen
+  sich auch ohne das Modul öffnen, drucken und weiterbearbeiten.
+
+Unter dem Trenner im Menü **Module** stehen die Befehle der aktiven Module – je Modul ein
+Untermenü, bei nur einem Befehl direkt der Eintrag. Während ein Modul arbeitet, steht in der
+Statuszeile „… arbeitet …“, und die Zeichenfläche ruht so lange.
+
+Alles, was ein Modulbefehl an der Zeichnung ändert, ist **ein Rückgängig-Schritt** mit dem Namen
+des Moduls – {{kuerzel:bearbeiten.rueckgaengig}} nimmt ihn zurück. Bricht ein Befehl mit einem
+Fehler ab, nimmt el.easy.CAD seine Änderungen von selbst zurück und vermerkt den Fehler im
+Fehlerprotokoll. Lässt sich ein Modul gar nicht laden – etwa weil es für eine andere Version von
+el.easy.CAD gebaut wurde –, schaltet el.easy.CAD es ab; die Liste nennt den Grund. Ein Modul, das
+nicht mit Ihrer Version getestet wurde, ist dort mit ⚠ gekennzeichnet, läuft aber weiter.
+
+**Vertrauen:** Module haben vollen Zugriff auf el.easy.CAD und Ihre Projekte. Sie sind nicht
+signiert – el.easy.CAD kann nicht prüfen, wer ein Modul gebaut hat. Installieren Sie nur Module
+von Herstellern, denen Sie vertrauen. Was ein Modul erzeugt, ist wie jede Programmausgabe zu
+prüfen.

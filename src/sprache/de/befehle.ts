@@ -7,7 +7,13 @@ export const befehle = {
     ansicht: 'Ansicht',
     katalog: 'Katalog',
     extras: 'Extras',
+    module: 'Module',
     hilfe: 'Hilfe',
+  },
+  module: {
+    hinzufuegen: 'Module hinzufügen…',
+    anzeigen: 'Module anzeigen…',
+    entfernen: 'Module entfernen…',
   },
   werkzeug: {
     auswahl: 'Auswahl',

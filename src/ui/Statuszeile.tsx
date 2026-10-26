@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type KeyboardEvent, type FormEvent } from 
 import { istSchaltplan, planMassstabNenner, planMassstabText } from '../document-model'
 import { useAktivesBlatt, useProject } from './use-app-context'
 import { useUiStore } from './store/ui-store'
+import { useZusatzmodulStore } from './store/zusatzmodul-store'
 import { WerkzeugIcon } from './components/Icons'
 import { werkzeugName } from './werkzeug-namen'
 import {
@@ -80,6 +81,20 @@ function KiKennzeichen() {
     >
       {aktiv ? t('statuszeile.kiVerbunden') : t('statuszeile.kiBereit')}
     </button>
+  )
+}
+
+function ZusatzmodulKennzeichen() {
+  const t = useT()
+  const laufend = useZusatzmodulStore((s) => s.laufend)
+  const name = useZusatzmodulStore(
+    (s) => s.eintraege.find((e) => e.manifest.kennung === laufend?.kennung)?.manifest.name,
+  )
+  if (!laufend) return null
+  return (
+    <span className="statuszeile-modul">
+      {t('statuszeile.modulArbeitet', { name: name ?? laufend.kennung })}
+    </span>
   )
 }
 
@@ -222,6 +237,7 @@ export function Statuszeile() {
         {werkzeugName(aktivesToolId)}
       </span>
       <KiKennzeichen />
+      <ZusatzmodulKennzeichen />
       <span className="statuszeile-fueller" />
       <span className="statuszeile-mass" ref={massBereichRef} hidden={start.mass === null}>
         <span className="statuszeile-feld" title={t('statuszeile.laengeTitel')}>

@@ -159,12 +159,24 @@ CREATE TABLE installationszonen (
 );
 `
 
+const ZUSATZMODULE = `
+CREATE TABLE zusatzmodule (
+  kennung        TEXT PRIMARY KEY,
+  version        TEXT NOT NULL,
+  aktiv          INTEGER NOT NULL DEFAULT 1,
+  installiert_am TEXT NOT NULL,
+  fehler         TEXT,
+  manifest       TEXT NOT NULL
+);
+`
+
 export const MIGRATIONEN: Migration[] = [
   { version: 1, name: 'grundschema', sql: GRUNDSCHEMA },
   { version: 2, name: 'katalogregister', sql: KATALOGREGISTER },
   { version: 3, name: 'dokumenttyp-excel', sql: DOKUMENTTYP_EXCEL, ohneFremdschluessel: true },
   { version: 4, name: 'kabeltypen', sql: KABELTYPEN },
   { version: 5, name: 'installationszonen', sql: INSTALLATIONSZONEN },
+  { version: 6, name: 'zusatzmodule', sql: ZUSATZMODULE },
 ]
 
 export function leseSchemaVersion(db: DatabaseSync): number {

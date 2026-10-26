@@ -39,7 +39,7 @@ export function istErlaubterUrsprung(origin: string | undefined): boolean {
 
 export function tokenPasst(kopf: string | undefined, token: string | null): boolean {
   if (!token || !kopf) return false
-  const treffer = /^Bearer\s+(.+)$/i.exec(kopf.trim())
+  const treffer = /^Bearer\s+(\S+)$/i.exec(kopf.trim())
   if (!treffer) return false
   const a = Buffer.from(treffer[1])
   const b = Buffer.from(token)

@@ -56,6 +56,7 @@ import { erzeugeUebersetzer } from '../../sprache'
 import { ausgabeZeile, hinweisAktiv } from '../community'
 import { planspracheVon } from '../../document-model'
 import { useT } from '../sprache-anbindung'
+import { waehleZusatzmodulZumHinzufuegen } from '../zusatzmodule/hinzufuegen'
 
 export interface Befehlsaktion {
   ausfuehren: () => void
@@ -664,6 +665,9 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     },
     'extras.einstellungen-einspielen': { ausfuehren: () => void waehleEinstellungsDatei() },
     'extras.modulfelder-reparieren': { ausfuehren: modulfelderReparieren },
+    'module.hinzufuegen': { ausfuehren: () => void waehleZusatzmodulZumHinzufuegen() },
+    'module.anzeigen': { ausfuehren: () => ui().setModuleDialog('anzeigen') },
+    'module.entfernen': { ausfuehren: () => ui().setModuleDialog('entfernen') },
     'hilfe.handbuch': {
       ausfuehren: () =>
         ui().setHandbuchDialog({

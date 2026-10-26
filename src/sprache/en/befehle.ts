@@ -9,7 +9,13 @@ export const befehle: Texte['befehle'] = {
     ansicht: 'View',
     katalog: 'Catalogue',
     extras: 'Extras',
+    module: 'Add-ons',
     hilfe: 'Help',
+  },
+  module: {
+    hinzufuegen: 'Add add-ons…',
+    anzeigen: 'Show add-ons…',
+    entfernen: 'Remove add-ons…',
   },
   werkzeug: {
     auswahl: 'Select',

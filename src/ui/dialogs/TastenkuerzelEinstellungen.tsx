@@ -22,6 +22,7 @@ const GRUPPEN: BefehlGruppe[] = [
   'ansicht',
   'katalog',
   'extras',
+  'module',
   'hilfe',
 ]
 

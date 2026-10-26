@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { useAppContext } from './use-app-context'
 import { useHatModul } from './lizenz-module'
 import { useSettingsStore } from './store/settings-store'
+import { useZusatzmodulStore } from './store/zusatzmodul-store'
 import { useBefehle } from './befehle/use-befehle'
 import { BEFEHL_NACH_ID, befehlName } from './befehle/katalog'
 import { useT } from './sprache-anbindung'
@@ -19,7 +20,7 @@ import {
   NETZ_WERKZEUGE,
   WAND_RAUM_WERKZEUGE,
 } from './menue-gliederung'
-import type { ZuletztBearbeitet } from '../persistence'
+import { zusatzmodulDateiUrl, type ZuletztBearbeitet } from '../persistence'
 import {
   IconAllesAuswaehlen,
   IconAusblendungenListe,
@@ -252,6 +253,73 @@ function Befehl({
     >
       {(label ?? befehlName(eintrag.id)) + (aktion.labelZusatz ?? '')}
     </MenuEintrag>
+  )
+}
+
+function ZusatzmodulEintraege({ schliesse }: { schliesse: () => void }) {
+  const t = useT()
+  const { zusatzmodule, doc } = useAppContext()
+  const eintraege = useZusatzmodulStore((s) => s.eintraege)
+  useZusatzmodulStore((s) => s.texte)
+  const laufend = useZusatzmodulStore((s) => s.laufend)
+  const aktive = eintraege.filter((e) => e.aktiv)
+  if (aktive.length === 0) {
+    return (
+      <MenuEintrag onClick={() => {}} disabled>
+        {t('menue.keineModule')}
+      </MenuEintrag>
+    )
+  }
+  const zeichnungsart = doc.getZeichnung().zeichnungsart
+  return (
+    <>
+      {aktive.map(({ manifest }) => {
+        const icon = manifest.icon ? (
+          <img
+            className="menu-modul-icon"
+            src={zusatzmodulDateiUrl(manifest.kennung, manifest.version, manifest.icon)}
+            alt=""
+          />
+        ) : undefined
+        const eintrag = (befehl: (typeof manifest.befehle)[number], titel: string, key: string) => (
+          <MenuEintrag
+            key={key}
+            icon={
+              befehl.icon ? (
+                <img
+                  className="menu-modul-icon"
+                  src={zusatzmodulDateiUrl(manifest.kennung, manifest.version, befehl.icon)}
+                  alt=""
+                />
+              ) : (
+                icon
+              )
+            }
+            disabled={
+              laufend !== null ||
+              (befehl.nurZeichnungsart !== undefined && befehl.nurZeichnungsart !== zeichnungsart)
+            }
+            onClick={() => {
+              schliesse()
+              void zusatzmodule.fuehreAus(manifest.kennung, befehl.id)
+            }}
+          >
+            {titel}
+          </MenuEintrag>
+        )
+        const [einziger] = manifest.befehle
+        if (manifest.befehle.length === 1 && einziger) {
+          return eintrag(einziger, manifest.name, manifest.kennung)
+        }
+        return (
+          <MenuUntermenue key={manifest.kennung} titel={manifest.name} icon={icon}>
+            {manifest.befehle.map((b) =>
+              eintrag(b, zusatzmodule.befehlTitel(manifest, b.id), b.id),
+            )}
+          </MenuUntermenue>
+        )
+      })}
+    </>
   )
 }
 
@@ -609,6 +677,14 @@ export function MenuBar() {
           id="extras.modulfelder-reparieren"
           icon={<IconWerkzeugSchluessel />}
         />
+      </Menu>
+
+      <Menu titel={t('menue.module')} id="module" offen={offen} setOffen={setOffen}>
+        <Befehl schliesse={schliessen} id="module.hinzufuegen" />
+        <Befehl schliesse={schliessen} id="module.anzeigen" />
+        <Befehl schliesse={schliessen} id="module.entfernen" />
+        <MenuTrenner />
+        <ZusatzmodulEintraege schliesse={schliessen} />
       </Menu>
 
       <Menu titel={t('menue.hilfe')} id="hilfe" offen={offen} setOffen={setOffen}>

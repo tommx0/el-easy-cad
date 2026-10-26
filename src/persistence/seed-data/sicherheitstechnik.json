@@ -481,7 +481,28 @@
       "herkunft": "standard",
       "symbol_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><metadata id=\"katalog-studio-zeichnung\">{\"version\":1,\"breite\":100,\"hoehe\":100,\"elemente\":[{\"art\":\"ellipse\",\"id\":\"emelderkreis\",\"mitte\":{\"x\":50,\"y\":50},\"rx\":25,\"ry\":25,\"drehung\":0,\"strich\":0,\"strichFarbe\":\"schwarz\",\"gestrichelt\":false,\"fuellung\":\"gelb\"}]}</metadata><circle cx=\"50\" cy=\"50\" r=\"25\" stroke=\"none\" fill=\"#f2b700\"/></svg>",
       "symbolFarbig": true,
-      "seed_version": 1
+      "dockpunkte": {
+        "modus": "frei",
+        "punkte": [
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.75
+          },
+          {
+            "xAnteil": 0.75,
+            "yAnteil": 0.5
+          },
+          {
+            "xAnteil": 0.5,
+            "yAnteil": 0.25
+          },
+          {
+            "xAnteil": 0.25,
+            "yAnteil": 0.5
+          }
+        ]
+      },
+      "seed_version": 2
     },
     {
       "id": "katalog-83cd5806-2d0c-4369-b043-9ca93830ca23",

@@ -1,33 +1,49 @@
 import { mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
-import { istSichererModulPfad } from '../../src/document-model'
+import {
+  istGueltigeModulKennung,
+  istGueltigeModulVersion,
+  istSichererModulPfad,
+} from '../../src/document-model'
 import type { GeprueftesModul } from './paket'
+import { pfadImOrdner } from './pfad'
 
 export function modulOrdner(datenordner: string): string {
   return join(datenordner, 'module')
 }
 
-function versionsOrdner(datenordner: string, kennung: string, version: string): string {
-  return join(modulOrdner(datenordner), kennung, version)
+function kennungsOrdner(datenordner: string, kennung: string): string | null {
+  if (!istGueltigeModulKennung(kennung)) return null
+  return pfadImOrdner(modulOrdner(datenordner), kennung)
+}
+
+function versionsOrdner(datenordner: string, kennung: string, version: string): string | null {
+  const ordner = kennungsOrdner(datenordner, kennung)
+  if (!ordner || !istGueltigeModulVersion(version)) return null
+  return pfadImOrdner(ordner, version)
 }
 
 export function legeModulAb(datenordner: string, modul: GeprueftesModul): void {
   const { kennung, version } = modul.manifest
   const ziel = versionsOrdner(datenordner, kennung, version)
+  if (!ziel) throw new Error(`Ungueltige Modulkennung oder -version: ${kennung} ${version}`)
   rmSync(ziel, { recursive: true, force: true })
   for (const [pfad, inhalt] of modul.dateien) {
-    const datei = join(ziel, pfad)
+    const datei = pfadImOrdner(ziel, pfad)
+    if (!datei) throw new Error(`Moduldatei ausserhalb des Modulordners: ${pfad}`)
     mkdirSync(dirname(datei), { recursive: true })
     writeFileSync(datei, inhalt)
   }
-  const kennungOrdner = join(modulOrdner(datenordner), kennung)
+  const kennungOrdner = dirname(ziel)
   for (const andere of readdirSync(kennungOrdner)) {
     if (andere !== version) rmSync(join(kennungOrdner, andere), { recursive: true, force: true })
   }
 }
 
 export function entferneModulDateien(datenordner: string, kennung: string): void {
-  rmSync(join(modulOrdner(datenordner), kennung), { recursive: true, force: true })
+  const ordner = kennungsOrdner(datenordner, kennung)
+  if (!ordner) throw new Error(`Ungueltige Modulkennung: ${kennung}`)
+  rmSync(ordner, { recursive: true, force: true })
 }
 
 export function leseModulDatei(
@@ -37,6 +53,8 @@ export function leseModulDatei(
   pfad: string,
 ): Buffer | null {
   if (!istSichererModulPfad(pfad)) return null
-  const datei = join(versionsOrdner(datenordner, kennung, version), pfad)
+  const ordner = versionsOrdner(datenordner, kennung, version)
+  const datei = ordner ? pfadImOrdner(ordner, pfad) : null
+  if (!datei) return null
   return statSync(datei, { throwIfNoEntry: false })?.isFile() ? readFileSync(datei) : null
 }

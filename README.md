@@ -44,7 +44,7 @@ Fremdbibliotheken*.
 
 el.easy.CAD Community is a planning aid and comes without any warranty. Have every planning
 result checked by a qualified electrician before you use it. Responsibility for the planning and
-for compliance with the recognised rules of technology, in particular DIN VDE, remains with the
+for compliance with the recognised rules of technology remains with the
 user.
 
 ## Download
@@ -109,7 +109,7 @@ pnpm dev
 
 ## Feedback
 
-Bug reports and suggestions are welcome as issues. Pull requests are not accepted.
+Bug reports and suggestions are welcome as issues. 
 
 ---
 
@@ -148,6 +148,6 @@ Das Ergebnis liegt in `src-tauri/target/release/bundle/` – unter Windows ein I
 startet `pnpm dev` die Browser-Fassung auf http://localhost:5173. Einzelheiten stehen oben im
 Abschnitt „Building from source“.
 
-**Rückmeldungen** gern als Issue; Pull Requests werden nicht angenommen.
+**Rückmeldungen** gern als Issue; 
 
 © 2026 Thomas Marx

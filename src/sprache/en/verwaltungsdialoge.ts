@@ -124,7 +124,26 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     wirdGeprueft: 'Checking…',
     dateiAuswaehlen: 'Select licence file…',
   },
+  zusatzmodulEinstellungen: {
+    einleitung:
+      'For developing an add-on, el.easy.CAD loads it directly from a folder on this computer – without a package and without installing.',
+    entwicklermodus: 'Developer mode',
+    ordner: 'Folder with manifest.json and modul.js',
+    gefunden:
+      'Found: {name} {version}. el.easy.CAD reloads it before every command if a file has changed.',
+    keinOrdner: 'No folder specified yet.',
+    neuLaden: 'Reload now',
+    hinweis:
+      'An add-on from the folder has full access like any other. If it has the same identifier as an installed one, it replaces it while developer mode is on.',
+  },
   zusatzmodule: {
+    kiFreigabe: 'for AI assistant (Claude may call the commands)',
+    keinEintrag: 'no entry chosen',
+    waehlen: 'Choose…',
+    entwicklung: 'Development',
+    entwicklungHinweis:
+      'from the development folder – switch off in the “Add-ons” tab of the settings',
+    einstellungenLoeschen: 'Also delete the add-on’s settings',
     titel: 'Add-ons',
     hinzufuegen: 'Add add-on…',
     leer: 'No add-ons are installed.',
@@ -384,6 +403,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
       werkzeugleiste: 'Tool sidebar',
       symbolleiste: 'Toolbar',
       ki: 'AI assistant',
+      module: 'Add-ons',
       lizenz: 'Licence',
     },
     lizenz: {

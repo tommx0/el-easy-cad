@@ -45,6 +45,7 @@ const objektBasisSchema = {
   ausBauteil: z.string().optional(),
   ifcGuid: z.string().optional(),
   ifcStand: z.string().optional(),
+  modulDaten: z.record(z.string(), z.unknown()).optional(),
 }
 
 const fuellungSchema = z

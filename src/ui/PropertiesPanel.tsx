@@ -143,6 +143,7 @@ import { useAktivesBlatt, useAppContext, useProject } from './use-app-context'
 import { KabeltypFeld } from './components/KabeltypFeld'
 import { gleicheKabeltypenAb } from './kabeltyp-abgleich'
 import { useFreigeschalteteModule } from './lizenz-module'
+import { ZusatzmodulPanelsRechts } from './zusatzmodule/ZusatzmodulPanels'
 import { useUiStore } from './store/ui-store'
 import { EntwurfsTextfeld } from './EntwurfsTextfeld'
 import {
@@ -578,6 +579,7 @@ function PropertiesPanelInhalt({ schwebend = false }: { schwebend?: boolean }) {
         <p className="feld-info">
           {t('eigenschaften.panel.blatt.objekte', { n: blatt.objekte.length })}
         </p>
+        <ZusatzmodulPanelsRechts key="zusatzmodul-panels" />
       </aside>
     )
   }
@@ -1724,6 +1726,7 @@ function PropertiesPanelInhalt({ schwebend = false }: { schwebend?: boolean }) {
           </>
         )}
       </fieldset>
+      <ZusatzmodulPanelsRechts key="zusatzmodul-panels" />
     </aside>
   )
 }

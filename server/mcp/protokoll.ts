@@ -56,6 +56,7 @@ export function sichtbareWerkzeuge(kontext: Pick<McpKontext, 'werkzeuge' | 'nurL
 }
 
 function eingabeSchema(definition: KiWerkzeugDefinition): Record<string, unknown> {
+  if (definition.eingabeJson) return definition.eingabeJson
   const schema = z.toJSONSchema(definition.eingabe, { io: 'input' }) as Record<string, unknown>
   delete schema.$schema
   return schema

@@ -116,6 +116,11 @@ export const aktionen: Texte['aktionen'] = {
     keineZeichnungOffen: 'The open document “{name}” is not a drawing – please open a drawing.',
   },
   zusatzmodule: {
+    kiUnbekannt: 'No enabled add-on command “{werkzeug}”.',
+    kiEingabeFehlt: 'Input “{feld}” is missing.',
+    abgebrochen: '{name}: cancelled – changes undone.',
+    objektFehlt: 'Object “{id}” not found.',
+    ja: 'OK',
     laeuftBereits: 'An add-on is already running – please wait until it has finished.',
     befehlFehlt: 'The add-on “{name}” has no command “{befehl}”.',
     befehlFehler: '{name}: error – changes undone. {fehler}',

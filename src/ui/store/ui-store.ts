@@ -11,6 +11,7 @@ import type {
   KiStatus,
   ZusatzmodulVorschau,
 } from '../../document-model'
+import type { ZusatzmodulFeldWert, ZusatzmodulFormular } from '../zusatzmodule/schnittstelle'
 import {
   STANDARD_BAUTEIL_VORGABEN,
   STANDARD_VERLEGE_VORGABEN,
@@ -286,6 +287,12 @@ export interface SchachtAnschlussDialogZustand {
 
 export type DruckExportModus = 'export' | 'druck'
 
+export interface ModulFormularZustand {
+  kennung: string
+  formular: ZusatzmodulFormular
+  fertig: (werte: Record<string, ZusatzmodulFeldWert> | null) => void
+}
+
 export interface BestaettigungZustand {
   titel: string
   nachricht: string
@@ -393,6 +400,7 @@ interface UiState {
   fehlerprotokollDialogOffen: boolean
   moduleDialog: 'anzeigen' | 'entfernen' | null
   modulHinzufuegen: { datei: File; vorschau: ZusatzmodulVorschau } | null
+  modulFormular: ModulFormularZustand | null
   datenschutzBestaetigungOffen: boolean
   eulaBestaetigungOffen: boolean
   toast: string | null
@@ -561,6 +569,7 @@ interface UiState {
   setFehlerprotokollDialogOffen: (v: boolean) => void
   setModuleDialog: (v: 'anzeigen' | 'entfernen' | null) => void
   setModulHinzufuegen: (v: { datei: File; vorschau: ZusatzmodulVorschau } | null) => void
+  setModulFormular: (v: ModulFormularZustand | null) => void
   setDatenschutzBestaetigungOffen: (v: boolean) => void
   setEulaBestaetigungOffen: (v: boolean) => void
   zeigeToast: (text: string) => void
@@ -672,6 +681,7 @@ export const useUiStore = create<UiState>((set) => ({
   fehlerprotokollDialogOffen: false,
   moduleDialog: null,
   modulHinzufuegen: null,
+  modulFormular: null,
   toast: null,
   offenesDokument: null,
   hintergrundLadefortschritt: null,
@@ -856,6 +866,7 @@ export const useUiStore = create<UiState>((set) => ({
   setFehlerprotokollDialogOffen: (v) => set({ fehlerprotokollDialogOffen: v }),
   setModuleDialog: (v) => set({ moduleDialog: v }),
   setModulHinzufuegen: (v) => set({ modulHinzufuegen: v }),
+  setModulFormular: (v) => set({ modulFormular: v }),
   setDatenschutzBestaetigungOffen: (v) => set({ datenschutzBestaetigungOffen: v }),
   setEulaBestaetigungOffen: (v) => set({ eulaBestaetigungOffen: v }),
   setOffenesDokument: (dokument) => set({ offenesDokument: dokument }),
@@ -928,6 +939,7 @@ export function istModalerDialogOffen(s: UiState = useUiStore.getState()): boole
     s.fehlerprotokollDialogOffen ||
     s.moduleDialog !== null ||
     s.modulHinzufuegen !== null ||
+    s.modulFormular !== null ||
     s.datenschutzBestaetigungOffen ||
     s.eulaBestaetigungOffen ||
     s.druckExportDialog !== null ||

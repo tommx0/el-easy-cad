@@ -21,6 +21,8 @@ import { MeineLizenzDialog } from './dialogs/MeineLizenzDialog'
 import { FehlerprotokollDialog } from './dialogs/FehlerprotokollDialog'
 import { ZusatzmoduleDialog } from './dialogs/ZusatzmoduleDialog'
 import { ZusatzmodulHinzufuegenDialog } from './dialogs/ZusatzmodulHinzufuegenDialog'
+import { ZusatzmodulFormularDialog } from './dialogs/ZusatzmodulFormularDialog'
+import { ZusatzmodulPanelsSchwebend } from './zusatzmodule/ZusatzmodulPanels'
 import { TastenkuerzelDialog } from './dialogs/TastenkuerzelDialog'
 import { HandbuchDialog } from './dialogs/HandbuchDialog'
 import { KatalogDialog } from './dialogs/KatalogDialog'
@@ -65,7 +67,8 @@ import { LeitungslisteKabeltypDialog } from './dialogs/LeitungslisteKabeltypDial
 import { BestaettigungsDialog } from './dialogs/BestaettigungsDialog'
 import { BefehleProvider } from './befehle/BefehleProvider'
 import { useBefehle } from './befehle/use-befehle'
-import { BEFEHL_NACH_ID } from './befehle/katalog'
+import { befehlNachId } from './befehle/katalog'
+import { ZUSATZMODUL_ABFRAGE_TOOL_ID } from '../tools'
 import { normalform } from './befehle/kuerzel'
 import { useSettingsStore } from './store/settings-store'
 import { istModalerDialogOffen, useUiStore } from './store/ui-store'
@@ -84,7 +87,7 @@ import { istEingabeFeldFokussiert } from './tastatur-fokus'
 const ESCAPE_DOPPEL_MS = 500
 
 function GlobaleTastenkuerzel() {
-  const { toolManager, aktiviereTool } = useAppContext()
+  const { toolManager, aktiviereTool, zusatzmodule } = useAppContext()
   const befehleRef = useRef(useBefehle())
   befehleRef.current = useBefehle()
   const nachKuerzelRef = useRef(useSettingsStore((s) => s.nachKuerzel))
@@ -96,9 +99,19 @@ function GlobaleTastenkuerzel() {
     function handleKeyDown(e: KeyboardEvent) {
       if (istModalerDialogOffen()) return
 
+      if (zusatzmodule.laeuft()) {
+        if (toolManager.getAktivesToolId() === ZUSATZMODUL_ABFRAGE_TOOL_ID) {
+          if (e.key === 'Escape' || e.key === 'Enter') toolManager.handleKeyDown(e)
+        } else if (e.key === 'Escape') {
+          zusatzmodule.abbrechen()
+        }
+        e.preventDefault()
+        return
+      }
+
       const kuerzel = normalform(e)
       const befehlId = kuerzel ? nachKuerzelRef.current[kuerzel] : undefined
-      const befehl = befehlId ? BEFEHL_NACH_ID[befehlId] : undefined
+      const befehl = befehlId ? befehlNachId(befehlId) : undefined
       const aktion = befehlId ? befehleRef.current[befehlId] : undefined
 
       if (befehl?.auchBeimTippen && aktion && !aktion.deaktiviert) {
@@ -140,7 +153,7 @@ function GlobaleTastenkuerzel() {
       window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('keyup', handleKeyUp)
     }
-  }, [toolManager, aktiviereTool])
+  }, [toolManager, aktiviereTool, zusatzmodule])
 
   return null
 }
@@ -176,6 +189,7 @@ function AppInhalt() {
             <Seitenleiste />
             <CanvasArea />
             <PropertiesPanel />
+            <ZusatzmodulPanelsSchwebend />
           </div>
           <Statuszeile />
         </>
@@ -195,6 +209,7 @@ function AppInhalt() {
       <MeineLizenzDialog />
       <ZusatzmoduleDialog />
       <ZusatzmodulHinzufuegenDialog />
+      <ZusatzmodulFormularDialog />
       <FehlerprotokollDialog />
       <TastenkuerzelDialog />
       <HandbuchDialog />

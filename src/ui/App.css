@@ -8087,3 +8087,158 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.statuszeile-modul {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: default;
+}
+
+.statuszeile-modul-abbrechen {
+  border: none;
+  background: none;
+  padding: 0 2px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.befehl-icon-bild {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.zusatzmodul-panels-rechts {
+  margin-top: 14px;
+  border-top: 1px solid var(--rand);
+}
+
+.zusatzmodul-panel {
+  border-bottom: 1px solid var(--rand);
+}
+
+.zusatzmodul-panel-kopf {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.zusatzmodul-panel-inhalt {
+  padding: 0 0 10px;
+  font-size: 12px;
+}
+
+.zusatzmodul-panel-schwebend {
+  position: fixed;
+  z-index: 40;
+  width: 260px;
+  max-height: 60vh;
+  overflow: auto;
+  background: var(--flaeche);
+  color: var(--text);
+  border: 1px solid var(--rand-stark);
+  border-radius: var(--radius-l);
+  box-shadow: 0 6px 24px rgb(0 0 0 / 18%);
+}
+
+.zusatzmodul-panel-schwebend .zusatzmodul-panel-inhalt {
+  padding: 8px 10px 10px;
+}
+
+.zusatzmodul-panel-griff {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--rand);
+  font-weight: 600;
+  cursor: move;
+  user-select: none;
+}
+
+.zusatzmodul-panel-griff button {
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.dialog-zusatzmodul-formular {
+  width: 440px;
+}
+
+.zusatzmodul-formular-felder {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.zusatzmodul-formular-zeile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.zusatzmodul-formular-zahl,
+.zusatzmodul-formular-katalog {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.zusatzmodul-formular-haken {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.zusatzmodul-entwicklung {
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--warnung-flaeche);
+  color: var(--warnung-text);
+}
+
+.zusatzmodul-frage {
+  grid-column: 1 / -1;
+  padding: 8px 10px;
+  border: 1px solid var(--rand-stark);
+  border-radius: var(--radius-s);
+}
+
+.zusatzmodul-frage p {
+  margin: 0 0 6px;
+}
+
+.zusatzmodul-frage label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.zusatzmodul-frage .gefahr {
+  color: var(--gefahr);
+  border-color: var(--gefahr);
+}
+
+.zusatzmodul-ki {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--text-gedaempft);
+}

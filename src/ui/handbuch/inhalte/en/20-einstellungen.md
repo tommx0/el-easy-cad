@@ -30,6 +30,7 @@ The settings are spread over tabs:
 | Keyboard shortcuts | | See [Assigning your own shortcuts](#kuerzel-vergeben) |
 | Tool sidebar, toolbar | | Contents and order, see [Customising the interface](#symbolleiste-anpassen) |
 | AI assistant | | The interface for Claude and other AI assistants, see [Working with an AI assistant](#ki-assistent) |
+| Add-ons | Developer mode | Load an add-on directly from a folder, see [Add-ons](#zusatzmodule) |
 | Licence | | Licence status, reference to [My licence](#lizenz) |
 
 ## Back up and transfer settings {#einstellungen-sichern}
@@ -160,15 +161,50 @@ is managed from the **Add-ons** menu:
   edited without it.
 
 Below the separator in the **Add-ons** menu are the commands of the active add-ons – one submenu
-per add-on, or the entry itself if it has only one command. While an add-on is working, the status
-bar shows “… is working …”, and the drawing area waits until it has finished.
+per add-on, or the entry itself if it has only one command. Like all other commands, they can be
+added to the [toolbar](#symbolleiste-anpassen) and given a [shortcut of your own](#kuerzel-vergeben);
+they appear there in the “Add-ons” group with the add-on's icon or a puzzle piece. If the add-on is
+removed or switched off, they disappear, and when it is installed again, position and shortcut
+come back.
+
+An add-on can ask you things: with a **form** in the style of el.easy.CAD (often pre-filled with
+the values chosen last), with a yes/no question or **in the plan** – then a hint appears in the
+status bar (“Click the distribution board”, “Drag a rectangle”), and you click points or objects or
+drag a rectangle. With several objects, Enter finishes the choice. Esc only ends that question;
+what happens next is up to the add-on.
+
+Some add-ons bring a **panel** of their own: either as a collapsible section on the right below the
+properties or as a floating window above the drawing area that can be moved by its header and
+closed with ✕. Such add-ons load as soon as the program starts, so their panel is there right away.
+
+While an add-on command is working, the status bar shows “‹Add-on›: ‹command› …”, optionally with
+progress in percent; the drawing area and the keyboard wait until it has finished. **Esc** or
+**✕** in the indicator cancels the command.
 
 Everything an add-on command changes in the drawing is **one undo step** named after the add-on –
-{{kuerzel:bearbeiten.rueckgaengig}} undoes it. If a command stops with an error, el.easy.CAD undoes
-its changes by itself and records the error in the error log. If an add-on cannot be loaded at all
-– for example because it was built for a different version of el.easy.CAD –, el.easy.CAD switches
-it off; the list gives the reason. An add-on that was not tested with your version is marked with
-⚠ there but keeps running.
+{{kuerzel:bearbeiten.rueckgaengig}} undoes it. If a command stops with an error or you cancel it,
+el.easy.CAD undoes its changes by itself; an error is recorded in the error log. If an add-on
+cannot be loaded at all – for example because it was built for a different version of el.easy.CAD
+–, el.easy.CAD switches it off; the list gives the reason. An add-on that was not tested with your
+version is marked with ⚠ there but keeps running.
+
+An add-on can store data of its own on objects. It stays in the drawing, goes along with copies and
+does no harm if the add-on is missing. el.easy.CAD keeps the add-on's settings (such as the form
+values chosen last) on this computer; when removing an add-on, the dialog asks whether to delete
+them too.
+
+**With the AI assistant:** If an add-on provides for it, Claude can call its commands too (see
+[Working with an AI assistant](#ki-assistent)). No form appears then: Claude passes the values,
+everything else stays as chosen last; instead of a click in the plan, it names the object. The
+change is one undo step beginning with “AI:”. In the “Add-ons” dialog, the **for AI assistant** box
+switches this off per add-on; **AI may only read** blocks changing add-on commands like all
+others.
+
+**Developing add-ons:** In the **Add-ons** tab of the settings, **developer mode** loads an add-on
+directly from a folder on this computer – the folder with `manifest.json` and `modul.js`. It then
+appears with the **Development** label in the list and the menu, and el.easy.CAD reloads it before
+every command if a file has changed; **Reload now** forces this immediately. If it has the same
+identifier as an installed add-on, it replaces that one while the mode is on.
 
 **Trust:** Add-ons have full access to el.easy.CAD and your projects. They are not signed –
 el.easy.CAD cannot check who built an add-on. Only install add-ons from manufacturers you trust.

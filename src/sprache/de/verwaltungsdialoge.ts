@@ -124,7 +124,26 @@ export const verwaltungsdialoge = {
     wirdGeprueft: 'Wird geprüft…',
     dateiAuswaehlen: 'Lizenzdatei auswählen…',
   },
+  zusatzmodulEinstellungen: {
+    einleitung:
+      'Zum Entwickeln eines Moduls lädt el.easy.CAD es direkt aus einem Ordner dieses Rechners – ohne Paket und ohne Installieren.',
+    entwicklermodus: 'Entwicklermodus',
+    ordner: 'Ordner mit manifest.json und modul.js',
+    gefunden:
+      'Gefunden: {name} {version}. Vor jedem Befehl lädt el.easy.CAD es neu, wenn sich eine Datei geändert hat.',
+    keinOrdner: 'Noch kein Ordner angegeben.',
+    neuLaden: 'Jetzt neu laden',
+    hinweis:
+      'Ein Modul aus dem Ordner hat wie jedes andere vollen Zugriff. Hat es dieselbe Kennung wie ein installiertes, ersetzt es dieses, solange der Entwicklermodus an ist.',
+  },
   zusatzmodule: {
+    kiFreigabe: 'für KI-Assistent (Claude darf die Befehle aufrufen)',
+    keinEintrag: 'kein Eintrag gewählt',
+    waehlen: 'Wählen…',
+    entwicklung: 'Entwicklung',
+    entwicklungHinweis:
+      'aus dem Entwicklungsordner – abschalten im Reiter „Module“ der Einstellungen',
+    einstellungenLoeschen: 'Einstellungen des Moduls ebenfalls löschen',
     titel: 'Module',
     hinzufuegen: 'Modul hinzufügen…',
     leer: 'Es sind keine Module installiert.',
@@ -384,6 +403,7 @@ export const verwaltungsdialoge = {
       werkzeugleiste: 'Werkzeugleiste',
       symbolleiste: 'Symbolleiste',
       ki: 'KI-Assistent',
+      module: 'Module',
       lizenz: 'Lizenz',
     },
     lizenz: {

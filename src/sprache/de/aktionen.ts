@@ -118,6 +118,11 @@ export const aktionen = {
       'Das offene Dokument „{name}“ ist keine Zeichnung – bitte eine Zeichnung öffnen.',
   },
   zusatzmodule: {
+    kiUnbekannt: 'Kein freigegebener Modulbefehl „{werkzeug}“.',
+    kiEingabeFehlt: 'Eingabe „{feld}“ fehlt.',
+    abgebrochen: '{name}: abgebrochen – Änderungen zurückgenommen.',
+    objektFehlt: 'Objekt „{id}“ nicht gefunden.',
+    ja: 'OK',
     laeuftBereits: 'Es arbeitet bereits ein Modul – bitte warten, bis es fertig ist.',
     befehlFehlt: 'Das Modul „{name}“ kennt den Befehl „{befehl}“ nicht.',
     befehlFehler: '{name}: Fehler – Änderungen zurückgenommen. {fehler}',

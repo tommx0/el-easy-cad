@@ -1190,3 +1190,9 @@ export const IconEinstellungenEinspielen = () => (
     <path d="M20.5 3.5 14 10M14 5.5V10h4.5" />
   </Icon>
 )
+
+export const IconZusatzmodul = () => (
+  <Icon>
+    <path d="M5 8h3.5a2 2 0 1 1 4 0H16v3.5a2 2 0 1 1 0 4V19H12.5a2 2 0 1 0-4 0H5v-3.5a2 2 0 1 0 0-4z" />
+  </Icon>
+)

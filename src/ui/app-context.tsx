@@ -33,6 +33,7 @@ import {
   setzeKombinationsFaktor,
   vergleicheIfcBauteile,
   zaehleVerwaisteTeilstueckZonen,
+  ZUSATZMODUL_KI_VORSATZ,
 } from '../document-model'
 import type { Command, ToolContext } from '../tools'
 import {
@@ -48,6 +49,8 @@ import {
   frageLoeschung,
   erzeugeStandardWerkzeuge,
   erzeugeZoomFensterTool,
+  erzeugeZusatzmodulAbfrageTool,
+  ZUSATZMODUL_ABFRAGE_TOOL_ID,
   erzeugeKatalogStandCommand,
   erzeugeKombinationsFaktorCommand,
   hintergrundFangObjekte,
@@ -286,13 +289,17 @@ function erzeugeAppKontext(): AppKontext {
     aktivesWerkzeug: () => toolManager.getAktivesToolId(),
     oeffneDokument: (dokumentId) => oeffneDokument(dokumentId),
   })
-  verbindeKiSchnittstelle(kiKontext)
   const zusatzmodule = erzeugeZusatzmodulWirt({
     doc,
     commands,
     kiKontext,
     app: () => kontext,
   })
+  verbindeKiSchnittstelle(kiKontext, (aufruf) =>
+    aufruf.werkzeug.startsWith(ZUSATZMODUL_KI_VORSATZ)
+      ? zusatzmodule.fuehreFuerKiAus(aufruf)
+      : null,
+  )
   const kameraProBlatt = new Map<string, KameraZustand>()
   const canvasGroesse = { breite: 0, hoehe: 0 }
   let klemmbrett: Objekt[] = []
@@ -551,9 +558,14 @@ function erzeugeAppKontext(): AppKontext {
   }
 
   const toolManager = new ToolManager(toolContext, 'auswahl')
-  toolManager.setzeSperre(() => sperrgrundAktivesBlatt() !== null || commands.sammeltGerade())
+  toolManager.setzeSperre(
+    () =>
+      sperrgrundAktivesBlatt() !== null ||
+      (commands.sammeltGerade() && toolManager.getAktivesToolId() !== ZUSATZMODUL_ABFRAGE_TOOL_ID),
+  )
   for (const tool of erzeugeStandardWerkzeuge()) toolManager.registriere(tool)
   toolManager.registriere(erzeugeZoomFensterTool())
+  toolManager.registriere(erzeugeZusatzmodulAbfrageTool())
   toolManager.initialisiere()
 
   function kopiereAuswahl() {

@@ -12,7 +12,8 @@
     "tauri": "tauri",
     "build:win-tauri": "node skripte/tauri-sidecar-vorbereiten.mjs && node skripte/tauri-bauen.mjs build --target x86_64-pc-windows-msvc",
     "preview": "vite preview",
-    "typecheck": "node skripte/erzeuge-katalog-seed-index.mjs && tsc -b"
+    "typecheck": "node skripte/erzeuge-katalog-seed-index.mjs && tsc -b",
+    "modul:typen": "node skripte/erzeuge-katalog-seed-index.mjs && node skripte/modul-typen.mjs"
   },
   "dependencies": {
     "@fastify/static": "^10.1.3",

@@ -1,4 +1,4 @@
-import type { LizenzModul } from '../../document-model'
+import type { LizenzModul, Zeichnungsart } from '../../document-model'
 import { FANGARTEN_RANGFOLGE } from '../../tools'
 import { ALLE_BLATT_SICHTBARKEITEN } from './blatt-sichtbarkeit'
 import { FANGART_BEFEHL_ID } from '../objektfang-namen'
@@ -17,6 +17,8 @@ export type BefehlGruppe =
   | 'hilfe'
 
 export function befehlName(id: string, uebersetze: Uebersetzer = t): string {
+  const zusatz = ZUSATZMODUL_NACH_ID.get(id)
+  if (zusatz?.name) return zusatz.name
   return uebersetze(`befehle.${id}` as Schluessel)
 }
 
@@ -34,6 +36,9 @@ export interface Befehl {
   modul?: LizenzModul
   auchBeimTippen?: boolean
   kuerzelWie?: string
+  name?: string
+  iconUrl?: string
+  zusatzmodul?: { kennung: string; befehlId: string; nurZeichnungsart?: Zeichnungsart }
 }
 
 const WERKZEUGE: Befehl[] = [
@@ -378,7 +383,28 @@ const WERKZEUG_TASTEN: { taste: string; hinweis: Schluessel }[] = [
 export const BEFEHLE: Befehl[] = [...WERKZEUGE, ...UEBRIGE]
 
 export function befehleMitModulen(module: readonly LizenzModul[]): Befehl[] {
-  return BEFEHLE.filter((b) => !b.modul || module.includes(b.modul))
+  return alleBefehle().filter((b) => !b.modul || module.includes(b.modul))
+}
+
+let zusatzmodulBefehle: Befehl[] = []
+const ZUSATZMODUL_NACH_ID = new Map<string, Befehl>()
+
+export function setzeZusatzmodulBefehle(befehle: readonly Befehl[]): void {
+  zusatzmodulBefehle = [...befehle]
+  ZUSATZMODUL_NACH_ID.clear()
+  for (const befehl of befehle) ZUSATZMODUL_NACH_ID.set(befehl.id, befehl)
+}
+
+export function alleBefehle(): Befehl[] {
+  return zusatzmodulBefehle.length === 0 ? BEFEHLE : [...BEFEHLE, ...zusatzmodulBefehle]
+}
+
+export function zusatzmodulBefehlIds(): string[] {
+  return zusatzmodulBefehle.map((b) => b.id)
+}
+
+export function befehlNachId(id: string): Befehl | undefined {
+  return BEFEHL_NACH_ID[id] ?? ZUSATZMODUL_NACH_ID.get(id)
 }
 
 export const BEFEHL_NACH_ID: Record<string, Befehl> = Object.fromEntries(
@@ -400,9 +426,10 @@ export function werkzeugTastenHinweis(taste: string): string | null {
 export function geltendeKuerzel(
   abweichungen: Record<string, string | null>,
 ): Record<string, string | null> {
-  const belegung = { ...STANDARD_KUERZEL }
+  const belegung: Record<string, string | null> = { ...STANDARD_KUERZEL }
+  for (const befehl of zusatzmodulBefehle) belegung[befehl.id] = null
   for (const [id, kuerzel] of Object.entries(abweichungen)) {
-    if (id in belegung && !BEFEHL_NACH_ID[id].kuerzelWie) belegung[id] = kuerzel
+    if (id in belegung && !befehlNachId(id)?.kuerzelWie) belegung[id] = kuerzel
   }
   for (const befehl of BEFEHLE) {
     if (befehl.kuerzelWie) belegung[befehl.id] = belegung[befehl.kuerzelWie] ?? null
@@ -413,12 +440,12 @@ export function geltendeKuerzel(
 export function kuerzelZuBefehl(belegung: Record<string, string | null>): Record<string, string> {
   const karte: Record<string, string> = {}
   for (const [id, kuerzel] of Object.entries(belegung)) {
-    if (kuerzel && !BEFEHL_NACH_ID[id]?.kuerzelWie) karte[kuerzel] = id
+    if (kuerzel && !befehlNachId(id)?.kuerzelWie) karte[kuerzel] = id
   }
   return karte
 }
 
 export function kuerzelPartner(befehlId: string): string[] {
-  const eigner = BEFEHL_NACH_ID[befehlId]?.kuerzelWie ?? befehlId
+  const eigner = befehlNachId(befehlId)?.kuerzelWie ?? befehlId
   return [eigner, ...BEFEHLE.filter((b) => b.kuerzelWie === eigner).map((b) => b.id)]
 }

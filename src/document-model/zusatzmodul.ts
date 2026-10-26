@@ -18,6 +18,14 @@ export const zusatzmodulBefehlSchema = z.object({
   titel: z.string().min(1),
   icon: z.string().optional(),
   nurZeichnungsart: z.enum(['bauplan', 'schaltplan']).optional(),
+  ki: z
+    .object({
+      beschreibung: z.string().min(1).max(4000),
+      eingabe: z.record(z.string(), z.unknown()).optional(),
+      schreibt: z.boolean().optional(),
+      zeitlimitS: z.number().int().min(5).max(600).optional(),
+    })
+    .optional(),
 })
 
 export const zusatzmodulManifestSchema = z.object({
@@ -32,6 +40,7 @@ export const zusatzmodulManifestSchema = z.object({
   }),
   befehle: z.array(zusatzmodulBefehlSchema).min(1).max(50),
   icon: z.string().optional(),
+  beimStart: z.boolean().optional(),
   lizenz: z.string().nullable().optional(),
 })
 
@@ -43,6 +52,28 @@ export interface ZusatzmodulEintrag {
   aktiv: boolean
   installiertAm: string
   fehler: string | null
+  kiFreigabe: boolean
+  entwicklung?: { stand: string }
+}
+
+export function zusatzmodulLadeVersion(eintrag: ZusatzmodulEintrag): string {
+  return eintrag.entwicklung
+    ? `${ZUSATZMODUL_ENTWICKLUNG_VORSATZ}${eintrag.entwicklung.stand}`
+    : eintrag.manifest.version
+}
+
+export const ZUSATZMODUL_ENTWICKLUNG_VORSATZ = 'entwicklung-'
+
+export interface ZusatzmodulEntwicklung {
+  aktiv: boolean
+  ordner: string
+  modul?: ZusatzmodulManifest | null
+  stand?: string | null
+  fehler?: string | null
+}
+
+export function istGueltigerEinstellungsSchluessel(schluessel: string): boolean {
+  return /^[\w.:-]{1,80}$/.test(schluessel)
 }
 
 export interface ZusatzmodulVorschau {
@@ -81,6 +112,13 @@ export function istSichererModulPfad(pfad: string): boolean {
   return pfad
     .split('/')
     .every((teil) => teil.length > 0 && teil !== '.' && teil !== '..' && /^[\w.-]+$/.test(teil))
+}
+
+export const ZUSATZMODUL_KI_VORSATZ = 'modul_'
+
+export function zusatzmodulKiWerkzeugName(kennung: string, befehlId: string): string {
+  const kurz = (kennung.split('.').pop() ?? kennung).replace(/-/g, '_')
+  return `${ZUSATZMODUL_KI_VORSATZ}${kurz}_${befehlId.replace(/-/g, '_')}`.slice(0, 64)
 }
 
 export function zusatzmodulBefehlId(kennung: string, befehlId: string): string {

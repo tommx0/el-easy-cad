@@ -1,6 +1,7 @@
 import type { Texte } from '../texte'
 
 export const werkzeugnamen: Texte['werkzeugnamen'] = {
+  'zusatzmodul-abfrage': 'Add-on query',
   auswahl: 'Select',
   komponente: 'Component',
   leitung: 'Cable',

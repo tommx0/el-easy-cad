@@ -29,6 +29,7 @@ export interface ObjektBasis {
   ausBauteil?: string
   ifcGuid?: string
   ifcStand?: string
+  modulDaten?: Record<string, unknown>
 }
 
 export type Linientyp = 'standard' | 'gestrichelt' | 'gepunktet' | 'strichpunkt'

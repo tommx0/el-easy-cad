@@ -26,6 +26,7 @@ export interface KiWerkzeugDefinition {
   eingabe: z.ZodType
   schreibt: boolean
   zeitlimitMs?: number
+  eingabeJson?: Record<string, unknown>
 }
 
 export const KI_STANDARD_ZEITLIMIT_MS = 60_000

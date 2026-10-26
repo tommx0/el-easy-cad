@@ -5,7 +5,7 @@ import { useHatModul } from './lizenz-module'
 import { useSettingsStore } from './store/settings-store'
 import { useZusatzmodulStore } from './store/zusatzmodul-store'
 import { useBefehle } from './befehle/use-befehle'
-import { BEFEHL_NACH_ID, befehlName } from './befehle/katalog'
+import { befehlNachId, befehlName } from './befehle/katalog'
 import { useT } from './sprache-anbindung'
 import {
   BLATT_SICHTBARKEITEN,
@@ -236,7 +236,7 @@ function Befehl({
 }) {
   const befehle = useBefehle()
   const belegung = useSettingsStore((s) => s.belegung)
-  const eintrag = BEFEHL_NACH_ID[id]
+  const eintrag = befehlNachId(id)
   const aktion = befehle[id]
   if (!eintrag || !aktion) return null
   const kuerzel = belegung[id]

@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { useBefehle } from './befehle/use-befehle'
-import { BEFEHL_NACH_ID, befehlName } from './befehle/katalog'
+import { befehlNachId, befehlName } from './befehle/katalog'
 import { anzeige } from './befehle/kuerzel'
 import { BefehlIcon } from './befehle/BefehlIcon'
 import { IconAnpassen } from './components/Icons'
@@ -28,7 +28,7 @@ export function Symbolleiste() {
             if (eigeneGruppe) {
               return <SymbolleisteGruppenKnopf key={id} gruppe={eigeneGruppe} befehle={befehle} />
             }
-            const eintrag = BEFEHL_NACH_ID[id]
+            const eintrag = befehlNachId(id)
             const aktion = befehle[id]
             if (!eintrag || !aktion) return null
             const kuerzel = eintrag.festeAnzeige ?? (belegung[id] ? anzeige(belegung[id]) : null)

@@ -3,7 +3,8 @@ import type { Texte } from '../texte'
 export const statuszeile: Texte['statuszeile'] = {
   aria: 'Status bar',
   kiVerbunden: 'AI connected',
-  modulArbeitet: '{name} is working …',
+  modulAbbrechen: 'Cancel',
+  modulAbbrechenTitel: 'Esc or ✕ cancels; all changes are undone.',
   kiBereit: 'AI ready',
   kiBereitTitel: 'AI interface switched on – no request in the last few minutes.',
   laengeTitel:

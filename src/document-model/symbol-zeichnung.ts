@@ -11,6 +11,16 @@ import {
   pointInPolygon,
 } from './geometry'
 import { istBunteSymbolFarbe, type SymbolFarbe, symbolFarbeSchema } from './symbol-palette'
+import type { ZeichenElement } from './studio-zeichnung/modell'
+import {
+  elementRahmen,
+  hatStil,
+  istFuellbar,
+  umrisse,
+  verschieben as verschiebeForm,
+  zeichnungIstFarbig,
+} from './studio-zeichnung/modell'
+import { studioElementSchema } from './studio-zeichnung/schema'
 
 export const SYMBOL_ZEICHNUNG_HOEHE = 100
 
@@ -119,7 +129,13 @@ export interface SymbolBild extends SymbolElementBasis {
   hoehe: number
 }
 
+export interface SymbolVektor extends SymbolElementBasis {
+  art: 'vektor'
+  form: ZeichenElement
+}
+
 export type SymbolElement =
+  | SymbolVektor
   | SymbolLinie
   | SymbolPolylinie
   | SymbolRechteck
@@ -221,6 +237,11 @@ export const symbolZeichnungSchema = z.object({
         }),
         z.object({
           ...basis,
+          art: z.literal('vektor'),
+          form: studioElementSchema,
+        }),
+        z.object({
+          ...basis,
           art: z.literal('bild'),
           datenUrl: z
             .string()
@@ -264,6 +285,7 @@ export function bogenSpanne(startWinkel: number, endWinkel: number): number {
 }
 
 export function symbolStrichBreite(element: SymbolElement): number {
+  if (element.art === 'vektor') return hatStil(element.form) ? element.form.strich : 0
   return 'strich' in element ? SYMBOL_STRICH_BREITE[element.strich] : 0
 }
 
@@ -310,7 +332,30 @@ export function symbolElementRahmen(element: SymbolElement): BoundingBox {
       )
     case 'text':
       return textRahmen(element)
+    case 'vektor': {
+      const r = elementRahmen(element.form)
+      return { min: { x: r.x, y: r.y }, max: { x: r.x + r.breite, y: r.y + r.hoehe } }
+    }
   }
+}
+
+function abstandZuVektor(form: ZeichenElement, p: Point): number {
+  const flaeche =
+    form.art === 'text' ||
+    form.art === 'bild' ||
+    (istFuellbar(form) && hatStil(form) && form.fuellung !== 'keine')
+  const halbStrich = hatStil(form) ? form.strich / 2 : 0
+  let naechster = Infinity
+  for (const u of umrisse(form)) {
+    if (u.punkte.length === 0) continue
+    if (flaeche && u.geschlossen && u.punkte.length > 2 && pointInPolygon(p, u.punkte)) return 0
+    const d =
+      u.punkte.length === 1
+        ? distance(p, u.punkte[0])
+        : distanceToPolyline(p, u.punkte, u.geschlossen)
+    naechster = Math.min(naechster, d)
+  }
+  return Math.max(0, naechster - halbStrich)
 }
 
 function rechteckEcken(element: SymbolRechteck): Point[] {
@@ -377,6 +422,8 @@ export function abstandZuSymbolElement(element: SymbolElement, p: Point): number
       const dy = Math.max(rahmen.min.y - p.y, 0, p.y - rahmen.max.y)
       return Math.hypot(dx, dy)
     }
+    case 'vektor':
+      return abstandZuVektor(element.form, p)
   }
 }
 
@@ -446,6 +493,8 @@ export function verschiebeSymbolElement(
       return { ...element, mitte: v(element.mitte), radierungen }
     case 'text':
       return { ...element, position: v(element.position), radierungen }
+    case 'vektor':
+      return { ...element, form: verschiebeForm(element.form, dx, dy), radierungen }
   }
 }
 
@@ -516,9 +565,43 @@ export function vereinfachePunkte(punkte: Point[], toleranz: number): Point[] {
   return punkte.filter((_, i) => behalten[i])
 }
 
+export type SymbolEinstellungsAenderung =
+  | { schluessel: 'strich'; wert: SymbolStrich }
+  | { schluessel: 'gefuellt'; wert: boolean; fuellFarbe: SymbolFarbe }
+  | { schluessel: 'textGroesse'; wert: SymbolTextGroesse }
+  | { schluessel: 'farbe'; wert: SymbolFarbe }
+  | { schluessel: 'fuellFarbe'; wert: SymbolFarbe }
+
+export function aendereVektorForm(
+  form: ZeichenElement,
+  aenderung: SymbolEinstellungsAenderung,
+): ZeichenElement {
+  switch (aenderung.schluessel) {
+    case 'strich':
+      return hatStil(form) && form.strich > 0
+        ? { ...form, strich: SYMBOL_STRICH_BREITE[aenderung.wert] }
+        : form
+    case 'gefuellt':
+      if (!hatStil(form) || !istFuellbar(form)) return form
+      if ((form.fuellung !== 'keine') === aenderung.wert) return form
+      return { ...form, fuellung: aenderung.wert ? aenderung.fuellFarbe : 'keine' }
+    case 'textGroesse':
+      return form.art === 'text' ? { ...form, groesse: SYMBOL_TEXT_GROESSE[aenderung.wert] } : form
+    case 'farbe':
+      if (form.art === 'text') return { ...form, farbe: aenderung.wert }
+      return hatStil(form) ? { ...form, strichFarbe: aenderung.wert } : form
+    case 'fuellFarbe':
+      return hatStil(form) && form.fuellung !== 'keine'
+        ? { ...form, fuellung: aenderung.wert }
+        : form
+  }
+}
+
 export function symbolZeichnungIstFarbig(zeichnung: SymbolZeichnung): boolean {
   return zeichnung.elemente.some(
     (element) =>
+      (element.art === 'vektor' &&
+        zeichnungIstFarbig({ version: 1, breite: 1, hoehe: 1, elemente: [element.form] })) ||
       ('farbe' in element && istBunteSymbolFarbe(element.farbe)) ||
       ('fuellFarbe' in element &&
         'gefuellt' in element &&

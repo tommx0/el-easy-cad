@@ -10,7 +10,7 @@
         "beschreibung": "Generic, vendor-neutral symbols for switches, routers and patch panels – no real products."
       }
     },
-    "seed_version": 5
+    "seed_version": 6
   },
   "komponenten": [
     {
@@ -59,7 +59,7 @@
         "Ports": "8x RJ45 (PoE+, IEEE 802.3at)",
         "Uplink": "ueber einen der 8 Ports (kein separater Anschluss)"
       },
-      "seed_version": 7
+      "seed_version": 8
     },
     {
       "id": "switch-16-port-poe",
@@ -107,7 +107,7 @@
         "Ports": "16x RJ45 (PoE+, IEEE 802.3at)",
         "Uplink": "ueber einen der 16 Ports (kein separater Anschluss)"
       },
-      "seed_version": 7
+      "seed_version": 8
     },
     {
       "id": "switch-24-port-poe",
@@ -155,7 +155,7 @@
         "Ports": "24x RJ45 (PoE+, IEEE 802.3at)",
         "Uplink": "ueber einen der 24 Ports (kein separater Anschluss)"
       },
-      "seed_version": 7
+      "seed_version": 8
     },
     {
       "id": "patchpanel-24-port",
@@ -204,7 +204,7 @@
         "Ports": "24x RJ45 (passiv, Cat 6A)",
         "Bauform": "19 Zoll, 1 HE"
       },
-      "seed_version": 7
+      "seed_version": 8
     },
     {
       "id": "switch-48-port-poe",
@@ -252,7 +252,7 @@
         "Ports": "48x RJ45 (PoE+, IEEE 802.3at), 2 Reihen a 24",
         "Uplink": "ueber einen der 48 Ports (kein separater Anschluss)"
       },
-      "seed_version": 7
+      "seed_version": 8
     },
     {
       "id": "router-generisch",
@@ -291,7 +291,7 @@
       "technische_daten": {
         "Ports": "1x WAN + 4x LAN (RJ45)"
       },
-      "seed_version": 7
+      "seed_version": 8
     },
     {
       "id": "katalog-04716ba7-f097-480a-8348-e0bde4cd37e6",
@@ -354,7 +354,7 @@
           "inStueckliste": true
         }
       ],
-      "seed_version": 3
+      "seed_version": 4
     },
     {
       "id": "katalog-c19f4bad-150f-4379-a5d3-add88b2214c2",
@@ -398,7 +398,7 @@
         }
       ],
       "kombinierbar": false,
-      "seed_version": 3
+      "seed_version": 4
     }
   ]
 }

@@ -15,6 +15,8 @@ import {
   SCHALTPLAN_MASSSTAB_NENNER,
   distance,
   geradeAufSchaltverbindung,
+  istSchaltplan,
+  schleifeLinienDurch,
   sucheSchaltverbindungTreffer,
 } from '../../document-model'
 import { erzeugeObjektAendernCommand, erzeugeObjektHinzufuegenCommand } from '../commands'
@@ -210,11 +212,17 @@ export function erzeugeSchaltverbindungTool(): Tool {
     verlauf: Point[] = punkte,
     autoRouting = false,
   ) {
+    let durchgeschleift = 0
     if (verlauf.length >= 2 && start) {
       const blattId = ctx.aktivesBlattId()
       const adern = baueAdern(ctx, [...verlauf], start, ziel)
       const objekte = objekteZuAdern(ctx.aktiveEbeneId(), verlauf, adern, polzahl, autoRouting)
-      if (objekte.length === 1) {
+      const ids = objekte.map((o) => o.id)
+      const durchschleifen = istSchaltplan(ctx.doc.getZeichnung())
+      durchgeschleift = durchschleifen
+        ? schleifeLinienDurch([...objekteAufBlatt(ctx), ...objekte], ids).bauteile
+        : 0
+      if (objekte.length === 1 && durchgeschleift === 0) {
         ctx.commands.execute(
           erzeugeObjektHinzufuegenCommand(
             ctx.doc,
@@ -228,14 +236,21 @@ export function erzeugeSchaltverbindungTool(): Tool {
           erzeugeObjektAendernCommand(
             ctx.doc,
             blattId,
-            t('werkzeuge.schaltverbindung.zeichnenAdern', { n: objekte.length }),
-            (bestand) => [...bestand, ...objekte],
+            objekte.length === 1
+              ? t('werkzeuge.schaltverbindung.zeichnen')
+              : t('werkzeuge.schaltverbindung.zeichnenAdern', { n: objekte.length }),
+            (bestand) =>
+              durchschleifen
+                ? schleifeLinienDurch([...bestand, ...objekte], ids).objekte
+                : [...bestand, ...objekte],
           ),
         )
       }
     }
     zuruecksetzen()
     ctx.zurueckZuAuswahl()
+    if (durchgeschleift > 0)
+      ctx.setStatus(t('werkzeuge.schaltverbindung.durchgeschleift', { n: durchgeschleift }))
   }
 
   function aktualisiereAderHover(ctx: ToolContext) {

@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
-import { symbolZeichnungAusSvg } from '../document-model'
+import { bearbeitbareSymbolZeichnung } from '../document-model'
 import type { CatalogStore } from '../persistence'
 
 export function useSymbolSvg(
   assetId: string | null,
   catalogStore: CatalogStore,
-): { svg: string | null; gezeichnet: boolean } {
+): { svg: string | null; bearbeitbar: boolean } {
   const [geladen, setGeladen] = useState<{ assetId: string; svg: string | null } | null>(null)
 
   useEffect(() => {
@@ -29,6 +29,6 @@ export function useSymbolSvg(
   }, [assetId, catalogStore])
 
   const svg = assetId && geladen?.assetId === assetId ? geladen.svg : null
-  const gezeichnet = useMemo(() => symbolZeichnungAusSvg(svg) !== null, [svg])
-  return { svg, gezeichnet }
+  const bearbeitbar = useMemo(() => bearbeitbareSymbolZeichnung(svg) !== null, [svg])
+  return { svg, bearbeitbar }
 }

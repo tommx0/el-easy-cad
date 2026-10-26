@@ -77,6 +77,10 @@ import {
   zonenNachSegmentZug,
   raeumeKnotenAuf,
   planUebersetzer,
+  fremdeLinien,
+  istSchaltplan,
+  rasteAufLinieEin,
+  schleifeEin,
 } from '../../document-model'
 import type { Command } from '../command'
 import {
@@ -1159,6 +1163,17 @@ export function erzeugeAuswahlTool(): Tool {
     return ctx.doc.getBlatt(ctx.aktivesBlattId())
   }
 
+  function einschleifbaresBauteil(
+    ctx: ToolContext,
+    drag: GruppenDragZustand,
+  ): KomponentenObjekt | null {
+    if (!istSchaltplan(ctx.doc.getZeichnung())) return null
+    if (drag.objektIds.size !== 1 || drag.komponentenIds.size !== 1) return null
+    if (drag.magnetModulId || drag.wand) return null
+    const o = aktuellesBlatt(ctx)?.objekte.find((x) => drag.komponentenIds.has(x.id))
+    return o?.type === 'komponente' ? o : null
+  }
+
   function vorschauRenderKontext(
     ctx: ToolContext,
     alleObjekte: readonly Objekt[],
@@ -1965,6 +1980,17 @@ export function erzeugeAuswahlTool(): Tool {
             ctx.doc.getZeichnung(),
           )
         }
+        const bauteil = einschleifbaresBauteil(ctx, gruppenDrag)
+        const delta = gruppenDrag.aktuellesDelta
+        if (bauteil && blattWand && (delta.x !== 0 || delta.y !== 0)) {
+          const gerastet = rasteAufLinieEin(
+            blattWand.objekte,
+            { ...bauteil, position: add(bauteil.position, delta) },
+            false,
+            fremdeLinien(blattWand.objekte, bauteil.id),
+          )
+          if (gerastet) gruppenDrag.aktuellesDelta = sub(gerastet.position, bauteil.position)
+        }
         ctx.requestOverlayRedraw()
         return
       }
@@ -2602,6 +2628,15 @@ export function erzeugeAuswahlTool(): Tool {
               label = wand.label
               nachbearbeiten = (objekte) => wendeNachbarnAn(objekte, wand.nachbarn)
             }
+            const bauteil = einschleifbaresBauteil(ctx, gruppenDrag)
+            let eingeschleift = 0
+            if (bauteil && !komponentenPatches && !nachbearbeiten) {
+              nachbearbeiten = (objekte) => {
+                const ergebnis = schleifeEin(objekte, bauteil.id, fremdeLinien(objekte, bauteil.id))
+                eingeschleift = ergebnis.anzahl
+                return ergebnis.objekte
+              }
+            }
             const { command, fehlgeschlageneLeitungenAnzahl } =
               erzeugeVerschiebungMitRerouteCommand(
                 ctx.doc,
@@ -2614,6 +2649,8 @@ export function erzeugeAuswahlTool(): Tool {
                 nachbearbeiten,
               )
             ctx.commands.execute(command)
+            if (eingeschleift > 0)
+              ctx.setStatus(t('werkzeuge.auswahl.eingeschleift', { n: eingeschleift }))
             if (fehlgeschlageneLeitungenAnzahl > 0) {
               ctx.setStatus(
                 t('werkzeuge.auswahl.angeschlossenNichtGeroutet', {

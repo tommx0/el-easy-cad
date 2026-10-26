@@ -421,8 +421,20 @@ Leitungsschutzschalter in eine durchgezeichnete Phase:
 
 - **Einsetzen:** Laufen beim Platzieren Verbindungen durch die Pole des neuen Bauteils, wird jede
   am oberen Kontakt getrennt und ab dem unteren weitergeführt – das Stück dazwischen entfällt.
-  Schon in der Vorschau sind die betroffenen Verbindungen mit ihrem neuen Verlauf blau
-  hervorgehoben. Ein Rückgängig-Schritt nimmt Bauteil und Trennung gemeinsam zurück.
+  Bei Bauteilen mit Kontakten links und rechts gilt dasselbe für waagrechte Verbindungen. Schon
+  in der Vorschau sind die betroffenen Verbindungen mit ihrem neuen Verlauf blau hervorgehoben.
+  Ein Rückgängig-Schritt nimmt Bauteil und Trennung gemeinsam zurück.
+- **Einrasten:** Sie müssen die Verbindung nicht genau treffen. Liegt sie irgendwo im Umriss des
+  Bauteils, springt die Vorschau quer zur Verbindung, bis der nächste Pol darauf liegt. Liegt die
+  Verbindung quer zu den Polen – etwa ein Leitungsschutzschalter über einem waagrechten Stück –,
+  dreht sich die Vorschau um 90° mit. Haben Sie selbst mit der Leertaste gedreht, bleibt Ihre
+  Drehung. Das gilt für jedes gerade Stück einer Verbindung mit Knicken.
+- **Durchziehen:** Ziehen Sie eine Verbindung gerade durch eine Reihe von Bauteilen – etwa vom
+  linken Kontakt des ersten mit gedrückter **Strg** (Tablet: **Gerade**) bis zum rechten
+  Kontakt des letzten oder über eigene Stützpunkte –, wird sie beim Abschließen an jedem Bauteil
+  aufgeteilt. Es entstehen Teilverbindungen von Kontakt zu Kontakt, die beim Verschieben eines
+  Bauteils mitgehen. Läuft die Verbindung neben einem Pol, aber im Umriss, knickt sie rechtwinklig zum
+  Kontakt ab. Beim automatischen Verlegen weicht die Verbindung den Bauteilen dagegen aus.
 - **Phasenrichtig:** Trägt ein Pol eine Anschlussbezeichnung (L1, L2, L3, N, PE …), bekommt er die
   gleichnamige Verbindung unter dem Bauteil – auch wenn sie an anderer Stelle liegt; sie wird dann
   rechtwinklig zu ihrem Pol geführt. Pole ohne Bezeichnung nehmen die Verbindung, die durch sie
@@ -432,8 +444,11 @@ Leitungsschutzschalter in eine durchgezeichnete Phase:
   Darstellung der Verbindung am oberen Kontakt. Hängt an einem Kontakt keine oder mehr als eine
   Verbindung, enden die Linien dort wie bisher frei.
 
-Das gilt für neu platzierte Bauteile; beim Verschieben eines vorhandenen Bauteils wird nichts
-getrennt. Mehrpolig als eine Linie gezeichnete Verbindungen werden nicht eingeschleift.
+Das gilt auch, wenn Sie ein einzelnes vorhandenes Bauteil auf eine Verbindung ziehen: Es rastet
+schon beim Ziehen ein und wird beim Loslassen eingesetzt. Ein Pol, an dem schon eine Verbindung
+des Bauteils hängt, bleibt dabei unberührt. Mehrere Bauteile auf einmal und das Verschieben mit
+den Pfeiltasten trennen nichts. Mehrpolig als eine Linie gezeichnete Verbindungen werden nicht
+eingeschleift.
 
 ## Potentiale {#potential}
 

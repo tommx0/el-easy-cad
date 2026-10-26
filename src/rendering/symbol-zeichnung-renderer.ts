@@ -12,6 +12,14 @@ import {
   bogenSpanne,
 } from '../document-model/symbol-zeichnung'
 import { type SymbolFarbe, symbolFarbwert } from '../document-model/symbol-palette'
+import type { PfadSegment, ZeichenElement } from '../document-model/studio-zeichnung/modell'
+import {
+  TEXT_SCHRIFT,
+  TEXT_ZEILENHOEHE,
+  alsPfadSegmente,
+  hatStil,
+  istFuellbar,
+} from '../document-model/studio-zeichnung/modell'
 
 export interface SymbolZeichnenOptionen {
   bildQuelle?: (datenUrl: string) => CanvasImageSource | null
@@ -78,13 +86,82 @@ function strichUndFuellung(
   ctx.stroke()
 }
 
+function pfadAnlegen(ctx: CanvasRenderingContext2D, segmente: PfadSegment[]) {
+  ctx.beginPath()
+  for (const s of segmente) {
+    switch (s.typ) {
+      case 'M':
+        ctx.moveTo(s.p.x, s.p.y)
+        break
+      case 'L':
+        ctx.lineTo(s.p.x, s.p.y)
+        break
+      case 'C':
+        ctx.bezierCurveTo(s.c1.x, s.c1.y, s.c2.x, s.c2.y, s.p.x, s.p.y)
+        break
+      case 'Q':
+        ctx.quadraticCurveTo(s.c.x, s.c.y, s.p.x, s.p.y)
+        break
+      case 'Z':
+        ctx.closePath()
+        break
+    }
+  }
+}
+
+function zeichneVektor(
+  ctx: CanvasRenderingContext2D,
+  form: ZeichenElement,
+  optionen: SymbolZeichnenOptionen,
+) {
+  if (form.art === 'text') {
+    const zeilen = form.text.split('\n')
+    const zeilenHoehe = form.groesse * TEXT_ZEILENHOEHE
+    ctx.fillStyle = symbolFarbwert(form.farbe)
+    ctx.font = `${form.fett ? 'bold ' : ''}${form.groesse}px ${TEXT_SCHRIFT}`
+    ctx.textAlign =
+      form.ausrichtung === 'links' ? 'left' : form.ausrichtung === 'mittig' ? 'center' : 'right'
+    ctx.textBaseline = 'middle'
+    ctx.translate(form.position.x, form.position.y)
+    ctx.rotate((form.drehung * Math.PI) / 180)
+    zeilen.forEach((zeile, i) => {
+      ctx.fillText(zeile, 0, ((2 * i - (zeilen.length - 1)) * zeilenHoehe) / 2)
+    })
+    return
+  }
+  if (form.art === 'bild') {
+    const quelle = optionen.bildQuelle?.(form.datenUrl)
+    if (!quelle) return
+    ctx.translate(form.mitte.x, form.mitte.y)
+    ctx.rotate((form.drehung * Math.PI) / 180)
+    ctx.drawImage(quelle, -form.breite / 2, -form.hoehe / 2, form.breite, form.hoehe)
+    return
+  }
+  if (!hatStil(form)) return
+  pfadAnlegen(ctx, alsPfadSegmente(form))
+  if (istFuellbar(form) && form.fuellung !== 'keine') {
+    ctx.fillStyle = symbolFarbwert(form.fuellung)
+    ctx.fill()
+  }
+  if (form.strich > 0) {
+    ctx.strokeStyle = symbolFarbwert(form.strichFarbe)
+    ctx.lineWidth = form.strich
+    if (form.gestrichelt) {
+      const strich = Math.max(3, form.strich * 3)
+      ctx.setLineDash([strich, strich * 0.7])
+    }
+    ctx.stroke()
+  }
+}
+
 export function zeichneSymbolElement(
   ctx: CanvasRenderingContext2D,
   element: SymbolElement,
   optionen: SymbolZeichnenOptionen = {},
 ) {
   ctx.save()
-  const farbe = element.art === 'bild' ? '#000' : symbolFarbwert(element.farbe)
+  const farbe =
+    element.art === 'bild' || element.art === 'vektor' ? '#000' : symbolFarbwert(element.farbe)
   ctx.strokeStyle = farbe
   ctx.fillStyle = farbe
   ctx.lineCap = 'round'
@@ -157,6 +234,9 @@ export function zeichneSymbolElement(
       }
       break
     }
+    case 'vektor':
+      zeichneVektor(ctx, element.form, optionen)
+      break
   }
   ctx.restore()
 }

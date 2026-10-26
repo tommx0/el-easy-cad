@@ -430,6 +430,10 @@ export const werkzeuge: Texte['werkzeuge'] = {
       other: 'Draw wire ({n} cores)',
     },
     keinWeg: 'No free path to the target found - choose another target point.',
+    durchgeschleift: {
+      one: 'Wire drawn through {n} component and split there.',
+      other: 'Wire drawn through {n} components and split there.',
+    },
     adern: 'Cores',
     pole: 'Poles',
     mehrlinig: 'Multi-line',
@@ -474,6 +478,10 @@ export const werkzeuge: Texte['werkzeuge'] = {
       one: '{n} cable running through could not be re-routed without collisions - please adjust manually.',
       other:
         '{n} cables running through could not be re-routed without collisions - please adjust manually.',
+    },
+    eingeschleift: {
+      one: 'Component looped into {n} connection.',
+      other: 'Component looped into {n} connections.',
     },
     angeschlossenNichtGeroutet: {
       one: '{n} connected cable could not be re-routed without collisions - please adjust manually.',

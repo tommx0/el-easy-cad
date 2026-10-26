@@ -232,7 +232,7 @@ export const katalogdialoge: Texte['katalogdialoge'] = {
         entfernen: 'Remove own symbol (inherited again)',
       },
     },
-    gezeichnetesBearbeiten: 'Edit drawn symbol',
+    gezeichnetesBearbeiten: 'Edit symbol in the drawing editor',
     eigenesZeichnen: 'Draw own symbol',
     bearbeitenKlein: 'edit…',
     zeichnenKlein: 'draw…',
@@ -554,6 +554,8 @@ export const katalogdialoge: Texte['katalogdialoge'] = {
     textgroesse: 'Text size',
     vorlageUebernehmen: 'Adopt template',
     vorlageFehler: 'The template could not be adopted.',
+    vektorHinweis:
+      'Imported symbol: parts can be selected, moved, recoloured, erased and deleted. Draw new parts as usual.',
     bildgroesse: 'Image size',
     bildgroesseProzent: 'Image size (%)',
     zeichenwerkzeuge: 'Drawing tools',

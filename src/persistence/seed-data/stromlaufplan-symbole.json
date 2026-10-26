@@ -10,7 +10,7 @@
         "beschreibung": "Generic IEC 60617 graphical symbols for circuit diagrams: circuit breakers, selective main switches (SLS), RCDs, fuses, surge and lightning arresters, meters, relay/contactor coils and contacts, terminals. No real products."
       }
     },
-    "seed_version": 19
+    "seed_version": 20
   },
   "komponenten": [
     {
@@ -2108,7 +2108,7 @@
       "technische_daten": {
         "Art": "Triac"
       },
-      "seed_version": 2
+      "seed_version": 3
     },
     {
       "id": "hauptkontakte-3-polig",
@@ -4619,7 +4619,7 @@
       "kombinierbar": false,
       "ansteuerung": "schalten",
       "kennzeichenBuchstabe": "K",
-      "seed_version": 6
+      "seed_version": 7
     },
     {
       "id": "katalog-334cf51a-b762-4539-ad50-cb637a553eb0",
@@ -4792,7 +4792,7 @@
       "kombinierbar": false,
       "ansteuerung": "dimmen",
       "kennzeichenBuchstabe": "K",
-      "seed_version": 6
+      "seed_version": 7
     },
     {
       "id": "katalog-970133b8-913c-49f8-b2f2-f447443584cf",
@@ -5160,7 +5160,7 @@
       "kombinierbar": false,
       "ansteuerung": "schalten",
       "kennzeichenBuchstabe": "K",
-      "seed_version": 7
+      "seed_version": 8
     }
   ]
 }

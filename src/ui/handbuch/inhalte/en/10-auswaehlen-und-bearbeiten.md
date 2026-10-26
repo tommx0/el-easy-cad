@@ -10,7 +10,7 @@ other tool.
   again.
 - **Drag a frame** (start on empty space) selects depending on the direction:
   - from **left to right** only what lies entirely within the frame,
-  - from **right to left** additionally everything the frame merely touches.
+  - from **right to left** additionally everything the frame merely touches. Wires, cables, trunks, lines and polylines only count if the frame touches the line itself – not if it merely lies in the area between their bends.
 
   With the **Ctrl** or **Cmd** key held down, the frame extends the existing selection instead of
   replacing it.

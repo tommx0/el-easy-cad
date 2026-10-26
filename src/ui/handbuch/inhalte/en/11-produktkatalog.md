@@ -116,6 +116,7 @@ If a schematic symbol is missing, draw it yourself in the catalogue dialog: line
 - **Arc:** Choose the “Arc” tool, then click in turn the centre point, the start (this sets the radius) and the end. The arc runs clockwise from the start to the end.
 - **Eraser:** Drag over the drawing with the mouse button held down. The trail belongs to the elements it touches – if you move an element, the hole moves with it; elements drawn later are unaffected. Choose the brush size in the bar.
 - **Colour:** Draw lines and text in one of eight colours (black, white, grey, red, orange, yellow, green, blue); closed shapes you fill in one of these colours as well. The chosen colour applies to new elements and to the selection. In the plan each symbol appears in its own colours as long as the component has the default colour. If you choose another colour for the component, the symbol is coloured like any other in that colour.
+- **Change an existing symbol:** A built-in, uploaded or Catalogue Studio symbol also opens with all its parts via **Edit symbol…**, so you do not have to redraw it. The parts can be selected, moved, recoloured, erased and deleted; set line and text size as usual and change texts by double-clicking. The shape of a part itself (for example the curve of an arc) stays as it is – draw anything new on top. If an SVG contains something that cannot be taken over without loss (masks, gradients), it is shown only as a background template, as before.
 
 ## Many components at once: Excel import {#excel-import}
 

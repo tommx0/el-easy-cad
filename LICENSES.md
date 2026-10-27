@@ -864,7 +864,7 @@ Doppellizenziert, beide permissiv – wir nutzen das Crate unter MIT.
 Wenn Sie el.easy.CAD kommerziell weitergeben oder einsetzen:
 
 - Bewahren Sie diese Datei auf.
-- Geben Sie die Copyright-Notizen der Abhängigkeiten mit an (z. B. über den Lizenzen-Dialog der Anwendung).
+- Geben Sie die Copyright-Notizen der Abhängigkeiten mit an. Die Anwendung bringt sie selbst mit: `THIRD-PARTY-NOTICES.txt` (seit 2026-10-27, erzeugt von `node skripte/drittlizenzen-erzeugen.mjs`, angezeigt unter Hilfe › Lizenzen › „Vollständige Lizenztexte anzeigen“) enthält je npm-Paket die Lizenzdatei aus dem Paket samt Copyright-Vermerk, die Node.js-`LICENSE` und die Rust-Crates mit Vermerken und Volltexten. Nötig, weil der Minifier die Lizenzköpfe aus den Bundles entfernt und diese Datei hier nicht mit ausgeliefert wird. Nach jeder Änderung an den Abhängigkeiten das Skript erneut ausführen; `drittlizenzen.test.ts` meldet eine direkte Abhängigkeit, die in der Hinweisdatei fehlt.
 - Informieren Sie Nutzer über die Abhängigkeiten.
 
 ---

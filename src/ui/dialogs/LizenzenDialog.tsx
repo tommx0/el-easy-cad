@@ -1,11 +1,21 @@
+import { useState } from 'react'
 import { useT } from '../sprache-anbindung'
 import { useUiStore } from '../store/ui-store'
 
 export function LizenzenDialog() {
   const t = useT()
   const offen = useUiStore((s) => s.lizenzenDialogOffen)
+  const [texte, setTexte] = useState<string | null>(null)
+  const [ladeFehler, setLadeFehler] = useState(false)
   const schliessen = () => useUiStore.getState().setLizenzenDialogOffen(false)
   if (!offen) return null
+
+  const texteAnzeigen = () => {
+    setLadeFehler(false)
+    import('../../../THIRD-PARTY-NOTICES.txt?raw')
+      .then((modul) => setTexte(modul.default))
+      .catch(() => setLadeFehler(true))
+  }
 
   return (
     <div className="dialog-overlay" onMouseDown={schliessen}>
@@ -193,10 +203,17 @@ export function LizenzenDialog() {
 
           <h4>{t('verwaltungsdialoge.lizenzen.bestimmungen')}</h4>
           <p>{t('verwaltungsdialoge.lizenzen.bestimmungenText')}</p>
-          <p>
-            {t('verwaltungsdialoge.lizenzen.vollstaendigVor')} <code>LICENSES.md</code>
-            {t('verwaltungsdialoge.lizenzen.vollstaendigNach')}
-          </p>
+          <p>{t('verwaltungsdialoge.lizenzen.vollstaendig')}</p>
+          {texte === null ? (
+            <p>
+              <button type="button" onClick={texteAnzeigen}>
+                {t('verwaltungsdialoge.lizenzen.texteAnzeigen')}
+              </button>
+            </p>
+          ) : (
+            <pre className="lizenztexte">{texte}</pre>
+          )}
+          {ladeFehler && <p role="alert">{t('verwaltungsdialoge.lizenzen.texteFehler')}</p>}
         </div>
 
         <div className="dialog-aktionen">

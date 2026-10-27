@@ -3,6 +3,39 @@ import { zeichenflaecheBoundingBox } from '../document-model'
 import type { Uebersetzer } from '../sprache'
 import type { ViewTransform } from './view-transform'
 
+export interface NichtDruckbereichDarstellung {
+  farbe: string
+  deckkraft: number
+}
+
+export const STANDARD_NICHT_DRUCKBEREICH: NichtDruckbereichDarstellung = {
+  farbe: '#646464',
+  deckkraft: 0.25,
+}
+
+export function zeichneNichtDruckbereich(
+  ctx: CanvasRenderingContext2D,
+  view: ViewTransform,
+  zeichenflaeche: Zeichenflaeche,
+  breite: number,
+  hoehe: number,
+  darstellung: NichtDruckbereichDarstellung = STANDARD_NICHT_DRUCKBEREICH,
+) {
+  if (darstellung.deckkraft <= 0) return
+  const bb = zeichenflaecheBoundingBox(zeichenflaeche)
+  const oben = view.worldToScreen({ x: bb.min.x, y: bb.max.y })
+  const unten = view.worldToScreen({ x: bb.max.x, y: bb.min.y })
+
+  ctx.save()
+  ctx.globalAlpha = Math.min(1, darstellung.deckkraft)
+  ctx.fillStyle = darstellung.farbe
+  ctx.beginPath()
+  ctx.rect(0, 0, breite, hoehe)
+  ctx.rect(oben.x, oben.y, unten.x - oben.x, unten.y - oben.y)
+  ctx.fill('evenodd')
+  ctx.restore()
+}
+
 export function zeichneZeichenflaecheRahmen(
   ctx: CanvasRenderingContext2D,
   view: ViewTransform,

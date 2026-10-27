@@ -145,7 +145,9 @@ drawing that uses it calculates with the new values, including the cable lengths
 ## Setting up the print area {#zeichenflaeche-einrichten}
 
 The print area is the blue dashed frame on the sheet. Exactly its content ends up on paper. Above the frame,
-on the left, are the paper size and scale.
+on the left, are the paper size and scale. Inside the frame the sheet stays white like paper,
+outside it is grey – the background plan appears dimmed there, your own objects stay fully visible. You set the colour and opacity of this
+area under {{befehl:extras.einstellungen}}.
 
 ![Setting up the print area: format, orientation, scale](zeichenflaeche.png)
 

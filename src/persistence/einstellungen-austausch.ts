@@ -57,6 +57,7 @@ const BEREICH_FELDER = {
   zeichnen: [
     'objektfangArten',
     'gridBasisSchritt',
+    'nichtDruckbereich',
     'pfeiltastenSchrittKleinMeter',
     'pfeiltastenSchrittGrossMeter',
     'bemassungVariante',

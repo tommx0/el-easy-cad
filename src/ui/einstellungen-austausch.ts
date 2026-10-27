@@ -80,6 +80,7 @@ export function geltendeEinstellungen(): Partial<AppSettings> {
     pickerKachelGroesse: s.pickerKachelGroesse,
     objektfangArten: [...s.objektfangArten],
     gridBasisSchritt: s.gridBasisSchritt,
+    nichtDruckbereich: { ...s.nichtDruckbereich },
     pfeiltastenSchrittKleinMeter: s.pfeiltastenSchritte.kleinMeter,
     pfeiltastenSchrittGrossMeter: s.pfeiltastenSchritte.grossMeter,
     bemassungVariante: s.bemassungVariante,

@@ -4296,6 +4296,20 @@
   font-size: 11px;
 }
 
+.lizenzen-content .lizenztexte {
+  margin: 8px 0;
+  padding: 8px 10px;
+  background: var(--flaeche-gedaempft);
+  border-radius: var(--radius-s);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10.5px;
+  line-height: 1.45;
+  color: var(--text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
 .dialog-fehlerprotokoll {
   max-height: 80vh;
   width: 620px;

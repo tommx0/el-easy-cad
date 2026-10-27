@@ -289,8 +289,12 @@ export const verwaltungsdialoge = {
       'MPL 2.0 und werden unverändert eingesetzt.',
     nodeZweck: 'Laufzeit des Begleitservers (Desktop-App)',
     tauriZweck: 'Hülle der Desktop-App samt Rust-Bibliotheken',
-    vollstaendigVor: 'Vollständige Informationen finden Sie in der Datei',
-    vollstaendigNach: '.',
+    vollstaendig:
+      'Die Copyright-Vermerke und vollständigen Lizenztexte aller Fremdsoftware, die die ' +
+      'Anwendung enthält (Oberfläche, Begleitserver, Node.js und Rust-Bausteine der Desktop-App), ' +
+      'liegen ihr bei.',
+    texteAnzeigen: 'Vollständige Lizenztexte anzeigen',
+    texteFehler: 'Die Lizenztexte konnten nicht geladen werden.',
   },
   kiAssistent: {
     titel: 'KI-Assistent',
@@ -443,6 +447,14 @@ export const verwaltungsdialoge = {
         'Diese Zeichnung ist ein Schaltplan: Ihr Raster ist fest auf {cm} cm eingestellt – den ' +
         'Abstand der Kontakte von Leitungsschutzschaltern, Sicherungen und Schützkontakten. Der ' +
         'Wert oben gilt nur für Baupläne.',
+      nichtDruckbereich: 'Außerhalb der Zeichenfläche',
+      nichtDruckbereichFarbe: 'Farbe',
+      nichtDruckbereichDeckkraft: 'Deckkraft (%)',
+      nichtDruckbereichStandard: 'Standard',
+      nichtDruckbereichHinweis:
+        'Alles außerhalb des Druckbereichs wird mit dieser Farbe überdeckt, der Druckbereich ' +
+        'bleibt weiß. Der Hintergrundplan erscheint dort gedämpft, Ihre Objekte bleiben voll ' +
+        'sichtbar. 0 % schaltet die Fläche ab. Auf Druck und Export wirkt das nicht.',
       pfeiltasten: 'Verschieben mit Pfeiltasten',
       pfeiltaste: 'Pfeiltaste (cm)',
       umschaltPfeiltaste: 'Umschalt + Pfeiltaste (cm)',

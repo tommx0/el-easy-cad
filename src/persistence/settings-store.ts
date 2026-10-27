@@ -53,6 +53,7 @@ export interface AppSettings {
   sprache: string | null
   verknuepfungNachLeitung: boolean
   leitungenErstNachLoslassen: boolean
+  nichtDruckbereich: { farbe: string; deckkraft: number }
 }
 
 export const verteilerplanSchema = z
@@ -167,6 +168,12 @@ export const appSettingsPatchSchema = z.object({
   sprache: z.string().nullable().optional(),
   verknuepfungNachLeitung: z.boolean().optional(),
   leitungenErstNachLoslassen: z.boolean().optional(),
+  nichtDruckbereich: z
+    .object({
+      farbe: z.string().regex(/^#[0-9a-fA-F]{6}$/),
+      deckkraft: z.number().finite().min(0).max(1),
+    })
+    .optional(),
 })
 
 export type AppSettingsPatch = z.infer<typeof appSettingsPatchSchema>

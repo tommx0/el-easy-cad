@@ -300,5 +300,3 @@ Abschnitt „Building from source“.
 **Rückmeldungen** gern als Issue; 
 
 © 2026 Thomas Marx
-
-<sub>Developed with the help of [Claude Code](https://claude.com/claude-code) and Claude Opus 5.5 · Entwickelt mit Unterstützung von Claude Code und Claude Opus 5.5</sub>

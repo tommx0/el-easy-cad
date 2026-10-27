@@ -292,8 +292,12 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
       'MPL 2.0 and are used unmodified.',
     nodeZweck: 'Runtime of the companion server (desktop app)',
     tauriZweck: 'Desktop app shell including its Rust libraries',
-    vollstaendigVor: 'Full information can be found in the file',
-    vollstaendigNach: '.',
+    vollstaendig:
+      'The copyright notices and full licence texts of all third-party software the ' +
+      'application contains (user interface, companion server, Node.js and the Rust components ' +
+      'of the desktop app) are included with it.',
+    texteAnzeigen: 'Show full licence texts',
+    texteFehler: 'The licence texts could not be loaded.',
   },
   kiAssistent: {
     titel: 'AI assistant',
@@ -443,6 +447,14 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
         'This drawing is a schematic: its grid is fixed at {cm} cm – the spacing of the ' +
         'contacts of circuit breakers, fuses and contactor contacts. The value above applies ' +
         'only to floor plans.',
+      nichtDruckbereich: 'Outside the print area',
+      nichtDruckbereichFarbe: 'Colour',
+      nichtDruckbereichDeckkraft: 'Opacity (%)',
+      nichtDruckbereichStandard: 'Default',
+      nichtDruckbereichHinweis:
+        'Everything outside the print area is covered with this colour; the print area stays ' +
+        'white. The background plan appears dimmed there, your objects stay fully visible. ' +
+        '0 % turns the area off. Printing and export are not affected.',
       pfeiltasten: 'Moving with arrow keys',
       pfeiltaste: 'Arrow key (cm)',
       umschaltPfeiltaste: 'Shift + arrow key (cm)',

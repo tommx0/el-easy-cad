@@ -13,6 +13,7 @@ The settings are spread over tabs:
 | | Key functions | Whether the [key function bar](#kontextleiste) appears |
 | | Distribution board | Whether the [circuit](#stromkreis-zuordnung) appears in the properties panel |
 | | Grid | Grid spacing and grid snap |
+| | Outside the print area | Colour and opacity of the area around the [print area](#zeichenflaeche-einrichten) (default grey, 25 %; 0 % turns it off) |
 | | Moving with arrow keys | Small and large step size |
 | | Mounting height | The default heights behind the buttons in the properties panel |
 | | Combinations on the wall | How large symbols appear in a [combination on the wall](#wandfang) (default 75 %) – applies at once to the open drawing |
@@ -45,7 +46,7 @@ So that you do not have to set everything up again on a new computer:
 | Area | Contents |
 |---|---|
 | User interface | Tool sidebar and toolbar (order, visibility), sidebar, properties panel, appearance, keyboard shortcuts |
-| Drawing | Object snap types, grid spacing, arrow key step sizes, dimension type, default heights, symbol size on the wall |
+| Drawing | Object snap types, grid spacing, area outside the print area, arrow key step sizes, dimension type, default heights, symbol size on the wall |
 | Auto-routing | Costs, safety distance, search area, wall routing, automatic arrangement |
 | Company logo, cable types and installation zones | Company logo for the title block, custom cable types and custom installation zones |
 

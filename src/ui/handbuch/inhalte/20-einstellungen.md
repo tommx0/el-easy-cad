@@ -13,6 +13,7 @@ Die Einstellungen sind auf Reiter verteilt:
 | | Tastenfunktionen | Ob die [Leiste mit den Tastenfunktionen](#kontextleiste) erscheint |
 | | Verteiler | Ob der [Stromkreis](#stromkreis-zuordnung) im Eigenschaften-Panel steht |
 | | Raster | Rasterweite und Rasterfang |
+| | Außerhalb der Zeichenfläche | Farbe und Deckkraft der Fläche um den [Druckbereich](#zeichenflaeche-einrichten) (Vorgabe Grau, 25 %; 0 % schaltet sie ab) |
 | | Verschieben mit Pfeiltasten | Schrittweite klein und groß |
 | | Installationshöhe | Die Vorgabehöhen hinter den Knöpfen am Eigenschaften-Panel |
 | | Kombinationen an der Wand | Wie groß Symbole in einer [Kombination an der Wand](#wandfang) erscheinen (Vorgabe 75 %) – gilt sofort für die offene Zeichnung |
@@ -45,7 +46,7 @@ Damit Sie auf einem neuen Rechner nicht alles neu einstellen müssen:
 | Bereich | Inhalt |
 |---|---|
 | Oberfläche | Werkzeug- und Symbolleiste, Seitenleiste, Eigenschaften-Panel, Tastenkürzel |
-| Zeichnen | Objektfangarten, Raster, Pfeiltastenschritte, Bemaßungsvariante, Installationshöhen, Symbolgröße an der Wand |
+| Zeichnen | Objektfangarten, Raster, Fläche außerhalb der Zeichenfläche, Pfeiltastenschritte, Bemaßungsvariante, Installationshöhen, Symbolgröße an der Wand |
 | Autorouting | Alle Routing- und Wandführungswerte, dazu die Einstellungen von „Automatisch anordnen“ |
 | Firmenlogo, Kabeltypen und Installationszonen | Das Plankopf-Logo, Ihre eigenen Kabeltypen und Ihre eigenen Installationszonen |
 

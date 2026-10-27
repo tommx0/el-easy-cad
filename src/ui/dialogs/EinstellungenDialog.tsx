@@ -60,6 +60,7 @@ import { KiAssistentEinstellungen } from './KiAssistentEinstellungen'
 import { BeschriftungGroesseInhalt } from './BeschriftungGroesseDialog'
 import { ZahlenFeld } from '../ZahlenFeld'
 import { WAND_BEVORZUGUNG_MAX } from '../../routing'
+import { STANDARD_NICHT_DRUCKBEREICH } from '../../rendering'
 import { waehleEinstellungsDatei } from '../einstellungen-austausch'
 
 function LizenzVerweis() {
@@ -122,6 +123,8 @@ function AllgemeinAbschnitt() {
   const zeichnung = useProject()
   const gridBasisSchritt = useSettingsStore((s) => s.gridBasisSchritt)
   const setGridBasisSchritt = useSettingsStore((s) => s.setGridBasisSchritt)
+  const nichtDruckbereich = useSettingsStore((s) => s.nichtDruckbereich)
+  const setNichtDruckbereich = useSettingsStore((s) => s.setNichtDruckbereich)
   const pfeiltastenSchritte = useSettingsStore((s) => s.pfeiltastenSchritte)
   const setPfeiltastenSchritt = useSettingsStore((s) => s.setPfeiltastenSchritt)
   const vorgabehoehen = useSettingsStore((s) => s.installationshoehenVorgabenCm)
@@ -184,6 +187,44 @@ function AllgemeinAbschnitt() {
           })}
         </p>
       )}
+
+      <h3>{t('verwaltungsdialoge.einstellungenDialog.allgemein.nichtDruckbereich')}</h3>
+      <label className="dialog-feld">
+        {t('verwaltungsdialoge.einstellungenDialog.allgemein.nichtDruckbereichFarbe')}
+        <input
+          type="color"
+          value={nichtDruckbereich.farbe}
+          onChange={(e) =>
+            setNichtDruckbereich(settingsStore, { ...nichtDruckbereich, farbe: e.target.value })
+          }
+        />
+      </label>
+      <label className="dialog-feld">
+        {t('verwaltungsdialoge.einstellungenDialog.allgemein.nichtDruckbereichDeckkraft')}
+        <ZahlenFeld
+          min={0}
+          max={100}
+          step={5}
+          value={Math.round(nichtDruckbereich.deckkraft * 100)}
+          onCommit={(prozent) =>
+            setNichtDruckbereich(settingsStore, {
+              ...nichtDruckbereich,
+              deckkraft: Math.min(100, Math.max(0, prozent)) / 100,
+            })
+          }
+        />
+      </label>
+      <div className="dialog-knopfreihe">
+        <button
+          type="button"
+          onClick={() => setNichtDruckbereich(settingsStore, STANDARD_NICHT_DRUCKBEREICH)}
+        >
+          {t('verwaltungsdialoge.einstellungenDialog.allgemein.nichtDruckbereichStandard')}
+        </button>
+      </div>
+      <p className="dialog-hinweis">
+        {t('verwaltungsdialoge.einstellungenDialog.allgemein.nichtDruckbereichHinweis')}
+      </p>
 
       <h3>{t('verwaltungsdialoge.einstellungenDialog.allgemein.pfeiltasten')}</h3>
       <label className="dialog-feld">

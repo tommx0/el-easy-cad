@@ -67,6 +67,7 @@ import {
   ermittleKomponentenFlaechen,
   ermittleLinienHindernisse,
   zeichneZeichenflaecheRahmen,
+  zeichneNichtDruckbereich,
   zeichneKoordinatennetz,
   NETZ_FARBE,
   NETZ_FELDLINIEN_FARBE,
@@ -284,6 +285,17 @@ export function CanvasArea() {
           festerRasterSchritt(zeichnung),
         )
       }
+    }
+
+    if (blatt.zeichenflaeche) {
+      zeichneNichtDruckbereich(
+        ctxSet.hintergrund,
+        view,
+        blatt.zeichenflaeche,
+        breite,
+        hoehe,
+        useSettingsStore.getState().nichtDruckbereich,
+      )
     }
 
     if (istSchaltplan(zeichnung) && blatt.zeichenflaeche) {
@@ -763,9 +775,14 @@ export function CanvasArea() {
     })
     let vorherGridBasisSchritt = useSettingsStore.getState().gridBasisSchritt
     let vorherKontextleiste = useSettingsStore.getState().kontextleisteSichtbar
+    let vorherNichtDruckbereich = useSettingsStore.getState().nichtDruckbereich
     const ausSettingsStore = useSettingsStore.subscribe((s) => {
       if (s.gridBasisSchritt !== vorherGridBasisSchritt) {
         vorherGridBasisSchritt = s.gridBasisSchritt
+        hintergrundScheduler.request()
+      }
+      if (s.nichtDruckbereich !== vorherNichtDruckbereich) {
+        vorherNichtDruckbereich = s.nichtDruckbereich
         hintergrundScheduler.request()
       }
       if (s.kontextleisteSichtbar !== vorherKontextleiste) {

@@ -154,7 +154,10 @@ nutzen, mit den neuen Werten – auch die Verlegelängen.
 ## Zeichenfläche einrichten {#zeichenflaeche-einrichten}
 
 Die Zeichenfläche ist der blau gestrichelte Rahmen auf dem Blatt: genau sein Inhalt kommt später
-aufs Papier. Links über dem Rahmen stehen Papierformat und Maßstab.
+aufs Papier. Links über dem Rahmen stehen Papierformat und Maßstab. Innerhalb des Rahmens bleibt
+das Blatt weiß wie Papier, außerhalb ist es grau – der Hintergrundplan erscheint dort gedämpft,
+Ihre eigenen Objekte bleiben voll sichtbar. Farbe und Deckkraft dieser Fläche stellen Sie unter
+{{befehl:extras.einstellungen}} ein.
 
 ![Zeichenfläche einrichten: Format, Ausrichtung, Maßstab](zeichenflaeche.png)
 

@@ -28,6 +28,8 @@ import {
   vollstaendigeSymbolleiste,
 } from '../symbolleiste-reihenfolge'
 import { begrenzeSeitenleistenBreite, SEITENLEISTE_BREITE_STANDARD } from '../seitenleiste-breite'
+import type { NichtDruckbereichDarstellung } from '../../rendering'
+import { STANDARD_NICHT_DRUCKBEREICH } from '../../rendering'
 import { begrenzePickerKachelGroesse, PICKER_KACHEL_STANDARD } from '../picker-kachel-groesse'
 
 function gueltigeFangarten(gespeichert: string[] | undefined): Fangart[] {
@@ -91,6 +93,7 @@ interface SettingsState {
   updateSuche: UpdateSuche
   verknuepfungNachLeitung: boolean
   leitungenErstNachLoslassen: boolean
+  nichtDruckbereich: NichtDruckbereichDarstellung
   geladen: boolean
   laden: (store: SettingsStore) => Promise<void>
   setDatenschutzAkzeptiert: (store: SettingsStore, stand: string) => void
@@ -147,6 +150,7 @@ interface SettingsState {
   setUpdateSuche: (store: SettingsStore, wert: UpdateSuche) => void
   setVerknuepfungNachLeitung: (store: SettingsStore, wert: boolean) => void
   setLeitungenErstNachLoslassen: (store: SettingsStore, wert: boolean) => void
+  setNichtDruckbereich: (store: SettingsStore, wert: NichtDruckbereichDarstellung) => void
   leiteBefehleNeuAb: () => void
 }
 
@@ -224,6 +228,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   updateSuche: 'fragen',
   verknuepfungNachLeitung: true,
   leitungenErstNachLoslassen: false,
+  nichtDruckbereich: { ...STANDARD_NICHT_DRUCKBEREICH },
   geladen: false,
 
   laden: async (store) => {
@@ -313,6 +318,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
       updateSuche: gespeichert.updateSuche ?? 'fragen',
       verknuepfungNachLeitung: gespeichert.verknuepfungNachLeitung ?? true,
       leitungenErstNachLoslassen: gespeichert.leitungenErstNachLoslassen ?? false,
+      nichtDruckbereich: gespeichert.nichtDruckbereich ?? { ...STANDARD_NICHT_DRUCKBEREICH },
       geladen: true,
     })
   },
@@ -661,6 +667,13 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     if (get().leitungenErstNachLoslassen === wert) return
     set({ leitungenErstNachLoslassen: wert })
     void store.speichern({ leitungenErstNachLoslassen: wert })
+  },
+
+  setNichtDruckbereich: (store, wert) => {
+    const alt = get().nichtDruckbereich
+    if (alt.farbe === wert.farbe && alt.deckkraft === wert.deckkraft) return
+    set({ nichtDruckbereich: { ...wert } })
+    void store.speichern({ nichtDruckbereich: { ...wert } })
   },
 
   leiteBefehleNeuAb: () => {

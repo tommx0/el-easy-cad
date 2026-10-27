@@ -120,6 +120,7 @@ import {
   neueZeichnungDialogOptionen,
 } from './neue-zeichnung'
 import { useUiStore } from './store/ui-store'
+import { hinweisFuerKatalogAuswahl, hinweisFuerWerkzeug, zeigeHilfeHinweis } from './hilfe-hinweise'
 import type { IfcBauteileJeBlatt } from './ifc-bauteile'
 import { bereiteIfcBauteileAuf } from './ifc-bauteile'
 import { meldeNurAnsicht, nurAnsichtMeldung } from './nur-ansicht'
@@ -515,6 +516,10 @@ function erzeugeAppKontext(): AppKontext {
     },
     oeffneKomponentenPicker: (callback, optionen) =>
       useUiStore.getState().oeffneKomponentenPicker(callback, optionen),
+    komponenteGewaehlt: (auswahl) => {
+      const hinweis = hinweisFuerKatalogAuswahl(auswahl)
+      if (hinweis) zeigeHilfeHinweis(hinweis)
+    },
     oeffneBestaetigung: (optionen) => useUiStore.getState().oeffneBestaetigung(optionen),
     oeffneTrunkVerbindenDialog: (von, callback) =>
       useUiStore.getState().oeffneTrunkVerbindenDialog(von, callback),
@@ -569,6 +574,14 @@ function erzeugeAppKontext(): AppKontext {
   toolManager.registriere(erzeugeZoomFensterTool())
   toolManager.registriere(erzeugeZusatzmodulAbfrageTool())
   toolManager.initialisiere()
+  let letztesWerkzeug = toolManager.getAktivesToolId()
+  toolManager.subscribe(() => {
+    const id = toolManager.getAktivesToolId()
+    if (id === letztesWerkzeug) return
+    letztesWerkzeug = id
+    const hinweis = hinweisFuerWerkzeug(id)
+    if (hinweis) zeigeHilfeHinweis(hinweis)
+  })
 
   function kopiereAuswahl() {
     const ids = useUiStore.getState().auswahlIds

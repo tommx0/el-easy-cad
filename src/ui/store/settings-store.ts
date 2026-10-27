@@ -78,6 +78,8 @@ interface SettingsState {
   datenschutzAkzeptiertStand: string | null
   bemassungVariante: AppSettings['bemassungVariante']
   einfuehrungBeimStartZeigen: boolean
+  hilfeHinweiseZeigen: boolean
+  ausgeblendeteHilfeHinweise: string[]
   anordnenEinstellungen: AnordnenEinstellungen
   verteilerplanEinstellungen: {
     maxSicherungenJeBlatt: number
@@ -139,6 +141,9 @@ interface SettingsState {
   setKontextleisteVersatz: (store: SettingsStore, versatz: { x: number; y: number } | null) => void
   setBemassungVariante: (store: SettingsStore, wert: AppSettings['bemassungVariante']) => void
   setEinfuehrungBeimStartZeigen: (store: SettingsStore, wert: boolean) => void
+  setHilfeHinweiseZeigen: (store: SettingsStore, wert: boolean) => void
+  setHilfeHinweisZeigen: (store: SettingsStore, kennung: string, zeigen: boolean) => void
+  schalteAlleHilfeHinweiseEin: (store: SettingsStore) => void
   setAnordnenEinstellungen: (store: SettingsStore, wert: AnordnenEinstellungen) => void
   setVerteilerplanEinstellungen: (
     store: SettingsStore,
@@ -220,6 +225,8 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   datenschutzAkzeptiertStand: null,
   bemassungVariante: 'bemassung',
   einfuehrungBeimStartZeigen: true,
+  hilfeHinweiseZeigen: true,
+  ausgeblendeteHilfeHinweise: [],
   anordnenEinstellungen: { ...STANDARD_ANORDNEN_EINSTELLUNGEN },
   verteilerplanEinstellungen: { ...VERTEILERPLAN_STANDARD },
   stromkreisImPanel: true,
@@ -310,6 +317,8 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
       datenschutzAkzeptiertStand: gespeichert.datenschutzAkzeptiertStand ?? null,
       bemassungVariante: gespeichert.bemassungVariante ?? 'bemassung',
       einfuehrungBeimStartZeigen: gespeichert.einfuehrungBeimStartZeigen ?? true,
+      hilfeHinweiseZeigen: gespeichert.hilfeHinweiseZeigen ?? true,
+      ausgeblendeteHilfeHinweise: gespeichert.ausgeblendeteHilfeHinweise ?? [],
       anordnenEinstellungen: vervollstaendigeAnordnenEinstellungen(gespeichert.automatischAnordnen),
       verteilerplanEinstellungen: { ...VERTEILERPLAN_STANDARD, ...gespeichert.verteilerplan },
       stromkreisImPanel: gespeichert.stromkreisImPanel ?? true,
@@ -692,5 +701,24 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     if (get().einfuehrungBeimStartZeigen === wert) return
     set({ einfuehrungBeimStartZeigen: wert })
     void store.speichern({ einfuehrungBeimStartZeigen: wert })
+  },
+
+  setHilfeHinweiseZeigen: (store, wert) => {
+    if (get().hilfeHinweiseZeigen === wert) return
+    set({ hilfeHinweiseZeigen: wert })
+    void store.speichern({ hilfeHinweiseZeigen: wert })
+  },
+
+  setHilfeHinweisZeigen: (store, kennung, zeigen) => {
+    const bisher = get().ausgeblendeteHilfeHinweise
+    if (bisher.includes(kennung) === !zeigen) return
+    const neu = zeigen ? bisher.filter((k) => k !== kennung) : [...bisher, kennung]
+    set({ ausgeblendeteHilfeHinweise: neu })
+    void store.speichern({ ausgeblendeteHilfeHinweise: neu })
+  },
+
+  schalteAlleHilfeHinweiseEin: (store) => {
+    set({ hilfeHinweiseZeigen: true, ausgeblendeteHilfeHinweise: [] })
+    void store.speichern({ hilfeHinweiseZeigen: true, ausgeblendeteHilfeHinweise: [] })
   },
 }))

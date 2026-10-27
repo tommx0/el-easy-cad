@@ -30,6 +30,10 @@ Die [3D-Ansicht](#dreid-ansicht) steht ab Werk als eigener Knopf in der Leiste.
   Fenster an eine beliebige Stelle.
 - **Reihenfolge und Auswahl** der Werkzeuge stellen Sie in den Programmeinstellungen ein –
   Werkzeuge, die Sie nie brauchen, blenden Sie aus.
+- **Suchen**: Das Feld ganz oben bleibt beim Scrollen stehen. Schon beim Tippen bleiben nur die
+  Werkzeuge übrig, deren Name oder Kürzel das Getippte enthält („wand“, „alt+r“); mehrere Wörter
+  müssen alle vorkommen, Umlaute dürfen ausgeschrieben werden („tuer“). **Enter** startet den
+  ersten Treffer, **Esc** leert das Feld, das Kreuz rechts ebenfalls.
 
 ## Eigenschaften-Panel {#eigenschaften-panel}
 

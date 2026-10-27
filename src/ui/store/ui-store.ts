@@ -399,6 +399,8 @@ interface UiState {
   lizenzenDialogOffen: boolean
   datenschutzDialogOffen: boolean
   einfuehrungDialog: { clipId: string } | null
+  hinweisWarteschlange: string[]
+  hilfeHinweiseDialogOffen: boolean
   meineLizenzDialogOffen: boolean
   updateDialog: UpdateDialogZustand | null
   starthinweisErledigt: boolean
@@ -570,6 +572,9 @@ interface UiState {
   setLizenzenDialogOffen: (v: boolean) => void
   setDatenschutzDialogOffen: (v: boolean) => void
   setEinfuehrungDialog: (v: { clipId: string } | null) => void
+  reiheHilfeHinweisEin: (kennung: string) => void
+  schliesseHilfeHinweis: () => void
+  setHilfeHinweiseDialogOffen: (v: boolean) => void
   setMeineLizenzDialogOffen: (v: boolean) => void
   setUpdateDialog: (v: UpdateDialogZustand | null) => void
   setStarthinweisErledigt: () => void
@@ -684,6 +689,8 @@ export const useUiStore = create<UiState>((set) => ({
   lizenzenDialogOffen: false,
   datenschutzDialogOffen: false,
   einfuehrungDialog: null,
+  hinweisWarteschlange: [],
+  hilfeHinweiseDialogOffen: false,
   meineLizenzDialogOffen: false,
   updateDialog: null,
   starthinweisErledigt: false,
@@ -872,6 +879,15 @@ export const useUiStore = create<UiState>((set) => ({
   setLizenzenDialogOffen: (v) => set({ lizenzenDialogOffen: v }),
   setDatenschutzDialogOffen: (v) => set({ datenschutzDialogOffen: v }),
   setEinfuehrungDialog: (v) => set({ einfuehrungDialog: v }),
+  reiheHilfeHinweisEin: (kennung) =>
+    set((s) =>
+      s.hinweisWarteschlange.includes(kennung)
+        ? s
+        : { hinweisWarteschlange: [...s.hinweisWarteschlange, kennung] },
+    ),
+  schliesseHilfeHinweis: () =>
+    set((s) => ({ hinweisWarteschlange: s.hinweisWarteschlange.slice(1) })),
+  setHilfeHinweiseDialogOffen: (v) => set({ hilfeHinweiseDialogOffen: v }),
   setMeineLizenzDialogOffen: (v) => set({ meineLizenzDialogOffen: v }),
   setUpdateDialog: (v) => set({ updateDialog: v }),
   setStarthinweisErledigt: () => set({ starthinweisErledigt: true }),
@@ -947,6 +963,8 @@ export function istModalerDialogOffen(s: UiState = useUiStore.getState()): boole
     s.lizenzenDialogOffen ||
     s.datenschutzDialogOffen ||
     s.einfuehrungDialog !== null ||
+    s.hinweisWarteschlange.length > 0 ||
+    s.hilfeHinweiseDialogOffen ||
     s.meineLizenzDialogOffen ||
     s.updateDialog !== null ||
     s.tastenkuerzelDialogOffen ||

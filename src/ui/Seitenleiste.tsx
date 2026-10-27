@@ -11,10 +11,18 @@ import { useAktivesBlatt, useAppContext, useProject } from './use-app-context'
 import { useUiStore } from './store/ui-store'
 import { useSettingsStore } from './store/settings-store'
 import { werkzeugPasstZuZeichnungsart } from './werkzeugleiste-reihenfolge'
+import { sucheTrifft } from './seitenleiste-suche'
 import { anzeige } from './befehle/kuerzel'
 import { werkzeugName } from './werkzeug-namen'
 import { useFensterKlein } from './use-fenster-klein'
-import { IconAbdocken, IconAndocken, IconSeitenleiste, WerkzeugIcon } from './components/Icons'
+import {
+  IconAbdocken,
+  IconAndocken,
+  IconSchliessen,
+  IconSeitenleiste,
+  IconSuche,
+  WerkzeugIcon,
+} from './components/Icons'
 import { useT } from './sprache-anbindung'
 import { BEMASSUNG_VARIANTEN, istBemassungVariante } from './bemassung-varianten'
 import {
@@ -35,9 +43,21 @@ export function Seitenleiste() {
   const aktivesToolId = useUiStore((s) => s.aktivesToolId)
   const belegung = useSettingsStore((s) => s.belegung)
   const werkzeugeGeraeteweit = useSettingsStore((s) => s.werkzeugleiste)
-  const werkzeuge = werkzeugeGeraeteweit.filter((id) =>
+  const werkzeugeAlle = werkzeugeGeraeteweit.filter((id) =>
     werkzeugPasstZuZeichnungsart(id, zeichnungsart),
   )
+  const [suche, setSuche] = useState('')
+  const sucheFeldRef = useRef<HTMLInputElement | null>(null)
+  const werkzeuge = werkzeugeAlle.filter((id) => {
+    const ids = id === 'bemassung' ? BEMASSUNG_VARIANTEN : [id]
+    return sucheTrifft(
+      suche,
+      ids.flatMap((v) => {
+        const eingestellt = belegung[`werkzeug.${v}`]
+        return [werkzeugName(v), eingestellt ? anzeige(eingestellt) : undefined]
+      }),
+    )
+  })
   const sichtbar = useSettingsStore((s) => s.seitenleisteSichtbar)
   const angedockt = useSettingsStore((s) => s.seitenleisteAngedockt)
   const toggleSichtbar = useSettingsStore((s) => s.toggleSeitenleisteSichtbar)
@@ -375,6 +395,51 @@ export function Seitenleiste() {
     )
   }
 
+  function suchfeld() {
+    return (
+      <div className="seitenleiste-suche">
+        <IconSuche />
+        <input
+          ref={sucheFeldRef}
+          type="text"
+          role="searchbox"
+          autoComplete="off"
+          spellCheck={false}
+          placeholder={t('seitenleiste.suchePlatzhalter')}
+          aria-label={t('seitenleiste.suche')}
+          value={suche}
+          onChange={(e) => setSuche(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') {
+              e.stopPropagation()
+              if (suche) setSuche('')
+              else e.currentTarget.blur()
+            } else if (e.key === 'Enter' && suche.trim() && werkzeuge[0]) {
+              e.preventDefault()
+              const id = werkzeuge[0]
+              aktiviereTool(id === 'bemassung' ? bemassungVariante : id)
+              e.currentTarget.blur()
+            }
+          }}
+        />
+        {suche && (
+          <button
+            type="button"
+            className="seitenleiste-suche-loeschen"
+            aria-label={t('seitenleiste.sucheLoeschen')}
+            title={t('seitenleiste.sucheLoeschen')}
+            onClick={() => {
+              setSuche('')
+              sucheFeldRef.current?.focus()
+            }}
+          >
+            <IconSchliessen />
+          </button>
+        )}
+      </div>
+    )
+  }
+
   function werkzeugListe() {
     return (
       <div
@@ -384,6 +449,9 @@ export function Seitenleiste() {
         aria-orientation="vertical"
       >
         {werkzeuge.map(werkzeugButton)}
+        {werkzeuge.length === 0 && (
+          <p className="seitenleiste-suche-leer">{t('seitenleiste.sucheKeineTreffer')}</p>
+        )}
         {variantenMenueInhalt()}
         {tooltip &&
           createPortal(
@@ -422,6 +490,7 @@ export function Seitenleiste() {
             style={{ width: angedockteBreite }}
           >
             <div className="seitenleiste-kopf">{kopfAktionen()}</div>
+            {suchfeld()}
             {werkzeugListe()}
           </div>
         )}
@@ -451,6 +520,7 @@ export function Seitenleiste() {
       >
         {kopfAktionen()}
       </div>
+      {suchfeld()}
       {werkzeugListe()}
       {angedockt && (
         <div

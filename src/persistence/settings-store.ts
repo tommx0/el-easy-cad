@@ -48,6 +48,8 @@ export interface AppSettings {
   kombinationsFaktor: number
   pickerKachelGroesse: number
   einfuehrungBeimStartZeigen: boolean
+  hilfeHinweiseZeigen: boolean
+  ausgeblendeteHilfeHinweise: string[]
   automatischAnordnen: AutomatischAnordnenGespeichert
   verteilerplan: VerteilerplanGespeichert
   stromkreisImPanel: boolean
@@ -165,6 +167,8 @@ export const appSettingsPatchSchema = z.object({
   kombinationsFaktor: z.number().finite().positive().optional(),
   pickerKachelGroesse: z.number().finite().positive().optional(),
   einfuehrungBeimStartZeigen: z.boolean().optional(),
+  hilfeHinweiseZeigen: z.boolean().optional(),
+  ausgeblendeteHilfeHinweise: z.array(z.string()).optional(),
   automatischAnordnen: automatischAnordnenSchema.optional(),
   verteilerplan: verteilerplanSchema.optional(),
   stromkreisImPanel: z.boolean().optional(),

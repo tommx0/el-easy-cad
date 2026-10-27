@@ -361,6 +361,7 @@ const UEBRIGE: Befehl[] = [
     gruppe: 'hilfe',
     standard: 'F1',
   },
+  { id: 'hilfe.hinweise', gruppe: 'hilfe', standard: null },
   { id: 'hilfe.ueber', gruppe: 'hilfe', standard: null },
   { id: 'hilfe.meine-lizenz', gruppe: 'hilfe', standard: null },
   { id: 'hilfe.update-suche', gruppe: 'hilfe', standard: null },

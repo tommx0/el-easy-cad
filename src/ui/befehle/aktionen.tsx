@@ -30,6 +30,7 @@ import { importiereKatalogMitRueckfrage } from '../katalog-import'
 import { anordnenUmfang, starteAutomatischAnordnen } from '../automatisch-anordnen'
 import { verlegeLeitungenNeuBefehl } from '../nur-in-bauteilen'
 import { bibliothekHerunterladen, waehleUndOeffneBibliothek } from '../bibliothek-import'
+import { zeigeHilfeHinweis } from '../hilfe-hinweise'
 import { useKatalogStore } from '../store/katalog-store'
 import { useSettingsStore } from '../store/settings-store'
 import { useUiStore } from '../store/ui-store'
@@ -425,7 +426,10 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
             deaktiviert: schaltplan,
           },
           'ansicht.dreid': {
-            ausfuehren: () => ui().setDreidDialogOffen(true),
+            ausfuehren: () => {
+              ui().setDreidDialogOffen(true)
+              zeigeHilfeHinweis('dreid')
+            },
             deaktiviert: schaltplan,
           },
           'blatt.ifc-bauteilgruppen': {
@@ -602,6 +606,7 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
           anker: WERKZEUG_ABSCHNITT[useUiStore.getState().aktivesToolId] ?? null,
         }),
     },
+    'hilfe.hinweise': { ausfuehren: () => ui().setHilfeHinweiseDialogOffen(true) },
     'hilfe.ueber': { ausfuehren: () => ui().setUeberDialogOffen(true) },
     'hilfe.meine-lizenz': { ausfuehren: () => ui().setMeineLizenzDialogOffen(true) },
     'hilfe.update-suche': {

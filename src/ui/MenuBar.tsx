@@ -688,6 +688,7 @@ export function MenuBar() {
       </Menu>
 
       <Menu titel={t('menue.hilfe')} id="hilfe" offen={offen} setOffen={setOffen}>
+        <Befehl schliesse={schliessen} id="hilfe.hinweise" icon={<IconInfo />} />
         <Befehl schliesse={schliessen} id="hilfe.handbuch" icon={<IconBuch />} />
         <MenuTrenner />
         <Befehl schliesse={schliessen} id="hilfe.ueber" icon={<IconInfo />} />

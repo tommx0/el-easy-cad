@@ -9,4 +9,8 @@ export const seitenleiste: Texte['seitenleiste'] = {
   werkzeugleiste: 'Tool sidebar',
   breite: 'Width of the sidebar',
   breiteTitel: 'Drag to change the width, double-click to reset it',
+  suchePlatzhalter: 'Search tools…',
+  suche: 'Search tools',
+  sucheLoeschen: 'Delete search',
+  sucheKeineTreffer: 'No tool found.',
 }

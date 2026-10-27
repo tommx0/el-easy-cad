@@ -10,6 +10,7 @@ The settings are spread over tabs:
 | Tab | Section | What you set there |
 |---|---|---|
 | General | Language | Language of the user interface: same as the operating system, German or English – takes effect at once; the language of a drawing is separate, see [drawing language](#plansprache) |
+| | Help tips | Whether and which [help tips](#hilfe-hinweise) appear for functions with several steps |
 | | Key functions | Whether the [key function bar](#kontextleiste) appears |
 | | Distribution board | Whether the [circuit](#stromkreis-zuordnung) appears in the properties panel |
 | | Grid | Grid spacing and grid snap |

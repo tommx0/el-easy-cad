@@ -173,6 +173,7 @@ export const befehle = {
   hilfe: {
     handbuch: 'Bedienungsanleitung…',
     einfuehrung: 'Erste Schritte…',
+    hinweise: 'Hilfe-Hinweise…',
     ueber: 'Über el.easy.CAD',
     'meine-lizenz': 'Meine Lizenz…',
     lizenzen: 'Lizenzen der Fremdbibliotheken…',

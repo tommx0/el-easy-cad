@@ -10,6 +10,7 @@ Die Einstellungen sind auf Reiter verteilt:
 | Reiter | Abschnitt | Was Sie dort einstellen |
 |---|---|---|
 | Allgemein | Sprache | Sprache der Oberfläche: wie das Betriebssystem, Deutsch oder English – wirkt sofort; die Sprache eines Plans ist davon getrennt, siehe [Plansprache](#plansprache) |
+| | Hilfe-Hinweise | Ob und welche [Hilfe-Hinweise](#hilfe-hinweise) bei verzweigten Funktionen erscheinen |
 | | Tastenfunktionen | Ob die [Leiste mit den Tastenfunktionen](#kontextleiste) erscheint |
 | | Verteiler | Ob der [Stromkreis](#stromkreis-zuordnung) im Eigenschaften-Panel steht |
 | | Raster | Rasterweite und Rasterfang |

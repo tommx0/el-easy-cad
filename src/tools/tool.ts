@@ -96,6 +96,7 @@ export interface ToolContext {
   ): void
   oeffneBestaetigung(optionen: BestaettigungsZustand): void
 
+  komponenteGewaehlt?(auswahl: { typ?: string; bauart?: string }): void
   oeffneKomponentenPicker(
     callback: (
       auswahl: {

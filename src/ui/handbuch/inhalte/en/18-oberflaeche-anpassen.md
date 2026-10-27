@@ -26,6 +26,10 @@ toolbar. **Reset to default** in the settings restores this factory layout.
 - **Undock:** the button at the head of the sidebar detaches it, so that you can place it as a floating
   window anywhere you like.
 - **Order and selection** of the tools are set in the program settings. Hide the tools you never use.
+- **Search:** the field at the very top stays in place when you scroll. While you type, only the
+  tools whose name or shortcut contains what you typed remain (“wall”, “alt+r”); with several words,
+  all must appear. **Enter** starts the first match, **Esc** clears the field, and so does the cross
+  on the right.
 
 ## Properties panel {#eigenschaften-panel}
 

@@ -259,6 +259,7 @@ export function erzeugeKomponentenTool(art: 'komponente' | 'knx-aktor' = 'kompon
           return
         }
         auswahl = ergebnis
+        ctx.komponenteGewaehlt?.(ergebnis)
         status(ctx)
       })
     },

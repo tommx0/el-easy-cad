@@ -395,6 +395,8 @@ interface UiState {
   lizenzenDialogOffen: boolean
   datenschutzDialogOffen: boolean
   einfuehrungDialog: { clipId: string } | null
+  hinweisWarteschlange: string[]
+  hilfeHinweiseDialogOffen: boolean
   meineLizenzDialogOffen: boolean
   tastenkuerzelDialogOffen: boolean
   handbuchDialog: { anker: string | null } | null
@@ -564,6 +566,9 @@ interface UiState {
   setLizenzenDialogOffen: (v: boolean) => void
   setDatenschutzDialogOffen: (v: boolean) => void
   setEinfuehrungDialog: (v: { clipId: string } | null) => void
+  reiheHilfeHinweisEin: (kennung: string) => void
+  schliesseHilfeHinweis: () => void
+  setHilfeHinweiseDialogOffen: (v: boolean) => void
   setMeineLizenzDialogOffen: (v: boolean) => void
   setTastenkuerzelDialogOffen: (v: boolean) => void
   setHandbuchDialog: (v: { anker: string | null } | null) => void
@@ -676,6 +681,8 @@ export const useUiStore = create<UiState>((set) => ({
   lizenzenDialogOffen: false,
   datenschutzDialogOffen: false,
   einfuehrungDialog: null,
+  hinweisWarteschlange: [],
+  hilfeHinweiseDialogOffen: false,
   meineLizenzDialogOffen: false,
   tastenkuerzelDialogOffen: false,
   handbuchDialog: null,
@@ -862,6 +869,15 @@ export const useUiStore = create<UiState>((set) => ({
   setLizenzenDialogOffen: (v) => set({ lizenzenDialogOffen: v }),
   setDatenschutzDialogOffen: (v) => set({ datenschutzDialogOffen: v }),
   setEinfuehrungDialog: (v) => set({ einfuehrungDialog: v }),
+  reiheHilfeHinweisEin: (kennung) =>
+    set((s) =>
+      s.hinweisWarteschlange.includes(kennung)
+        ? s
+        : { hinweisWarteschlange: [...s.hinweisWarteschlange, kennung] },
+    ),
+  schliesseHilfeHinweis: () =>
+    set((s) => ({ hinweisWarteschlange: s.hinweisWarteschlange.slice(1) })),
+  setHilfeHinweiseDialogOffen: (v) => set({ hilfeHinweiseDialogOffen: v }),
   setMeineLizenzDialogOffen: (v) => set({ meineLizenzDialogOffen: v }),
   setTastenkuerzelDialogOffen: (v) => set({ tastenkuerzelDialogOffen: v }),
   setHandbuchDialog: (v) => set({ handbuchDialog: v }),
@@ -935,6 +951,8 @@ export function istModalerDialogOffen(s: UiState = useUiStore.getState()): boole
     s.lizenzenDialogOffen ||
     s.datenschutzDialogOffen ||
     s.einfuehrungDialog !== null ||
+    s.hinweisWarteschlange.length > 0 ||
+    s.hilfeHinweiseDialogOffen ||
     s.meineLizenzDialogOffen ||
     s.tastenkuerzelDialogOffen ||
     s.handbuchDialog !== null ||

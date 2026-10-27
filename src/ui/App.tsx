@@ -79,6 +79,8 @@ import { ProduktlizenzSperre } from './ProduktlizenzSperre'
 import { DemoHinweisDialog } from './DemoHinweisDialog'
 import { ProjekteDialog } from './dialogs/ProjekteDialog'
 import { EinfuehrungDialog } from './dialogs/EinfuehrungDialog'
+import { HilfeHinweisDialog } from './dialogs/HilfeHinweisDialog'
+import { HilfeHinweiseAuswahlDialog } from './dialogs/HilfeHinweiseAuswahlDialog'
 import { useSprache } from './sprache-anbindung'
 import { NotizAnsicht } from './NotizAnsicht'
 import { PdfAnsicht } from './PdfAnsicht'
@@ -257,6 +259,8 @@ function AppInhalt() {
       <GridVerteilenDialog />
       <AutomatischAnordnenDialog />
       <VerteilenAbstandDialog />
+      <HilfeHinweiseAuswahlDialog />
+      <HilfeHinweisDialog />
     </div>
   )
 }

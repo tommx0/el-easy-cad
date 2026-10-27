@@ -9,6 +9,7 @@ import {
 import { erzeugeZeichnungAendernCommand, FANGARTEN_RANGFOLGE } from '../../tools'
 import { ladeAssetHoch, assetUrl } from '../../persistence'
 import { useAppContext, useAktivesBlatt, useProject } from '../use-app-context'
+import { HilfeHinweiseAuswahl } from './HilfeHinweiseAuswahlDialog'
 import { useUiStore } from '../store/ui-store'
 import { KabeltypFeld } from '../components/KabeltypFeld'
 import { setzeStandardKabeltyp } from '../kabeltyp-abgleich'
@@ -115,6 +116,9 @@ function AllgemeinAbschnitt() {
   return (
     <>
       {SPRACHWAHL_FREIGEGEBEN && <SpracheAbschnitt />}
+      <h3>{t('hinweise.auswahl.titel')}</h3>
+      <HilfeHinweiseAuswahl />
+
       <h3>{t('verwaltungsdialoge.einstellungenDialog.allgemein.tastenfunktionen')}</h3>
       <label className="feld feld-checkbox">
         <input

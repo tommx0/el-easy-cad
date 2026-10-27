@@ -9,6 +9,7 @@ import { eigenschaften } from './eigenschaften'
 import { einstellungen } from './einstellungen'
 import { generatoren } from './generatoren'
 import { handbuch } from './handbuch'
+import { hinweise } from './hinweise'
 import { hintergrund } from './hintergrund'
 import { ifc } from './ifc'
 import { katalogdialoge } from './katalogdialoge'
@@ -43,6 +44,7 @@ export const en: Texte = {
   einstellungen,
   generatoren,
   handbuch,
+  hinweise,
   hintergrund,
   ifc,
   katalogdialoge,

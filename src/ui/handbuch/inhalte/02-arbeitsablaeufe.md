@@ -205,7 +205,8 @@ Achse ([Objektfang](#objektfang)). Türen, Fenster und Räume setzen Sie wie in
 
 **4. Plan umwandeln (bei Bedarf).** Sollen Linien des Plans selbst bearbeitet werden – eine Wand
 verschieben, eine Legende löschen –, macht {{befehl:blatt.hintergrund-umwandeln}} aus dem Plan
-Zeichnungselemente. Ein Dialog nennt vorher die Zahl der Linien. Sie landen auf der Ebene
+Zeichnungselemente. Ein Dialog neben dem Plan nennt vorher die Zahl der Linien und zeigt sie
+farbig. Sie landen auf der Ebene
 **„Grundriss (übernommen)“**, die Sie in {{befehl:blatt.ebenen}} sperren oder ausblenden; der
 PDF-Hintergrund bleibt am Blatt, wird aber ausgeblendet. Schrift und Füllungen kommen nicht mit
 ([Plan umwandeln](#hintergrund-umwandeln)).

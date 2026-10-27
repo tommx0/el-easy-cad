@@ -53,6 +53,7 @@ import { HintergrundAusblendungenDialog } from './dialogs/HintergrundAusblendung
 import { IfcBauteilgruppenDialog } from './dialogs/IfcBauteilgruppenDialog'
 import { DreidDialog } from './dialogs/DreidDialog'
 import { IfcBauteileDialog } from './dialogs/IfcBauteileDialog'
+import { HintergrundUmwandelnDialog } from './dialogs/HintergrundUmwandelnDialog'
 import { IfcAbweichungenPanel } from './dialogs/IfcAbweichungenPanel'
 import { EbenenDialog } from './dialogs/EbenenDialog'
 import { HintergrundPdfImportDialog } from './dialogs/HintergrundPdfImportDialog'
@@ -239,6 +240,7 @@ function AppInhalt() {
       <IfcBauteilgruppenDialog />
       <DreidDialog />
       <IfcBauteileDialog />
+      <HintergrundUmwandelnDialog />
       <IfcAbweichungenPanel />
       <EbenenDialog />
       <HintergrundPdfImportDialog />

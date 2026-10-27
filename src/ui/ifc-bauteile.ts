@@ -74,49 +74,11 @@ export function waehleIfcBauteile(
   }
 }
 
-export interface IfcBauteileSumme {
-  anzahl: Record<IfcBauteilArt, number>
-  hinweise: IfcBauteilHinweise
-  vorhanden: number
-}
-
-export function summiereIfcBauteile(ergebnisse: readonly IfcBauteileErgebnis[]): IfcBauteileSumme {
-  const anzahl = zaehleIfcBauteile({ waende: [], oeffnungen: [], treppen: [], raeume: [] })
-  const hinweise: IfcBauteilHinweise = {
-    waendeGekruemmt: 0,
-    waendeNichtAbleitbar: 0,
-    oeffnungenOhneWand: 0,
-    tuerenVereinfacht: 0,
-    raeumeOhneUmriss: 0,
-    raeumeZusammenfassung: 0,
-  }
-  let vorhanden = 0
-  for (const e of ergebnisse) {
-    const je = zaehleIfcBauteile(e.vorlagen)
-    for (const { art } of IFC_BAUTEIL_ARTEN) anzahl[art] += je[art]
-    for (const schluessel of Object.keys(hinweise) as (keyof IfcBauteilHinweise)[]) {
-      hinweise[schluessel] += e.hinweise[schluessel]
-    }
-    vorhanden += e.vorhanden
-  }
-  return { anzahl, hinweise, vorhanden }
-}
-
-export function ifcBauteilHinweisTexte(
-  ergebnis: IfcBauteileErgebnis | IfcBauteileSumme,
-  mehrereBlaetter = false,
-): string[] {
+export function ifcBauteilHinweisTexte(ergebnis: IfcBauteileErgebnis): string[] {
   const h = ergebnis.hinweise
   const texte: string[] = []
   if (ergebnis.vorhanden > 0)
-    texte.push(
-      t(
-        mehrereBlaetter
-          ? 'aktionen.ifcBauteile.vorhandenBlaetter'
-          : 'aktionen.ifcBauteile.vorhandenBlatt',
-        { n: ergebnis.vorhanden },
-      ),
-    )
+    texte.push(t('aktionen.ifcBauteile.vorhandenBlatt', { n: ergebnis.vorhanden }))
   if (h.waendeGekruemmt > 0)
     texte.push(t('aktionen.ifcBauteile.waendeGekruemmt', { n: h.waendeGekruemmt }))
   if (h.waendeNichtAbleitbar > 0)

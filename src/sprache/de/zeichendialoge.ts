@@ -397,20 +397,31 @@ export const zeichendialoge = {
     aufzaehlung: '{liste} und {letzte}',
     gefunden: '{aufzaehlung} gefunden (farbig in der Zeichnung).',
   },
+  durchgang: {
+    einBlatt: 'Blatt „{name}“',
+    schritt: 'Blatt {nr} von {n}: „{name}“',
+    zurueck: 'Zurück',
+    weiter: 'Weiter',
+    ueberspringen: 'Überspringen',
+    uebersprungen: 'Dieses Blatt wird übersprungen – „Weiter“ nimmt es wieder auf.',
+  },
+  umwandeln: {
+    titel: 'Hintergrund umwandeln',
+    laedt: 'PDF-Plan wird ausgewertet …',
+    nichts: 'Nichts umzuwandeln: {grund}.',
+    hinweis:
+      'Farbig auf dem Plan: die Linien, die zu Zeichnungselementen werden. Ein Rückgängig nimmt alles zurück.',
+  },
   ifcBauteile: {
     titel: 'Bauteile aus IFC übernehmen',
     titelMehrereBlaetter: 'Bauteile aus IFC übernehmen ({n} Blätter)',
     nichtLesbar: 'Die IFC-Datei ließ sich nicht lesen.',
-    blatt: 'Blatt „{name}"',
-    uebernehmenAuf: 'Übernehmen auf',
-    nurDiesemBlatt: 'nur diesem Blatt',
-    allenBlaettern: 'allen {n} Blättern dieses Modells',
     liest: 'IFC-Modell wird gelesen …',
-    weitereGeschosse: 'Weitere Geschosse werden gelesen ({gelesen} von {gesamt}) …',
+    liestBlatt: 'Geschoss wird gelesen …',
+    blattFehler: 'Dieses Blatt lässt sich nicht übernehmen: {fehler}',
     hinweis:
       'Aus dem Modell gelesen, in der Schnittebene des Hintergrunds. Die Vorschau ist farbig auf dem Plan; übernommen werden gewöhnliche Objekte, ein Rückgängig nimmt alles zurück.',
     brauchenWand: 'Türen, Fenster und Durchbrüche brauchen ihre Wand.',
-    wirdUebersprungen: '{name} – wird übersprungen: {fehler}',
     keineBauteile: 'In dieser Schnittebene gibt es keine Bauteile, die sich übernehmen lassen.',
     uebernommen: 'Bauteile übernommen',
     uebernommenAufBlaettern: {

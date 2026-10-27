@@ -52,6 +52,7 @@ export const werkzeugnamen: Texte['werkzeugnamen'] = {
   kalibrieren: 'Calibrate',
   'ifc-ausrichten': 'Align IFC storey',
   'ifc-bauteile-vorschau': 'IFC building elements: preview',
+  'umwandeln-vorschau': 'Convert background: preview',
   'hintergrund-ausblenden': 'Mask background area',
   nullpunkt: 'Origin',
   'zoom-fenster': 'Zoom window',

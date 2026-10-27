@@ -14,10 +14,6 @@ export const aktionen: Texte['aktionen'] = {
       one: '{n} building element is already on this sheet and will not be created twice.',
       other: '{n} building elements are already on this sheet and will not be created twice.',
     },
-    vorhandenBlaetter: {
-      one: '{n} building element is already on these sheets and will not be created twice.',
-      other: '{n} building elements are already on these sheets and will not be created twice.',
-    },
     waendeGekruemmt: {
       one: '{n} curved wall remains only as a line in the background.',
       other: '{n} curved walls remain only as lines in the background.',
@@ -47,31 +43,13 @@ export const aktionen: Texte['aktionen'] = {
   },
   umwandeln: {
     einBlatt: '{anzahl} background lines become drawing elements.',
-    mehrereBlaetter:
-      '{anzahl} lines on this sheet become drawing elements, {summe} on all {blaetter} sheets.',
     ebeneGrundriss: 'They are placed on the layer “{grundriss}”.',
     ebeneGruppen: 'They are placed on one layer per building element group (“{beispiel}” etc.).',
-    ebeneBeide:
-      'They are placed on the layer “{grundriss}”, IFC lines on one layer per building element group (“{beispiel}” etc.).',
     verbleib: {
-      dxf: {
-        einer: 'The DXF background is removed from the sheet.',
-        mehrere: 'DXF backgrounds are removed from their sheets.',
-      },
-      ifc: {
-        einer: 'The IFC background stays on the sheet for reloading and export but is hidden.',
-        mehrere: 'IFC backgrounds stay on their sheets for reloading and export but are hidden.',
-      },
-      pdf: {
-        einer:
-          'The PDF background stays on the sheet but is hidden – text and fills are not carried over.',
-        mehrere:
-          'PDF backgrounds stay on their sheets but are hidden – text and fills are not carried over.',
-      },
+      dxf: 'The DXF background is removed from the sheet.',
+      ifc: 'The IFC background stays on the sheet for reloading and export but is hidden.',
+      pdf: 'The PDF background stays on the sheet but is hidden – text and fills are not carried over.',
     },
-    zeile: '{name} – {anzahl} lines',
-    zeileAktiv: '{name} (this sheet) – {anzahl} lines',
-    zeileUebersprungen: '{name} – skipped: {grund}',
   },
   anordnen: {
     nurVerbindungen: {
@@ -358,10 +336,6 @@ export const aktionen: Texte['aktionen'] = {
     hintergrundLoeschenText:
       'The loaded background plan is removed from the sheet. A background loaded later must be calibrated again. Objects already drawn are kept.',
     hintergrundLoeschen: 'Delete background',
-    pdfNichtAuswertbar: 'The PDF plan could not be analysed.',
-    pdfOhneVektoren: 'The PDF plan contains no vector lines (scanned?) – nothing to convert.',
-    keineLinien: 'The background contains no lines to convert.',
-    pdfWerdenAusgewertet: 'Analysing the PDF plans of the other sheets …',
     grundPdf: 'PDF could not be analysed',
     grundOhneVektoren: 'no vector lines (scanned?)',
     grundKeineLinien: 'no lines to convert',
@@ -372,6 +346,11 @@ export const aktionen: Texte['aktionen'] = {
       other: 'All {n} sheets',
     },
     nurDiesesBlatt: 'This sheet only',
+    umfangIfc:
+      'This model is on {n} sheets. With “All” the dialog shows the preview sheet by sheet; individual sheets can be skipped.',
+    umfangUmwandeln:
+      'The background can be converted on {n} sheets. With “All” the dialog shows the preview sheet by sheet; individual sheets can be skipped.',
+    umfangDiesesBlatt: '{name} (this sheet)',
     ifcModell: 'IFC model',
     ifcExportiert: 'IFC model exported.',
     ifcExportiertTitel: 'IFC model exported',

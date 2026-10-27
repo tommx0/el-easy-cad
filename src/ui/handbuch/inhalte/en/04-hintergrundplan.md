@@ -93,12 +93,10 @@ otherwise draw yourself, edited with the same tools (BIM add-on).
    doors, or areas like “GFA” that combine other rooms.
 4. **Apply** places everything on the active layer. One undo takes back the whole step.
 
-If further sheets come from the same IFC file, such as all storeys of an import, the dialogue asks at
-the top whether **this sheet only** or **all sheets of this model** is meant. This sheet is preselected.
-If you choose all sheets, the program reads the remaining storeys and adds up the building elements of
-all of them; the coloured preview still shows only the open sheet. Each sheet receives its building
-elements on its own active layer, and one undo takes back the transfer on all sheets. A sheet whose
-storey cannot be found in the model is skipped and named.
+If further sheets come from the same IFC file, such as all storeys of an import, the program asks
+first: **This sheet only** or **All sheets**. With all sheets, the dialogue goes through the sheets one
+after another – see [Sheet by sheet](#blatt-fuer-blatt). Each sheet receives its building elements on its
+own active layer. A sheet whose storey cannot be found in the model is skipped and named.
 
 What results:
 
@@ -181,11 +179,12 @@ lift individual ones.
 You can snap directly to the lines of a DXF or PDF vector plan with the [object snap](#hintergrundfang).
 If you want to edit the floor plan beyond that, for example delete, move or add lines,
 {{befehl:blatt.hintergrund-umwandeln}} turns the plan into real drawing elements: lines, polylines,
-circles and arcs, in the same grey display. Beforehand, a dialogue states how many lines there will be.
+circles and arcs, in the same grey display. Beforehand, a dialogue next to the plan states how many lines there will be; on the plan they appear in
+colour. **Convert** creates them.
 
-If other sheets have a plan that can be converted, the dialogue lists all of them with their line count,
-and offers **This sheet only** or **All sheets**. One undo takes back the conversion on all sheets. A
-scanned PDF plan is skipped and named.
+If other sheets have a plan that can be converted, the program asks first: **This sheet only** or
+**All sheets**. With all sheets, the dialogue goes through the sheets one after another – see
+[Sheet by sheet](#blatt-fuer-blatt). A scanned PDF plan without lines is skipped.
 
 - The elements land on a separate layer, **“Floor plan (converted)”**, which is created the first time
   you convert. Use it to hide, show or lock the floor plan.
@@ -209,6 +208,22 @@ one click and Delete.
 :::
 
 One undo step takes the conversion back completely.
+
+## Sheet by sheet {#blatt-fuer-blatt}
+
+Applies to {{befehl:blatt.ifc-bauteile}} and {{befehl:blatt.hintergrund-umwandeln}} when you have
+chosen “All sheets”:
+
+- The dialogue switches to the first sheet and shows its preview (“Sheet 1 of 3”).
+- **Next** includes the sheet and moves on, **Skip** leaves it out, **Back** goes back one sheet. A
+  skipped sheet is included again with **Next**.
+- For IFC building elements each sheet has its own ticks; a new sheet starts with those of the
+  previous one.
+- On the last sheet, **Apply** or **Convert** creates everything – one undo takes it back on all
+  sheets. Afterwards you are back on the sheet where you started.
+- If you click a sheet tab yourself during the run, the dialogue jumps to that sheet; a sheet that is
+  not part of it closes the dialogue. Sheets you passed over this way without looking at them are not
+  included.
 
 ## Sheets from a newer version {#hintergrund-neuere-version}
 

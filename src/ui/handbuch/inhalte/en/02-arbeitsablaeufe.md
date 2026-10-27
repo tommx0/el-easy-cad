@@ -199,7 +199,7 @@ Set doors, windows and rooms as in [Workflow 3](#ablauf-nachzeichnen).
 
 **4. Convert the plan (if needed).** If you want to edit lines of the plan itself – move a wall,
 delete a legend – {{befehl:blatt.hintergrund-umwandeln}} turns the plan into drawing elements. A
-dialogue states the number of lines beforehand. They land on the layer **“Floor plan (converted)”**,
+dialogue next to the plan states the number of lines beforehand and shows them in colour. They land on the layer **“Floor plan (converted)”**,
 which you can lock or hide in {{befehl:blatt.ebenen}}; the PDF background stays on the sheet but is
 hidden. Text and fills are not carried over ([Convert the plan](#hintergrund-umwandeln)).
 

@@ -31,6 +31,7 @@ import type {
   ModulTraegerKonfiguration,
   Montageort,
   IfcBauteilGruppe,
+  Objekt,
   IfcLage,
   Point,
   Teilstueck,
@@ -304,6 +305,11 @@ export interface BestaettigungZustand {
   callback: (bestaetigt: boolean) => void
 }
 
+export interface BlattDurchgangDialog {
+  blattIds: string[]
+  startBlattId: string
+}
+
 export type EinstellungenAustausch =
   { art: 'sichern' } | { art: 'einspielen'; sicherung: EinstellungsSicherung; dateiname: string }
 
@@ -361,8 +367,10 @@ interface UiState {
   hintergrundAusblendungenDialogOffen: boolean
   ifcBauteilgruppenDialogOffen: boolean
   dreidDialogOffen: boolean
-  ifcBauteileDialog: { blattId: string } | null
+  ifcBauteileDialog: BlattDurchgangDialog | null
   ifcBauteileVorschau: BauteilVorlagen
+  umwandelnDialog: BlattDurchgangDialog | null
+  umwandelnVorschau: Objekt[]
   ifcAbweichungen: IfcAbweichungenZustand | null
   ebenenDialogOffen: boolean
   beschriftungGroesseOffen: boolean
@@ -528,8 +536,10 @@ interface UiState {
   setHintergrundAusblendungenDialogOffen: (v: boolean) => void
   setIfcBauteilgruppenDialogOffen: (v: boolean) => void
   setDreidDialogOffen: (v: boolean) => void
-  setIfcBauteileDialog: (v: { blattId: string } | null) => void
+  setIfcBauteileDialog: (v: BlattDurchgangDialog | null) => void
   setIfcBauteileVorschau: (v: BauteilVorlagen) => void
+  setUmwandelnDialog: (v: BlattDurchgangDialog | null) => void
+  setUmwandelnVorschau: (v: Objekt[]) => void
   setIfcAbweichungen: (v: IfcAbweichungenZustand | null) => void
   setEbenenDialogOffen: (v: boolean) => void
   setBeschriftungGroesseOffen: (v: boolean) => void
@@ -642,6 +652,8 @@ export const useUiStore = create<UiState>((set) => ({
   dreidDialogOffen: false,
   ifcBauteileDialog: null,
   ifcBauteileVorschau: { waende: [], oeffnungen: [], treppen: [], raeume: [] },
+  umwandelnDialog: null,
+  umwandelnVorschau: [],
   ifcAbweichungen: null,
   ebenenDialogOffen: false,
   beschriftungGroesseOffen: false,
@@ -789,6 +801,9 @@ export const useUiStore = create<UiState>((set) => ({
           },
     ),
   setIfcBauteileVorschau: (v) => set({ ifcBauteileVorschau: v }),
+  setUmwandelnDialog: (v) =>
+    set(v ? { umwandelnDialog: v } : { umwandelnDialog: null, umwandelnVorschau: [] }),
+  setUmwandelnVorschau: (v) => set({ umwandelnVorschau: v }),
   setIfcAbweichungen: (v) => set({ ifcAbweichungen: v }),
   setEbenenDialogOffen: (v) => set({ ebenenDialogOffen: v }),
   setBeschriftungGroesseOffen: (v) => set({ beschriftungGroesseOffen: v }),

@@ -20,6 +20,7 @@ import type {
   Teilstueck,
   ModulTraegerKonfiguration,
   Montageort,
+  Objekt,
   Point,
   Strecke,
   VerteilerAuswahl,
@@ -68,6 +69,7 @@ export interface ToolContext {
   zonenZugewiesen(): void
   erkennungsVorschau(): Bauteilfunde
   ifcBauteileVorschau(): BauteilVorlagen
+  umwandelnVorschau(): readonly Objekt[]
   erkennungsProbenart(): Probenart
   meldeErkennungsProbe(a: Point, b: Point): void
   meldeTeilstueckAuswahl?(stuecke: readonly Teilstueck[]): void

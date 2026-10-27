@@ -12,10 +12,6 @@ export const aktionen = {
       one: '{n} Bauteil liegt schon auf diesem Blatt und wird nicht doppelt angelegt.',
       other: '{n} Bauteile liegen schon auf diesem Blatt und werden nicht doppelt angelegt.',
     },
-    vorhandenBlaetter: {
-      one: '{n} Bauteil liegt schon auf diesen Blättern und wird nicht doppelt angelegt.',
-      other: '{n} Bauteile liegen schon auf diesen Blättern und werden nicht doppelt angelegt.',
-    },
     waendeGekruemmt: {
       one: '{n} gekrümmte Wand bleibt nur als Linie im Hintergrund.',
       other: '{n} gekrümmte Wände bleiben nur als Linie im Hintergrund.',
@@ -45,33 +41,13 @@ export const aktionen = {
   },
   umwandeln: {
     einBlatt: '{anzahl} Linien des Hintergrunds werden zu Zeichnungselementen.',
-    mehrereBlaetter:
-      'Auf diesem Blatt werden {anzahl} Linien zu Zeichnungselementen, auf allen {blaetter} Blättern {summe}.',
     ebeneGrundriss: 'Sie kommen auf die Ebene „{grundriss}“.',
     ebeneGruppen: 'Sie kommen auf je eine Ebene ihrer Bauteilgruppe („{beispiel}“ usw.).',
-    ebeneBeide:
-      'Sie kommen auf die Ebene „{grundriss}“, IFC-Linien auf je eine Ebene ihrer Bauteilgruppe („{beispiel}“ usw.).',
     verbleib: {
-      dxf: {
-        einer: 'Der DXF-Hintergrund wird dabei vom Blatt genommen.',
-        mehrere: 'DXF-Hintergründe werden dabei vom Blatt genommen.',
-      },
-      ifc: {
-        einer:
-          'Der IFC-Hintergrund bleibt für Nachladen und Export am Blatt, wird aber ausgeblendet.',
-        mehrere:
-          'IFC-Hintergründe bleiben für Nachladen und Export am Blatt, werden aber ausgeblendet.',
-      },
-      pdf: {
-        einer:
-          'Der PDF-Hintergrund bleibt am Blatt, wird aber ausgeblendet – Schrift und Füllungen werden nicht übernommen.',
-        mehrere:
-          'PDF-Hintergründe bleiben am Blatt, werden aber ausgeblendet – Schrift und Füllungen werden nicht übernommen.',
-      },
+      dxf: 'Der DXF-Hintergrund wird dabei vom Blatt genommen.',
+      ifc: 'Der IFC-Hintergrund bleibt für Nachladen und Export am Blatt, wird aber ausgeblendet.',
+      pdf: 'Der PDF-Hintergrund bleibt am Blatt, wird aber ausgeblendet – Schrift und Füllungen werden nicht übernommen.',
     },
-    zeile: '{name} – {anzahl} Linien',
-    zeileAktiv: '{name} (dieses Blatt) – {anzahl} Linien',
-    zeileUebersprungen: '{name} – wird übersprungen: {grund}',
   },
   anordnen: {
     nurVerbindungen: {
@@ -362,10 +338,6 @@ export const aktionen = {
     hintergrundLoeschenText:
       'Der geladene Hintergrundplan wird vom Blatt entfernt. Ein später neu eingelesener Hintergrund muss erneut kalibriert werden. Bereits gezeichnete Objekte bleiben erhalten.',
     hintergrundLoeschen: 'Hintergrund löschen',
-    pdfNichtAuswertbar: 'Der PDF-Plan ließ sich nicht auswerten.',
-    pdfOhneVektoren: 'Der PDF-Plan enthält keine Vektorlinien (gescannt?) - nichts umzuwandeln.',
-    keineLinien: 'Der Hintergrund enthält keine Linien zum Umwandeln.',
-    pdfWerdenAusgewertet: 'Die PDF-Pläne der übrigen Blätter werden ausgewertet …',
     grundPdf: 'PDF ließ sich nicht auswerten',
     grundOhneVektoren: 'keine Vektorlinien (gescannt?)',
     grundKeineLinien: 'keine Linien zum Umwandeln',
@@ -376,6 +348,11 @@ export const aktionen = {
       other: 'Alle {n} Blätter',
     },
     nurDiesesBlatt: 'Nur dieses Blatt',
+    umfangIfc:
+      'Dieses Modell liegt auf {n} Blättern. Bei „Alle“ zeigt der Dialog die Vorschau Blatt für Blatt; einzelne Blätter lassen sich überspringen.',
+    umfangUmwandeln:
+      'Auf {n} Blättern lässt sich der Hintergrund umwandeln. Bei „Alle“ zeigt der Dialog die Vorschau Blatt für Blatt; einzelne Blätter lassen sich überspringen.',
+    umfangDiesesBlatt: '{name} (dieses Blatt)',
     ifcModell: 'IFC-Modell',
     ifcExportiert: 'IFC-Modell exportiert.',
     ifcExportiertTitel: 'IFC-Modell exportiert',

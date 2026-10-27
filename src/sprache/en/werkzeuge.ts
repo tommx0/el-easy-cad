@@ -216,6 +216,9 @@ export const werkzeuge: Texte['werkzeuge'] = {
   ifcBauteileVorschau: {
     status: 'Preview of the IFC building elements - apply or close in the dialog.',
   },
+  umwandelnVorschau: {
+    status: 'In colour: the lines that become drawing elements - convert or close in the dialog.',
+  },
   kabelschacht: {
     ersteEcke:
       'Click a corner of the penetration – a second click on the same spot uses the default size.',

@@ -2,8 +2,6 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import {
   CompositeCommand,
   erzeugeBlattAendernCommand,
-  erzeugeHintergrundUmwandelnCommand,
-  erzeugeHintergruendeUmwandelnCommand,
   erzeugeModulFelderNachtragenCommand,
   erzeugeObjekteEntfernenCommand,
   FANGARTEN_RANGFOLGE,
@@ -13,15 +11,13 @@ import {
   ermittleFehlendeModulFelder,
   istKalibrierbar,
   istSchaltplan,
+  blaetterDesselbenIfcModells,
   nurAnsichtGrund,
-  planUebersetzer,
   umwandelbareBlaetter,
   umwandelbarerHintergrund,
   type Blatt,
-  type PlanLinie,
-  type UmwandelnAuftrag,
 } from '../../document-model'
-import { umwandelnRueckfrage, type UmwandelnBlattInfo } from '../hintergrund-umwandeln-rueckfrage'
+import { frageBlattUmfang } from '../blatt-umfang-frage'
 import { exportiereAlsExcel, exportiereAlsIfc } from '../../druck'
 import {
   erzeugeDateiname,
@@ -47,7 +43,6 @@ import {
   useProject,
 } from '../use-app-context'
 import { useFreigeschalteteModule, useHatModul } from '../lizenz-module'
-import { ladePdfLinienGemerkt } from '../hintergrund-fang-quelle'
 import { ALLE_BLATT_SICHTBARKEITEN, type BlattSichtbarkeitBefehl } from './blatt-sichtbarkeit'
 import { tabellenVerknuepfung } from '../verknuepfung'
 import { alleBefehle, BEFEHLE, BEFEHL_NACH_ID, kuerzelPartner } from './katalog'
@@ -248,106 +243,35 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     })
   }
 
-  async function hintergrundUmwandeln() {
-    const h = umwandelbarerHintergrund(blatt)
-    if (!h) return
-    let pdfLinien: PlanLinie[] | undefined
-    if (h.typ === 'pdf') {
-      try {
-        pdfLinien = await ladePdfLinienGemerkt(h)
-      } catch {
-        zeigeToast(t('aktionen.befehle.pdfNichtAuswertbar'))
-        return
-      }
-      if (pdfLinien.length === 0) {
-        zeigeToast(t('aktionen.befehle.pdfOhneVektoren'))
-        return
-      }
-    }
-    const blattId = blatt.id
-    const vorschau = erzeugeHintergrundUmwandelnCommand(doc, blattId, { pdfLinien })
-    if (!vorschau) {
-      zeigeToast(t('aktionen.befehle.keineLinien'))
-      return
-    }
-
-    const weitere = umwandelbareBlaetter(zeichnung.blaetter).filter(
-      (b) => b.id !== blattId && nurAnsichtGrund(b, freigeschaltet) === null,
-    )
-    if (weitere.some((b) => b.hintergrund?.typ === 'pdf')) {
-      zeigeToast(t('aktionen.befehle.pdfWerdenAusgewertet'))
-    }
-    const auftraege = new Map<string, UmwandelnAuftrag>([[blattId, { blattId, pdfLinien }]])
-    const infos: UmwandelnBlattInfo[] = []
-    for (const b of zeichnung.blaetter) {
-      if (b.id === blattId) {
-        infos.push({ name: b.name, aktiv: true, typ: h.typ, anzahl: vorschau.anzahl })
-        continue
-      }
-      if (!weitere.includes(b)) continue
-      const bh = umwandelbarerHintergrund(b)
-      if (!bh) continue
-      let linien: PlanLinie[] | undefined
-      if (bh.typ === 'pdf') {
-        try {
-          linien = await ladePdfLinienGemerkt(bh)
-        } catch {
-          infos.push({ name: b.name, aktiv: false, grund: t('aktionen.befehle.grundPdf') })
-          continue
-        }
-        if (linien.length === 0) {
-          infos.push({ name: b.name, aktiv: false, grund: t('aktionen.befehle.grundOhneVektoren') })
-          continue
-        }
-      }
-      const r = erzeugeHintergrundUmwandelnCommand(doc, b.id, { pdfLinien: linien })
-      if (!r) {
-        infos.push({ name: b.name, aktiv: false, grund: t('aktionen.befehle.grundKeineLinien') })
-        continue
-      }
-      auftraege.set(b.id, { blattId: b.id, pdfLinien: linien })
-      infos.push({ name: b.name, aktiv: false, typ: bh.typ, anzahl: r.anzahl })
-    }
-
-    function nurDiesesBlatt() {
-      const ergebnis = erzeugeHintergrundUmwandelnCommand(doc, blattId, { pdfLinien })
-      if (!ergebnis) return
-      commands.execute(ergebnis.command)
-      zeigeToast(t('hintergrund.umgewandelt', { n: ergebnis.anzahl }))
-    }
-
-    const { nachricht, liste } = umwandelnRueckfrage(infos, planUebersetzer(zeichnung))
-    if (auftraege.size < 2) {
-      useUiStore.getState().oeffneBestaetigung({
-        titel: t('aktionen.befehle.umwandelnFrage'),
-        nachricht,
-        bestaetigenText: t('aktionen.befehle.umwandeln'),
-        destruktiv: false,
-        callback: (bestaetigt) => {
-          if (bestaetigt) nurDiesesBlatt()
-        },
-      })
-      return
-    }
-    useUiStore.getState().oeffneBestaetigung({
+  function hintergrundUmwandeln() {
+    if (!umwandelbarerHintergrund(blatt)) return
+    const umwandelbar = new Set(umwandelbareBlaetter(zeichnung.blaetter).map((b) => b.id))
+    frageBlattUmfang({
       titel: t('aktionen.befehle.umwandelnFrage'),
-      nachricht,
-      liste,
-      bestaetigenText: t('aktionen.befehle.alleBlaetter', { n: auftraege.size }),
-      destruktiv: false,
-      alternative: { text: t('aktionen.befehle.nurDiesesBlatt'), callback: nurDiesesBlatt },
-      callback: (bestaetigt) => {
-        if (!bestaetigt) return
-        const ergebnis = erzeugeHintergruendeUmwandelnCommand(doc, [...auftraege.values()])
-        if (!ergebnis) return
-        commands.execute(ergebnis.command)
-        zeigeToast(
-          t('hintergrund.umgewandeltAufBlaettern', {
-            n: ergebnis.anzahl,
-            blaetter: ergebnis.jeBlatt.length,
-          }),
-        )
-      },
+      nachricht: (n) => t('aktionen.befehle.umfangUmwandeln', { n }),
+      kandidaten: zeichnung.blaetter.filter(
+        (b) =>
+          b.id === blatt.id ||
+          (umwandelbar.has(b.id) && nurAnsichtGrund(b, freigeschaltet) === null),
+      ),
+      aktuellesBlattId: blatt.id,
+      starte: (blattIds) => ui().setUmwandelnDialog({ blattIds, startBlattId: blatt.id }),
+    })
+  }
+
+  function ifcBauteileUebernehmen() {
+    const desselben = new Set(
+      blaetterDesselbenIfcModells(zeichnung.blaetter, blatt).map((b) => b.id),
+    )
+    frageBlattUmfang({
+      titel: t('zeichendialoge.ifcBauteile.titel'),
+      nachricht: (n) => t('aktionen.befehle.umfangIfc', { n }),
+      kandidaten: zeichnung.blaetter.filter(
+        (b) =>
+          b.id === blatt.id || (desselben.has(b.id) && nurAnsichtGrund(b, freigeschaltet) === null),
+      ),
+      aktuellesBlattId: blatt.id,
+      starte: (blattIds) => ui().setIfcBauteileDialog({ blattIds, startBlattId: blatt.id }),
     })
   }
 
@@ -509,7 +433,7 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
             deaktiviert: blatt.hintergrund?.typ !== 'ifc',
           },
           'blatt.ifc-bauteile': {
-            ausfuehren: () => ui().setIfcBauteileDialog({ blattId: blatt.id }),
+            ausfuehren: ifcBauteileUebernehmen,
             deaktiviert: blatt.hintergrund?.typ !== 'ifc',
           },
         }
@@ -625,7 +549,7 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
       deaktiviert: !blatt.hintergrund,
     },
     'blatt.hintergrund-umwandeln': {
-      ausfuehren: () => void hintergrundUmwandeln(),
+      ausfuehren: hintergrundUmwandeln,
       deaktiviert:
         !umwandelbarerHintergrund(blatt) || nurAnsichtGrund(blatt, freigeschaltet) !== null,
     },

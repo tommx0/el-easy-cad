@@ -98,12 +98,10 @@ Sie sonst selbst zeichnen, mit denselben Werkzeugen zu bearbeiten (Zusatzmodul B
 4. **Übernehmen** legt alles auf der aktiven Ebene an. Ein Rückgängig nimmt den ganzen Schritt
    zurück.
 
-Stammen weitere Blätter aus derselben IFC-Datei – etwa alle Geschosse eines Imports –, fragt der
-Dialog oben, ob nur **dieses Blatt** oder **alle Blätter dieses Modells** gemeint sind.
-Vorgewählt ist dieses Blatt. Wählen Sie „alle“, liest das Programm die übrigen Geschosse nach und
-zählt die Bauteile aller Blätter zusammen; die farbige Vorschau zeigt weiter nur das geöffnete
-Blatt. Jedes Blatt bekommt seine Bauteile auf seiner eigenen aktiven Ebene, und ein Rückgängig
-nimmt die Übernahme auf allen Blättern zurück. Ein Blatt, dessen Geschoss im Modell nicht zu
+Stammen weitere Blätter aus derselben IFC-Datei – etwa alle Geschosse eines Imports –, fragt das
+Programm vorab: **Nur dieses Blatt** oder **Alle Blätter**. Bei „alle“ geht der Dialog die
+Blätter der Reihe nach durch – siehe [Blatt für Blatt](#blatt-fuer-blatt). Jedes Blatt bekommt
+seine Bauteile auf seiner eigenen aktiven Ebene. Ein Blatt, dessen Geschoss im Modell nicht zu
 finden ist, wird übersprungen und genannt.
 
 Was dabei entsteht:
@@ -192,11 +190,12 @@ Auf die Linien eines DXF- oder PDF-Vektorplans können Sie mit dem
 [Objektfang](#hintergrundfang) direkt fangen. Wollen Sie den Grundriss darüber hinaus bearbeiten –
 Linien löschen, verschieben, ergänzen –, macht {{befehl:blatt.hintergrund-umwandeln}} aus dem Plan
 echte Zeichnungselemente: Linien, Polylinien, Kreise und Bögen in derselben grauen Darstellung.
-Vorher nennt ein Dialog, wie viele Linien es werden.
+Vorher zeigt ein Dialog neben dem Plan, wie viele Linien es werden; auf dem Plan erscheinen sie
+farbig. **Umwandeln** legt sie an.
 
-Haben weitere Blätter einen Plan, der sich umwandeln lässt, listet der Dialog alle mit ihrer
-Linienzahl auf und bietet **Nur dieses Blatt** oder **Alle Blätter** an. Ein Rückgängig nimmt das
-Umwandeln auf allen Blättern zurück. Ein gescannter PDF-Plan wird dabei übersprungen und genannt.
+Haben weitere Blätter einen Plan, der sich umwandeln lässt, fragt das Programm vorab: **Nur dieses
+Blatt** oder **Alle Blätter**. Bei „alle“ geht der Dialog die Blätter der Reihe nach durch – siehe
+[Blatt für Blatt](#blatt-fuer-blatt). Ein gescannter PDF-Plan ohne Linien wird übersprungen.
 
 - Die Elemente landen auf einer eigenen Ebene **„Grundriss (übernommen)“**, die beim ersten
   Umwandeln angelegt wird. Über sie blenden Sie den Grundriss aus und ein oder sperren ihn.
@@ -222,6 +221,22 @@ stehende Wand mit einem Klick und Entf.
 :::
 
 Ein Rückgängig-Schritt nimmt das Umwandeln vollständig zurück.
+
+## Blatt für Blatt {#blatt-fuer-blatt}
+
+Gilt für {{befehl:blatt.ifc-bauteile}} und {{befehl:blatt.hintergrund-umwandeln}}, wenn Sie
+„Alle Blätter“ gewählt haben:
+
+- Der Dialog schaltet auf das erste Blatt und zeigt dessen Vorschau („Blatt 1 von 3“).
+- **Weiter** nimmt das Blatt mit und geht zum nächsten, **Überspringen** lässt es aus, **Zurück**
+  geht ein Blatt zurück. Ein übersprungenes Blatt nehmen Sie mit **Weiter** wieder auf.
+- Bei den IFC-Bauteilen hat jedes Blatt seine eigenen Häkchen; ein neues Blatt beginnt mit denen
+  des vorigen.
+- Auf dem letzten Blatt legt **Übernehmen** bzw. **Umwandeln** alles an – ein Rückgängig nimmt es
+  auf allen Blättern zurück. Danach sind Sie wieder auf dem Blatt, auf dem Sie begonnen haben.
+- Klicken Sie während des Durchgangs selbst einen Blattreiter an, springt der Dialog zu diesem
+  Blatt; ein Blatt, das nicht dazugehört, schließt ihn. Blätter, die Sie so übersprungen haben,
+  ohne sie anzusehen, werden nicht übernommen.
 
 ## Blätter aus einer neueren Version {#hintergrund-neuere-version}
 

@@ -397,20 +397,31 @@ export const zeichendialoge: Texte['zeichendialoge'] = {
     aufzaehlung: '{liste} and {letzte}',
     gefunden: '{aufzaehlung} found (coloured in the drawing).',
   },
+  durchgang: {
+    einBlatt: 'Sheet “{name}”',
+    schritt: 'Sheet {nr} of {n}: “{name}”',
+    zurueck: 'Back',
+    weiter: 'Next',
+    ueberspringen: 'Skip',
+    uebersprungen: 'This sheet will be skipped – “Next” includes it again.',
+  },
+  umwandeln: {
+    titel: 'Convert background',
+    laedt: 'Analysing PDF plan …',
+    nichts: 'Nothing to convert: {grund}.',
+    hinweis:
+      'In colour on the plan: the lines that become drawing elements. A single undo reverts everything.',
+  },
   ifcBauteile: {
     titel: 'Import building elements from IFC',
     titelMehrereBlaetter: 'Import building elements from IFC ({n} sheets)',
     nichtLesbar: 'The IFC file could not be read.',
-    blatt: 'Sheet “{name}”',
-    uebernehmenAuf: 'Apply to',
-    nurDiesemBlatt: 'this sheet only',
-    allenBlaettern: 'all {n} sheets of this model',
     liest: 'Reading IFC model …',
-    weitereGeschosse: 'Reading further storeys ({gelesen} of {gesamt}) …',
+    liestBlatt: 'Reading storey …',
+    blattFehler: 'This sheet cannot be imported: {fehler}',
     hinweis:
       'Read from the model, at the section plane of the background. The preview is shown in colour on the plan; ordinary objects are created, and a single undo reverts everything.',
     brauchenWand: 'Doors, windows and wall openings need their wall.',
-    wirdUebersprungen: '{name} – skipped: {fehler}',
     keineBauteile: 'There are no building elements at this section plane that can be imported.',
     uebernommen: 'Building elements imported',
     uebernommenAufBlaettern: {

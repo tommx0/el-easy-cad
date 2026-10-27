@@ -219,6 +219,10 @@ export const werkzeuge = {
   ifcBauteileVorschau: {
     status: 'Vorschau der IFC-Bauteile - im Dialog übernehmen oder schließen.',
   },
+  umwandelnVorschau: {
+    status:
+      'Farbig: die Linien, die zu Zeichnungselementen werden - im Dialog umwandeln oder schließen.',
+  },
   kabelschacht: {
     ersteEcke:
       'Ecke des Durchbruchs klicken – zweiter Klick an dieselbe Stelle nimmt die Standardgröße.',

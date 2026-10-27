@@ -50,6 +50,7 @@ export const werkzeugnamen = {
   kalibrieren: 'Kalibrieren',
   'ifc-ausrichten': 'IFC-Geschoss ausrichten',
   'ifc-bauteile-vorschau': 'IFC-Bauteile: Vorschau',
+  'umwandeln-vorschau': 'Hintergrund umwandeln: Vorschau',
   'hintergrund-ausblenden': 'Bereich des Hintergrunds ausblenden',
   nullpunkt: 'Nullpunkt',
   'zoom-fenster': 'Zoom-Fenster',

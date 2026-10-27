@@ -20,6 +20,7 @@ import { erzeugeHintergrundAusblendenTool } from './hintergrund-ausblenden-tool'
 import { erzeugeErkennungsProbeTool } from './erkennung-probe-tool'
 import { erzeugeIfcAusrichtenTool } from './ifc-ausrichten-tool'
 import { erzeugeIfcBauteileVorschauTool } from './ifc-bauteile-vorschau-tool'
+import { erzeugeUmwandelnVorschauTool } from './umwandeln-vorschau-tool'
 import { erzeugeZeichenflaecheTool } from './zeichenflaeche-tool'
 import { erzeugeZoomFensterTool } from './zoom-window-tool'
 import { erzeugeZusatzmodulAbfrageTool } from './zusatzmodul-abfrage-tool'
@@ -106,6 +107,7 @@ export function erzeugeStandardWerkzeuge(): Tool[] {
     erzeugeErkennungsProbeTool(),
     erzeugeIfcAusrichtenTool(),
     erzeugeIfcBauteileVorschauTool(),
+    erzeugeUmwandelnVorschauTool(),
     erzeugeZeichenflaecheTool(),
     erzeugeNullpunktTool(),
   ]

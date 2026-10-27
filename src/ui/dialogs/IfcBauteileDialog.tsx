@@ -1,34 +1,35 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import {
-  blaetterDesselbenIfcModells,
-  erzeugeBauteilObjekte,
-  nurAnsichtGrund,
-} from '../../document-model'
+import { useEffect, useMemo, useState } from 'react'
+import { erzeugeBauteilObjekte } from '../../document-model'
 import { CompositeCommand, erzeugeObjektAendernCommand, type Command } from '../../tools'
-import type { IfcBauteilArt, IfcBauteileErgebnis, IfcBauteileJeBlatt } from '../ifc-bauteile'
+import type { IfcBauteilArt, IfcBauteileJeBlatt } from '../ifc-bauteile'
 import {
   IFC_BAUTEIL_ARTEN,
   IN_DER_WAND,
   ifcBauteilHinweisTexte,
-  summiereIfcBauteile,
   waehleIfcBauteile,
+  zaehleIfcBauteile,
 } from '../ifc-bauteile'
-import { useFreigeschalteteModule } from '../lizenz-module'
-import { useUiStore } from '../store/ui-store'
-import { useAktivesBlatt, useAppContext } from '../use-app-context'
+import {
+  aktuellesBlatt,
+  aktuelleWahl,
+  istLetztesBlatt,
+  setzeWahl,
+  springeZu,
+  starteDurchgang,
+  ueberspringe,
+  weiter,
+  zuUebernehmen,
+  zurueck,
+  type BlattDurchgang,
+} from '../blatt-durchgang'
+import { useBlattFolgen } from '../blatt-durchgang-anbindung'
+import { BlattDurchgangKnoepfe, BlattDurchgangKopf } from './BlattDurchgangTeile'
+import { useUiStore, type BlattDurchgangDialog } from '../store/ui-store'
+import { useAppContext } from '../use-app-context'
 import { t as tOberflaeche } from '../../sprache'
 import { useT } from '../sprache-anbindung'
 
-type Stand =
-  | { art: 'laedt' }
-  | { art: 'fertig'; ergebnis: IfcBauteileErgebnis }
-  | { art: 'fehler'; meldung: string }
-
-type WeitereStand =
-  | { art: 'aus' }
-  | { art: 'laedt'; gelesen: number; gesamt: number }
-  | { art: 'fertig'; jeBlatt: IfcBauteileJeBlatt[] }
-  | { art: 'fehler'; meldung: string }
+type Stand = { art: 'laedt' } | { art: 'laeuft' } | { art: 'fehler'; meldung: string }
 
 const fehlerText = (fehler: unknown) =>
   fehler instanceof Error ? fehler.message : tOberflaeche('zeichendialoge.ifcBauteile.nichtLesbar')
@@ -36,119 +37,77 @@ const fehlerText = (fehler: unknown) =>
 export function IfcBauteileDialog() {
   const dialog = useUiStore((s) => s.ifcBauteileDialog)
   if (!dialog) return null
-  return <IfcBauteileInhalt key={dialog.blattId} blattId={dialog.blattId} />
+  return <IfcBauteileInhalt key={dialog.blattIds.join('|')} dialog={dialog} />
 }
 
-function IfcBauteileInhalt({ blattId }: { blattId: string }) {
+function IfcBauteileInhalt({ dialog }: { dialog: BlattDurchgangDialog }) {
   const { doc, commands, overlaySignal, aktiviereTool, leseIfcBauteile } = useAppContext()
-  const freigeschaltet = useFreigeschalteteModule()
-  const aktiv = useAktivesBlatt()
   const t = useT()
-  const blatt = doc.getBlatt(blattId)
+  const { blattIds, startBlattId } = dialog
+  const mehrere = blattIds.length > 1
   const [stand, setStand] = useState<Stand>({ art: 'laedt' })
-  const [gewaehlt, setGewaehlt] = useState<Set<IfcBauteilArt>>(
-    () => new Set(IFC_BAUTEIL_ARTEN.map((a) => a.art)),
+  const [gelesen, setGelesen] = useState<Readonly<Record<string, IfcBauteileJeBlatt>>>({})
+  const [durchgang, setDurchgang] = useState<BlattDurchgang<ReadonlySet<IfcBauteilArt>>>(() =>
+    starteDurchgang(blattIds, new Set(IFC_BAUTEIL_ARTEN.map((a) => a.art))),
   )
-  const [weitereIds] = useState(() => {
-    const zeichnung = doc.getZeichnung()
-    const eigenes = zeichnung.blaetter.find((b) => b.id === blattId)
-    if (!eigenes) return []
-    return blaetterDesselbenIfcModells(zeichnung.blaetter, eigenes)
-      .filter((b) => b.id !== blattId && nurAnsichtGrund(b, freigeschaltet) === null)
-      .map((b) => b.id)
-  })
-  const [alle, setAlle] = useState(false)
-  const [weitere, setWeitere] = useState<WeitereStand>({ art: 'aus' })
-  const weitereAuftrag = useRef<{ abbrechen: () => void } | null>(null)
-  useEffect(() => () => weitereAuftrag.current?.abbrechen(), [])
+  const blattId = aktuellesBlatt(durchgang)
+  const gewaehlt = aktuelleWahl(durchgang)
+  const eintrag = gelesen[blattId]
+  const ergebnis = eintrag && 'ergebnis' in eintrag ? eintrag.ergebnis : null
 
-  const schliessen = () => {
+  const schliessen = (zurueckZumStart = true) => {
     useUiStore.getState().setIfcBauteileDialog(null)
     aktiviereTool('auswahl')
+    if (zurueckZumStart) doc.setAktivesBlatt(startBlattId)
     overlaySignal.request()
   }
 
+  useBlattFolgen({
+    blattIds,
+    aktuellesBlattId: blattId,
+    springeZu: (index) => setDurchgang((d) => springeZu(d, index)),
+    schliessen: () => schliessen(false),
+  })
+
   useEffect(() => {
-    const auftrag = leseIfcBauteile([blattId])
+    const auftrag = leseIfcBauteile(blattIds, undefined, (e) => {
+      setGelesen((bisher) => ({ ...bisher, [e.blattId]: e }))
+      setStand({ art: 'laeuft' })
+    })
     let verworfen = false
-    auftrag.ergebnis.then(
-      ([eigenes]) => {
-        if (verworfen) return
-        if (!eigenes || 'fehler' in eigenes) {
-          setStand({ art: 'fehler', meldung: eigenes?.fehler ?? fehlerText(undefined) })
-          return
-        }
-        setStand({ art: 'fertig', ergebnis: eigenes.ergebnis })
-        aktiviereTool('ifc-bauteile-vorschau')
-      },
-      (fehler: unknown) => {
-        if (verworfen) return
-        setStand({ art: 'fehler', meldung: fehlerText(fehler) })
-      },
-    )
+    auftrag.ergebnis.catch((fehler: unknown) => {
+      if (!verworfen) setStand({ art: 'fehler', meldung: fehlerText(fehler) })
+    })
+    aktiviereTool('ifc-bauteile-vorschau')
     return () => {
       verworfen = true
       auftrag.abbrechen()
     }
-  }, [blattId, leseIfcBauteile, aktiviereTool])
-
-  function waehleAlle() {
-    setAlle(true)
-    if (weitere.art !== 'aus') return
-    setWeitere({ art: 'laedt', gelesen: 0, gesamt: weitereIds.length })
-    const auftrag = leseIfcBauteile(weitereIds, (gelesen, gesamt) =>
-      setWeitere((bisher) => (bisher.art === 'laedt' ? { art: 'laedt', gelesen, gesamt } : bisher)),
-    )
-    weitereAuftrag.current = auftrag
-    auftrag.ergebnis.then(
-      (jeBlatt) => setWeitere({ art: 'fertig', jeBlatt }),
-      (fehler: unknown) => setWeitere({ art: 'fehler', meldung: fehlerText(fehler) }),
-    )
-  }
+  }, [blattIds, leseIfcBauteile, aktiviereTool])
 
   const vorlagen = useMemo(
-    () => (stand.art === 'fertig' ? waehleIfcBauteile(stand.ergebnis.vorlagen, gewaehlt) : null),
-    [stand, gewaehlt],
+    () => (ergebnis ? waehleIfcBauteile(ergebnis.vorlagen, gewaehlt) : null),
+    [ergebnis, gewaehlt],
   )
   useEffect(() => {
-    if (!vorlagen) return
-    useUiStore.getState().setIfcBauteileVorschau(vorlagen)
+    useUiStore
+      .getState()
+      .setIfcBauteileVorschau(vorlagen ?? { waende: [], oeffnungen: [], treppen: [], raeume: [] })
     overlaySignal.request()
   }, [vorlagen, overlaySignal])
 
-  useEffect(() => {
-    if (aktiv.id !== blattId) {
-      useUiStore.getState().setIfcBauteileDialog(null)
-      overlaySignal.request()
-    }
-  }, [aktiv.id, blattId, overlaySignal])
-
-  const weitereGelesen =
-    weitere.art === 'fertig' ? weitere.jeBlatt.flatMap((e) => ('ergebnis' in e ? [e] : [])) : []
-  const uebersprungen =
-    weitere.art === 'fertig' ? weitere.jeBlatt.flatMap((e) => ('fehler' in e ? [e] : [])) : []
-  const ziele =
-    stand.art === 'fertig'
-      ? [{ blattId, ergebnis: stand.ergebnis }, ...(alle ? weitereGelesen : [])]
-      : []
-  const summe = ziele.length > 0 ? summiereIfcBauteile(ziele.map((z) => z.ergebnis)) : null
-  const gewaehltGesamt = ziele.reduce(
-    (n, z) => n + zaehleGesamt(waehleIfcBauteile(z.ergebnis.vorlagen, gewaehlt)),
-    0,
-  )
-  const wartetAufWeitere = alle && weitere.art !== 'fertig'
-
-  const uebernehmen = () => {
-    if (stand.art !== 'fertig' || wartetAufWeitere) return
+  const uebernehmen = (d: BlattDurchgang<ReadonlySet<IfcBauteilArt>>) => {
     const teile: Command[] = []
     let angelegt = 0
     let raeumeOffen = 0
     let raeumeDoppelt = 0
-    for (const ziel of ziele) {
-      const b = doc.getBlatt(ziel.blattId)
-      if (!b) continue
+    const ziele = zuUebernehmen(d)
+    for (const { blattId: id, wahl } of ziele) {
+      const e = gelesen[id]
+      const b = doc.getBlatt(id)
+      if (!e || !('ergebnis' in e) || !b) continue
       const r = erzeugeBauteilObjekte(
-        waehleIfcBauteile(ziel.ergebnis.vorlagen, gewaehlt),
+        waehleIfcBauteile(e.ergebnis.vorlagen, wahl),
         b.aktiveEbeneId,
         b.objekte,
       )
@@ -157,14 +116,13 @@ function IfcBauteileInhalt({ blattId }: { blattId: string }) {
       if (r.objekte.length === 0) continue
       angelegt += r.objekte.length
       teile.push(
-        erzeugeObjektAendernCommand(
-          doc,
-          ziel.blattId,
-          t('zeichendialoge.ifcBauteile.titel'),
-          (objekte) => [...objekte, ...r.objekte],
-        ),
+        erzeugeObjektAendernCommand(doc, id, t('zeichendialoge.ifcBauteile.titel'), (objekte) => [
+          ...objekte,
+          ...r.objekte,
+        ]),
       )
     }
+    schliessen()
     if (teile.length === 1) commands.execute(teile[0])
     else if (teile.length > 1)
       commands.execute(
@@ -173,13 +131,12 @@ function IfcBauteileInhalt({ blattId }: { blattId: string }) {
           teile,
         ),
       )
-    schliessen()
     const ausgefallen: string[] = []
     if (raeumeOffen > 0)
       ausgefallen.push(t('zeichendialoge.ifcBauteile.raeumeOffen', { n: raeumeOffen }))
     if (raeumeDoppelt > 0)
       ausgefallen.push(t('zeichendialoge.ifcBauteile.raeumeDoppelt', { n: raeumeDoppelt }))
-    const kopf = alle
+    const kopf = mehrere
       ? t('zeichendialoge.ifcBauteile.uebernommenAufBlaettern', {
           n: teile.length,
           anzahl: angelegt,
@@ -193,17 +150,23 @@ function IfcBauteileInhalt({ blattId }: { blattId: string }) {
             n: raeumeOffen + raeumeDoppelt,
           })
         : t('zeichendialoge.ifcBauteile.ohneAusfall', { kopf })
-    const ohne =
-      alle && uebersprungen.length > 0
+    const genommen = new Set(ziele.map((z) => z.blattId))
+    const ohne = blattIds.filter(
+      (id) => !genommen.has(id) || !(gelesen[id] && 'ergebnis' in gelesen[id]),
+    )
+    const nachsatz =
+      mehrere && ohne.length > 0
         ? ` ${t('zeichendialoge.ifcBauteile.uebersprungen', {
-            blaetter: uebersprungen.map((e) => doc.getBlatt(e.blattId)?.name ?? '?').join(', '),
+            blaetter: ohne.map((id) => doc.getBlatt(id)?.name ?? '?').join(', '),
           })}`
         : ''
-    useUiStore.getState().zeigeToast(meldung + ohne)
+    useUiStore.getState().zeigeToast(meldung + nachsatz)
   }
 
-  const anzahl = summe?.anzahl ?? null
-  const leer = gewaehltGesamt === 0
+  const anzahl = ergebnis ? zaehleIfcBauteile(ergebnis.vorlagen) : null
+  const gewaehltHier = ergebnis ? zaehleGesamt(waehleIfcBauteile(ergebnis.vorlagen, gewaehlt)) : 0
+  const letztes = istLetztesBlatt(durchgang)
+  const bereit = eintrag !== undefined && stand.art !== 'fehler'
 
   return (
     <div
@@ -212,48 +175,21 @@ function IfcBauteileInhalt({ blattId }: { blattId: string }) {
       aria-label={t('zeichendialoge.ifcBauteile.titel')}
     >
       <h2>{t('zeichendialoge.ifcBauteile.titel')}</h2>
-      <p className="dialog-hinweis">
-        {t('zeichendialoge.ifcBauteile.blatt', { name: blatt?.name ?? '' })}
-      </p>
-
-      {weitereIds.length > 0 && stand.art !== 'fehler' && (
-        <div
-          className="erkennung-schalter-gruppe"
-          role="radiogroup"
-          aria-label={t('zeichendialoge.ifcBauteile.uebernehmenAuf')}
-        >
-          <label className="erkennung-schalter">
-            <input
-              type="radio"
-              name="ifc-bauteile-umfang"
-              checked={!alle}
-              onChange={() => setAlle(false)}
-            />
-            <span>{t('zeichendialoge.ifcBauteile.nurDiesemBlatt')}</span>
-          </label>
-          <label className="erkennung-schalter">
-            <input type="radio" name="ifc-bauteile-umfang" checked={alle} onChange={waehleAlle} />
-            <span>
-              {t('zeichendialoge.ifcBauteile.allenBlaettern', { n: weitereIds.length + 1 })}
-            </span>
-          </label>
-        </div>
-      )}
+      <BlattDurchgangKopf durchgang={durchgang} />
 
       {stand.art === 'laedt' && (
         <p className="erkennung-ergebnis">{t('zeichendialoge.ifcBauteile.liest')}</p>
       )}
+      {stand.art === 'laeuft' && !eintrag && (
+        <p className="erkennung-ergebnis">{t('zeichendialoge.ifcBauteile.liestBlatt')}</p>
+      )}
       {stand.art === 'fehler' && <p className="erkennung-warnung">{stand.meldung}</p>}
-      {alle && weitere.art === 'laedt' && (
-        <p className="erkennung-ergebnis">
-          {t('zeichendialoge.ifcBauteile.weitereGeschosse', {
-            gelesen: weitere.gelesen,
-            gesamt: weitere.gesamt,
-          })}
+      {eintrag && 'fehler' in eintrag && (
+        <p className="erkennung-warnung">
+          {t('zeichendialoge.ifcBauteile.blattFehler', { fehler: eintrag.fehler })}
         </p>
       )}
-      {alle && weitere.art === 'fehler' && <p className="erkennung-warnung">{weitere.meldung}</p>}
-      {stand.art === 'fertig' && anzahl && summe && (
+      {ergebnis && anzahl && (
         <>
           <p className="dialog-hinweis">{t('zeichendialoge.ifcBauteile.hinweis')}</p>
           <div className="erkennung-schalter-gruppe">
@@ -269,14 +205,12 @@ function IfcBauteileInhalt({ blattId }: { blattId: string }) {
                     type="checkbox"
                     checked={gewaehlt.has(art) && !ohneWand}
                     disabled={ohneWand || anzahl[art] === 0}
-                    onChange={(e) =>
-                      setGewaehlt((bisher) => {
-                        const neu = new Set(bisher)
-                        if (e.target.checked) neu.add(art)
-                        else neu.delete(art)
-                        return neu
-                      })
-                    }
+                    onChange={(e) => {
+                      const neu = new Set(gewaehlt)
+                      if (e.target.checked) neu.add(art)
+                      else neu.delete(art)
+                      setDurchgang((d) => setzeWahl(d, neu))
+                    }}
                   />
                   <span>
                     {name} ({anzahl[art]})
@@ -285,44 +219,46 @@ function IfcBauteileInhalt({ blattId }: { blattId: string }) {
               )
             })}
           </div>
-          {ifcBauteilHinweisTexte(summe, ziele.length > 1).map((text) => (
+          {ifcBauteilHinweisTexte(ergebnis).map((text) => (
             <p key={text} className="erkennung-warnung">
               {text}
             </p>
           ))}
-          {alle && uebersprungen.length > 0 && (
-            <ul className="dialog-liste">
-              {uebersprungen.map((e) => (
-                <li key={e.blattId}>
-                  {t('zeichendialoge.ifcBauteile.wirdUebersprungen', {
-                    name: doc.getBlatt(e.blattId)?.name ?? '?',
-                    fehler: e.fehler,
-                  })}
-                </li>
-              ))}
-            </ul>
-          )}
-          {zaehleGesamt(stand.ergebnis.vorlagen) === 0 && !alle && (
+          {zaehleGesamt(ergebnis.vorlagen) === 0 && (
             <p className="erkennung-ergebnis">{t('zeichendialoge.ifcBauteile.keineBauteile')}</p>
           )}
         </>
       )}
 
-      <div className="dialog-aktionen">
-        <button type="button" onClick={schliessen}>
-          {stand.art === 'laedt' || (alle && weitere.art === 'laedt')
-            ? t('zeichendialoge.gemeinsam.abbrechen')
-            : t('zeichendialoge.gemeinsam.schliessen')}
-        </button>
-        <button
-          type="button"
-          className="primaer"
-          onClick={uebernehmen}
-          disabled={leer || wartetAufWeitere}
-        >
-          {t('zeichendialoge.gemeinsam.uebernehmen')}
-        </button>
-      </div>
+      {mehrere ? (
+        <BlattDurchgangKnoepfe
+          durchgang={durchgang}
+          abbrechen={() => schliessen()}
+          zurueck={() => setDurchgang(zurueck)}
+          ueberspringen={() =>
+            letztes ? uebernehmen(ueberspringe(durchgang)) : setDurchgang(ueberspringe)
+          }
+          weiter={() => (letztes ? uebernehmen(weiter(durchgang)) : setDurchgang(weiter))}
+          weiterGesperrt={letztes && !bereit}
+          abschliessenText={t('zeichendialoge.gemeinsam.uebernehmen')}
+        />
+      ) : (
+        <div className="dialog-aktionen">
+          <button type="button" onClick={() => schliessen()}>
+            {stand.art === 'laedt'
+              ? t('zeichendialoge.gemeinsam.abbrechen')
+              : t('zeichendialoge.gemeinsam.schliessen')}
+          </button>
+          <button
+            type="button"
+            className="primaer"
+            onClick={() => uebernehmen(durchgang)}
+            disabled={!ergebnis || gewaehltHier === 0}
+          >
+            {t('zeichendialoge.gemeinsam.uebernehmen')}
+          </button>
+        </div>
+      )}
     </div>
   )
 }

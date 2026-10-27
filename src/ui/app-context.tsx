@@ -206,6 +206,7 @@ export interface AppKontext {
   leseIfcBauteile: (
     blattIds: readonly string[],
     beiFortschritt?: (gelesen: number, gesamt: number) => void,
+    beiBlatt?: (eintrag: IfcBauteileJeBlatt) => void,
   ) => {
     ergebnis: Promise<IfcBauteileJeBlatt[]>
     abbrechen: () => void
@@ -433,6 +434,7 @@ function erzeugeAppKontext(): AppKontext {
     zonenZugewiesen: () => gleicheInstallationszonenAb(doc),
     erkennungsVorschau: () => useUiStore.getState().erkennungsVorschau,
     ifcBauteileVorschau: () => useUiStore.getState().ifcBauteileVorschau,
+    umwandelnVorschau: () => useUiStore.getState().umwandelnVorschau,
     erkennungsProbenart: () => useUiStore.getState().erkennungsProbenart,
     meldeErkennungsProbe: (a, b) => useUiStore.getState().setErkennungsProbe({ a, b }),
     meldeTeilstueckAuswahl: (stuecke) => useUiStore.getState().setTeilstueckAuswahl(stuecke),
@@ -979,6 +981,7 @@ function erzeugeAppKontext(): AppKontext {
   function leseIfcBauteile(
     blattIds: readonly string[],
     beiFortschritt?: (gelesen: number, gesamt: number) => void,
+    beiBlatt?: (eintrag: IfcBauteileJeBlatt) => void,
   ) {
     let sitzung: IfcImportSitzung | null = null
     let abgebrochen = false
@@ -994,12 +997,16 @@ function erzeugeAppKontext(): AppKontext {
       if (abgebrochen) throw abbruchFehler()
 
       const jeBlatt: IfcBauteileJeBlatt[] = []
+      const melde = (eintrag: IfcBauteileJeBlatt) => {
+        jeBlatt.push(eintrag)
+        beiBlatt?.(eintrag)
+      }
       for (const blattId of blattIds) {
         beiFortschritt?.(jeBlatt.length, blattIds.length)
         const blatt = doc.getBlatt(blattId)
         const bh = blatt?.hintergrund
         if (!blatt || bh?.typ !== 'ifc' || bh.assetId !== h.assetId) {
-          jeBlatt.push({ blattId, fehler: t('aktionen.app.blattAnderesModell') })
+          melde({ blattId, fehler: t('aktionen.app.blattAnderesModell') })
           continue
         }
         let ziel: { geschossId: number } | { freieHoehe: number }
@@ -1013,7 +1020,7 @@ function erzeugeAppKontext(): AppKontext {
             sitzung.geschosse.find((g) => guid && g.guid === guid) ??
             (gleichnamig.length === 1 ? gleichnamig[0] : undefined)
           if (!geschoss) {
-            jeBlatt.push({
+            melde({
               blattId,
               fehler: t('aktionen.app.geschossNichtGefunden'),
             })
@@ -1025,10 +1032,10 @@ function erzeugeAppKontext(): AppKontext {
         if (abgebrochen) throw abbruchFehler()
         const aktuell = doc.getBlatt(blattId)
         if (!aktuell || aktuell.hintergrund?.typ !== 'ifc') {
-          jeBlatt.push({ blattId, fehler: t('aktionen.app.blattOhneIfcMehr') })
+          melde({ blattId, fehler: t('aktionen.app.blattOhneIfcMehr') })
           continue
         }
-        jeBlatt.push({
+        melde({
           blattId,
           ergebnis: bereiteIfcBauteileAuf(funde, { ...aktuell, hintergrund: aktuell.hintergrund }),
         })

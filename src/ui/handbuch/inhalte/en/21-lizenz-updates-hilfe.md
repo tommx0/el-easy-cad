@@ -28,6 +28,8 @@ contract period runs out, a notice points this out in good time.
 :::
 
 {{befehl:hilfe.lizenzen}} lists the third-party libraries used, with their licences.
+"Show full licence texts" displays the copyright notices and licence texts of all third-party
+software el.easy.CAD Community contains below the list.
 
 :::nur-cloud
 ## New versions {#updates}

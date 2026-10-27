@@ -29,7 +29,9 @@ Sie nicht. Läuft der Vertragszeitraum ab, weist ein Hinweis rechtzeitig darauf 
 {{befehl:hilfe.impressum}} zeigt das Impressum des Anbieters.
 :::
 
-{{befehl:hilfe.lizenzen}} listet die verwendeten Fremdbibliotheken mit ihren Lizenzen.
+{{befehl:hilfe.lizenzen}} listet die verwendeten Fremdbibliotheken mit ihren Lizenzen. Über
+„Vollständige Lizenztexte anzeigen“ blenden Sie darunter die Copyright-Vermerke und
+Lizenztexte aller Fremdsoftware ein, die el.easy.CAD Community enthält.
 
 :::nur-cloud
 ## Neue Fassungen {#updates}

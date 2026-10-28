@@ -20,7 +20,7 @@ export function packeBibliothek(
   const inhalt: BibliothekPaketInhalt = {
     paketVersion: BIBLIOTHEK_PAKET_VERSION,
     erzeugtAm: new Date().toISOString(),
-    anwendung: 'el.easy.CAD',
+    anwendung: 'el.esy.CAD',
     regelwerk: gueltigesRegelwerk(db),
     kataloge: [],
   }
@@ -40,5 +40,5 @@ export function packeBibliothek(
 }
 
 export function bibliothekDateiname(jetzt = new Date()): string {
-  return `el.easy.CAD-Bibliothek-${jetzt.toISOString().slice(0, 10)}.eecbib`
+  return `el.esy.CAD-Bibliothek-${jetzt.toISOString().slice(0, 10)}.eecbib`
 }

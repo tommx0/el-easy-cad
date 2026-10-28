@@ -213,7 +213,7 @@ export const planlisten: Texte['planlisten'] = {
     rechtlichesTitel: 'Legal notices',
     rechtlichesUnterzeile: 'Disclaimer for all plans and lists in this workbook',
     demoText:
-      'This workbook was created with the time-limited trial version of el.easy.CAD. ' +
+      'This workbook was created with the time-limited trial version of el.esy.CAD. ' +
       'It must not be used commercially.',
     schluss:
       'These notices apply to all worksheets in this workbook and to all extracts printed ' +

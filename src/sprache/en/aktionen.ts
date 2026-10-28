@@ -83,14 +83,14 @@ export const aktionen: Texte['aktionen'] = {
     rechnerFehler: 'Automatic arrangement failed.',
   },
   ki: {
-    nurLesen: '“AI may only read” is switched on in el.easy.CAD.',
+    nurLesen: '“AI may only read” is switched on in el.esy.CAD.',
     werkzeugAktiv:
       'The user is currently working with the “{werkzeug}” tool – please try again later.',
     ohneProjekt: 'A distribution board diagram cannot be created without a project.',
     verteilerplanTitel: 'Distribution board diagram created',
     verteilerplanFrage: 'The AI assistant has created “{name}” in the project. Open it now?',
     oeffnen: 'Open',
-    keineZeichnung: 'No drawing is open in el.easy.CAD – please open one.',
+    keineZeichnung: 'No drawing is open in el.esy.CAD – please open one.',
     keineZeichnungOffen: 'The open document “{name}” is not a drawing – please open a drawing.',
   },
   zusatzmodule: {

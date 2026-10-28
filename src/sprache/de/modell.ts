@@ -1,7 +1,7 @@
 export const modell = {
   schema: {
     unbekannterHintergrund: 'Unbekannter Hintergrund',
-    ungueltigeZeichnung: 'Die Datei ist keine gültige el.easy.CAD-Zeichnung oder beschädigt.',
+    ungueltigeZeichnung: 'Die Datei ist keine gültige el.esy.CAD-Zeichnung oder beschädigt.',
     keinJson: 'Die Datei enthält kein gültiges JSON.',
   },
   bibliothekPaket: {
@@ -26,7 +26,7 @@ export const modell = {
   },
   blattSperre: {
     unbekannterHintergrund:
-      'Der Hintergrund dieses Blattes stammt aus einer neueren Version von el.easy.CAD und ist nur dort sichtbar. Das Blatt lässt sich hier nur ansehen.',
+      'Der Hintergrund dieses Blattes stammt aus einer neueren Version von el.esy.CAD und ist nur dort sichtbar. Das Blatt lässt sich hier nur ansehen.',
     ifcOhneModul:
       'Dieses Blatt hat einen IFC-Grundriss. Bearbeiten und Ausgeben setzen das Zusatzmodul „BIM“ voraus – ohne es lässt sich das Blatt nur ansehen.',
   },

@@ -3,7 +3,7 @@ import type { Texte } from '../texte'
 export const modell: Texte['modell'] = {
   schema: {
     unbekannterHintergrund: 'Unknown background',
-    ungueltigeZeichnung: 'The file is not a valid el.easy.CAD drawing or is damaged.',
+    ungueltigeZeichnung: 'The file is not a valid el.esy.CAD drawing or is damaged.',
     keinJson: 'The file does not contain valid JSON.',
   },
   bibliothekPaket: {
@@ -28,7 +28,7 @@ export const modell: Texte['modell'] = {
   },
   blattSperre: {
     unbekannterHintergrund:
-      'The background of this sheet comes from a newer version of el.easy.CAD and is only visible there. The sheet can only be viewed here.',
+      'The background of this sheet comes from a newer version of el.esy.CAD and is only visible there. The sheet can only be viewed here.',
     ifcOhneModul:
       'This sheet has an IFC floor plan. Editing and output require the “BIM” add-on module – without it, the sheet can only be viewed.',
   },

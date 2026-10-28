@@ -23,7 +23,7 @@ export function LizenzenDialog() {
         <h2>{t('verwaltungsdialoge.lizenzen.titel')}</h2>
 
         <div className="lizenzen-content">
-          <h3>el.easy.CAD</h3>
+          <h3>el.esy.CAD</h3>
           <p>© 2026 Thomas Marx</p>
 
           <h4>{t('verwaltungsdialoge.lizenzen.abhaengigkeiten')}</h4>

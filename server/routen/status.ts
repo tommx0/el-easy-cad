@@ -10,7 +10,7 @@ function anzahl(kontext: ServerKontext, tabelle: string): number {
 
 export function registriereStatusRouten(app: FastifyInstance, kontext: ServerKontext): void {
   app.get('/api/status', () => ({
-    name: 'el.easy.CAD',
+    name: 'el.esy.CAD',
     version: APP_VERSION,
     schemaVersion: leseSchemaVersion(kontext.db),
     datenordner: kontext.konfiguration.datenordner,

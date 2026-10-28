@@ -291,8 +291,8 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
       const { datei, bericht } = await exportiereAlsIfc(zeichnung, katalogKomponenten, {
         module: freigeschaltet,
         anwendung: wasserzeichenAktiv
-          ? `el.easy.CAD Community ${__APP_VERSION__} (${tPlan('community.hinweis.ifc')})`
-          : `el.easy.CAD Community ${__APP_VERSION__}`,
+          ? `el.esy.CAD Community ${__APP_VERSION__} (${tPlan('community.hinweis.ifc')})`
+          : `el.esy.CAD Community ${__APP_VERSION__}`,
       })
       const dateiname = erzeugeDateiname(
         [offenesDokument?.projektBezeichnung, zeichnung.name, 'IFC'],

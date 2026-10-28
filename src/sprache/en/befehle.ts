@@ -176,7 +176,7 @@ export const befehle: Texte['befehle'] = {
     handbuch: 'User manual…',
     einfuehrung: 'Getting started…',
     hinweise: 'Help tips…',
-    ueber: 'About el.easy.CAD',
+    ueber: 'About el.esy.CAD',
     'meine-lizenz': 'My licence…',
     'update-suche': 'Check for updates…',
     lizenzen: 'Third-party library licences…',

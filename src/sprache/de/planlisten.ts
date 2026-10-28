@@ -208,7 +208,7 @@ export const planlisten = {
     rechtlichesTitel: 'Rechtliche Hinweise',
     rechtlichesUnterzeile: 'Haftungsausschluss für alle Pläne und Listen dieser Arbeitsmappe',
     demoText:
-      'Diese Arbeitsmappe wurde mit der zeitlich befristeten Testversion von el.easy.CAD ' +
+      'Diese Arbeitsmappe wurde mit der zeitlich befristeten Testversion von el.esy.CAD ' +
       'erzeugt. Sie darf nicht kommerziell verwendet werden.',
     schluss:
       'Diese Hinweise gelten für sämtliche Tabellenblätter dieser Arbeitsmappe sowie für alle ' +

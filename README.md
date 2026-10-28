@@ -5,7 +5,7 @@ I'm still working on this page and also the app – it’ll be improved bit by b
 Ich arbeite an dieser Seite und werde sie sowie das Programm stetig verbessern. Weitere Informationen werden bald nachgepflegt. Bitte lest Euch die Online-Bedienungsanleitung durch. Noch gibt es einige Verbesserungen in der Bedienbarkeit und den Workflows. Die Entwicklung ist noch im Gange. Es handelt sich um eine Entwicklungsversion.
 *Deutsche Fassung weiter unten.*
 
-el.easy.CAD is a desktop planning tool for electrical, KNX channel and network installation planning. Load a floor
+el.esy.CAD is a desktop planning tool for electrical, KNX channel and network installation planning. Load a floor
 plan (PDF, DXF, IFC or image) as background, calibrate it, place components from a product
 catalogue, route cables automatically, bundle them in trunks and cable risers across storeys, and
 print or export every sheet as PDF, Excel or IFC. It also draws schematics and distribution board
@@ -199,10 +199,10 @@ Bug reports and suggestions are welcome as issues.
 el.esy.CAD ist ein Desktop-CAD für die Elektro-, KNX Sensorkanalzuordnung und Netzwerkplanung: Grundriss als Hintergrund
 laden (PDF, DXF, IFC, Bild), kalibrieren, Komponenten aus dem Produktkatalog platzieren, Leitungen
 automatisch verlegen, in Trunks und Kabelschächten über Etagen führen und jedes Blatt als PDF,
-Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. KNX Tastsensor oder Schalterkanäle zu Leuchten oder Geräten hinzufüge... kein Problem. Alles läuft auf Ihrem Rechner, el.easy.CAD selbst überträgt keine Daten.
+Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. KNX Tastsensor oder Schalterkanäle zu Leuchten oder Geräten hinzufüge... kein Problem. Alles läuft auf Ihrem Rechner, el.esy.CAD selbst überträgt keine Daten.
 
 **Vom Bauplan zum Verteilerplan – mit KNX-Aktoren:** Aus einem bestückten Bauplan erzeugt
-el.easy.CAD den kompletten Verteilerplan, auf Wunsch ganz ohne gezeichnete Leitung:
+el.esy.CAD den kompletten Verteilerplan, auf Wunsch ganz ohne gezeichnete Leitung:
 
 1. **Räume planen.** Jede Komponente hat einen *Stromkreis*: den Raumstromkreis (Vorgabe bei
    Steckdosen und Leuchten), einen weiteren nummerierten im Raum oder einen eigenen, ein- oder
@@ -232,12 +232,12 @@ el.easy.CAD den kompletten Verteilerplan, auf Wunsch ganz ohne gezeichnete Leitu
    Excel-Export.
 
 Ändert sich die Planung, schlagen Sie die Bestückung erneut vor: Vorhandenes behält Kennzeichen und
-Beschriftung, Neues kommt dazu, und el.easy.CAD bietet an, den verknüpften Plan neu zu erzeugen.
+Beschriftung, Neues kommt dazu, und el.esy.CAD bietet an, den verknüpften Plan neu zu erzeugen.
 Der Baum des Verteilers bleibt jederzeit von Hand bearbeitbar. Die Schritte 2 bis 4 übernimmt auf
 Wunsch auch der KI-Assistent.
 
 **Mit einem KI-Assistenten arbeiten (MCP):** Über das Model Context Protocol lässt sich ein
-KI-Assistent wie **Claude** (Claude Code oder Claude Desktop) an el.easy.CAD anbinden. Fragen Sie
+KI-Assistent wie **Claude** (Claude Code oder Claude Desktop) an el.esy.CAD anbinden. Fragen Sie
 in eigenen Worten nach der offenen Zeichnung – „Welche Leitungen haben ein freies Ende?“, „Wie
 viele Steckdosen stehen im Obergeschoss?“, „Sind Klemmennummern doppelt vergeben?“ – oder lassen
 Sie ihn mitzeichnen:
@@ -258,7 +258,7 @@ Sie ihn mitzeichnen:
 - **Verteiler planen:** Bestückung aus den Räumen vorschlagen, den Verteilerbaum bearbeiten,
   KNX-Aktoren zuordnen, eine Klemmenleiste neu nummerieren und den Verteilerplan erzeugen.
 
-Kennzeichen, Klemmen- und Leitungsnummern vergibt el.easy.CAD dabei genauso wie beim Zeichnen von
+Kennzeichen, Klemmen- und Leitungsnummern vergibt el.esy.CAD dabei genauso wie beim Zeichnen von
 Hand. **Sie behalten die Kontrolle:** Ab Werk ist die Schnittstelle aus; eingeschaltet antwortet
 sie nur auf diesem Rechner und nur mit Zugangstoken, der Haken „KI darf nur lesen“ verbietet jede
 Änderung. Jede Änderung ist ein eigener Rückgängig-Schritt („KI: …“) und steht im KI-Protokoll;

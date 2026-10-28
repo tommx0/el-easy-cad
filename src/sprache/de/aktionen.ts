@@ -82,14 +82,14 @@ export const aktionen = {
     rechnerFehler: 'Anordnen fehlgeschlagen.',
   },
   ki: {
-    nurLesen: 'In el.easy.CAD ist „KI darf nur lesen“ eingeschaltet.',
+    nurLesen: 'In el.esy.CAD ist „KI darf nur lesen“ eingeschaltet.',
     werkzeugAktiv:
       'Der Anwender arbeitet gerade mit dem Werkzeug „{werkzeug}“ – bitte später erneut versuchen.',
     ohneProjekt: 'Ohne Projekt lässt sich kein Verteilerplan anlegen.',
     verteilerplanTitel: 'Verteilerplan angelegt',
     verteilerplanFrage: 'Der KI-Assistent hat „{name}“ im Projekt angelegt. Gleich öffnen?',
     oeffnen: 'Öffnen',
-    keineZeichnung: 'In el.easy.CAD ist gerade keine Zeichnung geöffnet – bitte eine öffnen.',
+    keineZeichnung: 'In el.esy.CAD ist gerade keine Zeichnung geöffnet – bitte eine öffnen.',
     keineZeichnungOffen:
       'Das offene Dokument „{name}“ ist keine Zeichnung – bitte eine Zeichnung öffnen.',
   },

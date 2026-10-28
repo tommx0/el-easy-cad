@@ -36,17 +36,17 @@ export const verwaltungsdialoge = {
     keineDatei: 'Zu dieser Anlage ist keine Datei hinterlegt.',
   },
   serverHinweis: {
-    titel: 'el.easy.CAD ist nicht verbunden',
+    titel: 'el.esy.CAD ist nicht verbunden',
     appText:
-      'el.easy.CAD startet dazu im Hintergrund einen eigenen Begleitserver. Er antwortet ' +
+      'el.esy.CAD startet dazu im Hintergrund einen eigenen Begleitserver. Er antwortet ' +
       'gerade nicht – entweder ist er noch nicht fertig gestartet, oder er wurde beendet.',
     appHilft: 'Das hilft in der Regel:',
     appWarten: 'Einen Moment warten und dann „Erneut versuchen“ klicken.',
     appNeuStarten:
-      'el.easy.CAD vollständig beenden (nicht nur das Fenster schließen) und neu starten – ' +
+      'el.esy.CAD vollständig beenden (nicht nur das Fenster schließen) und neu starten – ' +
       'dabei startet auch der Begleitserver neu.',
     appFirewallVor: 'Prüfen, ob ein Virenschutz- oder Firewall-Programm die Verbindung zu',
-    appFirewallNach: 'blockiert, und el.easy.CAD dort als Ausnahme zulassen.',
+    appFirewallNach: 'blockiert, und el.esy.CAD dort als Ausnahme zulassen.',
     datenVor: 'Deine Daten liegen unter',
     datenNach: 'und sind von diesem Hinweis nicht betroffen.',
     webText:
@@ -77,7 +77,7 @@ export const verwaltungsdialoge = {
   demoHinweis: {
     titel: 'Testversion',
     text:
-      'el.easy.CAD läuft als Testversion – mit dem vollen Funktionsumfang, damit Sie vor dem ' +
+      'el.esy.CAD läuft als Testversion – mit dem vollen Funktionsumfang, damit Sie vor dem ' +
       'Kauf alles ausprobieren können. Dafür tragen die Zeichenfläche und jeder Ausdruck, jedes ' +
       'PDF und jede Excel-Arbeitsmappe den Hinweis „Demoversion – keine kommerzielle Nutzung ' +
       'erlaubt“. Eine kommerzielle Nutzung ist nicht erlaubt.',
@@ -87,16 +87,16 @@ export const verwaltungsdialoge = {
     verstanden: 'Verstanden',
   },
   ueber: {
-    titel: 'Über el.easy.CAD Community',
+    titel: 'Über el.esy.CAD Community',
     beschreibung:
-      'el.easy.CAD – einfaches, funktional tiefes 2D-CAD für die Elektro-/Gebäudetechnikplanung.',
+      'el.esy.CAD – einfaches, funktional tiefes 2D-CAD für die Elektro-/Gebäudetechnikplanung.',
     version: 'Version {version}',
     lizenzen: 'Lizenzen',
   },
   datenschutz: {
     titel: 'Datenschutzerklärung',
     bestaetigenHinweis:
-      'Bevor Sie el.easy.CAD nutzen können, müssen Sie die folgende Datenschutzerklärung zur ' +
+      'Bevor Sie el.esy.CAD nutzen können, müssen Sie die folgende Datenschutzerklärung zur ' +
       'Kenntnis nehmen und bestätigen.',
     programmBeenden: 'Programm beenden',
     akzeptiert: 'Gelesen und akzeptiert',
@@ -104,7 +104,7 @@ export const verwaltungsdialoge = {
   eula: {
     titel: 'Endnutzer-Lizenzvereinbarung und Beta-Testvertrag',
     hinweis:
-      'Bevor Sie el.easy.CAD nutzen können, müssen Sie die folgende Vereinbarung zur Kenntnis ' +
+      'Bevor Sie el.esy.CAD nutzen können, müssen Sie die folgende Vereinbarung zur Kenntnis ' +
       'nehmen und bestätigen.',
     bestaetigen: 'Ich bestätige diese Bedingungen und Vereinbarungen',
   },
@@ -114,7 +114,7 @@ export const verwaltungsdialoge = {
     titelTestAbgelaufen: 'Testversion abgelaufen',
     titelAbgelaufen: 'Lizenz abgelaufen',
     titelUngueltig: 'Lizenzdatei ungültig',
-    titelOhne: 'el.easy.CAD braucht eine Lizenz',
+    titelOhne: 'el.esy.CAD braucht eine Lizenz',
     zuletztFuer: 'Zuletzt hinterlegt für',
     gueltigBis: ', gültig bis {datum}.',
     testAbgelaufen: 'Die 30-tägige Testversion ist abgelaufen.',
@@ -126,11 +126,11 @@ export const verwaltungsdialoge = {
   },
   zusatzmodulEinstellungen: {
     einleitung:
-      'Zum Entwickeln eines Moduls lädt el.easy.CAD es direkt aus einem Ordner dieses Rechners – ohne Paket und ohne Installieren.',
+      'Zum Entwickeln eines Moduls lädt el.esy.CAD es direkt aus einem Ordner dieses Rechners – ohne Paket und ohne Installieren.',
     entwicklermodus: 'Entwicklermodus',
     ordner: 'Ordner mit manifest.json und modul.js',
     gefunden:
-      'Gefunden: {name} {version}. Vor jedem Befehl lädt el.easy.CAD es neu, wenn sich eine Datei geändert hat.',
+      'Gefunden: {name} {version}. Vor jedem Befehl lädt el.esy.CAD es neu, wenn sich eine Datei geändert hat.',
     keinOrdner: 'Noch kein Ordner angegeben.',
     neuLaden: 'Jetzt neu laden',
     hinweis:
@@ -151,7 +151,7 @@ export const verwaltungsdialoge = {
     aktivHinweis: 'Aktive Module erscheinen im Menü „Module“.',
     entfernenHinweis: 'Wählen Sie das Modul, das entfernt werden soll.',
     installiertAm: 'installiert am {datum}',
-    ungetestet: 'nicht mit el.easy.CAD {app} getestet',
+    ungetestet: 'nicht mit el.esy.CAD {app} getestet',
     abgeschaltet: 'Beim Laden abgeschaltet: {fehler}',
     fehlerprotokoll: 'Fehlerprotokoll',
     entfernen: 'Entfernen',
@@ -161,11 +161,11 @@ export const verwaltungsdialoge = {
     hersteller: 'Hersteller (Angabe des Moduls): {hersteller}',
     befehle: 'Befehle: {liste}',
     warnungZugriff:
-      'Module haben vollen Zugriff auf el.easy.CAD und Ihre Projekte. Installieren Sie nur Module von Herstellern, denen Sie vertrauen.',
+      'Module haben vollen Zugriff auf el.esy.CAD und Ihre Projekte. Installieren Sie nur Module von Herstellern, denen Sie vertrauen.',
     ersetztAeltere: 'Ersetzt die installierte Version {version}.',
     gleicheVersion: 'Diese Version ist bereits installiert und wird neu eingespielt.',
     ersetztNeuere: 'Achtung: Älter als die installierte Version {version}.',
-    nichtGetestet: 'Getestet bis el.easy.CAD {bis}, installiert ist {app}.',
+    nichtGetestet: 'Getestet bis el.esy.CAD {bis}, installiert ist {app}.',
     installieren: 'Installieren',
     aelterInstallieren: 'Trotzdem installieren',
   },
@@ -218,18 +218,18 @@ export const verwaltungsdialoge = {
     titelEinspielen: 'Einstellungen einspielen',
     titelSichern: 'Einstellungen sichern',
     hinweisEinspielen:
-      'Aus „{datei}“ (el.easy.CAD {version}). Die angekreuzten Bereiche ersetzen deine aktuellen ' +
+      'Aus „{datei}“ (el.esy.CAD {version}). Die angekreuzten Bereiche ersetzen deine aktuellen ' +
       'Einstellungen; eigene Kabeltypen werden ergänzt.',
     hinweisSichern:
       'Die angekreuzten Bereiche kommen in eine Datei, die du in einer anderen ' +
-      'el.easy.CAD-Installation oder in der Cloud wieder einspielen kannst.',
+      'el.esy.CAD-Installation oder in der Cloud wieder einspielen kannst.',
     nichtInDatei: 'Nicht in dieser Datei',
     uebernehmen: 'Übernehmen',
     sichern: 'Sichern…',
     gesichert: 'Einstellungen gesichert.',
     einspielenFehlgeschlagen: 'Einspielen fehlgeschlagen.',
     sichernFehlgeschlagen: 'Sichern fehlgeschlagen.',
-    dateiBeschreibung: 'el.easy.CAD-Einstellungen',
+    dateiBeschreibung: 'el.esy.CAD-Einstellungen',
     dateinameTeil: 'Einstellungen',
     nichtGelesen: 'Datei konnte nicht gelesen werden.',
     firmenlogo: 'Firmenlogo',
@@ -311,7 +311,7 @@ export const verwaltungsdialoge = {
     einleitung:
       'Ein KI-Assistent wie Claude kann das offene Dokument lesen – Blätter, Komponenten, Räume, ' +
       'Listen, Verteilerbaum, Prüfung und Bildschirmfotos – und es ändern: Eigenschaften setzen, ' +
-      'löschen, verschieben, drehen, austauschen, Blätter anlegen. Er spricht el.easy.CAD über ' +
+      'löschen, verschieben, drehen, austauschen, Blätter anlegen. Er spricht el.esy.CAD über ' +
       'das Model Context Protocol (MCP) an, nur auf diesem Rechner. Das Sprachmodell bringen Sie ' +
       'über Ihr eigenes Claude-Konto mit.',
     datenweitergabe: 'Datenweitergabe:',
@@ -324,7 +324,7 @@ export const verwaltungsdialoge = {
     nurLesen: 'KI darf nur lesen',
     nurLesenHinweis:
       'Jede Änderung des Assistenten ist ein eigener Rückgängig-Schritt („KI: …“). Solange Sie ' +
-      'mit einem Zeichenwerkzeug arbeiten, lehnt el.easy.CAD seine Änderungen ab. Mit diesem ' +
+      'mit einem Zeichenwerkzeug arbeiten, lehnt el.esy.CAD seine Änderungen ab. Mit diesem ' +
       'Haken bleibt es beim Lesen.',
     verbunden: 'Dieses Fenster ist verbunden.',
     verbindet: 'Verbindung wird aufgebaut …',
@@ -478,7 +478,7 @@ export const verwaltungsdialoge = {
       verknuepfung: 'Nach dem Verlegen einer Leitung Gruppe und Wirkverbindung anbieten',
       verknuepfungHinweis:
         'Verbindet eine Leitung zwei Geräte, zwischen denen eine Wirkverbindung, ein Abgleich ' +
-        'zweier Schalter oder eine Gerätegruppe sinnvoll ist, fragt el.easy.CAD gleich danach. ' +
+        'zweier Schalter oder eine Gerätegruppe sinnvoll ist, fragt el.esy.CAD gleich danach. ' +
         'Per Rechtsklick an der Leitung geht es auch später.',
       uebertragen: 'Einstellungen übertragen',
       sichern: 'Einstellungen sichern…',
@@ -585,7 +585,7 @@ export const verwaltungsdialoge = {
   },
   handbuch: {
     titel: 'Bedienungsanleitung',
-    druckTitel: 'el.easy.CAD – Bedienungsanleitung',
+    druckTitel: 'el.esy.CAD – Bedienungsanleitung',
     version: 'Version {version}',
     suchen: 'Suchen (z. B. Trunk, PoE, Nullpunkt)…',
     themen: 'Themen',
@@ -594,7 +594,7 @@ export const verwaltungsdialoge = {
   },
   einfuehrung: {
     ersteSchritte: 'Erste Schritte',
-    titel: 'Erste Schritte mit el.easy.CAD',
+    titel: 'Erste Schritte mit el.esy.CAD',
     keineVideos:
       'Für diese Fassung sind noch keine Videos aufgenommen. Alles Beschriebene steht in der ' +
       'Bedienungsanleitung.',

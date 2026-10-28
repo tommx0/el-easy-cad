@@ -35,7 +35,7 @@ export const ki: Texte['ki'] = {
     dokumentUebersicht: {
       titel: 'Document overview',
       beschreibung:
-        'The document open in el.easy.CAD: project, drawing type (floor plan or schematic), ' +
+        'The document open in el.esy.CAD: project, drawing type (floor plan or schematic), ' +
         'sheets with id, storey, scale, origin and number of objects per type, plus the active ' +
         'sheet. Call this first – every other tool needs the sheet ids.',
     },
@@ -81,7 +81,7 @@ export const ki: Texte['ki'] = {
     listeLesen: {
       titel: 'Read list',
       beschreibung:
-        'One of the lists of el.easy.CAD as a table (columns, rows, total) – the same data as ' +
+        'One of the lists of el.esy.CAD as a table (columns, rows, total) – the same data as ' +
         'the plan insert and the Excel export. The cable list contains the cable lengths. The ' +
         'circuit schedule and the actuator channel list apply per distribution board. Values ' +
         'of art: stueckliste = bill of materials, leitungsliste = cable list, trunkliste = trunk ' +
@@ -371,8 +371,8 @@ export const ki: Texte['ki'] = {
   },
   protokoll: {
     anleitung:
-      'el.easy.CAD is a CAD tool for electrical and network planning. The tools work on the ' +
-      'document currently open in el.easy.CAD. Call dokument_uebersicht first. Lengths in ' +
+      'el.esy.CAD is a CAD tool for electrical and network planning. The tools work on the ' +
+      'document currently open in el.esy.CAD. Call dokument_uebersicht first. Lengths in ' +
       'metres, coordinates in metres from the origin of the sheet, y points upwards. Objects ' +
       'are addressed by their id from blatt_lesen. Each call of a modifying tool is one undo ' +
       'step; rueckgaengig only undoes your own steps. Before changing anything, check what is ' +
@@ -384,7 +384,7 @@ export const ki: Texte['ki'] = {
       'German and stay as they are.',
     ohneName: 'tools/call requires a name.',
     unbekanntesWerkzeug: 'Unknown tool: {name}',
-    nurLesen: '“AI may only read” is switched on in el.easy.CAD – this tool changes the drawing.',
+    nurLesen: '“AI may only read” is switched on in el.esy.CAD – this tool changes the drawing.',
     ungueltigeEingabe: 'Invalid input for {werkzeug} – {gruende}',
     eingabe: 'input',
     keinJsonRpc: 'Not a JSON-RPC 2.0 message.',
@@ -393,24 +393,24 @@ export const ki: Texte['ki'] = {
   },
   bruecke: {
     keineApp:
-      'el.easy.CAD is not open or the AI interface is not connected there yet. Please start ' +
-      'el.easy.CAD and open a document.',
-    getrennt: 'The connection to el.easy.CAD was interrupted during the call.',
-    zeitlimit: 'el.easy.CAD did not respond within {sekunden} s.',
+      'el.esy.CAD is not open or the AI interface is not connected there yet. Please start ' +
+      'el.esy.CAD and open a document.',
+    getrennt: 'The connection to el.esy.CAD was interrupted during the call.',
+    zeitlimit: 'el.esy.CAD did not respond within {sekunden} s.',
     kiAssistent: 'AI assistant',
   },
   routen: {
     fremderUrsprung: 'Access from this page is not allowed.',
-    ausgeschaltet: 'The AI interface is switched off in el.easy.CAD (Settings › AI assistant).',
+    ausgeschaltet: 'The AI interface is switched off in el.esy.CAD (Settings › AI assistant).',
     tokenFalsch:
-      'Access token missing or wrong. el.easy.CAD shows the current command under ' +
+      'Access token missing or wrong. el.esy.CAD shows the current command under ' +
       'Settings › AI assistant.',
     keinJson: 'Not valid JSON.',
   },
   stdio: {
     keinJson: 'Not valid JSON.',
-    laeuftNicht: 'el.easy.CAD is not running – please start the app.',
-    antwortStatus: 'el.easy.CAD responded with {status}.',
-    tokenFehlt: '{variable} is not set – el.easy.CAD will reject every call.',
+    laeuftNicht: 'el.esy.CAD is not running – please start the app.',
+    antwortStatus: 'el.esy.CAD responded with {status}.',
+    tokenFehlt: '{variable} is not set – el.esy.CAD will reject every call.',
   },
 }

@@ -82,7 +82,7 @@ entlang meist gewinnt. Ausgeschaltet verhält sich das Routing wie zuvor.
 Weitere Routing-Einstellungen sind der Sicherheitsabstand zu Komponenten sowie die Zuschläge
 für Richtungswechsel – wer weniger Ecken will, erhöht den Zuschlag.
 
-So verlegt el.easy.CAD Leitungen immer:
+So verlegt el.esy.CAD Leitungen immer:
 
 - **Nur rechtwinklig** – keine Schrägen, wie ein Elektriker verlegt.
 - **Parallel zu den Wänden**, auch wenn der Plan leicht schief abgezeichnet ist: Das Routing

@@ -32,7 +32,7 @@ Neue Fassungen der mitgelieferten Kataloge kommen mit jedem Programmupdate – o
 einzelne Katalogdatei (`.eeckat`), ohne das Programm neu zu installieren.
 
 1. {{befehl:datei.import-katalog}} wählen und die Katalogdatei öffnen.
-2. el.easy.CAD erkennt einen mitgelieferten Katalog und zeigt vorher, was sich ändert: wie viele
+2. el.esy.CAD erkennt einen mitgelieferten Katalog und zeigt vorher, was sich ändert: wie viele
    Komponenten neu, aktualisiert, unverändert oder ausgemustert sind. **Einspielen** übernimmt
    den neuen Stand. Ist der Katalog schon aktuell, passiert nichts.
 
@@ -75,7 +75,7 @@ enthaltenen Katalog und schlägt vor, was geschehen soll; Sie können es je Kata
 - **Gerätetypen & Regeln** – welche Gerätetypen es gibt, welche Slots sie haben, welche Ziele
   üblich sind und welche Ansteuerungen es gibt – werden übernommen, wenn die Datei eine neuere
   Fassung enthält. Diese Regeln pflegt der Hersteller; selbst ändern lassen sie sich in
-  el.easy.CAD nicht.
+  el.esy.CAD nicht.
 
 ## Eine Komponente anlegen {#komponente-anlegen}
 
@@ -136,7 +136,7 @@ Pflicht, alles andere tragen Sie ein, soweit es gebraucht wird.
     siehe [Varianten](#katalog-varianten).
 
 Modulträger wie die Gehäuse des Systems 106 legen Sie im Katalog-Studio an; im Katalogdialog von
-el.easy.CAD gibt es dafür kein Feld.
+el.esy.CAD gibt es dafür kein Feld.
 
 ## Dockpunkte und Beschriftung grafisch setzen {#dockpunkte-grafisch}
 

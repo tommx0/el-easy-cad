@@ -21,7 +21,7 @@ function musterPaket(art: MusterArt, sprache: Sprache): Uint8Array {
   const inhalt: PaketInhalt = {
     paketVersion: PAKET_VERSION,
     erzeugtAm: zeitpunkt,
-    anwendung: 'el.easy.CAD',
+    anwendung: 'el.esy.CAD',
     projekt: {
       id: projektId,
       kunde: daten.kunde,

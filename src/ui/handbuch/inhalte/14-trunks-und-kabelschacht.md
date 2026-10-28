@@ -36,7 +36,7 @@ Zeichnung, was neue Trunks bekommen: die [Ausführung](#trunk-ausfuehrung) samt 
 [Installationszone](#trunk-zone), mit dem Knopf **AP / UP** für dieselbe Zone mit der anderen
 Verlegeart. Die Wahl gilt für alle folgenden Trunks, bis Sie sie zurückstellen oder eine andere
 Zeichnung öffnen. Endet ein neuer Trunk auf einer Kette mit anderer Ausführung, fragt
-el.easy.CAD beim Verbinden, welche gelten soll.
+el.esy.CAD beim Verbinden, welche gelten soll.
 
 ## Leitungen in den Trunk legen {#leitung-in-trunk}
 
@@ -67,7 +67,7 @@ Trunks lassen sich zu **Ketten** verbinden. Eine Kette teilt sich Name, Farbe, S
 **Auf demselben Blatt** – mit der Maus:
 
 - Ziehen Sie ein Trunk-Ende mit dem Auswahlwerkzeug auf das **Ende** eines anderen Trunks (oder
-  beenden Sie einen neuen Trunk dort), fragt el.easy.CAD nach und **verschmilzt** beide zu einem
+  beenden Sie einen neuen Trunk dort), fragt el.esy.CAD nach und **verschmilzt** beide zu einem
   Trunk.
 - Landet das Ende **mitten auf** einem anderen Trunk, entsteht nach Rückfrage ein **Abzweig**.
 - „Abbrechen“ lässt das Ende einfach an der abgelegten Stelle liegen, ohne Verbindung.
@@ -76,7 +76,7 @@ Trunks lassen sich zu **Ketten** verbinden. Eine Kette teilt sich Name, Farbe, S
 Kontextmenü: Rechtsklick auf ein freies Trunk-Ende › **Mit anderem Trunk verbinden …**. Im Dialog
 wählen Sie **Zielseite**, **Ziel-Trunk** und dessen Ende (A oder B). Wählen Sie dort dasselbe
 Blatt, werden die beiden Trunks wie oben verschmolzen. Haben die beiden Ketten verschiedene
-Ausführungen, fragt el.easy.CAD, welche gelten soll.
+Ausführungen, fragt el.esy.CAD, welche gelten soll.
 
 Ein blattübergreifend verbundenes Ende trägt statt des einfachen Schilds einen blauen Verweis,
 etwa „Trunk1.1 B → OG / Trunk1.2“. Ein Klick darauf springt auf das andere Blatt zum
@@ -90,7 +90,7 @@ Ein Trunk ist zunächst ein loses **Bündel**. Im Eigenschaften-Panel legen Sie 
 **Kabeltrasse** oder in einem **Leerrohr** liegen, und geben die Abmessung in Zentimetern an –
 Breite und Höhe bei Kanal und Trasse, den Durchmesser beim Rohr. Die Angabe gilt für die ganze
 [Kette](#trunks-verbinden). Kommen beim Verbinden zwei Ketten mit verschiedener Ausführung
-zusammen, fragt el.easy.CAD, welche gelten soll; hat nur eine Seite eine Ausführung, gilt diese.
+zusammen, fragt el.esy.CAD, welche gelten soll; hat nur eine Seite eine Ausführung, gilt diese.
 Am Plan, an den Leitungslängen und der Stückliste ändert sie nichts; sie wird für den IFC-Export
 gebraucht.
 

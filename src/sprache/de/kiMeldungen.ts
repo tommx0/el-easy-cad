@@ -18,9 +18,9 @@ export const kiMeldungen = {
     },
   },
   ausfuehren: {
-    werkzeugUnbekannt: 'Diese Fassung von el.easy.CAD kennt das Werkzeug {werkzeug} nicht.',
+    werkzeugUnbekannt: 'Diese Fassung von el.esy.CAD kennt das Werkzeug {werkzeug} nicht.',
     eingabeUngueltig: 'Ungültige Eingabe für {werkzeug}.',
-    internerFehler: 'Interner Fehler in el.easy.CAD: {fehler}',
+    internerFehler: 'Interner Fehler in el.esy.CAD: {fehler}',
   },
   kontext: {
     blattUnbekannt: 'Unbekanntes Blatt "{blattId}". Vorhandene Blätter: {liste}.',
@@ -32,7 +32,7 @@ export const kiMeldungen = {
       other: 'Unbekannte Objekt-Ids: {liste}',
     },
     alleGesperrt: 'Alle genannten Objekte liegen auf gesperrten Ebenen.',
-    abgewiesen: 'el.easy.CAD hat die Änderung abgewiesen (Blattsperre).',
+    abgewiesen: 'el.esy.CAD hat die Änderung abgewiesen (Blattsperre).',
     nichtsZuAendern: 'Es gab nichts zu ändern.',
   },
   rueckgaengig: {

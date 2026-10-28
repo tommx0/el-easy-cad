@@ -1,6 +1,6 @@
 # Lizenzen und Nutzungsbedingungen
 
-## el.easy.CAD
+## el.esy.CAD
 
 © 2026 Thomas Marx
 
@@ -232,7 +232,7 @@ Moderne, bewusst einfach gehaltene permissive Lizenz (Nachfolgeprojekt von Isaac
 
 ### MPL-2.0  (1 Paket)
 
-Copyleft nur auf Dateiebene: Wer die Dateien der Bibliothek selbst ändert, muss diese Änderungen offenlegen; die eigene Anwendung bleibt unberührt. el.easy.CAD setzt web-ifc unverändert ein (JS und WASM aus dem npm-Paket), es entstehen also keine Offenlegungspflichten – nur Lizenzhinweis und Quellverweis.
+Copyleft nur auf Dateiebene: Wer die Dateien der Bibliothek selbst ändert, muss diese Änderungen offenlegen; die eigene Anwendung bleibt unberührt. el.esy.CAD setzt web-ifc unverändert ein (JS und WASM aus dem npm-Paket), es entstehen also keine Offenlegungspflichten – nur Lizenzhinweis und Quellverweis.
 
 - **web-ifc** 0.0.78 — https://github.com/ThatOpen/engine_web-ifc
 
@@ -748,7 +748,7 @@ Dreifach lizenziert (Bytecode Alliance/rustix) – wir nutzen die Crates unter M
 
 ### MPL-2.0  (5 Crates)
 
-Schwaches Copyleft auf Dateiebene wie bei web-ifc: Nur wer die Dateien dieser Crates selbst ändert, muss die Änderungen offenlegen. el.easy.CAD nutzt sie unverändert (CSS-Selektoren aus dem Servo-Projekt über Tauris HTML-Verarbeitung, `option-ext` über `dirs`). Bei Weitergabe als Binärdatei verlangt MPL-2.0 Abschnitt 3.2 nur den Hinweis, wo der Quellcode zu bekommen ist – das sind die unten verlinkten, unveränderten Quellen auf crates.io bzw. im Repository.
+Schwaches Copyleft auf Dateiebene wie bei web-ifc: Nur wer die Dateien dieser Crates selbst ändert, muss die Änderungen offenlegen. el.esy.CAD nutzt sie unverändert (CSS-Selektoren aus dem Servo-Projekt über Tauris HTML-Verarbeitung, `option-ext` über `dirs`). Bei Weitergabe als Binärdatei verlangt MPL-2.0 Abschnitt 3.2 nur den Hinweis, wo der Quellcode zu bekommen ist – das sind die unten verlinkten, unveränderten Quellen auf crates.io bzw. im Repository.
 
 - **cssparser** 0.36.0 — https://github.com/servo/rust-cssparser — Urheber laut Cargo.toml: Simon Sapin
 - **cssparser-macros** 0.6.1 — https://github.com/servo/rust-cssparser — Urheber laut Cargo.toml: Simon Sapin
@@ -861,7 +861,7 @@ Doppellizenziert, beide permissiv – wir nutzen das Crate unter MIT.
 
 ## Lizenz-Compliance
 
-Wenn Sie el.easy.CAD kommerziell weitergeben oder einsetzen:
+Wenn Sie el.esy.CAD kommerziell weitergeben oder einsetzen:
 
 - Bewahren Sie diese Datei auf.
 - Geben Sie die Copyright-Notizen der Abhängigkeiten mit an. Die Anwendung bringt sie selbst mit: `THIRD-PARTY-NOTICES.txt` (seit 2026-10-27, erzeugt von `node skripte/drittlizenzen-erzeugen.mjs`, angezeigt unter Hilfe › Lizenzen › „Vollständige Lizenztexte anzeigen“) enthält je npm-Paket die Lizenzdatei aus dem Paket samt Copyright-Vermerk, die Node.js-`LICENSE` und die Rust-Crates mit Vermerken und Volltexten. Nötig, weil der Minifier die Lizenzköpfe aus den Bundles entfernt und diese Datei hier nicht mit ausgeliefert wird. Nach jeder Änderung an den Abhängigkeiten das Skript erneut ausführen; `drittlizenzen.test.ts` meldet eine direkte Abhängigkeit, die in der Hinweisdatei fehlt.

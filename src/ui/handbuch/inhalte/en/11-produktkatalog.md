@@ -19,7 +19,7 @@ The catalogue supplies the components you place in the plan: name, article numbe
 New versions of the built-in catalogues come with every program update – or in advance as a single catalogue file (`.eeckat`), without reinstalling the program.
 
 1. Choose {{befehl:datei.import-katalog}} and open the catalogue file.
-2. el.easy.CAD recognises a built-in catalogue and shows beforehand what changes: how many components are new, updated, unchanged or retired. **Import** applies the new version. If the catalogue is already up to date, nothing happens.
+2. el.esy.CAD recognises a built-in catalogue and shows beforehand what changes: how many components are new, updated, unchanged or retired. **Import** applies the new version. If the catalogue is already up to date, nothing happens.
 
 In detail:
 
@@ -38,7 +38,7 @@ In detail:
 - **Built-in catalogues** are updated if the file contains newer content – as described above. If the catalogue is already up to date, it is set to “Skip”.
 - **Custom catalogues** that do not exist here yet are imported. If one with the same ID already exists, it is initially set to “Skip” – choose “Replace existing” or “Create as copy”.
 - **Custom components** are only added as an additional catalogue, so that they do not merge with the catalogue here that collects your own components.
-- **Device types & rules** – which device types exist, which slots they have, which targets are usual and which control types there are – are adopted if the file contains a newer version. The manufacturer maintains these rules; they cannot be changed in el.easy.CAD itself.
+- **Device types & rules** – which device types exist, which slots they have, which targets are usual and which control types there are – are adopted if the file contains a newer version. The manufacturer maintains these rules; they cannot be changed in el.esy.CAD itself.
 
 ## Create a component {#komponente-anlegen}
 
@@ -60,7 +60,7 @@ In detail:
 11. Under **Symbol and terminals** set the size, mounting location and connection points; see [Set connection points and labels graphically](#dockpunkte-grafisch).
 12. **Technical data** as free lines “Key: Value” and – if needed – **variants**; see [Variants](#katalog-varianten).
 
-Modular carriers such as the System 106 housings are created in the Catalogue Studio; the catalogue dialog of el.easy.CAD has no field for them.
+Modular carriers such as the System 106 housings are created in the Catalogue Studio; the catalogue dialog of el.esy.CAD has no field for them.
 
 ## Set connection points and labels graphically {#dockpunkte-grafisch}
 

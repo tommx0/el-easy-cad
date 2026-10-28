@@ -3,13 +3,13 @@
 ## Programmfassung und Lizenz {#lizenz}
 
 {{befehl:hilfe.ueber}} zeigt die Fassung, die gerade läuft – dieselbe Nummer steht oben in der
-Kopfzeile und im Kopf dieser Anleitung – und die Lizenz, unter der el.easy.CAD Community steht.
+Kopfzeile und im Kopf dieser Anleitung – und die Lizenz, unter der el.esy.CAD Community steht.
 „Lizenztext…“ dort und in {{befehl:hilfe.meine-lizenz}} zeigt den vollständigen, verbindlichen
 englischen Lizenztext. Er liegt dem Programm außerdem als Datei `LICENSE` bei, die Lizenzen der
 Fremdbibliotheken als `LICENSES.md`.
 
 :::nur-desktop
-**Nicht kommerzielle Nutzung:** el.easy.CAD Community ist für jede nicht kommerzielle Nutzung
+**Nicht kommerzielle Nutzung:** el.esy.CAD Community ist für jede nicht kommerzielle Nutzung
 kostenlos – mit vollem Funktionsumfang und ohne Zeitbegrenzung. Grundlage ist die Lizenz
 PolyForm Noncommercial 1.0.0. Oben in der Kopfzeile steht dann „Nicht kommerzielle Nutzung“, und
 jeder Ausdruck, jedes PDF, jede Excel-Arbeitsmappe und jeder IFC-Export trägt einen Hinweis darauf:
@@ -31,7 +31,7 @@ Sie nicht. Läuft der Vertragszeitraum ab, weist ein Hinweis rechtzeitig darauf 
 
 {{befehl:hilfe.lizenzen}} listet die verwendeten Fremdbibliotheken mit ihren Lizenzen. Über
 „Vollständige Lizenztexte anzeigen“ blenden Sie darunter die Copyright-Vermerke und
-Lizenztexte aller Fremdsoftware ein, die el.easy.CAD Community enthält.
+Lizenztexte aller Fremdsoftware ein, die el.esy.CAD Community enthält.
 
 :::nur-cloud
 ## Neue Fassungen {#updates}

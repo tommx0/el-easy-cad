@@ -149,7 +149,7 @@ Größe, die der Plan damit hat – passt sie nicht zum Gebäude, haben Sie sich
 Zehnerstelle vertippt. Die Zeichenfläche zieht mit, damit der Plan im Druckbereich bleibt.
 
 **Normmaßstab einer PDF:** Eine PDF kennt ihr Papiermaß. Ist der Plan in einem üblichen Maßstab
-gezeichnet (1:1 bis 1:1000, auch 1:25 und 1:250), erkennt el.easy.CAD das beim Kalibrieren –
+gezeichnet (1:1 bis 1:1000, auch 1:25 und 1:250), erkennt el.esy.CAD das beim Kalibrieren –
 auch wenn Ihr Klick ein, zwei Millimeter danebenliegt. Die Kalibrierung gilt dann genau in
 diesem Maßstab, und die Statuszeile meldet etwa „Plan im Maßstab 1:50 erkannt“. Die
 Zeichenfläche behält den Maßstab, solange der Planinhalt darin auf das gewählte Papier passt.
@@ -240,7 +240,7 @@ Gilt für {{befehl:blatt.ifc-bauteile}} und {{befehl:blatt.hintergrund-umwandeln
 
 ## Blätter aus einer neueren Version {#hintergrund-neuere-version}
 
-Öffnen Sie eine Zeichnung, die mit einer neueren Version von el.easy.CAD bearbeitet wurde, kann
+Öffnen Sie eine Zeichnung, die mit einer neueren Version von el.esy.CAD bearbeitet wurde, kann
 ein Blatt einen Hintergrund enthalten, den diese Version noch nicht kennt. Die Zeichnung lädt
 trotzdem; über dem betroffenen Blatt steht ein Hinweis, und der Plan selbst bleibt unsichtbar.
 

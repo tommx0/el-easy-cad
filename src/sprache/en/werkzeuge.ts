@@ -397,7 +397,7 @@ export const werkzeuge: Texte['werkzeuge'] = {
     wasZiel:
       'for the target in the bundle (switch, patch panel, distribution board or cable riser)',
     zeichnen:
-      'Click further points (straight segments). A target connection point, a trunk path or a cable riser finishes - el.easy.CAD routes there automatically from the last point set{tasteStrg}. Double-click{tasteEnter} ends with a free end, right-click{tasteEntf} removes the last point, Esc cancels.',
+      'Click further points (straight segments). A target connection point, a trunk path or a cable riser finishes - el.esy.CAD routes there automatically from the last point set{tasteStrg}. Double-click{tasteEnter} ends with a free end, right-click{tasteEntf} removes the last point, Esc cancels.',
     nochKeinPunkt:
       'No point set yet - click another point first, then double-click or Enter ends the cable with a free end.',
     zeichnenLabel: 'Draw cable',
@@ -463,7 +463,7 @@ export const werkzeuge: Texte['werkzeuge'] = {
     anschlussNicht: 'Connection not possible.',
     anfang: 'Click the start point of the trunk (or a “T” connection point on a switch).',
     weiter:
-      'Click further points, double-click{tasteEnter} to finish (at least start + end), right-click{tasteEntf} removes the last point, Esc cancels. A start or end dropped on another trunk connects both after confirmation: at its end they merge, in the middle of its path a branch is created. Dropped on a cable riser, el.easy.CAD asks for the riser line that leads to the next storey.',
+      'Click further points, double-click{tasteEnter} to finish (at least start + end), right-click{tasteEntf} removes the last point, Esc cancels. A start or end dropped on another trunk connects both after confirmation: at its end they merge, in the middle of its path a branch is created. Dropped on a cable riser, el.esy.CAD asks for the riser line that leads to the next storey.',
     zeichnen: 'Draw trunk',
   },
   trunkAblage: {

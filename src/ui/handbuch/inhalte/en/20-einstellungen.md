@@ -63,10 +63,10 @@ a new computer, you switch the interface on again.
 An AI assistant such as **Claude** can read the open drawing and answer questions about it:
 “Which cables have a free end?”, “How many socket outlets are on the upper floor?”, “Show me the
 distribution tree of +UV1” or “Are any terminal numbers assigned twice?”. It connects to
-el.easy.CAD via the Model Context Protocol (MCP) – only on this computer. You bring the language
-model with your own Claude account; el.easy.CAD itself sends nothing to the internet.
+el.esy.CAD via the Model Context Protocol (MCP) – only on this computer. You bring the language
+model with your own Claude account; el.esy.CAD itself sends nothing to the internet.
 
-The assistant receives the descriptions of its tools and the messages from el.easy.CAD in the
+The assistant receives the descriptions of its tools and the messages from el.esy.CAD in the
 language of the user interface (German or English). What it writes into the drawing, for example
 the name of a new room, is created in the drawing language. The names of the tools stay German in
 every language, so that a connection, once set up, keeps working. After a change of language, the
@@ -88,7 +88,7 @@ combination as with wall snap –, routes cables with auto-routing (between comp
 to a free point, along a cable riser strand, through trunks to a free switch port or distribution
 board, optionally connected to F/X/K), then creates a control assignment or device group if you
 wish, re-routes cables, creates and connects trunks, and places walls, rooms, doors and windows.
-Reference designations, terminal numbers and cable numbers are assigned by el.easy.CAD just as they
+Reference designations, terminal numbers and cable numbers are assigned by el.esy.CAD just as they
 are by hand.
 
 On a **schematic** it places components in a grid square (“C3”) or at a point – the snap point
@@ -103,7 +103,7 @@ At a **distribution board** on a floor plan, it proposes the board layout from t
 distribution tree in the same way as the distribution board dialog (creating and moving equipment
 and circuits, renaming, changing phase, type and label, removing), assigns KNX actuators, renumbers
 a terminal strip and generates the distribution board diagram. The diagram is created as a new
-document in the project; el.easy.CAD asks whether you want to open it straight away – the assistant
+document in the project; el.esy.CAD asks whether you want to open it straight away – the assistant
 never switches the document itself, and it does not overwrite an existing diagram. If a
 distribution board diagram is already linked, the same limits apply as in the dialog.
 
@@ -117,7 +117,7 @@ The following applies:
   reverts it like any other. Only a newly generated distribution board diagram is a separate
   document and remains. If you ask the assistant itself to “undo”, it reverts only its own steps
   and stops at your first step of your own.
-- While you are working with a drawing tool (anything except the selection tool), el.easy.CAD
+- While you are working with a drawing tool (anything except the selection tool), el.esy.CAD
   rejects its changes – your work is never interrupted. Reading continues.
 - Each change briefly appears as a message and in the **AI log** on the AI assistant tab, with the
   time. The view does not jump; the log is empty after a reload.
@@ -148,11 +148,11 @@ Like any program output, the assistant's answers should be checked before you re
 
 ## Add-ons {#zusatzmodule}
 
-Add-ons are separate pieces of software that fit into el.easy.CAD – for example an add-on that
+Add-ons are separate pieces of software that fit into el.esy.CAD – for example an add-on that
 places socket outlets in every room. An add-on comes as a file with the extension **.eecmod** and
 is managed from the **Add-ons** menu:
 
-- {{befehl:module.hinzufuegen}} chooses an `.eecmod`. el.easy.CAD checks the file and, before
+- {{befehl:module.hinzufuegen}} chooses an `.eecmod`. el.esy.CAD checks the file and, before
   installing, shows the add-on's name, version, manufacturer and commands. If the add-on is
   already installed, it says which version will be replaced; an older version is only installed
   after you confirm it explicitly.
@@ -169,7 +169,7 @@ they appear there in the “Add-ons” group with the add-on's icon or a puzzle 
 removed or switched off, they disappear, and when it is installed again, position and shortcut
 come back.
 
-An add-on can ask you things: with a **form** in the style of el.easy.CAD (often pre-filled with
+An add-on can ask you things: with a **form** in the style of el.esy.CAD (often pre-filled with
 the values chosen last), with a yes/no question or **in the plan** – then a hint appears in the
 status bar (“Click the distribution board”, “Drag a rectangle”), and you click points or objects or
 drag a rectangle. With several objects, Enter finishes the choice. Esc only ends that question;
@@ -185,13 +185,13 @@ progress in percent; the drawing area and the keyboard wait until it has finishe
 
 Everything an add-on command changes in the drawing is **one undo step** named after the add-on –
 {{kuerzel:bearbeiten.rueckgaengig}} undoes it. If a command stops with an error or you cancel it,
-el.easy.CAD undoes its changes by itself; an error is recorded in the error log. If an add-on
-cannot be loaded at all – for example because it was built for a different version of el.easy.CAD
-–, el.easy.CAD switches it off; the list gives the reason. An add-on that was not tested with your
+el.esy.CAD undoes its changes by itself; an error is recorded in the error log. If an add-on
+cannot be loaded at all – for example because it was built for a different version of el.esy.CAD
+–, el.esy.CAD switches it off; the list gives the reason. An add-on that was not tested with your
 version is marked with ⚠ there but keeps running.
 
 An add-on can store data of its own on objects. It stays in the drawing, goes along with copies and
-does no harm if the add-on is missing. el.easy.CAD keeps the add-on's settings (such as the form
+does no harm if the add-on is missing. el.esy.CAD keeps the add-on's settings (such as the form
 values chosen last) on this computer; when removing an add-on, the dialog asks whether to delete
 them too.
 
@@ -204,10 +204,10 @@ others.
 
 **Developing add-ons:** In the **Add-ons** tab of the settings, **developer mode** loads an add-on
 directly from a folder on this computer – the folder with `manifest.json` and `modul.js`. It then
-appears with the **Development** label in the list and the menu, and el.easy.CAD reloads it before
+appears with the **Development** label in the list and the menu, and el.esy.CAD reloads it before
 every command if a file has changed; **Reload now** forces this immediately. If it has the same
 identifier as an installed add-on, it replaces that one while the mode is on.
 
-**Trust:** Add-ons have full access to el.easy.CAD and your projects. They are not signed –
-el.easy.CAD cannot check who built an add-on. Only install add-ons from manufacturers you trust.
+**Trust:** Add-ons have full access to el.esy.CAD and your projects. They are not signed –
+el.esy.CAD cannot check who built an add-on. Only install add-ons from manufacturers you trust.
 Like any program output, what an add-on creates should be checked.

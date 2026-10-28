@@ -12,7 +12,7 @@ export const community = {
   start: {
     titel: 'Nicht kommerzielle Nutzung',
     kostenlos:
-      'el.easy.CAD Community ist für die nicht kommerzielle Nutzung kostenlos – mit vollem ' +
+      'el.esy.CAD Community ist für die nicht kommerzielle Nutzung kostenlos – mit vollem ' +
       'Funktionsumfang und ohne Zeitbegrenzung. Ausdrucke, PDFs und Exporte tragen dafür den ' +
       'Hinweis „Nicht kommerzielle Nutzung“.',
     gewerblich: 'Eine gewerbliche oder berufliche Nutzung erlaubt die Lizenz nicht.',
@@ -40,12 +40,12 @@ export const community = {
     knopf: 'Lizenztext…',
     titel: 'Lizenz der Community-Fassung',
     hinweis:
-      'el.easy.CAD Community steht unter der PolyForm Noncommercial License 1.0.0. Verbindlich ' +
+      'el.esy.CAD Community steht unter der PolyForm Noncommercial License 1.0.0. Verbindlich ' +
       'ist der folgende englische Lizenztext.',
   },
   update: {
     frageTitel: 'Nach Updates suchen',
-    frage: 'Soll el.easy.CAD Community auf GitHub nachsehen, ob eine neuere Fassung bereitsteht?',
+    frage: 'Soll el.esy.CAD Community auf GitHub nachsehen, ob eine neuere Fassung bereitsteht?',
     hinweisGithub:
       'Dafür sendet das Programm eine Anfrage an GitHub (api.github.com). GitHub erfährt dabei ' +
       'Ihre IP-Adresse und den Zeitpunkt der Anfrage; Projekte und Einstellungen werden nicht ' +

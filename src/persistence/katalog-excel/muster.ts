@@ -12,7 +12,7 @@ import {
   VARIANTEN_KOPF_AUSFUEHRUNG_EN,
 } from './lesen'
 
-export const MUSTER_ZIP_NAME = 'el.easy.CAD-Katalogimport-Muster.zip'
+export const MUSTER_ZIP_NAME = 'el.esy.CAD-Katalogimport-Muster.zip'
 const MUSTER_EXCEL_NAME = 'Katalogimport-Muster.xlsx'
 const BILDER_ORDNER = 'Bilder'
 
@@ -149,14 +149,14 @@ const ENGLISCHE_SPALTEN = Object.values(KOMPONENTEN_KOEPFE_EN)
   .join(', ')
 
 const anleitungZeilen = (): string[] => [
-  'Katalog-Massenimport für el.easy.CAD',
+  'Katalog-Massenimport für el.esy.CAD',
   '',
   'So geht es',
   '1. Im Blatt „Komponenten“ je Zeile eine Komponente eintragen. Pflicht ist nur „Name“.',
   '2. Bild und Symbol: Dateiname der Grafik eintragen – oder in die Zelle klicken, Strg+K (Mac: ⌘K) drücken und die Datei mit der Maus auswählen (Link einfügen).',
   '   Mindestens Bild oder Symbol ist Pflicht. Erlaubt sind PNG, JPG, SVG, WebP und GIF.',
   '3. Alle Grafiken in einen Ordner legen (in dieser Vorlage: „Bilder“).',
-  '4. In el.easy.CAD im Katalogdialog den eigenen Katalog wählen, „Aus Excel importieren…“, dann diese Datei und den Bilderordner auswählen.',
+  '4. In el.esy.CAD im Katalogdialog den eigenen Katalog wählen, „Aus Excel importieren…“, dann diese Datei und den Bilderordner auswählen.',
   '5. Die Vorschau zeigt je Zeile „neu“, „aktualisiert“ oder den Fehler. Fehlende Grafiken lassen sich dort auch direkt per Maus zuordnen.',
   '',
   'Aktualisieren',
@@ -210,7 +210,7 @@ function fuelleTabelle(
 export async function erzeugeMusterExcel(): Promise<Uint8Array> {
   const ExcelJS = await ladeExcelJs()
   const mappe = new ExcelJS.Workbook()
-  mappe.creator = 'el.easy.CAD'
+  mappe.creator = 'el.esy.CAD'
 
   const komponenten = mappe.addWorksheet(BLATT_KOMPONENTEN)
   fuelleTabelle(

@@ -63,10 +63,10 @@ Einstellungen – auf einem neuen Rechner schalten Sie die Schnittstelle neu ein
 Ein KI-Assistent wie **Claude** kann die offene Zeichnung lesen und Fragen dazu beantworten:
 „Welche Leitungen haben ein freies Ende?“, „Wie viele Steckdosen stehen im Obergeschoss?“, „Zeig
 mir den Verteilerbaum von +UV1“ oder „Sind Klemmennummern doppelt vergeben?“. Er spricht
-el.easy.CAD über das Model Context Protocol (MCP) an – nur auf diesem Rechner. Das Sprachmodell
-bringen Sie über Ihr eigenes Claude-Konto mit; el.easy.CAD selbst sendet nichts ins Internet.
+el.esy.CAD über das Model Context Protocol (MCP) an – nur auf diesem Rechner. Das Sprachmodell
+bringen Sie über Ihr eigenes Claude-Konto mit; el.esy.CAD selbst sendet nichts ins Internet.
 
-Er bekommt die Beschreibung seiner Werkzeuge und die Meldungen von el.easy.CAD in der Sprache der
+Er bekommt die Beschreibung seiner Werkzeuge und die Meldungen von el.esy.CAD in der Sprache der
 Oberfläche (Deutsch oder English); was er in die Zeichnung schreibt, etwa den Namen eines neuen
 Raums, entsteht in der Plansprache. Die Namen der Werkzeuge bleiben in jeder Sprache deutsch, damit
 eine einmal eingerichtete Verbindung weiter funktioniert. Nach einem Sprachwechsel sieht der
@@ -88,7 +88,7 @@ Kombination einordnen –, Leitungen per Autorouting verlegen (zwischen Komponen
 Punkt, einem Kabelschacht-Strang, durch Trunks bis zu einem freien Switch-Port oder Verteiler,
 auf Wunsch mit Anschluss auf F/X/K), danach auf Wunsch Wirkverbindung oder Gerätegruppe anlegen,
 Leitungen neu verlegen, Trunks anlegen und verbinden, Wände, Räume, Türen und Fenster.
-Kennzeichen, Klemmen- und Leitungsnummern vergibt el.easy.CAD dabei genauso wie von Hand.
+Kennzeichen, Klemmen- und Leitungsnummern vergibt el.esy.CAD dabei genauso wie von Hand.
 
 Im **Schaltplan** setzt er Bauteile in ein Feld des Netzes („C3“) oder an einen Punkt – der
 Fangpunkt rastet dabei immer auf das Raster, damit die Kontakte fluchten –, setzt Potentiale und
@@ -102,7 +102,7 @@ Am **Verteiler** im Bauplan schlägt er die Bestückung aus den Räumen vor, bea
 Verteilerbaum wie der Verteiler-Dialog (Betriebsmittel und Stromkreise anlegen, umhängen,
 umbenennen, Phase, Typ und Beschriftung ändern, entfernen), ordnet KNX-Aktoren zu, nummeriert eine
 Klemmenleiste neu und erzeugt den Verteilerplan. Der Plan entsteht als neues Dokument im Projekt;
-el.easy.CAD fragt Sie, ob Sie ihn gleich öffnen möchten – der Assistent wechselt das Dokument nie
+el.esy.CAD fragt Sie, ob Sie ihn gleich öffnen möchten – der Assistent wechselt das Dokument nie
 selbst, und einen vorhandenen Plan überschreibt er nicht. Ist schon ein Verteilerplan verknüpft,
 gelten dieselben Grenzen wie im Dialog.
 
@@ -116,7 +116,7 @@ Dabei gilt:
   nimmt sie zurück wie jede andere. Nur ein neu erzeugter Verteilerplan ist ein eigenes Dokument
   und bleibt. Bittet man den Assistenten selbst um „Rückgängig“, nimmt er
   nur seine eigenen Schritte zurück und hält bei Ihrem ersten eigenen Schritt an.
-- Solange Sie mit einem Zeichenwerkzeug arbeiten (alles außer der Auswahl), lehnt el.easy.CAD
+- Solange Sie mit einem Zeichenwerkzeug arbeiten (alles außer der Auswahl), lehnt el.esy.CAD
   seine Änderungen ab – Ihre Arbeit wird nie unterbrochen. Lesen geht weiter.
 - Jede Änderung erscheint kurz als Meldung und im **KI-Protokoll** im Reiter KI-Assistent, mit
   Uhrzeit. Die Ansicht springt dabei nicht; das Protokoll ist nach einem Neuladen leer.
@@ -143,7 +143,7 @@ mit dem Fenster, in dem Sie zuletzt gearbeitet haben.
 **Kontrolle behalten:** Ab Werk ist die Schnittstelle aus. Eingeschaltet nimmt sie nur Anfragen
 mit dem **Zugangstoken** an, das im Befehl steht – andere Programme auf dem Rechner kommen ohne
 ihn nicht heran. **Neues Token erzeugen** sperrt alle bisher eingerichteten Assistenten aus. Der
-Haken **KI darf nur lesen** verbietet ihm jede Änderung. Blätter, die ohne das Modul BIM nur zur Ansicht freigegeben sind, gibt el.easy.CAD
+Haken **KI darf nur lesen** verbietet ihm jede Änderung. Blätter, die ohne das Modul BIM nur zur Ansicht freigegeben sind, gibt el.esy.CAD
 auch dem Assistenten nicht als Bild heraus.
 
 Die Antworten des Assistenten sind wie jede Programmausgabe zu prüfen, bevor Sie sich darauf
@@ -151,13 +151,13 @@ verlassen.
 
 ## Zusatzmodule {#zusatzmodule}
 
-Zusatzmodule sind eigenständige Programmteile, die sich in el.easy.CAD einfügen – etwa ein Modul,
+Zusatzmodule sind eigenständige Programmteile, die sich in el.esy.CAD einfügen – etwa ein Modul,
 das in allen Räumen Steckdosen setzt. Ein Modul kommt als Datei mit der Endung **.eecmod** und
 wird über das Menü **Module** verwaltet:
 
-- {{befehl:module.hinzufuegen}} wählt eine `.eecmod`. el.easy.CAD prüft die Datei und zeigt vor
+- {{befehl:module.hinzufuegen}} wählt eine `.eecmod`. el.esy.CAD prüft die Datei und zeigt vor
   dem Installieren Name, Version, Hersteller und die Befehle des Moduls. Ist das Modul schon
-  installiert, steht dort, welche Version es ersetzt; eine ältere Version spielt el.easy.CAD nur
+  installiert, steht dort, welche Version es ersetzt; eine ältere Version spielt el.esy.CAD nur
   nach ausdrücklicher Bestätigung ein.
 - {{befehl:module.anzeigen}} listet alle installierten Module. Der Haken **aktiv** schaltet ein
   Modul ab, ohne es zu entfernen – es verschwindet dann nur aus dem Menü.
@@ -172,7 +172,7 @@ belegen; sie stehen dort in der Gruppe „Module“ mit dem Icon des Moduls oder
 Ist das Modul entfernt oder abgeschaltet, verschwinden sie, und beim erneuten Installieren sind
 Platz und Kürzel wieder da.
 
-Ein Modul kann nachfragen: mit einem **Formular** im Stil von el.easy.CAD (oft mit den zuletzt
+Ein Modul kann nachfragen: mit einem **Formular** im Stil von el.esy.CAD (oft mit den zuletzt
 gewählten Werten vorbelegt), mit einer Ja/Nein-Frage oder **im Plan** – dann steht ein Hinweis in
 der Statuszeile („Verteiler anklicken“, „Rechteck aufziehen“), und Sie klicken Punkte oder Objekte
 an oder ziehen ein Rechteck auf. Bei mehreren Objekten beendet Enter die Wahl. Esc beendet nur
@@ -189,15 +189,15 @@ Kennzeichen bricht den Befehl ab.
 
 Alles, was ein Modulbefehl an der Zeichnung ändert, ist **ein Rückgängig-Schritt** mit dem Namen
 des Moduls – {{kuerzel:bearbeiten.rueckgaengig}} nimmt ihn zurück. Bricht ein Befehl mit einem
-Fehler ab oder brechen Sie ihn ab, nimmt el.easy.CAD seine Änderungen von selbst zurück; einen
+Fehler ab oder brechen Sie ihn ab, nimmt el.esy.CAD seine Änderungen von selbst zurück; einen
 Fehler vermerkt es im Fehlerprotokoll. Lässt sich ein Modul gar nicht laden – etwa weil es für eine
-andere Version von el.easy.CAD gebaut wurde –, schaltet el.easy.CAD es ab; die Liste nennt den
+andere Version von el.esy.CAD gebaut wurde –, schaltet el.esy.CAD es ab; die Liste nennt den
 Grund. Ein Modul, das nicht mit Ihrer Version getestet wurde, ist dort mit ⚠ gekennzeichnet, läuft
 aber weiter.
 
 Ein Modul kann eigene Angaben an Objekten ablegen. Sie bleiben in der Zeichnung, gehen mit Kopien
 mit und stören nicht, wenn das Modul fehlt. Seine Einstellungen (etwa die zuletzt gewählten
-Formularwerte) merkt sich el.easy.CAD auf diesem Rechner; beim Entfernen fragt der Dialog, ob sie
+Formularwerte) merkt sich el.esy.CAD auf diesem Rechner; beim Entfernen fragt der Dialog, ob sie
 mit gelöscht werden sollen.
 
 **Mit dem KI-Assistenten:** Sieht ein Modul es vor, kann auch Claude seine Befehle aufrufen
@@ -209,11 +209,11 @@ wie alle anderen.
 
 **Module entwickeln:** Im Reiter **Module** der Einstellungen schaltet der **Entwicklermodus** ein
 Modul direkt aus einem Ordner dieses Rechners ein – dem Ordner mit `manifest.json` und `modul.js`.
-Es steht dann mit dem Kennzeichen **Entwicklung** in der Liste und im Menü, und el.easy.CAD lädt es
+Es steht dann mit dem Kennzeichen **Entwicklung** in der Liste und im Menü, und el.esy.CAD lädt es
 vor jedem Befehl neu, wenn sich eine Datei geändert hat; **Jetzt neu laden** erzwingt das sofort.
 Hat es dieselbe Kennung wie ein installiertes Modul, ersetzt es dieses, solange der Modus an ist.
 
-**Vertrauen:** Module haben vollen Zugriff auf el.easy.CAD und Ihre Projekte. Sie sind nicht
-signiert – el.easy.CAD kann nicht prüfen, wer ein Modul gebaut hat. Installieren Sie nur Module
+**Vertrauen:** Module haben vollen Zugriff auf el.esy.CAD und Ihre Projekte. Sie sind nicht
+signiert – el.esy.CAD kann nicht prüfen, wer ein Modul gebaut hat. Installieren Sie nur Module
 von Herstellern, denen Sie vertrauen. Was ein Modul erzeugt, ist wie jede Programmausgabe zu
 prüfen.

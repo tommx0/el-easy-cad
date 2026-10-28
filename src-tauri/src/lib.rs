@@ -60,20 +60,20 @@ fn entscheide_start(befund: &PortBefund, eigene_version: &str) -> StartEntscheid
     match befund {
         PortBefund::Frei => StartEntscheidung::SidecarStarten,
         PortBefund::FremdesProgramm => StartEntscheidung::Abbrechen(format!(
-            "Port {PORT} wird von einem anderen Programm belegt. el.easy.CAD braucht diesen Port \
+            "Port {PORT} wird von einem anderen Programm belegt. el.esy.CAD braucht diesen Port \
              für seinen Begleitserver.\n\nBitte beenden Sie das andere Programm oder starten \
              Sie den Rechner neu."
         )),
         PortBefund::ElEasyCad {
             oberflaeche: false, ..
         } => StartEntscheidung::Abbrechen(format!(
-            "Auf diesem Rechner läuft bereits ein el.easy.CAD-Entwicklungsserver (pnpm dev) auf \
-             Port {PORT}.\n\nBitte beenden Sie ihn und starten Sie el.easy.CAD erneut."
+            "Auf diesem Rechner läuft bereits ein el.esy.CAD-Entwicklungsserver (pnpm dev) auf \
+             Port {PORT}.\n\nBitte beenden Sie ihn und starten Sie el.esy.CAD erneut."
         )),
         PortBefund::ElEasyCad { version, .. } if version != eigene_version => {
             StartEntscheidung::Abbrechen(format!(
-                "el.easy.CAD {version} läuft bereits auf diesem Rechner.\n\nBitte schließen Sie \
-                 diese Version und starten Sie el.easy.CAD {eigene_version} erneut."
+                "el.esy.CAD {version} läuft bereits auf diesem Rechner.\n\nBitte schließen Sie \
+                 diese Version und starten Sie el.esy.CAD {eigene_version} erneut."
             ))
         }
         PortBefund::ElEasyCad { .. } => StartEntscheidung::Andocken,
@@ -82,7 +82,7 @@ fn entscheide_start(befund: &PortBefund, eigene_version: &str) -> StartEntscheid
 
 fn status_auswerten(text: &str) -> Option<(String, Option<bool>)> {
     let wert: serde_json::Value = serde_json::from_str(text).ok()?;
-    if wert.get("name")?.as_str()? != "el.easy.CAD" {
+    if wert.get("name")?.as_str()? != "el.esy.CAD" {
         return None;
     }
     let version = wert.get("version")?.as_str()?.to_string();
@@ -157,7 +157,7 @@ fn zeige_fehler_und_beende(app: &AppHandle, text: &str) {
     schliesse_splashfenster(app);
     app.dialog()
         .message(text)
-        .title("el.easy.CAD - Fehler beim Start")
+        .title("el.esy.CAD - Fehler beim Start")
         .kind(MessageDialogKind::Error)
         .blocking_show();
     app.exit(1);
@@ -169,7 +169,7 @@ fn oeffne_splashfenster(app: &AppHandle) -> tauri::Result<()> {
         SPLASH_LABEL,
         WebviewUrl::App("splashscreen.html".into()),
     )
-    .title("el.easy.CAD Community wird gestartet …")
+    .title("el.esy.CAD Community wird gestartet …")
     .inner_size(360.0, 280.0)
     .resizable(false)
     .decorations(false)
@@ -191,7 +191,7 @@ fn oeffne_hauptfenster(app: &AppHandle) -> tauri::Result<()> {
         "haupt",
         WebviewUrl::External(haupt_url().parse().expect("feste URL ist immer gueltig")),
     )
-    .title("el.easy.CAD Community – © 2026 Thomas Marx")
+    .title("el.esy.CAD Community – © 2026 Thomas Marx")
     .theme(Some(tauri::Theme::Light))
     .inner_size(1400.0, 900.0)
     .min_inner_size(900.0, 600.0)
@@ -558,12 +558,12 @@ pub fn run() {
                     zeige_fehler_und_beende(
                         &handle,
                         &format!(
-                            "el.easy.CAD konnte seinen Begleitserver nicht starten \
+                            "el.esy.CAD konnte seinen Begleitserver nicht starten \
                              ({} antwortet nicht).\n\n\
                              Das hilft in der Regel:\n\
-                             - el.easy.CAD neu starten\n\
+                             - el.esy.CAD neu starten\n\
                              - pruefen, ob ein Virenschutz- oder Firewall-Programm die \
-                             Verbindung zu 127.0.0.1 blockiert, und el.easy.CAD dort als \
+                             Verbindung zu 127.0.0.1 blockiert, und el.esy.CAD dort als \
                              Ausnahme zulassen\n\
                              - den Rechner neu starten, falls ein alter Prozess auf Port {PORT} \
                              haengen geblieben ist\n\n\

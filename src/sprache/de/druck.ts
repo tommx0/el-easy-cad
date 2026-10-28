@@ -20,7 +20,7 @@ export const druck = {
     blattName: 'Rechtliches',
     uebersichtTitel: 'Übersichtsplan – nicht maßstabsgetreu',
     uebersichtText:
-      'Die mit el.easy.CAD erstellten Pläne und Listen dienen ausschließlich der Übersicht. Sie ' +
+      'Die mit el.esy.CAD erstellten Pläne und Listen dienen ausschließlich der Übersicht. Sie ' +
       'sind nicht maßstabsgetreu und dürfen nicht zum Konstruieren, zur Maßentnahme oder für ' +
       'statische Berechnungen verwendet werden.',
     planungshilfeTitel: 'Planungshilfe, keine Fachplanung',

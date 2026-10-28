@@ -46,7 +46,7 @@ new objects and the background opacity.
 Many tools have functions on individual keys while drawing or placing. The Space bar rotates a
 component, the digits 1–5 choose the number of cores of a wire, M switches between multi-line and
 single-line, and + and − change the wall thickness. So that you do not have to know these keys by
-heart, el.easy.CAD shows a small context bar at the bottom of the work area. It shows exactly the keys
+heart, el.esy.CAD shows a small context bar at the bottom of the work area. It shows exactly the keys
 that currently do something:
 
 - **A click** on a button works like pressing the key.

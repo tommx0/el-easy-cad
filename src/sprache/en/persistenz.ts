@@ -2,10 +2,10 @@ import type { Texte } from '../texte'
 
 export const persistenz: Texte['persistenz'] = {
   dateiAuswahl: {
-    zeichnung: 'el.easy.CAD drawing',
+    zeichnung: 'el.esy.CAD drawing',
   },
   apiClient: {
-    nichtErreichbar: 'The el.easy.CAD server cannot be reached.',
+    nichtErreichbar: 'The el.esy.CAD server cannot be reached.',
     serverAntwort: 'The server responded with {status}.',
   },
   projektAustausch: {
@@ -14,12 +14,12 @@ export const persistenz: Texte['persistenz'] = {
     archiv: 'Archive',
   },
   bibliothek: {
-    nichtLesbar: 'The file is not a readable el.easy.CAD library.',
+    nichtLesbar: 'The file is not a readable el.esy.CAD library.',
     dateiFehlt: '“{datei}” is missing from the file.',
     katalogFehlt: 'The catalogue “{name}” is missing from the file.',
   },
   einstellungen: {
-    ungueltigeDatei: 'Not a valid el.easy.CAD settings file.',
+    ungueltigeDatei: 'Not a valid el.esy.CAD settings file.',
     bereichOberflaeche: 'User interface',
     bereichZeichnen: 'Drawing',
     bereichAutorouting: 'Auto-routing',

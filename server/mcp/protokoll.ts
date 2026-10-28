@@ -167,7 +167,7 @@ export async function bearbeiteMcpNachricht(
           result: {
             protocolVersion: fassung,
             capabilities: { tools: { listChanged: false } },
-            serverInfo: { name: 'el.easy.CAD', version: kontext.serverVersion },
+            serverInfo: { name: 'el.esy.CAD', version: kontext.serverVersion },
             instructions: mcpAnleitung(kontext.sprache ?? QUELLSPRACHE),
           },
         }

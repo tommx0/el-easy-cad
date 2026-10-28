@@ -3,7 +3,7 @@
 This manual shows screenshots of the German version of the program; the labels in the
 text follow the language you use.
 
-el.easy.CAD is a drawing program for electrical and network planning in buildings. You place an
+el.esy.CAD is a drawing program for electrical and network planning in buildings. You place an
 existing floor plan under the drawing as a background, bring it to scale with a known distance,
 place components from a product catalogue, connect them with cables and bundle these into cable
 bundles (trunks). At the end you print each sheet at a fixed scale and export bills of materials,

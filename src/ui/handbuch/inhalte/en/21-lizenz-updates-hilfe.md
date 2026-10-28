@@ -3,13 +3,13 @@
 ## Program version and licence {#lizenz}
 
 {{befehl:hilfe.ueber}} shows the version that is running – the same number appears at the top of
-the header and at the top of this manual – and the licence under which el.easy.CAD Community is
+the header and at the top of this manual – and the licence under which el.esy.CAD Community is
 published. “Licence text…” there and in {{befehl:hilfe.meine-lizenz}} shows the complete, binding
 licence text. It also ships with the program as the file `LICENSE`, the licences of the third-party
 libraries as `LICENSES.md`.
 
 :::nur-desktop
-**Non-commercial use:** el.easy.CAD Community is free for any non-commercial use – with all
+**Non-commercial use:** el.esy.CAD Community is free for any non-commercial use – with all
 features and no time limit. It is licensed under PolyForm Noncommercial 1.0.0. The header then
 shows “Non-commercial use”, and every printout, every PDF, every Excel workbook and every IFC
 export carries a note to that effect: on plan pages a small stamp at the top right and a line in
@@ -29,7 +29,7 @@ contract period runs out, a notice points this out in good time.
 
 {{befehl:hilfe.lizenzen}} lists the third-party libraries used, with their licences.
 "Show full licence texts" displays the copyright notices and licence texts of all third-party
-software el.easy.CAD Community contains below the list.
+software el.esy.CAD Community contains below the list.
 
 :::nur-cloud
 ## New versions {#updates}

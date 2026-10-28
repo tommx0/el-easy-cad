@@ -1,6 +1,6 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "el.easy.CAD Community",
+  "productName": "el.esy.CAD Community",
   "version": "../package.json",
   "identifier": "de.eleasycad.community",
   "build": {

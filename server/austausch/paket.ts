@@ -60,7 +60,7 @@ export function packeProjekt(
   const inhalt: PaketInhalt = {
     paketVersion: PAKET_VERSION,
     erzeugtAm: new Date().toISOString(),
-    anwendung: 'el.easy.CAD',
+    anwendung: 'el.esy.CAD',
     projekt: { ...projekt },
     dokumente,
     assets,

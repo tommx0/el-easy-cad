@@ -20,9 +20,9 @@ export const kiMeldungen: Texte['kiMeldungen'] = {
     },
   },
   ausfuehren: {
-    werkzeugUnbekannt: 'This version of el.easy.CAD does not know the tool {werkzeug}.',
+    werkzeugUnbekannt: 'This version of el.esy.CAD does not know the tool {werkzeug}.',
     eingabeUngueltig: 'Invalid input for {werkzeug}.',
-    internerFehler: 'Internal error in el.easy.CAD: {fehler}',
+    internerFehler: 'Internal error in el.esy.CAD: {fehler}',
   },
   kontext: {
     blattUnbekannt: 'Unknown sheet "{blattId}". Existing sheets: {liste}.',
@@ -34,7 +34,7 @@ export const kiMeldungen: Texte['kiMeldungen'] = {
       other: 'Unknown object IDs: {liste}',
     },
     alleGesperrt: 'All of the given objects are on locked layers.',
-    abgewiesen: 'el.easy.CAD rejected the change (sheet lock).',
+    abgewiesen: 'el.esy.CAD rejected the change (sheet lock).',
     nichtsZuAendern: 'There was nothing to change.',
   },
   rueckgaengig: {

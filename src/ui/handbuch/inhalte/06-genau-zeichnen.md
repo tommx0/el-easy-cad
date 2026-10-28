@@ -14,7 +14,7 @@ Die Rasterweite stellen Sie in den Programmeinstellungen ein. Bezugspunkt ist de
 In einem [Schaltplan](#zeichnungsart) ist das Raster **fest auf 24 cm** eingestellt – den Abstand
 der Kontakte von Leitungsschutzschaltern, Sicherungen und Schützkontakten – und ändert sich weder
 mit dem Zoom noch über die Programmeinstellungen. Setzen Sie die Symbole mit eingeschaltetem
-Fang, fluchten ihre Kontakte untereinander. Weit herausgezoomt blendet el.easy.CAD die feinen
+Fang, fluchten ihre Kontakte untereinander. Weit herausgezoomt blendet el.esy.CAD die feinen
 Linien aus, gefangen wird trotzdem auf 24 cm.
 
 ## Objektfang {#objektfang}

@@ -3,7 +3,7 @@ import type { Uebersetzer } from '../sprache'
 
 export const PROJEKT_URL = 'https://github.com/tommx0/el-easy-cad'
 
-export const COMMUNITY_AUSGABE = 1
+export const COMMUNITY_AUSGABE = 2
 
 export const COMMUNITY_VERSION = `${__APP_VERSION__}-community.${COMMUNITY_AUSGABE}`
 

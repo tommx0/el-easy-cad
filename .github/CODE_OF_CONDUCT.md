@@ -61,11 +61,10 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement through GitHub:
-open the **…** menu of the issue, comment or discussion, choose
-**Report content** and then **Report to repository admins**. Content that
-breaks GitHub's own rules can also be reported to GitHub there.
-All complaints will be reviewed and investigated promptly and fairly.
+reported to GitHub: open the **…** menu of the issue, comment or discussion and
+choose **Report content**. Community leaders will also act on violations they
+notice themselves. All complaints will be reviewed and investigated promptly and
+fairly.
 
 All community leaders are obligated to respect the privacy and security of the
 reporter of any incident.
@@ -147,6 +146,6 @@ Kurz gesagt: respektvoll und sachlich bleiben, unterschiedliche Erfahrungen und 
 keine Beleidigungen, Belästigung oder persönlichen Angriffe, keine privaten Daten anderer
 veröffentlichen.
 
-**Verstöße melden:** im Menü **…** des Issues, Kommentars oder Beitrags „Report content“ und dann
-„Report to repository admins“ wählen. Was gegen die Regeln von GitHub verstößt, lässt sich dort
-auch direkt an GitHub melden. Jede Meldung wird geprüft und vertraulich behandelt.
+**Verstöße melden:** im Menü **…** des Issues, Kommentars oder Beitrags „Report content“ wählen;
+die Meldung geht an GitHub. Verstöße, die den Verantwortlichen des Projekts selbst auffallen,
+werden ebenso verfolgt. Jede Meldung wird geprüft und vertraulich behandelt.

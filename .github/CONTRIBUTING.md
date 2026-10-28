@@ -21,6 +21,8 @@ pointer to this page, so please describe your fix or idea in an issue instead.
 |---|---|
 | Something does not work as described | [Bug report](https://github.com/tommx0/el-easy-cad/issues/new?template=bug_report.yml) |
 | A new function or a better workflow | [Feature request](https://github.com/tommx0/el-easy-cad/issues/new?template=feature_request.yml) |
+| A missing component or symbol, or a wrong catalogue entry | [Catalogue or symbol request](https://github.com/tommx0/el-easy-cad/issues/new?template=catalogue_request.yml) |
+| A mistake in the manual, an interface text or a translation | [Manual or translation error](https://github.com/tommx0/el-easy-cad/issues/new?template=documentation_error.yml) |
 | Questions on how to do something | [Discussions](https://github.com/tommx0/el-easy-cad/discussions) |
 | Security vulnerability | [Report privately](https://github.com/tommx0/el-easy-cad/security/advisories/new) – never as a public issue, see [SECURITY.md](SECURITY.md) |
 
@@ -59,6 +61,10 @@ suchen und die eingebaute Bedienungsanleitung ansehen (*Hilfe*, F1).
   [Fehler melden](https://github.com/tommx0/el-easy-cad/issues/new?template=bug_report.yml)
 - Neue Funktion oder besserer Ablauf →
   [Funktion vorschlagen](https://github.com/tommx0/el-easy-cad/issues/new?template=feature_request.yml)
+- Fehlende Komponente oder fehlendes Symbol, falscher Katalogeintrag →
+  [Katalog- oder Symbolwunsch](https://github.com/tommx0/el-easy-cad/issues/new?template=catalogue_request.yml)
+- Fehler in der Anleitung, einem Oberflächentext oder einer Übersetzung →
+  [Fehler in Anleitung oder Übersetzung](https://github.com/tommx0/el-easy-cad/issues/new?template=documentation_error.yml)
 - Fragen zur Bedienung → [Discussions](https://github.com/tommx0/el-easy-cad/discussions)
 - Sicherheitslücke → [vertraulich melden](https://github.com/tommx0/el-easy-cad/security/advisories/new),
   nie als öffentliches Issue (siehe [SECURITY.md](SECURITY.md))

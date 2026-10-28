@@ -1,0 +1,58 @@
+name: Manual or translation error / Fehler in Anleitung oder Übersetzung
+description: A mistake in the manual, an interface text or a translation. / Ein Fehler in der Anleitung, einem Text der Oberfläche oder einer Übersetzung.
+labels: [documentation]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a function that does not work, please use the bug report instead.
+        Funktioniert eine Funktion nicht, bitte stattdessen „Fehler melden“ verwenden.
+  - type: dropdown
+    id: ort
+    attributes:
+      label: Where / Wo
+      options:
+        - Manual in the app / Anleitung im Programm
+        - User interface (menu, dialog, message) / Oberfläche (Menü, Dialog, Meldung)
+        - Printout or export (PDF, lists, labels) / Druck oder Export (PDF, Listen, Beschriftungen)
+        - README or GitHub pages / README oder GitHub-Seiten
+    validations:
+      required: true
+  - type: dropdown
+    id: sprache
+    attributes:
+      label: Language / Sprache
+      options:
+        - English / Englisch
+        - German / Deutsch
+        - Both / Beide
+    validations:
+      required: true
+  - type: input
+    id: stelle
+    attributes:
+      label: Location / Stelle
+      description: Chapter of the manual, or menu/dialog where the text appears. / Kapitel der Anleitung bzw. Menü oder Dialog, in dem der Text steht.
+      placeholder: e.g. manual chapter "…" or dialog "…" / z. B. Kapitel „…“ der Anleitung oder Dialog „…“
+    validations:
+      required: true
+  - type: textarea
+    id: bisher
+    attributes:
+      label: Current text / Bisheriger Text
+      description: Copy the text or add a screenshot. / Text kopieren oder Bildschirmfoto anhängen.
+    validations:
+      required: true
+  - type: textarea
+    id: vorschlag
+    attributes:
+      label: Suggested text / Vorschlag
+      description: How should it read, or what is wrong? / Wie sollte es lauten, oder was stimmt nicht?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Help › About el.esy.CAD / Hilfe › Über el.esy.CAD
+      placeholder: 0.13.3-community.2

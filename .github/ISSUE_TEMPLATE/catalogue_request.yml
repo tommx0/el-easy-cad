@@ -1,0 +1,58 @@
+name: Catalogue or symbol request / Katalog- oder Symbolwunsch
+description: A missing component or symbol, or a correction to an existing one. / Eine fehlende Komponente, ein fehlendes Symbol oder eine Korrektur.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The supplied catalogues contain generic components. Please only attach drawings or images you may share – no manufacturer product photos or copyrighted data sheets.
+        Die mitgelieferten Kataloge enthalten herstellerneutrale Komponenten. Bitte nur Zeichnungen oder Bilder anhängen, die du weitergeben darfst – keine Produktfotos von Herstellern oder geschützte Datenblätter.
+  - type: dropdown
+    id: art
+    attributes:
+      label: Request / Wunsch
+      options:
+        - New component / Neue Komponente
+        - New circuit diagram symbol / Neues Stromlaufplan-Symbol
+        - Correction to an existing entry / Korrektur an einem vorhandenen Eintrag
+    validations:
+      required: true
+  - type: dropdown
+    id: katalog
+    attributes:
+      label: Catalogue / Katalog
+      options:
+        - Electrical installation / Elektroinstallation
+        - Network technology / Netzwerktechnik
+        - Safety and security systems / Sicherheitstechnik
+        - Circuit diagram symbols / Stromlaufplan-Symbole
+        - Not sure / Weiß nicht
+    validations:
+      required: true
+  - type: input
+    id: eintrag
+    attributes:
+      label: Component / Komponente
+      description: Name of the component, or of the existing entry to be corrected. / Bezeichnung der Komponente bzw. des zu korrigierenden Eintrags.
+      placeholder: e.g. KNX presence detector, ceiling mounted / z. B. KNX-Präsenzmelder, Deckeneinbau
+    validations:
+      required: true
+  - type: textarea
+    id: beschreibung
+    attributes:
+      label: Details / Angaben
+      description: "What is it used for, and which connections, ports or slots does it have? For a correction, what is wrong? / Wofür wird sie eingesetzt, welche Anschlüsse, Ports oder Slots hat sie? Bei einer Korrektur: Was stimmt nicht?"
+    validations:
+      required: true
+  - type: textarea
+    id: symbol
+    attributes:
+      label: Symbol / Darstellung
+      description: Standard symbol (e.g. per IEC 60617 or DIN EN 60617) or a sketch of how it should look. / Normsymbol (z. B. nach DIN EN 60617) oder eine Skizze, wie es aussehen soll.
+  - type: checkboxes
+    id: gesucht
+    attributes:
+      label: Checks / Prüfung
+      options:
+        - label: I searched the catalogues and the existing issues. / Ich habe die Kataloge und die vorhandenen Issues durchsucht.
+          required: true

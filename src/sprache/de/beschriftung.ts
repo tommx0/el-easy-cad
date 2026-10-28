@@ -17,6 +17,23 @@ export const beschriftung = {
   raum: {
     vorgabeName: 'Raum',
   },
+  raumart: {
+    kueche: 'Küche',
+    bad: 'Bad',
+    wc: 'WC',
+    kind: 'Kinderzimmer',
+    schlafen: 'Schlafzimmer',
+    arbeiten: 'Büro',
+    wohnen: 'Wohnzimmer',
+    essen: 'Esszimmer',
+    hauswirtschaft: 'Hauswirtschaftsraum',
+    hobby: 'Hobbyraum',
+    flur: 'Flur',
+    freisitz: 'Terrasse',
+    abstell: 'Abstellraum',
+    keller: 'Keller',
+    sonstige: 'Sonstiger Raum',
+  },
   knxAktor: {
     fortsetzung: '{titel} (Fortsetzung)',
   },

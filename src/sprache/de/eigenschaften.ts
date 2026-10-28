@@ -120,6 +120,9 @@ export const eigenschaften = {
       wandstaerkeUndo: 'Wandstärke ändern',
     },
     raum: {
+      raumart: 'Raumart',
+      raumartKeine: '— (keine)',
+      raumartUndo: 'Raumart ändern',
       nameUndo: 'Raumname ändern',
       flaeche: 'Fläche: {wert} m²',
       flaecheUngueltig:

@@ -949,7 +949,7 @@ export function schreibeIfc(
         null,
         s.label(r.name),
         null,
-        null,
+        r.raumart ? s.label(r.raumart) : null,
         s.e(IFC_CODE.LOCALPLACEMENT, basis, s.achse(0, 0, 0)),
         prismenForm(s, kontext, [r.koerper]),
         s.label(r.name),
@@ -959,6 +959,10 @@ export function schreibeIfc(
       ),
     )
     raeumeJeGeschoss.set(r.blattId, [...(raeumeJeGeschoss.get(r.blattId) ?? []), raum])
+    if (r.raumart)
+      eigenschaften(`raum/${r.id}`, raum, [
+        { name: 'Pset_SpaceCommon', werte: { Category: { art: 'text', wert: r.raumart } } },
+      ])
     const mengen = s.e(
       IFC_CODE.ELEMENTQUANTITY,
       g(`${r.id}/mengen`),

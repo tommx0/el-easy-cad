@@ -78,7 +78,8 @@ wird ein Geschoss; stammt das Blatt aus einem IFC-Modell, liegt die Planung im B
 - **Bauteile** kommen mit, in denselben Maßen wie in der [3D-Ansicht](#dreid-ansicht):
   [Wände](#waende-zeichnen) bis zur Oberkante der Decke mit echten Öffnungen, in denen Türen und
   Fenster sitzen (ein Wanddurchbruch bleibt offen), [Treppen](#treppen) aus ihren Stufen,
-  [Bodenplatten](#bodenplatten) und [Räume](#raeume) mit Name, Fläche und Höhe. Jedes Gerät wird
+  [Bodenplatten](#bodenplatten) und [Räume](#raeume) mit Name, Fläche und Höhe (die Raumart steht als Objekttyp und als
+  Kategorie in den Raumeigenschaften). Jedes Gerät wird
   zusätzlich dem Raum zugeordnet, in dem es steht. Bauteile, die Sie aus einem IFC-Modell
   übernommen haben, behalten dessen Kennung – ein BIM-Programm erkennt sie wieder.
 

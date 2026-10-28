@@ -13,6 +13,7 @@ import { ALTER_KOMBINATION_FAKTOR } from './kombinations-faktor'
 import type { Ansteuerung, KomponentenTyp, Slot, SlotMatrix, SlotZiel } from './geraetegruppe'
 import type { KnxAktorDaten } from './knx-aktor'
 import type { Installationszone } from './blatt'
+import type { RaumartId } from './raumart'
 import type { TeilstueckZone } from './teilstueck-zonen'
 import type { ZonenVerlegung } from './installationszonen'
 import { bemassungsreiheBoundingBox } from './bemassungsreihe'
@@ -646,6 +647,7 @@ export interface RaumObjekt extends ObjektBasis {
   beschriftungVersatz?: Point | null
   deckenstaerke?: number
   stromkreisMitRaumId?: string
+  raumart?: RaumartId
 }
 
 export const STANDARD_RAUM_NAME = 'Raum'

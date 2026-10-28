@@ -75,6 +75,7 @@ export const kiMeldungen = {
       kabeltyp: 'Kabeltyp',
       beschreibung: 'Beschreibung',
       name: 'Name',
+      raumart: 'Raumart',
     },
     kennzeichenBelegt: {
       one: '{kennzeichen} trägt schon ein anderes Betriebsmittel ({blaetter}).',

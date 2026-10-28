@@ -78,6 +78,7 @@ export const planlisten = {
     titelBlatt: 'Raumliste (nur dieses Blatt)',
     summe: { one: 'Summe ({n} Raum)', other: 'Summe ({n} Räume)' },
     spalten: {
+      raumart: 'Raumart',
       raum: 'Raum',
       blatt: 'Blatt',
       flaeche: 'Fläche',

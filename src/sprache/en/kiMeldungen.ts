@@ -79,6 +79,7 @@ export const kiMeldungen: Texte['kiMeldungen'] = {
       kabeltyp: 'cable type',
       beschreibung: 'description',
       name: 'name',
+      raumart: 'room type',
     },
     kennzeichenBelegt: {
       one: '{kennzeichen} is already used by {n} other piece of equipment ({blaetter}).',

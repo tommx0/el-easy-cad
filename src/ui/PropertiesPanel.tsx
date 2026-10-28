@@ -69,6 +69,11 @@ import {
   leitungsbaumTitel,
   trunklistenTitel,
   raumlistenTitel,
+  RAUMART_IDS,
+  istRaumartId,
+  planUebersetzer,
+  raumartName,
+  raumNameNachRaumartWechsel,
   betriebsmittellistenTitel,
   stromkreisverzeichnisTitel,
   aktorkanallistenTitel,
@@ -788,6 +793,34 @@ function PropertiesPanelInhalt({ schwebend = false }: { schwebend?: boolean }) {
           )}
         {ausgewaehlt.length === 1 && erstes.type === 'raum' && (
           <>
+            <label className="feld">
+              {t('eigenschaften.panel.raum.raumart')}
+              <select
+                value={erstes.raumart ?? ''}
+                onChange={(e) => {
+                  const neu = istRaumartId(e.target.value) ? e.target.value : undefined
+                  aktualisiereAusgewaehlte(
+                    {
+                      raumart: neu,
+                      name: raumNameNachRaumartWechsel(
+                        erstes.name,
+                        erstes.raumart,
+                        neu,
+                        planUebersetzer(doc.getZeichnung()),
+                      ),
+                    },
+                    t('eigenschaften.panel.raum.raumartUndo'),
+                  )
+                }}
+              >
+                <option value="">{t('eigenschaften.panel.raum.raumartKeine')}</option>
+                {RAUMART_IDS.map((id) => (
+                  <option key={id} value={id}>
+                    {raumartName(id)}
+                  </option>
+                ))}
+              </select>
+            </label>
             <label className="feld">
               {t('eigenschaften.panel.gemeinsam.name')}
               <input

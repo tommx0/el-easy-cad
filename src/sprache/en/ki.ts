@@ -132,7 +132,7 @@ export const ki: Texte['ki'] = {
         'also affects how connected cables are routed), stromkreis (circuit), stromkreisPolzahl ' +
         '(number of poles of the circuit), knx, variableTexte (variable texts), kennzeichen ' +
         '(reference designation); cable: kabeltyp (cable type), beschreibung (description); ' +
-        'trunk: name, beschreibung; room: name).',
+        'trunk: name, beschreibung; room: name, raumart).',
       beschriftung: 'Empty deletes the label.',
       installationshoeheM: 'Mounting height in metres; null = default.',
       verlegung:
@@ -145,6 +145,10 @@ export const ki: Texte['ki'] = {
         'Field name -> value of the variable texts, e.g. {"Wippen": "2"} (Wippen = rockers).',
       kennzeichen: 'Equipment reference designation, only for exactly one component.',
       kabeltyp: 'Name of a cable type, e.g. "NYM-J 3x1,5"; unknown = free text.',
+      raumart:
+        'Room type (kueche, bad, wc, kind, schlafen, arbeiten, wohnen, essen, hauswirtschaft, ' +
+        'hobby, flur, freisitz, abstell, keller, sonstige). Without name, the room takes the ' +
+        'name of the room type as long as it still has a default name.',
       mindestensEinFeld: 'Specify at least one field.',
     },
     objekteLoeschen: {
@@ -253,6 +257,9 @@ export const ki: Texte['ki'] = {
       beschreibung:
         'Creates a room at the location enclosed by walls (like a click with the room tool).',
       punkt: 'A point inside the room, metres from the origin.',
+      raumart:
+        'Room type (kueche, bad, wc, kind, schlafen, arbeiten, wohnen, essen, hauswirtschaft, ' +
+        'hobby, flur, freisitz, abstell, keller, sonstige). Without name, the room is named after it.',
     },
     oeffnungSetzen: {
       titel: 'Place door or window',

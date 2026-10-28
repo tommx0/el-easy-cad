@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { erzeugeUebersetzer, QUELLSPRACHE } from '../sprache'
 import type { Sprache, Texte, Uebersetzer } from '../sprache'
+import { RAUMART_IDS } from './raumart'
 import { STROMKREIS_NUMMER_MAX } from './stromkreis-eigenschaft'
 
 export const KI_LISTEN_ARTEN = [
@@ -286,6 +287,7 @@ function bauWerkzeuge(t: Uebersetzer): KiWerkzeugDefinition[] {
             kabeltyp: z.string().optional().describe(text('eigenschaftenSetzen.kabeltyp')),
             beschreibung: z.string().optional(),
             name: z.string().optional(),
+            raumart: z.enum(RAUMART_IDS).optional().describe(text('eigenschaftenSetzen.raumart')),
           })
           .refine((w) => Object.values(w).some((v) => v !== undefined), {
             message: text('eigenschaftenSetzen.mindestensEinFeld'),
@@ -467,6 +469,7 @@ function bauWerkzeuge(t: Uebersetzer): KiWerkzeugDefinition[] {
         blattId: blattIdSchema,
         punkt: punktSchema.describe(text('raumAnlegen.punkt')),
         name: z.string().optional(),
+        raumart: z.enum(RAUMART_IDS).optional().describe(text('raumAnlegen.raumart')),
       }),
       schreibt: true,
     },

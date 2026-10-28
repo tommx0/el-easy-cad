@@ -4,6 +4,7 @@ import { kabeltypSchema } from './kabeltyp-schema'
 import { zonenDefinitionSchema } from './installationszonen-schema'
 import { STANDARD_STAFFELABSTAND } from './bemassungsreihe'
 import { kennungSchema } from './geraete-regelwerk'
+import { RAUMART_IDS } from './raumart'
 import { BEKANNTE_HINTERGRUND_TYPEN } from './hintergrund'
 import { symbolFarbeSchema } from './symbol-palette'
 
@@ -827,6 +828,7 @@ const raumObjektSchema = z.object({
   beschriftungVersatz: punktSchema.nullable().optional(),
   deckenstaerke: z.number().positive().optional(),
   stromkreisMitRaumId: z.string().optional(),
+  raumart: z.enum(RAUMART_IDS).optional(),
 })
 
 const treppeObjektSchema = z.object({

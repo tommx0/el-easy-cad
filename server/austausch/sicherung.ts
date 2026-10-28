@@ -43,5 +43,5 @@ function assetDateien(assetOrdner: string): string[] {
 
 export function sicherungsDateiname(jetzt = new Date()): string {
   const datum = jetzt.toISOString().slice(0, 10)
-  return `el-easy-cad-${datum}.zip`
+  return `el-esy-cad-${datum}.zip`
 }

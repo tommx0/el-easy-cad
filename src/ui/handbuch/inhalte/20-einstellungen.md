@@ -40,7 +40,7 @@ Die Einstellungen sind auf Reiter verteilt:
 Damit Sie auf einem neuen Rechner nicht alles neu einstellen müssen:
 
 1. {{befehl:extras.einstellungen-sichern}} schreibt eine Datei
-   `el-easy-cad-Einstellungen-JJJJ-MM-TT.json`.
+   `el-esy-cad-Einstellungen-JJJJ-MM-TT.json`.
 2. {{befehl:extras.einstellungen-einspielen}} liest sie wieder ein. Vorher wählen Sie aus, was
    übernommen werden soll:
 

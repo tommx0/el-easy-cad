@@ -90,6 +90,12 @@ sie.
 
 Im Eigenschaften-Panel des Raums stellen Sie ein:
 
+- die **Raumart** (Küche, Bad, WC, Kinderzimmer, Schlafzimmer, Büro, Wohnzimmer, Esszimmer,
+  Hauswirtschaftsraum, Hobbyraum, Flur, Terrasse, Abstellraum, Keller oder Sonstiger Raum). Der
+  Name bleibt frei vergebbar; die Raumart gibt ihn nur vor, solange er noch „Raum“ oder der Name
+  der bisherigen Raumart ist – ein selbst gewählter Name wie „Kinderzimmer Lea“ bleibt beim
+  Wechsel stehen. Zusatzmodule und die KI-Schnittstelle lesen die Raumart, statt sie am Namen zu
+  erraten,
 - **Name** und **Schriftgröße** (in cm) der Beschriftung,
 - **Name** und **Fläche** einzeln: Wie global, Anzeigen oder Ausblenden,
 - eine **Füllung** wie bei anderen geschlossenen Formen, siehe

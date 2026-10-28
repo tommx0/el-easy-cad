@@ -57,7 +57,8 @@ together – the basis for choosing the cable duct.
 
 ## Room list {#raumliste}
 
-{{befehl:werkzeug.raumliste}} lists the [rooms](#raeume) with name and area, with a total.
+{{befehl:werkzeug.raumliste}} lists the [rooms](#raeume) with room type, name and area, with a total. The room type comes
+before the name; a room without one leaves the cell empty. The Excel export has the column too.
 
 ## Equipment list {#betriebsmittelliste}
 

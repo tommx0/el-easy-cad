@@ -17,6 +17,7 @@ import {
   oeffnungOffen,
   pfadGesamtLaenge,
   pointInPolygon,
+  raumartName,
   teilPfad,
   treppenFormText,
   treppenTrittplatten,
@@ -72,6 +73,7 @@ export interface ExportRaum extends ExportBauteilBasis {
   flaeche: number
   hoehe: number
   koerper: ExportPrisma
+  raumart?: string
   geraetIds: string[]
 }
 
@@ -334,6 +336,7 @@ function exportRaum(
     blattId: blatt.id,
     name: raum.name.trim() || tp('ifc.datei.raum'),
     ...guid(raum),
+    ...(raum.raumart && { raumart: raumartName(raum.raumart, tp) }),
     flaeche: raum.flaeche,
     hoehe: raumhoehe,
     koerper: { grundriss: raum.umriss.map(m), z: 0, hoehe: raumhoehe },

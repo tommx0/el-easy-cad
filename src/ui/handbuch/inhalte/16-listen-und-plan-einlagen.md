@@ -58,7 +58,8 @@ Adern damit zusammenkommen – die Grundlage für die Wahl des Kabelkanals.
 
 ## Raumliste {#raumliste}
 
-{{befehl:werkzeug.raumliste}} listet die [Räume](#raeume) mit Name und Fläche, mit Summe.
+{{befehl:werkzeug.raumliste}} listet die [Räume](#raeume) mit Raumart, Name und Fläche, mit Summe. Die Raumart steht vor dem
+Namen; hat ein Raum keine, bleibt die Zelle leer. Auch der Excel-Export hat die Spalte.
 
 ## Betriebsmittelliste {#betriebsmittelliste}
 

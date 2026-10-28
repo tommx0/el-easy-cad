@@ -120,6 +120,9 @@ export const eigenschaften: Texte['eigenschaften'] = {
       wandstaerkeUndo: 'Change wall thickness',
     },
     raum: {
+      raumart: 'Room type',
+      raumartKeine: '— (none)',
+      raumartUndo: 'Change room type',
       nameUndo: 'Change room name',
       flaeche: 'Area: {wert} m²',
       flaecheUngueltig: 'Area: {wert} m² – no longer fully enclosed, showing the last known state.',

@@ -36,6 +36,7 @@ function raeumeAuf(blatt: Blatt, katalog: ReadonlyMap<string, CatalogComponent>,
           {
             id: o.id,
             name: o.name,
+            ...(o.raumart ? { raumart: o.raumart } : {}),
             blattId: blatt.id,
             ...(blatt.geschoss?.name ? { etage: blatt.geschoss.name } : {}),
             flaecheM2: runde(o.flaeche, 2),

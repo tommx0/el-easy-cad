@@ -1,4 +1,4 @@
-import type { RaumObjekt } from '../../document-model'
+import type { RaumObjekt, RaumartId } from '../../document-model'
 import {
   ebeneFuerNeuesObjekt,
   ermittleRaumGeometrie,
@@ -7,6 +7,7 @@ import {
   nullpunktVon,
   planUebersetzer,
   pointInPolygon,
+  raumartName,
   standardRaumName,
   STANDARD_RAUM_SCHRIFTGROESSE,
 } from '../../document-model'
@@ -17,7 +18,12 @@ import { KiFehler, runde, waehleBlatt } from './kontext'
 import { fuehreAenderungAus, kiLabel } from './schreiben'
 
 export function raumAnlegen(
-  eingabe: { blattId?: string; punkt: { x: number; y: number }; name?: string },
+  eingabe: {
+    blattId?: string
+    punkt: { x: number; y: number }
+    name?: string
+    raumart?: RaumartId
+  },
   kontext: KiKontext,
 ): KiErgebnis {
   const blatt = waehleBlatt(kontext, eingabe.blattId)
@@ -39,13 +45,17 @@ export function raumAnlegen(
       t('kiMeldungen.raumAnlegen.schonVorhanden', { name: bestehend.name, id: bestehend.id }),
     )
   }
-  const name = eingabe.name?.trim() || standardRaumName(planUebersetzer(kontext.doc.getZeichnung()))
+  const uebersetze = planUebersetzer(kontext.doc.getZeichnung())
+  const name =
+    eingabe.name?.trim() ||
+    (eingabe.raumart ? raumartName(eingabe.raumart, uebersetze) : standardRaumName(uebersetze))
   const raum: RaumObjekt = {
     ...neueObjektBasis(ebeneFuerNeuesObjekt('raum', blatt.ebenen, blatt.aktiveEbeneId)),
     id: erzeugeId('objekt'),
     type: 'raum',
     punktImRaum: punkt,
     name,
+    ...(eingabe.raumart && { raumart: eingabe.raumart }),
     schriftgroesse: STANDARD_RAUM_SCHRIFTGROESSE,
     gueltig: true,
     fuellung: null,

@@ -73,7 +73,8 @@ program lies exactly above the architect’s model.
 - **Building elements** are included, with the same dimensions as in the [3D view](#dreid-ansicht):
   [walls](#waende-zeichnen) up to the top edge of the ceiling, with real openings in which doors and
   windows sit (a wall opening stays open); [stairs](#treppen) with their steps;
-  [floor slabs](#bodenplatten); and [rooms](#raeume) with name, area and height. Each device is also
+  [floor slabs](#bodenplatten); and [rooms](#raeume) with name, area and height (the room type is written as object type and as
+  category in the room properties). Each device is also
   assigned to the room in which it stands. Building elements you took over from an IFC model keep its
   identifier, so a BIM program recognises them again.
 

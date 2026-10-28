@@ -80,6 +80,7 @@ export const planlisten: Texte['planlisten'] = {
     titelBlatt: 'Room list (this sheet only)',
     summe: { one: 'Total ({n} room)', other: 'Total ({n} rooms)' },
     spalten: {
+      raumart: 'Room type',
       raum: 'Room',
       blatt: 'Sheet',
       flaeche: 'Area',

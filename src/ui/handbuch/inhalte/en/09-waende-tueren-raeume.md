@@ -85,6 +85,12 @@ recalculates its area. If you remove a partition between two rooms, they merge.
 
 In the room's properties panel you set:
 
+- the **Room type** (kitchen, bathroom, WC, children's room, bedroom, office, living room, dining
+  room, utility room, hobby room, hall, terrace, storage room, cellar or other room). The name
+  stays freely editable; the room type only supplies it while it is still “Room” or the name of
+  the previous room type – a name you chose yourself, such as “Lea's room”, stays when you change
+  the type. Add-on modules and the AI interface read the room type instead of guessing it from
+  the name,
 - the **Name** and **Font size** (in cm) of the label,
 - **Name** and **Area** individually: follow the global setting, show or hide,
 - a **fill** as for other closed shapes, see [Hatching and area fill](#schraffur-und-fuellung).

@@ -113,7 +113,7 @@ export const ki = {
         'das Eigenschaften-Panel. Jedes Feld gilt nur für die Objekttypen, zu denen es passt ' +
         '(Komponente: beschriftung, installationshoeheM, montageort, verlegung, stromkreis, ' +
         'stromkreisPolzahl, knx, variableTexte, kennzeichen; Leitung: kabeltyp, beschreibung; ' +
-        'Trunk: name, beschreibung; Raum: name).',
+        'Trunk: name, beschreibung; Raum: name, raumart).',
       beschriftung: 'Leer löscht die Beschriftung.',
       installationshoeheM: 'Installationshöhe in Metern; null = Vorgabe.',
       verlegung: 'Aufputz/Unterputz - gilt für die ganze Kombination an der Wand.',
@@ -122,6 +122,10 @@ export const ki = {
       variableTexte: 'Feldname -> Wert der variablen Texte, z. B. {"Wippen": "2"}.',
       kennzeichen: 'Betriebsmittelkennzeichen, nur für genau eine Komponente.',
       kabeltyp: 'Name eines Kabeltyps, z. B. "NYM-J 3x1,5"; unbekannt = freier Text.',
+      raumart:
+        'Raumart (kueche, bad, wc, kind, schlafen, arbeiten, wohnen, essen, hauswirtschaft, hobby, ' +
+        'flur, freisitz, abstell, keller, sonstige). Ohne name übernimmt der Raum den Namen der ' +
+        'Raumart, solange er noch einen Vorgabenamen trägt.',
       mindestensEinFeld: 'Mindestens ein Feld angeben.',
     },
     objekteLoeschen: {
@@ -226,6 +230,9 @@ export const ki = {
         'Legt einen Raum an der Stelle an, die von Wänden umschlossen ist (wie ein Klick mit dem ' +
         'Raum-Werkzeug).',
       punkt: 'Ein Punkt im Raum, Meter ab Nullpunkt.',
+      raumart:
+        'Raumart (kueche, bad, wc, kind, schlafen, arbeiten, wohnen, essen, hauswirtschaft, hobby, ' +
+        'flur, freisitz, abstell, keller, sonstige). Ohne name wird der Raum danach benannt.',
     },
     oeffnungSetzen: {
       titel: 'Tür oder Fenster setzen',

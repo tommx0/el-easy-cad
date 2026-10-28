@@ -14,6 +14,7 @@ import {
   zielBezeichnung,
 } from './geraetegruppen-ableitung'
 import { findeRaumZuPunkt } from './raum'
+import { raumartName } from './raumart'
 import { stuecklistenAngaben } from './variable-texte'
 import {
   knxAktorStuecklistenName,
@@ -910,6 +911,7 @@ export function raumlistenTitel(objekt: RaumlisteObjekt, uebersetze: Uebersetzer
 }
 
 export const RAUMLISTEN_SPALTEN: Spaltendefinition[] = [
+  { kopf: 'planlisten.raumliste.spalten.raumart', ausrichtung: 'links' },
   { kopf: 'planlisten.raumliste.spalten.raum', ausrichtung: 'links' },
   { kopf: 'planlisten.raumliste.spalten.blatt', ausrichtung: 'links' },
   { kopf: 'planlisten.raumliste.spalten.flaeche', ausrichtung: 'rechts' },
@@ -924,6 +926,7 @@ export function raumlistenRohdaten(
   const blaetter =
     umfang === 'projekt' ? zeichnung.blaetter : zeichnung.blaetter.filter((b) => b.id === blattId)
   interface Zeile {
+    raumart: string
     name: string
     blatt: string
     flaeche: number
@@ -932,14 +935,20 @@ export function raumlistenRohdaten(
   for (const blatt of blaetter) {
     for (const objekt of blatt.objekte) {
       if (objekt.type !== 'raum') continue
-      zeilen.push({ name: objekt.name, blatt: blatt.name, flaeche: objekt.flaeche })
+      zeilen.push({
+        raumart: objekt.raumart ? raumartName(objekt.raumart, tp) : '',
+        name: objekt.name,
+        blatt: blatt.name,
+        flaeche: objekt.flaeche,
+      })
     }
   }
   zeilen.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))
 
-  const rohZeilen = zeilen.map((z) => [z.name, z.blatt, `${z.flaeche.toFixed(1)} m²`])
+  const rohZeilen = zeilen.map((z) => [z.raumart, z.name, z.blatt, `${z.flaeche.toFixed(1)} m²`])
   const gesamtFlaeche = zeilen.reduce((summe, z) => summe + z.flaeche, 0)
   const summenzeile = [
+    '',
     tp('planlisten.raumliste.summe', { n: zeilen.length }),
     '',
     `${gesamtFlaeche.toFixed(1)} m²`,

@@ -156,7 +156,7 @@ function starteWeiterleitung(): Promise<void> {
     token: process.env[TOKEN_UMGEBUNG]?.trim() || null,
     eingabe: process.stdin,
     ausgabe: process.stdout,
-    meldung: (text) => console.error(`el.easy.CAD: ${text}`),
+    meldung: (text) => console.error(`el.esy.CAD: ${text}`),
   })
 }
 

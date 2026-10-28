@@ -50,7 +50,7 @@ ausgewählt, die Vorgaben für neue Objekte und die Hintergrunddeckkraft.
 Viele Werkzeuge haben beim Zeichnen oder Platzieren Funktionen auf einzelnen Tasten: Die
 Leertaste dreht eine Komponente, die Ziffern 1–5 wählen die Zahl der Adern einer
 Schaltverbindung, M schaltet zwischen mehr- und einlinig um, + und − ändern die Wandstärke. Damit Sie diese Tasten nicht
-auswendig kennen müssen, blendet el.easy.CAD unten in der Zeichenfläche eine kleine Leiste ein.
+auswendig kennen müssen, blendet el.esy.CAD unten in der Zeichenfläche eine kleine Leiste ein.
 Sie zeigt genau die Tasten, die im Augenblick etwas bewirken:
 
 - **Ein Klick** auf einen Knopf wirkt wie der Druck auf die Taste.

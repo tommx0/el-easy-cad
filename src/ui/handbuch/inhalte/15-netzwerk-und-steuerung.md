@@ -38,7 +38,7 @@ Port-Dialog zeigt sie je Port in der Spalte **W** („n. g.“, wenn der Katalog
 und darüber die Summe des Switches, etwa „12 von 24 Ports belegt · PoE 62 W“. Dieselbe Summe
 steht als eigene Zeile am Switch-Symbol im Plan.
 
-Ein Budget des Switches kennt el.easy.CAD nicht: Es gibt **keinen Vergleich und keine Warnung**
+Ein Budget des Switches kennt el.esy.CAD nicht: Es gibt **keinen Vergleich und keine Warnung**
 bei Überlast. Prüfen Sie die Summe selbst gegen das Datenblatt des Switches.
 
 ## Verteiler: Sicherungen, Klemmen, Relais {#verteiler}
@@ -80,7 +80,7 @@ Leitungsschutzschalter, dahinter ein Aktorkanal und am Ende die Klemme.
   Klemme etwa „Küche Steckdosen“. Ein umbenanntes Kennzeichen nimmt die zugewiesenen Leitungen
   mit. An einer Klemme steht der ganze Name „X1:3“: „X2“ verschiebt sie in die Leiste X2 (nächste
   Nummer dort), „X1:7“ oder „7“ setzt die Nummer. Eine schon vergebene Nummer wird abgelehnt.
-- **✕** entfernt einen Knoten. Hängt etwas dahinter, fragt el.easy.CAD, ob nur dieser Knoten
+- **✕** entfernt einen Knoten. Hängt etwas dahinter, fragt el.esy.CAD, ob nur dieser Knoten
   gehen soll (der Rest rückt nach oben) oder alles dahinter.
 
 **Geräte mit Kanälen:** Bei einem Schaltaktor oder einem Klemmenblock kann jeder Kanal (K1:A3)
@@ -119,7 +119,7 @@ Klemmen auf einmal:
   über diese Aktoren – die Zeile sagt es. Im Dialog lässt sich die Kanalart je Klemme ändern oder
   „kein Kanal“ wählen.
 - **Bemessung:** Was auf freie Kanäle vorhandener Aktoren passt, kommt dorthin. Für den Rest legt
-  el.easy.CAD möglichst wenige Aktoren an – die größte Baugröße, für den Rest die kleinste
+  el.esy.CAD möglichst wenige Aktoren an – die größte Baugröße, für den Rest die kleinste
   passende – mit der eingestellten **Reserve** (Vorgabe 20 %, gemerkt). Eine Lücke vor einem
   Jalousiepaar füllt der nächste Schaltkanal.
 - **Kanalname:** Vorgeschlagen wird der Name der Gerätegruppe, sonst die Beschriftung der Klemme,
@@ -144,7 +144,7 @@ Auch ohne eine einzige Leitung lässt sich ein Verteiler bestücken – aus den 
 und der Eigenschaft **Stromkreis** der Komponenten. Dazu im Verteiler-Dialog **Bestückung aus
 Räumen vorschlagen …** wählen. Das geht auch, wenn schon ein Verteilerplan verknüpft ist – etwa
 nachdem Sie die Leitungen gelöscht haben, um aus Räumen zu planen. Nach **Übernehmen** fragt
-el.easy.CAD dann, ob der verknüpfte Plan aus der neuen Bestückung **neu erzeugt** werden soll. Dabei
+el.esy.CAD dann, ob der verknüpfte Plan aus der neuen Bestückung **neu erzeugt** werden soll. Dabei
 wird sein Inhalt ersetzt: Eigene Änderungen im Plan gehen verloren, und Rückgängig im Bauplan
 erreicht den Plan nicht. Lehnen Sie ab, bleibt der Plan, wie er ist, und der Verteiler-Dialog zeigt
 grau, was ihm fehlt.
@@ -447,7 +447,7 @@ schon angelegten Slots einer Komponente erhalten und weiter sichtbar – nur neu
 nicht mehr hinzufügen.
 
 **Ein Slot, mehrere Ziele, eine Gruppe:** Bekommt ein Slot ein zweites Ziel – mit dem Werkzeug,
-im Eigenschaften-Panel, in der Slot-Matrix oder im Dialog nach einer Leitung –, fasst el.easy.CAD
+im Eigenschaften-Panel, in der Slot-Matrix oder im Dialog nach einer Leitung –, fasst el.esy.CAD
 die Ziele zu einer [Gerätegruppe](#geraetegruppen) zusammen, auch wenn sie verschiedene Typen
 haben. Ein Dialog fragt Name (vorbelegt aus Raum und Ansteuerung, etwa „Licht Flur“), Ansteuerung
 und KNX ab; danach zeigt der Slot nur noch auf die Gruppe, ebenso jeder andere Slot, der auf eines
@@ -469,7 +469,7 @@ lässt sich wie die Beschriftungs-Schalter in die Symbolleiste legen.
 
 ### Gleich beim Verlegen der Leitung {#wirkverbindung-aus-leitung}
 
-Verbindet eine Leitung zwei Geräte mit Gerätetyp, fragt el.easy.CAD gleich danach, was daraus
+Verbindet eine Leitung zwei Geräte mit Gerätetyp, fragt el.esy.CAD gleich danach, was daraus
 folgen soll – geschaut wird nur auf die beiden Enden dieser einen Leitung. Läuft sie durch einen
 Kabelschacht oder endet sie im Trunk, zählt das Gerät am anderen Ende (auf der anderen Etage bzw.
 am Switch-Port):
@@ -490,7 +490,7 @@ am Switch-Port):
   (Name vorbelegt aus dem Raum, Ansteuerung und KNX aus den Leuchten, im Dialog änderbar), oder die
   eine tritt der Gruppe der anderen bei. Zeigte ein Slot
   auf eine der beiden, zeigt er danach auf die Gruppe – so wird die andere mitgeschaltet. Stehen
-  beide schon in verschiedenen Gruppen, legt el.easy.CAD nichts an und sagt das in einer Meldung.
+  beide schon in verschiedenen Gruppen, legt el.esy.CAD nichts an und sagt das in einer Meldung.
   Anschlussdosen (Steckdosen, Antennen-, EDV-, Herddosen) und andere Typen ohne Ansteuerung bilden
   beim Verkabeln keine Gruppe.
 

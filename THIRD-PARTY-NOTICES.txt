@@ -1,12 +1,12 @@
-el.easy.CAD – Hinweise zu Fremdsoftware / Third-party software notices
+el.esy.CAD – Hinweise zu Fremdsoftware / Third-party software notices
 
 Diese Datei enthält die Copyright-Vermerke und Lizenztexte der Open-Source-Software, die mit
-el.easy.CAD ausgeliefert wird. Bietet eine Software mehrere Lizenzen zur Wahl an, nennt
-"used under" die, unter der el.easy.CAD sie nutzt.
+el.esy.CAD ausgeliefert wird. Bietet eine Software mehrere Lizenzen zur Wahl an, nennt
+"used under" die, unter der el.esy.CAD sie nutzt.
 
 This file contains the copyright notices and licence texts of the open source software
-shipped with el.easy.CAD. Where a component offers a choice of licences, "used under" names
-the one el.easy.CAD uses it under.
+shipped with el.esy.CAD. Where a component offers a choice of licences, "used under" names
+the one el.esy.CAD uses it under.
 
 Contents: 1. npm packages (user interface and companion server)
           2. Node.js v24.20.0 runtime (desktop app)

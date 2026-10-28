@@ -96,7 +96,7 @@ Die drei Wandzonen folgen DIN 18015-3. Auf und in der Wand liegt eine Leitung gl
 [3D-Ansicht](#dreid-ansicht) hat jede Zone eine eigene Farbe. Weitere Zonen legen Sie unter
 [Eigene Installationszonen](#installationszonen) an.
 
-Mit einer Installationszone rechnet el.easy.CAD die **senkrechten Stücke** mit: an jedem
+Mit einer Installationszone rechnet el.esy.CAD die **senkrechten Stücke** mit: an jedem
 Leitungsende von der Zone bis zur Montagehöhe des Geräts, und am Kabelschacht den Unterschied
 der Zonen beider Etagen. Die Montagehöhe ist die Installationshöhe der Komponente, sonst die
 übliche Höhe ihres Gerätetyps (Schalter 1,05 m, Dose 0,30 m …), sonst 1,05 m. Ein Gerät mit dem

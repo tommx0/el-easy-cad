@@ -1,6 +1,6 @@
 # Erste Schritte
 
-el.easy.CAD ist ein Zeichenprogramm für die Elektro- und Netzwerkplanung in Gebäuden. Sie legen
+el.esy.CAD ist ein Zeichenprogramm für die Elektro- und Netzwerkplanung in Gebäuden. Sie legen
 einen vorhandenen Grundriss als Hintergrund unter die Zeichnung, bringen ihn mit einer bekannten
 Strecke auf Maß, setzen Komponenten aus einem Produktkatalog hinein, verbinden sie mit Leitungen
 und führen diese in Kabelbündeln (Trunks) zusammen. Am Ende drucken Sie jedes Blatt in einem

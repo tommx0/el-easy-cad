@@ -402,7 +402,7 @@ export const werkzeuge = {
     wasSchacht: 'um im Bündel in den Kabelschacht weiterzugehen',
     wasZiel: 'für das Ziel im Bündel (Switch, Patchpanel, Verteiler oder Kabelschacht)',
     zeichnen:
-      'Weitere Punkte anklicken (gerade Teilstücke). Ein Ziel-Dockpunkt, ein Trunk-Pfad oder ein Kabelschacht schließt ab - dorthin verlegt el.easy.CAD ab dem letzten gesetzten Punkt automatisch{tasteStrg}. Doppelklick{tasteEnter} beendet mit freiem Ende, Rechtsklick{tasteEntf} nimmt den letzten Punkt zurück, Esc bricht ab.',
+      'Weitere Punkte anklicken (gerade Teilstücke). Ein Ziel-Dockpunkt, ein Trunk-Pfad oder ein Kabelschacht schließt ab - dorthin verlegt el.esy.CAD ab dem letzten gesetzten Punkt automatisch{tasteStrg}. Doppelklick{tasteEnter} beendet mit freiem Ende, Rechtsklick{tasteEntf} nimmt den letzten Punkt zurück, Esc bricht ab.',
     nochKeinPunkt:
       'Noch kein Punkt gesetzt - erst einen weiteren Punkt anklicken, dann beendet Doppelklick oder Enter die Leitung mit freiem Ende.',
     zeichnenLabel: 'Leitung zeichnen',
@@ -468,7 +468,7 @@ export const werkzeuge = {
     anschlussNicht: 'Anschluss nicht möglich.',
     anfang: 'Anfangspunkt des Trunks anklicken (oder einen "T"-Dockpunkt an einem Switch).',
     weiter:
-      'Weitere Punkte anklicken, Doppelklick{tasteEnter} zum Abschließen (mind. Anfang + Ende), Rechtsklick{tasteEntf} entfernt den letzten Punkt, Esc bricht ab. Anfang oder Ende auf einem anderen Trunk abgelegt verbindet beide nach Rückfrage: an dessen Ende verschmelzen sie, mitten auf dem Pfad entsteht ein Abzweig. Auf einem Kabelschacht abgelegt fragt el.easy.CAD nach dem Strang, über den es in die nächste Etage geht.',
+      'Weitere Punkte anklicken, Doppelklick{tasteEnter} zum Abschließen (mind. Anfang + Ende), Rechtsklick{tasteEntf} entfernt den letzten Punkt, Esc bricht ab. Anfang oder Ende auf einem anderen Trunk abgelegt verbindet beide nach Rückfrage: an dessen Ende verschmelzen sie, mitten auf dem Pfad entsteht ein Abzweig. Auf einem Kabelschacht abgelegt fragt el.esy.CAD nach dem Strang, über den es in die nächste Etage geht.',
     zeichnen: 'Trunk zeichnen',
   },
   trunkAblage: {

@@ -1,9 +1,9 @@
 export const persistenz = {
   dateiAuswahl: {
-    zeichnung: 'el.easy.CAD-Zeichnung',
+    zeichnung: 'el.esy.CAD-Zeichnung',
   },
   apiClient: {
-    nichtErreichbar: 'Der el.easy.CAD-Server ist nicht erreichbar.',
+    nichtErreichbar: 'Der el.esy.CAD-Server ist nicht erreichbar.',
     serverAntwort: 'Der Server hat mit {status} geantwortet.',
   },
   projektAustausch: {
@@ -12,12 +12,12 @@ export const persistenz = {
     archiv: 'Archiv',
   },
   bibliothek: {
-    nichtLesbar: 'Die Datei ist keine lesbare el.easy.CAD-Bibliothek.',
+    nichtLesbar: 'Die Datei ist keine lesbare el.esy.CAD-Bibliothek.',
     dateiFehlt: 'In der Datei fehlt „{datei}“.',
     katalogFehlt: 'In der Datei fehlt der Katalog „{name}“.',
   },
   einstellungen: {
-    ungueltigeDatei: 'Keine gültige el.easy.CAD-Einstellungsdatei.',
+    ungueltigeDatei: 'Keine gültige el.esy.CAD-Einstellungsdatei.',
     bereichOberflaeche: 'Oberfläche',
     bereichZeichnen: 'Zeichnen',
     bereichAutorouting: 'Autorouting',

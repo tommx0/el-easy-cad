@@ -28,7 +28,7 @@ export const ki = {
     dokumentUebersicht: {
       titel: 'Dokument im Überblick',
       beschreibung:
-        'Das in el.easy.CAD offene Dokument: Projekt, Zeichnungsart (Bauplan oder Schaltplan), ' +
+        'Das in el.esy.CAD offene Dokument: Projekt, Zeichnungsart (Bauplan oder Schaltplan), ' +
         'Blätter mit Id, Etage, Maßstab, Nullpunkt und Anzahl der Objekte je Typ, dazu das aktive ' +
         'Blatt. Zuerst aufrufen - die Blatt-Ids braucht jedes andere Werkzeug.',
     },
@@ -73,7 +73,7 @@ export const ki = {
     listeLesen: {
       titel: 'Liste lesen',
       beschreibung:
-        'Eine der Listen von el.easy.CAD als Tabelle (Spalten, Zeilen, Summe) - dieselben Daten ' +
+        'Eine der Listen von el.esy.CAD als Tabelle (Spalten, Zeilen, Summe) - dieselben Daten ' +
         'wie die Plan-Einlage und der Excel-Export. Die Leitungsliste enthält die ' +
         'Leitungslängen. Stromkreisverzeichnis und Aktorkanalliste gelten je Verteiler.',
       umfang: 'Ganze Zeichnung (Vorgabe) oder nur ein Blatt.',
@@ -336,8 +336,8 @@ export const ki = {
   },
   protokoll: {
     anleitung:
-      'el.easy.CAD ist ein CAD-Werkzeug für Elektro- und Netzwerkplanung. Die Werkzeuge arbeiten ' +
-      'auf dem Dokument, das gerade in el.easy.CAD offen ist. Zuerst dokument_uebersicht aufrufen. ' +
+      'el.esy.CAD ist ein CAD-Werkzeug für Elektro- und Netzwerkplanung. Die Werkzeuge arbeiten ' +
+      'auf dem Dokument, das gerade in el.esy.CAD offen ist. Zuerst dokument_uebersicht aufrufen. ' +
       'Längen in Metern, Koordinaten in Metern ab dem Nullpunkt des Blatts, y zeigt nach oben. ' +
       'Objekte werden über ihre Id aus blatt_lesen angesprochen. Ändernde Werkzeuge sind je Aufruf ' +
       'ein Rückgängig-Schritt; rueckgaengig nimmt nur eigene Schritte zurück. Vor dem Ändern prüfen, ' +
@@ -348,7 +348,7 @@ export const ki = {
     ohneName: 'tools/call braucht einen Namen.',
     unbekanntesWerkzeug: 'Unbekanntes Werkzeug: {name}',
     nurLesen:
-      'In el.easy.CAD ist „KI darf nur lesen“ eingeschaltet – dieses Werkzeug ändert die Zeichnung.',
+      'In el.esy.CAD ist „KI darf nur lesen“ eingeschaltet – dieses Werkzeug ändert die Zeichnung.',
     ungueltigeEingabe: 'Ungültige Eingabe für {werkzeug} – {gruende}',
     eingabe: 'Eingabe',
     keinJsonRpc: 'Keine JSON-RPC-2.0-Nachricht.',
@@ -357,25 +357,25 @@ export const ki = {
   },
   bruecke: {
     keineApp:
-      'el.easy.CAD ist nicht geöffnet oder die KI-Schnittstelle ist dort noch nicht verbunden. ' +
-      'Bitte el.easy.CAD starten und ein Dokument öffnen.',
-    getrennt: 'Die Verbindung zu el.easy.CAD wurde während des Aufrufs getrennt.',
-    zeitlimit: 'el.easy.CAD hat nicht innerhalb von {sekunden} s geantwortet.',
+      'el.esy.CAD ist nicht geöffnet oder die KI-Schnittstelle ist dort noch nicht verbunden. ' +
+      'Bitte el.esy.CAD starten und ein Dokument öffnen.',
+    getrennt: 'Die Verbindung zu el.esy.CAD wurde während des Aufrufs getrennt.',
+    zeitlimit: 'el.esy.CAD hat nicht innerhalb von {sekunden} s geantwortet.',
     kiAssistent: 'KI-Assistent',
   },
   routen: {
     fremderUrsprung: 'Zugriff von dieser Seite ist nicht erlaubt.',
     ausgeschaltet:
-      'Die KI-Schnittstelle ist in el.easy.CAD ausgeschaltet (Einstellungen › KI-Assistent).',
+      'Die KI-Schnittstelle ist in el.esy.CAD ausgeschaltet (Einstellungen › KI-Assistent).',
     tokenFalsch:
-      'Zugangstoken fehlt oder ist falsch. Den aktuellen Befehl zeigt el.easy.CAD unter ' +
+      'Zugangstoken fehlt oder ist falsch. Den aktuellen Befehl zeigt el.esy.CAD unter ' +
       'Einstellungen › KI-Assistent.',
     keinJson: 'Kein gültiges JSON.',
   },
   stdio: {
     keinJson: 'Kein gültiges JSON.',
-    laeuftNicht: 'el.easy.CAD läuft nicht – bitte die App starten.',
-    antwortStatus: 'el.easy.CAD hat mit {status} geantwortet.',
-    tokenFehlt: '{variable} ist nicht gesetzt - el.easy.CAD wird jeden Aufruf ablehnen.',
+    laeuftNicht: 'el.esy.CAD läuft nicht – bitte die App starten.',
+    antwortStatus: 'el.esy.CAD hat mit {status} geantwortet.',
+    tokenFehlt: '{variable} ist nicht gesetzt - el.esy.CAD wird jeden Aufruf ablehnen.',
   },
 }

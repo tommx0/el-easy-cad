@@ -15,7 +15,7 @@ export const server = {
   },
   lizenz: {
     erforderlich:
-      'el.easy.CAD benötigt eine gültige Lizenz. Bitte im Sperrbildschirm eine Lizenzdatei einspielen.',
+      'el.esy.CAD benötigt eine gültige Lizenz. Bitte im Sperrbildschirm eine Lizenzdatei einspielen.',
     fehlt: 'Keine Lizenzdatei hinterlegt.',
     ungueltig: 'Diese Lizenzdatei ist nicht gültig (Signatur oder Format stimmen nicht).',
     abgelaufen: 'Diese Lizenz gilt nicht für den heutigen Tag.',
@@ -75,14 +75,14 @@ export const server = {
     verbindungUnbekannt: 'Unbekannte Verbindung.',
   },
   zusatzmodule: {
-    keinPaket: 'Die Datei ist kein lesbares el.easy.CAD-Modul (.eecmod).',
+    keinPaket: 'Die Datei ist kein lesbares el.esy.CAD-Modul (.eecmod).',
     manifestFehlt: 'Im Modul fehlt "manifest.json".',
     manifestUngueltig: '"manifest.json" im Modul ist ungültig: {fehler}',
     codeFehlt: 'Im Modul fehlt "modul.js".',
     pfadUngueltig: 'Das Modul enthält einen unzulässigen Dateipfad: "{pfad}".',
     zuGross: 'Das Modul ist entpackt größer als {hoechstens} MB.',
     appZuAlt:
-      'Das Modul "{name}" benötigt el.easy.CAD {mindestens} oder neuer (installiert: {app}).',
+      'Das Modul "{name}" benötigt el.esy.CAD {mindestens} oder neuer (installiert: {app}).',
     nichtGefunden: 'Modul nicht installiert.',
     dateiNichtGefunden: 'Datei im Modul nicht gefunden.',
     ordnerFehlt: 'Für den Entwicklermodus ist kein Ordner angegeben.',
@@ -93,8 +93,8 @@ export const server = {
   austausch: {
     projektZuGross:
       'Das Projekt ist mit rund {groesse} MB zu groß für den Austausch (höchstens {hoechstens} MB). Nicht mehr benötigte Hintergründe oder Dokumente entfernen und erneut exportieren.',
-    keinProjektpaket: 'Die Datei ist kein lesbares el.easy.CAD-Projektpaket.',
-    keinKatalogpaket: 'Die Datei ist kein lesbares el.easy.CAD-Katalogpaket.',
+    keinProjektpaket: 'Die Datei ist kein lesbares el.esy.CAD-Projektpaket.',
+    keinKatalogpaket: 'Die Datei ist kein lesbares el.esy.CAD-Katalogpaket.',
     dateiFehlt: 'Im Paket fehlt "{datei}".',
     keinJson: '"{datei}" im Paket enthält kein gültiges JSON.',
     falscheForm: '"{datei}" im Paket hat nicht die erwartete Form.',

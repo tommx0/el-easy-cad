@@ -175,7 +175,7 @@ A PDF created by a CAD program contains real lines rather than an image. Object 
 wall corners, edges and intersections become snap points, and you trace with millimetre accuracy
 without measuring.
 
-> el.easy.CAD does not recognise walls, doors and rooms in a PDF by itself – they are created by
+> el.esy.CAD does not recognise walls, doors and rooms in a PDF by itself – they are created by
 > tracing with snap. Finished building elements are taken over from an IFC model ([Take over
 > building elements from IFC](#ifc-bauteile)).
 
@@ -254,7 +254,7 @@ label of the component. Assignment is always done in the floor plan; the diagram
 
 ## Distribution board and diagram from the rooms {#ablauf-aus-raeumen}
 
-If a populated plan with rooms exists ([Workflow 3](#ablauf-nachzeichnen)), el.easy.CAD generates
+If a populated plan with rooms exists ([Workflow 3](#ablauf-nachzeichnen)), el.esy.CAD generates
 the distribution board and from it the distribution board diagram – with no cable drawn at all. The
 basis is the property **Circuit** of each component.
 
@@ -306,7 +306,7 @@ designation.
 ![Sheet 2 of the generated distribution board diagram](ablauf-raeume-plan.png)
 
 If the planning changes, suggest the board layout again: what already exists stays, what is new is
-added, and what is no longer used is ready for removal. Afterwards el.easy.CAD asks whether the
+added, and what is no longer used is ready for removal. Afterwards el.esy.CAD asks whether the
 linked diagram should be generated again – see [Workflow 11](#ablauf-nacharbeiten).
 
 ## Distribution board diagram from the board tree {#ablauf-baum}
@@ -402,7 +402,7 @@ the control device (button, rocker, channel) to a load or a device group. You co
 switches via the cable; KNX push-buttons without one ([Control assignments](#wirkverbindungen)).
 
 **Conventional – via the cable.** Draw the cable from the two-way switch in the hallway to the
-luminaire as usual. Because both have a device type, el.easy.CAD asks what should follow from it:
+luminaire as usual. Because both have a device type, el.esy.CAD asks what should follow from it:
 which slot of the switch acts on the luminaire and what it is called – suggested from room and
 control, “Light hallway”. If further switches hang on the cable (two-way or intermediate switching),
 they appear below with their own slot choice ([When routing the cable](#wirkverbindungen)).
@@ -415,7 +415,7 @@ it has several slots, choose the slot.
 ![Choosing the slot on the KNX 4-fold push-button sensor](ablauf-wirk-slot.png)
 
 Then click all the luminaires that this button is to switch, and finish with **Enter**. If a slot
-receives more than one target, el.easy.CAD combines the targets into a **device group** and asks for
+receives more than one target, el.esy.CAD combines the targets into a **device group** and asks for
 name, control and the **KNX** tick box ([Device groups](#geraetegruppen)).
 
 ![Creating a device group: both luminaires in the living room, switched via KNX](ablauf-wirk-gruppe.png)
@@ -495,7 +495,7 @@ plan, others do not.
 | Which equipment the distribution board has – the diagram determines it | |
 
 **1. Insert and remove components.** If you place a component from the catalogue directly onto a
-connection – for example a contactor contact between circuit breaker and terminal – el.easy.CAD cuts
+connection – for example a contactor contact between circuit breaker and terminal – el.esy.CAD cuts
 the connection at the upper contact and continues it from the lower one. The preview shows the
 affected connection in blue beforehand. If you delete such a component again, the connection becomes
 continuous again ([Placing components in wires](#schaltverbindung)).
@@ -520,4 +520,4 @@ panel. **Right-click a terminal › Renumber terminal strip -X1** counts the who
 **5. If the board layout changes.** If a circuit is added in the floor plan, you have two ways:
 
 - **Rework by hand:** place a circuit breaker and a terminal with the same reference designations as in the board layout into the diagram. The distribution board dialogue shows in grey what the diagram still lacks; the [equipment list](#betriebsmittelliste) reports reference designations that are assigned in the floor plan but missing in the diagram.
-- **Generate again:** after **Suggest board layout from rooms …**, el.easy.CAD asks whether the linked diagram should be generated again. Its content is replaced in the process – your own changes in the diagram are lost, and Undo in the floor plan does not reach the diagram. If you have reworked a lot, it is therefore better to carry on by hand.
+- **Generate again:** after **Suggest board layout from rooms …**, el.esy.CAD asks whether the linked diagram should be generated again. Its content is replaced in the process – your own changes in the diagram are lost, and Undo in the floor plan does not reach the diagram. If you have reworked a lot, it is therefore better to carry on by hand.

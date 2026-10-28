@@ -47,7 +47,7 @@ In the program settings under **Routing**, switch on **Wall routing**: cables th
 
 Further routing settings are the safety distance to components and the surcharges for changes of direction – if you want fewer corners, increase the surcharge.
 
-This is how el.easy.CAD always routes cables:
+This is how el.esy.CAD always routes cables:
 
 - **Right angles only** – no diagonals, the way an electrician installs.
 - **Parallel to the walls**, even if the plan was traced slightly skew: the routing follows the predominant wall direction of the sheet.

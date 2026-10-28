@@ -14,7 +14,7 @@ the sheet.
 In a [schematic](#zeichnungsart) the grid is **fixed at 24 cm** – the spacing of the contacts of
 circuit breakers, fuses and contactor contacts – and it changes neither with the zoom nor through
 the program settings. If you place symbols with snap switched on, their contacts line up with one
-another. When you zoom far out, el.easy.CAD hides the fine lines, but snapping still uses 24 cm.
+another. When you zoom far out, el.esy.CAD hides the fine lines, but snapping still uses 24 cm.
 
 ## Object snap {#objektfang}
 

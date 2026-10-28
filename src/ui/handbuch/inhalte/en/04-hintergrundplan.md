@@ -142,7 +142,7 @@ has. If that does not match the building, you have probably mistyped by a factor
 moves along, so the plan stays within it.
 
 **Standard scale of a PDF:** a PDF knows its paper size. If the plan is drawn at a common scale (1:1 to
-1:1000, including 1:25 and 1:250), el.easy.CAD recognises this when you calibrate, even if your click
+1:1000, including 1:25 and 1:250), el.esy.CAD recognises this when you calibrate, even if your click
 is a millimetre or two off. The calibration then applies exactly at this scale, and the status bar
 reports, for example, “Plan detected at scale 1:50”. The print area keeps this scale as long as the plan
 content fits on the chosen paper. A surrounding drawing border and white page margin do not count; they
@@ -227,7 +227,7 @@ chosen “All sheets”:
 
 ## Sheets from a newer version {#hintergrund-neuere-version}
 
-If you open a drawing that was edited with a newer version of el.easy.CAD, a sheet may contain a
+If you open a drawing that was edited with a newer version of el.esy.CAD, a sheet may contain a
 background that this version does not know yet. The drawing still loads. A note appears above the
 affected sheet, and the plan itself stays invisible.
 

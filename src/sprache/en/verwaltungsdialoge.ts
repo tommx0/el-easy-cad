@@ -38,17 +38,17 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     keineDatei: 'No file is stored for this attachment.',
   },
   serverHinweis: {
-    titel: 'el.easy.CAD is not connected',
+    titel: 'el.esy.CAD is not connected',
     appText:
-      'el.easy.CAD starts its own companion server in the background. It is not responding ' +
+      'el.esy.CAD starts its own companion server in the background. It is not responding ' +
       'at the moment – either it has not finished starting yet, or it has been stopped.',
     appHilft: 'This usually helps:',
     appWarten: 'Wait a moment and then click “Try again”.',
     appNeuStarten:
-      'Quit el.easy.CAD completely (not just close the window) and start it again – ' +
+      'Quit el.esy.CAD completely (not just close the window) and start it again – ' +
       'this also restarts the companion server.',
     appFirewallVor: 'Check whether an antivirus or firewall program is blocking the connection to',
-    appFirewallNach: 'and allow el.easy.CAD as an exception there.',
+    appFirewallNach: 'and allow el.esy.CAD as an exception there.',
     datenVor: 'Your data is stored in',
     datenNach: 'and is not affected by this message.',
     webText:
@@ -79,7 +79,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
   demoHinweis: {
     titel: 'Trial version',
     text:
-      'el.easy.CAD is running as a trial version – with the full range of functions, so that ' +
+      'el.esy.CAD is running as a trial version – with the full range of functions, so that ' +
       'you can try everything before buying. In return, the print area and every printout, PDF ' +
       'and Excel workbook carry the notice “Trial version – no commercial use permitted”. ' +
       'Commercial use is not permitted.',
@@ -89,9 +89,9 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     verstanden: 'OK',
   },
   ueber: {
-    titel: 'About el.easy.CAD Community',
+    titel: 'About el.esy.CAD Community',
     beschreibung:
-      'el.easy.CAD – simple 2D CAD with functional depth for electrical and building services ' +
+      'el.esy.CAD – simple 2D CAD with functional depth for electrical and building services ' +
       'design.',
     version: 'Version {version}',
     lizenzen: 'Licences',
@@ -99,13 +99,13 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
   datenschutz: {
     titel: 'Privacy policy',
     bestaetigenHinweis:
-      'Before you can use el.easy.CAD, you must read and confirm the following privacy policy.',
+      'Before you can use el.esy.CAD, you must read and confirm the following privacy policy.',
     programmBeenden: 'Quit program',
     akzeptiert: 'Read and accepted',
   },
   eula: {
     titel: 'End user licence agreement and beta test agreement',
-    hinweis: 'Before you can use el.easy.CAD, you must read and confirm the following agreement.',
+    hinweis: 'Before you can use el.esy.CAD, you must read and confirm the following agreement.',
     bestaetigen: 'I confirm these terms and agreements',
   },
   produktlizenzSperre: {
@@ -114,7 +114,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     titelTestAbgelaufen: 'Trial version expired',
     titelAbgelaufen: 'Licence expired',
     titelUngueltig: 'Licence file invalid',
-    titelOhne: 'el.easy.CAD needs a licence',
+    titelOhne: 'el.esy.CAD needs a licence',
     zuletztFuer: 'Last stored for',
     gueltigBis: ', valid until {datum}.',
     testAbgelaufen: 'The 30-day trial version has expired.',
@@ -126,11 +126,11 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
   },
   zusatzmodulEinstellungen: {
     einleitung:
-      'For developing an add-on, el.easy.CAD loads it directly from a folder on this computer – without a package and without installing.',
+      'For developing an add-on, el.esy.CAD loads it directly from a folder on this computer – without a package and without installing.',
     entwicklermodus: 'Developer mode',
     ordner: 'Folder with manifest.json and modul.js',
     gefunden:
-      'Found: {name} {version}. el.easy.CAD reloads it before every command if a file has changed.',
+      'Found: {name} {version}. el.esy.CAD reloads it before every command if a file has changed.',
     keinOrdner: 'No folder specified yet.',
     neuLaden: 'Reload now',
     hinweis:
@@ -151,7 +151,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     aktivHinweis: 'Active add-ons appear in the “Add-ons” menu.',
     entfernenHinweis: 'Choose the add-on you want to remove.',
     installiertAm: 'installed on {datum}',
-    ungetestet: 'not tested with el.easy.CAD {app}',
+    ungetestet: 'not tested with el.esy.CAD {app}',
     abgeschaltet: 'Switched off while loading: {fehler}',
     fehlerprotokoll: 'Error log',
     entfernen: 'Remove',
@@ -161,11 +161,11 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     hersteller: 'Manufacturer (as stated by the add-on): {hersteller}',
     befehle: 'Commands: {liste}',
     warnungZugriff:
-      'Add-ons have full access to el.easy.CAD and your projects. Only install add-ons from manufacturers you trust.',
+      'Add-ons have full access to el.esy.CAD and your projects. Only install add-ons from manufacturers you trust.',
     ersetztAeltere: 'Replaces the installed version {version}.',
     gleicheVersion: 'This version is already installed and will be reinstalled.',
     ersetztNeuere: 'Caution: older than the installed version {version}.',
-    nichtGetestet: 'Tested up to el.easy.CAD {bis}, installed is {app}.',
+    nichtGetestet: 'Tested up to el.esy.CAD {bis}, installed is {app}.',
     installieren: 'Install',
     aelterInstallieren: 'Install anyway',
   },
@@ -218,10 +218,10 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     titelEinspielen: 'Restore settings',
     titelSichern: 'Back up settings',
     hinweisEinspielen:
-      'From “{datei}” (el.easy.CAD {version}). The ticked areas replace your current settings; ' +
+      'From “{datei}” (el.esy.CAD {version}). The ticked areas replace your current settings; ' +
       'custom cable types are added.',
     hinweisSichern:
-      'The ticked areas are written to a file that you can restore in another el.easy.CAD ' +
+      'The ticked areas are written to a file that you can restore in another el.esy.CAD ' +
       'installation or in the cloud.',
     nichtInDatei: 'Not in this file',
     uebernehmen: 'Apply',
@@ -229,7 +229,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     gesichert: 'Settings backed up.',
     einspielenFehlgeschlagen: 'Restoring failed.',
     sichernFehlgeschlagen: 'Backup failed.',
-    dateiBeschreibung: 'el.easy.CAD settings',
+    dateiBeschreibung: 'el.esy.CAD settings',
     dateinameTeil: 'Settings',
     nichtGelesen: 'The file could not be read.',
     firmenlogo: 'Company logo',
@@ -315,7 +315,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
       'An AI assistant such as Claude can read the open document – sheets, components, rooms, ' +
       'lists, the distribution tree of a distribution board, checks and screenshots – and ' +
       'change it: set properties, delete, move, rotate, replace, create sheets. It talks to ' +
-      'el.easy.CAD via the Model Context Protocol (MCP), only on this computer. You bring the ' +
+      'el.esy.CAD via the Model Context Protocol (MCP), only on this computer. You bring the ' +
       'language model with your own Claude account.',
     datenweitergabe: 'Data sharing:',
     datenweitergabeText:
@@ -327,7 +327,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     nurLesen: 'AI may only read',
     nurLesenHinweis:
       'Every change by the assistant is a separate undo step (“AI: …”). While you are working ' +
-      'with a drawing tool, el.easy.CAD rejects its changes. With this box ticked it can only ' +
+      'with a drawing tool, el.esy.CAD rejects its changes. With this box ticked it can only ' +
       'read.',
     verbunden: 'This window is connected.',
     verbindet: 'Connecting …',
@@ -478,7 +478,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
       verknuepfung: 'Offer group and control assignment after you route a cable',
       verknuepfungHinweis:
         'If a cable connects two devices for which a control assignment, a pairing of two ' +
-        'switches or a device group makes sense, el.easy.CAD asks right away. You can also do ' +
+        'switches or a device group makes sense, el.esy.CAD asks right away. You can also do ' +
         'this later by right-clicking the cable.',
       uebertragen: 'Transfer settings',
       sichern: 'Back up settings…',
@@ -586,7 +586,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
   },
   handbuch: {
     titel: 'User manual',
-    druckTitel: 'el.easy.CAD – User manual',
+    druckTitel: 'el.esy.CAD – User manual',
     version: 'Version {version}',
     suchen: 'Search (e.g. trunk, PoE, origin)…',
     themen: 'Topics',
@@ -595,7 +595,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
   },
   einfuehrung: {
     ersteSchritte: 'Getting started',
-    titel: 'Getting started with el.easy.CAD',
+    titel: 'Getting started with el.esy.CAD',
     keineVideos:
       'No videos have been recorded for this edition yet. Everything described is in the user ' +
       'manual.',

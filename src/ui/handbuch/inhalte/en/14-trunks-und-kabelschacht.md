@@ -16,7 +16,7 @@ A new trunk receives the next free name of the drawing (“Trunk1”, “Trunk2�
 
 The ends are free; they do not dock onto ordinary connection points of components. The exception is **trunk points** provided specifically for this, for example at the top of a switch, patch panel or distribution board (in the catalogue, “trunk only” or “+ Trunk point”). Click on them while drawing: the trunk end snaps there and stays bound to it. Via a trunk attached in this way, you later assign cables to a [port](#switch-ports). End points and intermediate points can later be moved with the selection tool; waypoints you add via right-click and remove there again.
 
-**Set in advance:** While the trunk tool is active, a bar at the top right above the drawing shows what new trunks receive: the [trunk type](#trunk-ausfuehrung) with its dimensions, and the [installation zone](#trunk-zone), together with the **SM / FM** button for the same zone with the other installation method. The choice applies to all following trunks until you reset it or open another drawing. If a new trunk ends on a chain with a different trunk type, el.easy.CAD asks which one should apply when they are connected.
+**Set in advance:** While the trunk tool is active, a bar at the top right above the drawing shows what new trunks receive: the [trunk type](#trunk-ausfuehrung) with its dimensions, and the [installation zone](#trunk-zone), together with the **SM / FM** button for the same zone with the other installation method. The choice applies to all following trunks until you reset it or open another drawing. If a new trunk ends on a chain with a different trunk type, el.esy.CAD asks which one should apply when they are connected.
 
 ## Placing cables in the trunk {#leitung-in-trunk}
 
@@ -41,17 +41,17 @@ Trunks can be connected into **chains**. A chain shares its name, colour, line w
 
 **On the same sheet** – with the mouse:
 
-- Drag a trunk end with the selection tool onto the **end** of another trunk (or finish a new trunk there). el.easy.CAD asks, and **merges** both into one trunk.
+- Drag a trunk end with the selection tool onto the **end** of another trunk (or finish a new trunk there). el.esy.CAD asks, and **merges** both into one trunk.
 - If the end lands **in the middle of** another trunk, a **branch** is created after confirmation.
 - “Cancel” leaves the end simply where it was dropped, without a connection.
 
-**Across sheet boundaries** – for example from the ground floor to the first floor – this works only via the context menu: right-click a free trunk end › **Connect to another trunk ...**. In the dialog, choose the **Target sheet**, the **Target trunk** and its end (A or B). If you choose the same sheet there, both trunks are merged as above. If the two chains have different trunk types, el.easy.CAD asks which should apply.
+**Across sheet boundaries** – for example from the ground floor to the first floor – this works only via the context menu: right-click a free trunk end › **Connect to another trunk ...**. In the dialog, choose the **Target sheet**, the **Target trunk** and its end (A or B). If you choose the same sheet there, both trunks are merged as above. If the two chains have different trunk types, el.esy.CAD asks which should apply.
 
 An end connected across sheets carries, instead of the simple label, a blue reference, for example “Trunk1.1 B → OG / Trunk1.2”. A click on it jumps to the counterpart on the other sheet. Right-click a connected end › **Disconnect** releases the chaining again; for an end at the cable riser, release it there with **Disconnect from cable riser**.
 
 ## Trunk type: bundle, duct, tray, conduit {#trunk-ausfuehrung}
 
-A trunk is initially a loose **bundle**. In the properties panel, under **Trunk type**, you set whether the cables instead lie in a **cable duct**, on a **cable tray** or in a **conduit**, and state the dimension in centimetres: width and height for duct and tray, the diameter for a conduit. The setting applies to the whole [chain](#trunks-verbinden). If two chains with different trunk types meet when connected, el.easy.CAD asks which should apply; if only one side has a trunk type, that one applies. It changes nothing on the plan, in the cable lengths or in the bill of materials; it is needed for the IFC export.
+A trunk is initially a loose **bundle**. In the properties panel, under **Trunk type**, you set whether the cables instead lie in a **cable duct**, on a **cable tray** or in a **conduit**, and state the dimension in centimetres: width and height for duct and tray, the diameter for a conduit. The setting applies to the whole [chain](#trunks-verbinden). If two chains with different trunk types meet when connected, el.esy.CAD asks which should apply; if only one side has a trunk type, that one applies. It changes nothing on the plan, in the cable lengths or in the bill of materials; it is needed for the IFC export.
 
 ## Installation zone of a trunk {#trunk-zone}
 

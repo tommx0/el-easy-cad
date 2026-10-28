@@ -103,13 +103,13 @@ export const hinweise = {
       name: 'Leitungen verlegen',
       titel: 'Leitungen verlegen',
       text: [
-        'Eine Leitung verbindet zwei Dockpunkte. el.easy.CAD sucht den Weg selbst; Sie ' +
+        'Eine Leitung verbindet zwei Dockpunkte. el.esy.CAD sucht den Weg selbst; Sie ' +
           'können ihn aber auch führen.',
         '',
         '1. **Von Dockpunkt zu Dockpunkt.** Erst auf den Dockpunkt der ersten Komponente ' +
           'klicken, dann auf den der zweiten. **D** gedrückt zeigt alle Dockpunkte.',
         '2. **Weg selbst führen.** Klicken Sie vor dem Ziel freie Punkte: Die Leitung läuft ' +
-          'genau dort entlang, nur das letzte Stück sucht el.easy.CAD selbst.',
+          'genau dort entlang, nur das letzte Stück sucht el.esy.CAD selbst.',
         '3. **An Wänden.** Hängt eine Komponente an der Wand, kommt die Leitung aus der Wand. ' +
           'In den Einstellungen unter **Routing** führt die **Wandführung** Leitungen bevorzugt ' +
           'an Wänden entlang.',
@@ -180,12 +180,12 @@ export const hinweise = {
           'Wippen im Rahmen. Hier stellen Sie Anzahl und Namen ein; bei manchen Geräten ergibt ' +
           'sie sich aus einem Textfeld, etwa der Wippenzahl.',
         '3. **Konventionell verbinden.** Zeichnen Sie die Leitung vom Schalter zum Verbraucher: ' +
-          'el.easy.CAD fragt, welcher Slot wirkt, und schlägt einen Namen aus Raum und ' +
+          'el.esy.CAD fragt, welcher Slot wirkt, und schlägt einen Namen aus Raum und ' +
           'Ansteuerung vor („Licht Flur“).',
         '4. **Ohne Leitung verbinden.** {{befehl:werkzeug.wirkverbindung}}: das Befehlsgerät ' +
           'anklicken, bei mehreren Slots den Slot wählen, dann alle Ziele anklicken und mit ' +
           '**Enter** abschließen.',
-        '5. **Gruppe.** Bekommt ein Slot mehr als ein Ziel, fasst el.easy.CAD sie zu einer ' +
+        '5. **Gruppe.** Bekommt ein Slot mehr als ein Ziel, fasst el.esy.CAD sie zu einer ' +
           '**Gerätegruppe** zusammen und fragt Name, Ansteuerung und den Haken **KNX**.',
         '6. **Kontrollieren.** Das gewählte Befehlsgerät zeigt gestrichelte Linien zu seinen ' +
           'Zielen. Alles auf einen Blick: {{befehl:werkzeug.steuerungslogik}}.',

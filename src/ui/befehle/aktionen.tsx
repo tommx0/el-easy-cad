@@ -289,7 +289,7 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     try {
       const { datei, bericht } = await exportiereAlsIfc(zeichnung, katalogKomponenten, {
         module: freigeschaltet,
-        anwendung: `el.easy.CAD ${__APP_VERSION__}`,
+        anwendung: `el.esy.CAD ${__APP_VERSION__}`,
       })
       const dateiname = erzeugeDateiname(
         [offenesDokument?.projektBezeichnung, zeichnung.name, 'IFC'],

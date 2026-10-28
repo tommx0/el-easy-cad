@@ -58,7 +58,7 @@ export function packeKatalog(
   const inhalt: KatalogPaketInhalt = {
     paketVersion: KATALOG_PAKET_VERSION,
     erzeugtAm: new Date().toISOString(),
-    anwendung: 'el.easy.CAD',
+    anwendung: 'el.esy.CAD',
     katalog,
     komponenten,
     assets,

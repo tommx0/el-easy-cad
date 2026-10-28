@@ -103,13 +103,13 @@ export const hinweise: Texte['hinweise'] = {
       name: 'Route cables',
       titel: 'Route cables',
       text: [
-        'A cable connects two connection points. el.easy.CAD finds the route itself, but you ' +
+        'A cable connects two connection points. el.esy.CAD finds the route itself, but you ' +
           'can also guide it.',
         '',
         '1. **From connection point to connection point.** Click the connection point of the ' +
           'first component, then that of the second. Hold **D** to show all connection points.',
         '2. **Guide the route yourself.** Click free points before the target: the cable runs ' +
-          'exactly there, and el.easy.CAD only finds the last stretch itself.',
+          'exactly there, and el.esy.CAD only finds the last stretch itself.',
         '3. **On walls.** If a component hangs on the wall, the cable comes out of the wall. ' +
           'Under **Routing** in the settings, **wall routing** makes cables run along walls ' +
           'by preference.',
@@ -177,12 +177,12 @@ export const hinweise: Texte['hinweise'] = {
           'rockers in a frame. Here you set number and names; on some devices the number ' +
           'comes from a text field, such as the number of rockers.',
         '3. **Connect conventionally.** Draw the cable from the switch to the load: ' +
-          'el.easy.CAD asks which slot acts and proposes a name from room and control ' +
+          'el.esy.CAD asks which slot acts and proposes a name from room and control ' +
           '(“Light hallway”).',
         '4. **Connect without a cable.** {{befehl:werkzeug.wirkverbindung}}: click the control ' +
           'device, choose the slot if there are several, then click all targets and finish ' +
           'with **Enter**.',
-        '5. **Group.** If a slot gets more than one target, el.easy.CAD combines them into a ' +
+        '5. **Group.** If a slot gets more than one target, el.esy.CAD combines them into a ' +
           '**device group** and asks for name, control and the **KNX** tick.',
         '6. **Check.** The selected control device shows dashed lines to its targets. All of ' +
           'it at a glance: {{befehl:werkzeug.steuerungslogik}}.',

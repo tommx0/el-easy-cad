@@ -174,7 +174,7 @@ export const befehle = {
     handbuch: 'Bedienungsanleitung…',
     einfuehrung: 'Erste Schritte…',
     hinweise: 'Hilfe-Hinweise…',
-    ueber: 'Über el.easy.CAD',
+    ueber: 'Über el.esy.CAD',
     'meine-lizenz': 'Meine Lizenz…',
     lizenzen: 'Lizenzen der Fremdbibliotheken…',
     datenschutz: 'Datenschutzerklärung…',

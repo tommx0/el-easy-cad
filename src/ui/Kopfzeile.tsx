@@ -51,12 +51,12 @@ export function Kopfzeile() {
       <div className="kopfzeile-band">
         <div
           className="kopfzeile-marke"
-          title={`el.easy.CAD Community v${__APP_VERSION__} — © Thomas Marx 2026`}
+          title={`el.esy.CAD Community v${__APP_VERSION__} — © Thomas Marx 2026`}
         >
           <LogoMarke />
           <div className="kopfzeile-marke-text">
             <div className="kopfzeile-marke-titelzeile">
-              <span className="kopfzeile-app">el.easy.CAD Community</span>
+              <span className="kopfzeile-app">el.esy.CAD Community</span>
               <span className="kopfzeile-version">v{__APP_VERSION__}</span>
               <span className="kopfzeile-beta" title={t('kopfzeile.betaTitel')}>
                 Beta

@@ -33,7 +33,7 @@ function meldeUnbehandeltenFehler(nachricht: string, stack: string | undefined):
   meldeFehlerAnProtokoll({
     nachricht,
     stack,
-    kontext: `${navigator.userAgent} · el.easy.CAD v${__APP_VERSION__}`,
+    kontext: `${navigator.userAgent} · el.esy.CAD v${__APP_VERSION__}`,
   }).catch(() => {})
 }
 

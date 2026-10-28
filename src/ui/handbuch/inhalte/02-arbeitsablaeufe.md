@@ -181,7 +181,7 @@ Eine PDF, die ein CAD-Programm erzeugt hat, enthält echte Linien statt eines Bi
 greift der Objektfang: Wandecken, Kanten und Schnittpunkte werden zu Fangpunkten, und Sie zeichnen
 millimetergenau nach, ohne zu messen.
 
-> Wände, Türen und Räume erkennt el.easy.CAD in einem PDF nicht von selbst – sie entstehen durch
+> Wände, Türen und Räume erkennt el.esy.CAD in einem PDF nicht von selbst – sie entstehen durch
 > Nachzeichnen mit Fang. Fertige Bauteile übernimmt das Programm aus einem IFC-Modell
 > ([Bauteile aus IFC übernehmen](#ifc-bauteile)).
 
@@ -262,7 +262,7 @@ der Komponente. Zugewiesen wird immer im Bauplan; der Plan liest nur.
 ## Verteiler und Verteilerplan aus den Räumen {#ablauf-aus-raeumen}
 
 Liegt eine bestückte Planung mit Räumen vor ([Ablauf 3](#ablauf-nachzeichnen)), erzeugt
-el.easy.CAD den Verteiler und daraus den Verteilerplan – ganz ohne gezeichnete Leitung. Grundlage
+el.esy.CAD den Verteiler und daraus den Verteilerplan – ganz ohne gezeichnete Leitung. Grundlage
 ist die Eigenschaft **Stromkreis** jeder Komponente.
 
 **1. Stromkreise prüfen.** Wählen Sie eine Komponente aus: Im Eigenschaften-Panel steht unter
@@ -313,7 +313,7 @@ Klemme steht die Zielbezeichnung.
 ![Blatt 2 des erzeugten Verteilerplans](ablauf-raeume-plan.png)
 
 Ändert sich die Planung, schlagen Sie die Bestückung erneut vor: Vorhandenes bleibt, Neues kommt
-dazu, nicht mehr Gebrauchtes steht zum Entfernen bereit. Danach fragt el.easy.CAD, ob der
+dazu, nicht mehr Gebrauchtes steht zum Entfernen bereit. Danach fragt el.esy.CAD, ob der
 verknüpfte Plan neu erzeugt werden soll – siehe [Ablauf 11](#ablauf-nacharbeiten).
 
 ## Verteilerplan aus dem Baum des Verteilers {#ablauf-baum}
@@ -407,7 +407,7 @@ Gerätegruppe. Konventionelle Schalter verbinden Sie über die Leitung, KNX-Tast
 ([Wirkverbindungen](#wirkverbindungen)).
 
 **Konventionell – über die Leitung.** Zeichnen Sie wie gewohnt die Leitung vom Wechselschalter im
-Flur zur Leuchte. Weil beide einen Gerätetyp haben, fragt el.easy.CAD danach, was daraus folgen
+Flur zur Leuchte. Weil beide einen Gerätetyp haben, fragt el.esy.CAD danach, was daraus folgen
 soll: welcher Slot des Schalters auf die Leuchte wirkt und wie er heißt – vorgeschlagen aus Raum
 und Ansteuerung, „Licht Flur“. Hängen weitere Schalter per Leitung daran (Wechsel- oder
 Kreuzschaltung), stehen sie mit eigener Slotwahl darunter ([Gleich beim Verlegen der
@@ -421,7 +421,7 @@ mehrere Slots, wählen Sie den Slot.
 ![Slot wählen beim Tastsensor KNX 4fach](ablauf-wirk-slot.png)
 
 Klicken Sie dann alle Leuchten an, die diese Taste schalten soll, und schließen Sie mit **Enter**
-ab. Bekommt ein Slot mehr als ein Ziel, fasst el.easy.CAD die Ziele zu einer **Gerätegruppe**
+ab. Bekommt ein Slot mehr als ein Ziel, fasst el.esy.CAD die Ziele zu einer **Gerätegruppe**
 zusammen und fragt Name, Ansteuerung und den Haken **KNX** ab ([Gerätegruppen](#geraetegruppen)).
 
 ![Gerätegruppe bilden: beide Leuchten im Wohnzimmer, KNX-geschaltet](ablauf-wirk-gruppe.png)
@@ -503,7 +503,7 @@ Bauplan verbunden, anderes nicht.
 
 **1. Bauteile einsetzen und herausnehmen.** Setzen Sie ein Bauteil aus dem Katalog direkt auf
 eine Verbindung – etwa einen Schützkontakt zwischen Leitungsschutzschalter und Klemme –, trennt
-el.easy.CAD die Verbindung am oberen Kontakt und führt sie ab dem unteren weiter. Die Vorschau
+el.esy.CAD die Verbindung am oberen Kontakt und führt sie ab dem unteren weiter. Die Vorschau
 zeigt die betroffene Verbindung schon vorher blau. Löschen Sie ein solches Bauteil wieder, wird
 die Verbindung durchgehend ([Bauteile in Verbindungen setzen](#schaltverbindung)).
 
@@ -529,7 +529,7 @@ durch ([Klemmenleiste](#klemmen)).
   der Bestückung in den Plan setzen. Der Verteiler-Dialog zeigt grau, was dem Plan noch fehlt;
   die [Betriebsmittelliste](#betriebsmittelliste) meldet Kennzeichen, die im Bauplan zugewiesen
   sind, im Plan aber fehlen.
-- **Neu erzeugen:** Nach **Bestückung aus Räumen vorschlagen …** fragt el.easy.CAD, ob der
+- **Neu erzeugen:** Nach **Bestückung aus Räumen vorschlagen …** fragt el.esy.CAD, ob der
   verknüpfte Plan neu erzeugt werden soll. Dabei wird sein Inhalt ersetzt – eigene Änderungen im
   Plan gehen verloren, und Rückgängig im Bauplan erreicht den Plan nicht. Wer viel nachgearbeitet
   hat, arbeitet deshalb lieber von Hand weiter.

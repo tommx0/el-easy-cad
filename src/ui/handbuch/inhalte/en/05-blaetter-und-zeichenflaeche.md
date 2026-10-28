@@ -91,7 +91,7 @@ The three wall zones follow DIN 18015-3. On and in the wall, a cable runs at the
 [3D view](#dreid-ansicht), each zone has its own colour. You can add further zones under
 [Custom installation zones](#installationszonen).
 
-With an installation zone, el.easy.CAD also calculates the **vertical sections**: at each cable end, from
+With an installation zone, el.esy.CAD also calculates the **vertical sections**: at each cable end, from
 the zone to the mounting height of the device, and at the cable riser, the difference between the zones of
 both storeys. The mounting height is the installation height of the component. Otherwise it is the usual
 height of its device type (switch 1.05 m, socket 0.30 m …), and otherwise 1.05 m. A device with the

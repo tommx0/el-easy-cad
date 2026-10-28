@@ -63,7 +63,7 @@ A **module carrier** (System 106) also snaps to the wall, but it does not take f
 
 ## Distances to wall and neighbours {#abstandsanzeige}
 
-While a component hangs from the pointer – and likewise while you move a single component with the mouse – el.easy.CAD shows the distance to the nearest component above, below, left and right: a dashed blue line with a measurement.
+While a component hangs from the pointer – and likewise while you move a single component with the mouse – el.esy.CAD shows the distance to the nearest component above, below, left and right: a dashed blue line with a measurement.
 
 Distances are measured to the nearest **wall**, **stairs**, the nearest **cable riser** or the nearest **component**, in each case to its facing outer side. Doors, windows and wall openings belong to the wall – the line ends there at the outside of the wall, not at the opening symbol. Freely drawn lines, labels and dimensions do not count as targets.
 
@@ -112,7 +112,7 @@ If a field determines the [number of slots](#slotanzahl-aus-text), a note appear
 
 ## Circuit diagram symbols from the catalogue {#stromlaufplan-symbole}
 
-For [schematics](#zeichnungsart), el.easy.CAD brings the catalogue **Circuit diagram symbols**: standardised circuit symbols, not products of a manufacturer. It is organised by category:
+For [schematics](#zeichnungsart), el.esy.CAD brings the catalogue **Circuit diagram symbols**: standardised circuit symbols, not products of a manufacturer. It is organised by category:
 
 | Category | Contents |
 |---|---|
@@ -147,7 +147,7 @@ Existing plans with their own X per terminal remain as they are.
 
 ## KNX actuator in the schematic {#knx-aktor}
 
-el.easy.CAD draws KNX switching, blind and dimming actuators itself, matched to the number of their channels: a rectangle with the title (“Switching/blind actuator 8-fold”), at the bottom an input per channel with an arrow into the device and an output with an arrow out, above them the channel designation A1, A2 … and the function together with the label. At the top sit the bus terminals KNX+ and KNX- and, at a distance, L and N. All connections lie on the grid of the schematic.
+el.esy.CAD draws KNX switching, blind and dimming actuators itself, matched to the number of their channels: a rectangle with the title (“Switching/blind actuator 8-fold”), at the bottom an input per channel with an arrow into the device and an output with an arrow out, above them the channel designation A1, A2 … and the function together with the label. At the top sit the bus terminals KNX+ and KNX- and, at a distance, L and N. All connections lie on the grid of the schematic.
 
 {{befehl:werkzeug.knx-aktor}} opens the dialog in which you put the actuator together. Both actuators are also in the catalogue under “Circuit diagram symbols” (KNX › Actuators).
 
@@ -157,7 +157,7 @@ el.easy.CAD draws KNX switching, blind and dimming actuators itself, matched to 
 - **Reference designation:** the suggestion is the next free K (-K1, -K2 …).
 - **Show L/N supply** switches L and N at the top on or off.
 
-After **Insert**, the actuator hangs from the mouse pointer like any component and snaps with the input of A1 to the grid. It is changed in the properties panel via **Edit channels …**: a larger actuator gets the new channels added on the right, and connected wires stay at their channel. If it becomes smaller and something hangs on a channel that drops away, el.easy.CAD asks first; those connections remain as free ends. The 24-channel actuator is wider than a sheet and is therefore laid out in two rows: A1–A12 above, A13–A24 below. The upper row ends at the right, and the lower row begins at the left with a curved break line. The lower row carries the reference designation and title with “(continued)” – so you can see that both are one device.
+After **Insert**, the actuator hangs from the mouse pointer like any component and snaps with the input of A1 to the grid. It is changed in the properties panel via **Edit channels …**: a larger actuator gets the new channels added on the right, and connected wires stay at their channel. If it becomes smaller and something hangs on a channel that drops away, el.esy.CAD asks first; those connections remain as free ends. The 24-channel actuator is wider than a sheet and is therefore laid out in two rows: A1–A12 above, A13–A24 below. The upper row ends at the right, and the lower row begins at the left with a curved break line. The lower row carries the reference designation and title with “(continued)” – so you can see that both are one device.
 
 In the bill of materials each actuator is counted by type and size, e.g. “KNX switching actuator 8-fold” or “KNX switching/blind actuator 8-fold” with a blind pair – without manufacturer and article number. The earlier, fixed-drawn actuators from the catalogue remain in existing plans as they are.
 

@@ -134,7 +134,7 @@ nebeneinander.
 ## Abstände zu Wand und Nachbarn {#abstandsanzeige}
 
 Während eine Komponente am Zeiger hängt – und ebenso, während Sie eine einzelne Komponente mit
-der Maus verschieben – zeigt el.easy.CAD nach oben, unten, links und rechts den Abstand zum
+der Maus verschieben – zeigt el.esy.CAD nach oben, unten, links und rechts den Abstand zum
 nächsten Bauteil an: gestrichelte blaue Linie mit Metermaß.
 
 Gemessen wird bis zur nächsten **Wand**, **Treppe**, zum nächsten **Kabelschacht** oder zur
@@ -231,7 +231,7 @@ Zahl, bleiben die Slots unverändert. Ist die Komponente Teil einer
 
 ## Schaltplansymbole aus dem Katalog {#stromlaufplan-symbole}
 
-Für [Schaltpläne](#zeichnungsart) bringt el.easy.CAD den Katalog **Stromlaufplan-Symbole** mit:
+Für [Schaltpläne](#zeichnungsart) bringt el.esy.CAD den Katalog **Stromlaufplan-Symbole** mit:
 genormte Schaltzeichen, keine Produkte eines Herstellers. Er ist nach Kategorien gegliedert:
 
 | Kategorie | Inhalt |
@@ -296,7 +296,7 @@ Schon vorhandene Pläne mit einem eigenen X je Klemme bleiben, wie sie sind.
 
 ## KNX-Aktor im Schaltplan {#knx-aktor}
 
-Schalt-, Jalousie- und Dimmaktoren für KNX zeichnet el.easy.CAD selbst, passend zur Zahl ihrer
+Schalt-, Jalousie- und Dimmaktoren für KNX zeichnet el.esy.CAD selbst, passend zur Zahl ihrer
 Kanäle: ein Rechteck mit dem Titel („Schalt-/Jalousieaktor 8fach“), unten je Kanal ein Eingang
 mit Pfeil ins Gerät und ein Ausgang mit Pfeil hinaus, darüber die Kanalbezeichnung A1, A2 … und
 die Funktion samt Beschriftung. Oben sitzen die Busklemmen KNX+ und KNX- und mit Abstand L und
@@ -318,7 +318,7 @@ Aktoren stehen auch im Katalog unter „Stromlaufplan-Symbole“ (KNX › Aktore
 Nach **Einfügen** hängt der Aktor am Mauszeiger wie jede Komponente und fängt mit dem Eingang
 von A1 auf dem Raster. Ändern lässt er sich im Eigenschaften-Panel über **Kanäle bearbeiten …**:
 Ein größerer Aktor bekommt die neuen Kanäle rechts dazu, angeschlossene Verbindungen bleiben an
-ihrem Kanal. Wird er kleiner und hängt an einem wegfallenden Kanal etwas, fragt el.easy.CAD vorher;
+ihrem Kanal. Wird er kleiner und hängt an einem wegfallenden Kanal etwas, fragt el.esy.CAD vorher;
 diese Verbindungen bleiben als freie Enden stehen. Der 24fach-Aktor ist breiter als ein Blatt und
 steht deshalb zweireihig: A1–A12 oben, A13–A24 darunter. Die obere Reihe endet rechts, die
 untere beginnt links mit einer geschwungenen Bruchkante, und die untere trägt Kennzeichen und

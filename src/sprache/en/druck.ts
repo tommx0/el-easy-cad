@@ -22,7 +22,7 @@ export const druck: Texte['druck'] = {
     blattName: 'Legal notices',
     uebersichtTitel: 'Overview plan – not to scale',
     uebersichtText:
-      'The plans and lists created with el.easy.CAD are intended solely as an overview. They are ' +
+      'The plans and lists created with el.esy.CAD are intended solely as an overview. They are ' +
       'not to scale and must not be used for construction design, for taking measurements or ' +
       'for structural calculations.',
     planungshilfeTitel: 'Planning aid, not professional engineering design',

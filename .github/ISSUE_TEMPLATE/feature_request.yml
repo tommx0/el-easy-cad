@@ -32,3 +32,11 @@ body:
       options:
         - label: I searched the existing issues. / Ich habe die vorhandenen Issues durchsucht.
           required: true
+  - type: checkboxes
+    id: rechte
+    attributes:
+      label: "Rights / Rechte"
+      description: "[Rights to your contributions](https://github.com/tommx0/el-easy-cad/blob/main/.github/CONTRIBUTING.md#rights-to-your-contributions) / [Rechte an deinem Beitrag](https://github.com/tommx0/el-easy-cad/blob/main/.github/CONTRIBUTING.md#rechte-an-deinem-beitrag)"
+      options:
+        - label: "I grant the rights to my contribution described in CONTRIBUTING.md and confirm that I am entitled to do so. / Ich räume die in CONTRIBUTING.md beschriebenen Rechte an meinem Beitrag ein und darf das."
+          required: true

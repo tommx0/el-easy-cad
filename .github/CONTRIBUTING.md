@@ -37,6 +37,27 @@ Issues may be written in English or German.
 Please do not attach project files or plans with customer data or other personal information.
 If a file is needed to reproduce the problem, reduce it to a small example first.
 
+## Rights to your contributions
+
+In addition to the licence of this repository, the following applies to everything you submit
+in this repository – issues, comments, discussion posts and their attachments, such as text,
+code, sketches, drawings, symbols or files (your "contribution"):
+
+1. You grant Thomas Marx, the maintainer of el.esy.CAD, a free of charge, non-exclusive,
+   irrevocable and transferable right to use your contribution, worldwide and unlimited in time,
+   for all known and future types of use. This includes reproducing, modifying, translating,
+   combining it with other works, publishing and distributing it, also commercially, under any
+   licence and in other products, and granting these rights to third parties.
+2. You confirm that the contribution is your own work or that you are otherwise entitled to grant
+   these rights – for example, that no employer or client holds rights to it – and that it does
+   not infringe the rights of third parties. Do not submit material you are not entitled to share.
+3. There is no claim to a suggestion being implemented, to remuneration or to being named. You
+   agree that your contribution may be used without naming you. Ideas and suggestions may be
+   implemented in any way, including differently from what was suggested.
+
+Each issue form asks you to confirm this. If you do not agree, please do not submit a
+contribution.
+
 ## Conduct
 
 Everyone taking part is expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
@@ -77,5 +98,27 @@ und die Einträge aus *Hilfe › Fehlerprotokoll…*, falls vorhanden.
 
 Bitte keine Projektdateien oder Pläne mit Kundendaten oder anderen personenbezogenen Daten
 anhängen. Wird eine Datei zum Nachstellen gebraucht, vorher auf ein kleines Beispiel reduzieren.
+
+### Rechte an deinem Beitrag
+
+Zusätzlich zur Lizenz dieses Repositorys gilt für alles, was du hier einreichst – Issues,
+Kommentare, Beiträge in den Discussions und deren Anhänge wie Texte, Code, Skizzen, Zeichnungen,
+Symbole oder Dateien (dein „Beitrag“):
+
+1. Du räumst Thomas Marx, dem Maintainer von el.esy.CAD, ein unentgeltliches, nicht
+   ausschließliches, unwiderrufliches und übertragbares Nutzungsrecht an deinem Beitrag ein,
+   räumlich und zeitlich unbeschränkt, für alle bekannten und künftigen Nutzungsarten. Das umfasst
+   Vervielfältigen, Bearbeiten, Übersetzen, Verbinden mit anderen Werken, Veröffentlichen und
+   Verbreiten, auch kommerziell, unter beliebiger Lizenz und in anderen Produkten, sowie das
+   Einräumen dieser Rechte an Dritte.
+2. Du sicherst zu, dass der Beitrag von dir stammt oder du die Rechte sonst einräumen darfst –
+   etwa, dass kein Arbeit- oder Auftraggeber Rechte daran hat – und dass er keine Rechte Dritter
+   verletzt. Reiche nichts ein, was du nicht weitergeben darfst.
+3. Es besteht kein Anspruch auf Umsetzung eines Vorschlags, auf Vergütung oder auf Namensnennung.
+   Du bist einverstanden, dass dein Beitrag ohne Nennung deines Namens genutzt wird. Ideen und
+   Vorschläge dürfen beliebig umgesetzt werden, auch anders als vorgeschlagen.
+
+Jedes Issue-Formular fragt diese Zustimmung ab. Bist du nicht einverstanden, reiche bitte keinen
+Beitrag ein.
 
 Für alle Beteiligten gilt der [Verhaltenskodex](CODE_OF_CONDUCT.md).

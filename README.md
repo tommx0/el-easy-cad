@@ -1,4 +1,4 @@
-# el.easy.CAD Community
+# el.esy.CAD Community 
 
 I'm still working on this page and also the app – it’ll be improved bit by bit. I’ll be adding more information soon. Feel free to test this app. Please read the manual in the program. There are still some issues with workflows and usability. The development is still in progress.
 
@@ -12,7 +12,7 @@ print or export every sheet as PDF, Excel or IFC. It also draws schematics and d
 diagrams.
 
 The application runs entirely on your computer (PC and macOS): a small local server stores projects in a SQLite
-file, and el.easy.CAD itself sends nothing anywhere. An optional AI assistant can read and edit
+file, and el.esy.CAD itself sends nothing anywhere. An optional AI assistant can read and edit
 your drawings – see [Working with an AI assistant](#working-with-an-ai-assistant-mcp).
 
 > The user interface and the built-in manual are available in German and English.
@@ -29,7 +29,7 @@ your drawings – see [Working with an AI assistant](#working-with-an-ai-assista
 
 ## From floor plan to distribution board diagram – with KNX actuators
 
-el.easy.CAD turns a furnished floor plan into a complete distribution board diagram – if you like,
+el.esy.CAD turns a furnished floor plan into a complete distribution board diagram – if you like,
 without drawing a single cable:
 
 1. **Plan the rooms.** Every component has a *circuit*: the room circuit (default for sockets and
@@ -60,7 +60,7 @@ without drawing a single cable:
    Excel.
 
 When the planning changes, suggest the layout again: existing entries keep their tags and labels,
-new ones are added, and el.easy.CAD offers to recreate the linked diagram. The tree of the board
+new ones are added, and el.esy.CAD offers to recreate the linked diagram. The tree of the board
 stays editable by hand at any time. The AI assistant can take over steps 2 to 4 as well.
 
 | Assign KNX actuators | Generated circuit sheet |
@@ -69,7 +69,7 @@ stays editable by hand at any time. The AI assistant can take over steps 2 to 4 
 
 ## Working with an AI assistant (MCP)
 
-el.easy.CAD has a built-in interface for AI assistants such as **Claude** (Claude Code or Claude
+el.esy.CAD has a built-in interface for AI assistants such as **Claude** (Claude Code or Claude
 Desktop), based on the [Model Context Protocol](https://modelcontextprotocol.io). Ask about the
 open drawing in plain language – or let the assistant do the drawing work for you.
 
@@ -109,7 +109,7 @@ As with every result of the program: check what the assistant does before you re
 
 ## Licence
 
-el.easy.CAD Community is licensed under the
+el.esy.CAD Community is licensed under the
 [PolyForm Noncommercial License 1.0.0](LICENSE):
 
 - **Free for any non-commercial use** – private persons, non-profit organisations, schools and
@@ -123,7 +123,7 @@ Fremdbibliotheken*.
 
 ## Disclaimer
 
-el.easy.CAD Community is a planning aid and comes without any warranty. Have every planning
+el.esy.CAD Community is a planning aid and comes without any warranty. Have every planning
 result checked by a qualified electrician before you use it. Responsibility for the planning and
 for compliance with the recognised rules of technology remains with the
 user.
@@ -171,8 +171,8 @@ desktop app; the first run takes several minutes.
 
 The result is in `src-tauri/target/release/bundle/`:
 
-- **Windows:** `nsis/el.easy.CAD Community_<version>_x64-setup.exe` – an installer.
-- **macOS:** `macos/el.easy.CAD Community.app` and `dmg/el.easy.CAD Community_<version>_aarch64.dmg`.
+- **Windows:** `nsis/el.esy.CAD Community_<version>_x64-setup.exe` – an installer.
+- **macOS:** `macos/el.esy.CAD Community.app` and `dmg/el.esy.CAD Community_<version>_aarch64.dmg`.
   The app is signed ad hoc only. Copy it to *Applications* and open it the first time with
   right-click › *Open*.
 
@@ -196,7 +196,7 @@ Bug reports and suggestions are welcome as issues.
 
 ## Deutsch
 
-el.easy.CAD ist ein Desktop-CAD für die Elektro-, KNX Sensorkanalzuordnung und Netzwerkplanung: Grundriss als Hintergrund
+el.esy.CAD ist ein Desktop-CAD für die Elektro-, KNX Sensorkanalzuordnung und Netzwerkplanung: Grundriss als Hintergrund
 laden (PDF, DXF, IFC, Bild), kalibrieren, Komponenten aus dem Produktkatalog platzieren, Leitungen
 automatisch verlegen, in Trunks und Kabelschächten über Etagen führen und jedes Blatt als PDF,
 Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. KNX Tastsensor oder Schalterkanäle zu Leuchten oder Geräten hinzufüge... kein Problem. Alles läuft auf Ihrem Rechner, el.easy.CAD selbst überträgt keine Daten.
@@ -273,7 +273,7 @@ Ergebnisse des Assistenten vor der Verwendung zu prüfen.
 vollem Funktionsumfang und ohne Zeitbegrenzung. Eine gewerbliche oder berufliche Nutzung erlaubt
 die Lizenz nicht. Verbindlich ist der englische Lizenztext in [LICENSE](LICENSE).
 
-**Haftungshinweis:** el.easy.CAD Community ist eine Planungshilfe und wird ohne Gewähr
+**Haftungshinweis:** el.esy.CAD Community ist eine Planungshilfe und wird ohne Gewähr
 bereitgestellt. Lassen Sie jedes Planungsergebnis vor der Verwendung durch eine Elektrofachkraft
 prüfen. Die Verantwortung für die Planung und die Einhaltung der anerkannten Regeln der Technik,
 insbesondere DIN VDE, verbleibt beim Verwender.

@@ -1,0 +1,63 @@
+name: Bug report / Fehler melden
+description: Something does not work as described. / Etwas funktioniert nicht wie beschrieben.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! English or German is fine. Please do not attach project files or plans with customer data.
+        Danke für die Meldung! Deutsch oder Englisch ist gleich recht. Bitte keine Projektdateien oder Pläne mit Kundendaten anhängen.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Help › About el.esy.CAD / Hilfe › Über el.esy.CAD
+      placeholder: 0.13.3-community.2
+    validations:
+      required: true
+  - type: dropdown
+    id: system
+    attributes:
+      label: Operating system / Betriebssystem
+      options:
+        - Windows
+        - macOS
+        - Browser (pnpm dev)
+    validations:
+      required: true
+  - type: textarea
+    id: schritte
+    attributes:
+      label: Steps to reproduce / Schritte zum Nachstellen
+      placeholder: |
+        1. …
+        2. …
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: erwartet
+    attributes:
+      label: Expected behaviour / Erwartetes Ergebnis
+    validations:
+      required: true
+  - type: textarea
+    id: tatsaechlich
+    attributes:
+      label: Actual behaviour / Tatsächliches Ergebnis
+      description: Screenshots help a lot. / Bildschirmfotos helfen sehr.
+    validations:
+      required: true
+  - type: textarea
+    id: protokoll
+    attributes:
+      label: Error log / Fehlerprotokoll
+      description: Entries from Help › Error log…, if any. / Einträge aus Hilfe › Fehlerprotokoll…, falls vorhanden.
+      render: text
+  - type: checkboxes
+    id: gesucht
+    attributes:
+      label: Checks / Prüfung
+      options:
+        - label: I searched the existing issues and use the latest release. / Ich habe die vorhandenen Issues durchsucht und nutze das neueste Release.
+          required: true

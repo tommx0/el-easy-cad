@@ -1,0 +1,34 @@
+name: Feature request / Funktion vorschlagen
+description: A new function or a better workflow. / Eine neue Funktion oder ein besserer Ablauf.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English or German is fine. / Deutsch oder Englisch ist gleich recht.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What do you want to achieve? / Was möchtest du erreichen?
+      description: Describe the task or the planning situation, not only the solution. / Beschreibe die Aufgabe oder die Planungssituation, nicht nur die Lösung.
+    validations:
+      required: true
+  - type: textarea
+    id: vorschlag
+    attributes:
+      label: Proposed solution / Vorschlag
+      description: How could el.esy.CAD support this? / Wie könnte el.esy.CAD dabei helfen?
+    validations:
+      required: true
+  - type: textarea
+    id: bisher
+    attributes:
+      label: Current workaround / Bisheriger Weg
+      description: How do you solve it today, in el.esy.CAD or elsewhere? / Wie löst du es heute, in el.esy.CAD oder anderswo?
+  - type: checkboxes
+    id: gesucht
+    attributes:
+      label: Checks / Prüfung
+      options:
+        - label: I searched the existing issues. / Ich habe die vorhandenen Issues durchsucht.
+          required: true

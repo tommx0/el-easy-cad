@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question / Frage
+    url: https://github.com/tommx0/el-easy-cad/discussions
+    about: Questions on how to use el.esy.CAD belong in the Discussions. / Fragen zur Bedienung gehören in die Discussions.
+  - name: Security vulnerability / Sicherheitslücke
+    url: https://github.com/tommx0/el-easy-cad/security/advisories/new
+    about: Please report security problems privately, never as a public issue. / Sicherheitsprobleme bitte vertraulich melden, nie als öffentliches Issue.

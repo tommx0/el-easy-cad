@@ -9,12 +9,15 @@ import type {
   Zeichnungsart,
 } from '../../document-model'
 import { PROJEKT_STATUS } from '../../document-model'
-import type { Konfliktbehandlung, ProjektUebersicht } from '../../persistence'
+import type { Konfliktbehandlung, MusterArt, ProjektUebersicht } from '../../persistence'
 import {
   holeAssetBlob,
   oeffneDateiExtern,
   ladeAssetHoch,
   ladeProjektPaketHoch,
+  legeMusterprojektAn,
+  legeMusterprojekteBeimErstenStartAn,
+  MUSTER_ARTEN,
   ServerFehler,
   speichereDatei,
   pruefeProjektExport,
@@ -36,6 +39,7 @@ import {
   IconLeereListe,
   IconPapierkorb,
   IconPlus,
+  IconProjekte,
   IconSchliessen,
   IconStift,
   IconSuche,
@@ -75,6 +79,8 @@ const DOKUMENT_TYP_TEXT: Record<DokumentTyp, Schluessel> = {
   notiz: 'verwaltungsdialoge.projekte.dokumentTyp.notiz',
   excel: 'verwaltungsdialoge.projekte.dokumentTyp.excel',
 }
+
+let musterBeimStartAngefragt = false
 
 export function ProjekteDialog() {
   const offen = useUiStore((s) => s.projekteDialogOffen)
@@ -177,6 +183,47 @@ function ProjekteDialogInhalt() {
       abgebrochen = true
     }
   }, [projektStore, neuLaden])
+
+  useEffect(() => {
+    if (musterBeimStartAngefragt) return
+    musterBeimStartAngefragt = true
+    legeMusterprojekteBeimErstenStartAn()
+      .then((angelegt) => {
+        if (angelegt.length > 0) aktualisiere()
+      })
+      .catch(() => undefined)
+  }, [aktualisiere])
+
+  const [musterOffen, setMusterOffen] = useState(false)
+  useEffect(() => {
+    if (!musterOffen) return
+    const schliesse = (e: Event) => {
+      if (e instanceof KeyboardEvent) {
+        if (e.key === 'Escape') setMusterOffen(false)
+        return
+      }
+      if (e.target instanceof Element && e.target.closest('.projekte-muster')) return
+      setMusterOffen(false)
+    }
+    document.addEventListener('mousedown', schliesse)
+    document.addEventListener('keydown', schliesse)
+    return () => {
+      document.removeEventListener('mousedown', schliesse)
+      document.removeEventListener('keydown', schliesse)
+    }
+  }, [musterOffen])
+
+  async function legeMusterAn(muster: MusterArt) {
+    setMusterOffen(false)
+    try {
+      const ergebnis = await legeMusterprojektAn(muster)
+      aktualisiere()
+      setGewaehltesProjekt(ergebnis.projektId)
+      zeigeToast(t('verwaltungsdialoge.projekte.musterAngelegt', { name: ergebnis.bezeichnung }))
+    } catch (f) {
+      melde(f, t('verwaltungsdialoge.projekte.musterFehlgeschlagen'))
+    }
+  }
 
   function frage(titel: string, label: string, anfangswert: string, dann: (wert: string) => void) {
     useUiStore.getState().oeffneEingabeDialog({ titel, label, anfangswert }, (wert) => {
@@ -607,6 +654,33 @@ function ProjekteDialogInhalt() {
                   <IconImport />
                   {t('verwaltungsdialoge.projekte.importieren')}
                 </button>
+                <div className="projekte-muster">
+                  <button
+                    type="button"
+                    className="knopf-flach"
+                    aria-haspopup="menu"
+                    aria-expanded={musterOffen}
+                    onClick={() => setMusterOffen((offen) => !offen)}
+                  >
+                    <IconProjekte />
+                    {t('verwaltungsdialoge.projekte.muster')}
+                  </button>
+                  {musterOffen && (
+                    <div className="projekte-muster-liste" role="menu">
+                      {MUSTER_ARTEN.map((muster) => (
+                        <button
+                          key={muster}
+                          type="button"
+                          role="menuitem"
+                          onClick={() => void legeMusterAn(muster)}
+                        >
+                          <IconDokZeichnung />
+                          {t(`verwaltungsdialoge.projekte.musterArt.${muster}`)}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </aside>
 

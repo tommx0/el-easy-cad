@@ -102,8 +102,10 @@ am Blatt [Nur in Wand, Decke oder Boden](#nur-in-bauteilen) ein.
 
 Zur Orientierung steht das Gebäude dahinter, soweit Sie es gezeichnet haben:
 [Wände](#waende-zeichnen) bis zur Oberkante der Decke, also [lichte Raumhöhe](#geschossangaben)
-(ohne Angabe 2,75 m) plus Deckenstärke der Etage. Türen
-und Wanddurchbrüche sind 2,01 m hoch, Fenster sitzen auf 0,90 m Brüstung und sind 1,26 m hoch.
+(ohne Angabe 2,75 m) plus Deckenstärke der Etage. Jede Wand ist ein durchgehender Körper, aus dem
+Türen, Fenster und Wanddurchbrüche ausgespart sind – ohne Fuge über oder unter der Öffnung. Ein
+Klick in die Öffnung oder auf das Wandstück darüber bzw. darunter zeigt die Tür oder das Fenster.
+Türen und Wanddurchbrüche sind 2,01 m hoch, Fenster sitzen auf 0,90 m Brüstung und sind 1,26 m hoch.
 Treppen steigen in gleichen Stufen bis zur Kote des Geschosses darüber; jede Stufe ist eine
 5 cm starke Trittplatte, unter der Treppe bleibt der Raum frei. Jeder Raum bekommt eine
 dünne Bodenplatte, eine Decke über der lichten Raumhöhe in der Deckenstärke des Raums bzw. der

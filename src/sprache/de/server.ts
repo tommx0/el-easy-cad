@@ -25,6 +25,7 @@ export const server = {
     nichtGefunden: 'Projekt nicht gefunden.',
     nichtGefundenOderPapierkorb: 'Projekt nicht gefunden oder bereits im Papierkorb.',
     nichtImPapierkorb: 'Projekt liegt nicht im Papierkorb.',
+    musterUnbekannt: 'Kein solches Musterprojekt.',
   },
   dokumente: {
     nichtGefunden: 'Dokument nicht gefunden.',

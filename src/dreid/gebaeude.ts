@@ -10,13 +10,12 @@ import {
   aussparungenInPlatte,
   DURCHBRUCH_HOEHE_METER,
   ermittleWandAnschluesse,
-  ermittleWandTeilstuecke,
   fensterBruestung,
   fensterHoehe,
+  gehrungAmEnde,
   oeffnungenAufWand,
   oeffnungOffen,
   pfadGesamtLaenge,
-  teilPfad,
   treppenFormText,
   treppenTrittplatten,
   tuerHoehe,
@@ -25,6 +24,7 @@ import {
 } from '../document-model'
 import { formatiereZahl, t } from '../sprache'
 import { aussenNormalen } from './aussenwaende'
+import { wandAnsicht, type SzenenWandAbschnitt } from './wandansicht'
 import {
   ermittleTreppenoeffnungen,
   geschossHoeheNachOben,
@@ -36,7 +36,7 @@ import {
 export interface SzenenPrisma {
   id: string
   blattId: string
-  art: 'wand' | 'oeffnung' | 'treppe' | 'boden' | 'decke'
+  art: 'wand' | 'treppe' | 'boden' | 'decke'
   grundriss: Point[]
   z: number
   hoehe: number
@@ -44,6 +44,7 @@ export interface SzenenPrisma {
   deckkraft: number
   loecher?: Point[][]
   info: { titel: string; zeilen: string[] } | null
+  wand?: SzenenWandAbschnitt[]
   aussenNormalen?: Point[]
 }
 
@@ -97,8 +98,8 @@ export function baueGebaeude(
       if (!zeigen(o)) continue
       if (o.type === 'wand') {
         const normalen = modellRichtungen(aussenNormalen(o, alleWaende), o.punkte[0], m)
-        for (const p of wandPrismen(o, blatt, geschoss, wandHoehe, m))
-          prismen.push({ ...p, aussenNormalen: normalen })
+        const p = wandPrisma(o, blatt, geschoss, wandHoehe, m)
+        if (p) prismen.push({ ...p, aussenNormalen: normalen })
       }
       if (o.type === 'treppe')
         prismen.push(
@@ -188,35 +189,84 @@ function modellRichtungen(
   })
 }
 
-function umriss(achse: Point[], halbe: number): Point[] {
-  return [...versetztePolylinie(achse, halbe), ...versetztePolylinie(achse, -halbe).reverse()]
-}
-
-function wandPrismen(
+function wandPrisma(
   wand: WandObjekt,
   blatt: Blatt,
   geschoss: ExportGeschoss,
   hoehe: number,
   m: (p: Point) => Point,
-): SzenenPrisma[] {
-  const oeffnungen = oeffnungenAufWand(blatt.objekte, wand.id)
-  const teile = ermittleWandTeilstuecke(
-    wand,
-    oeffnungen,
-    ermittleWandAnschluesse(wand, blatt.objekte),
-  )
-  const basis = {
-    blattId: blatt.id,
-    farbe: WAND_FARBE,
-    deckkraft: WAND_DECKKRAFT,
+): SzenenPrisma | null {
+  const punkte = wand.punkte
+  const gesamt = pfadGesamtLaenge(punkte)
+  if (punkte.length < 2 || gesamt <= 0) return null
+  const halbe = wand.staerke / 2
+  const aussen = versetztePolylinie(punkte, halbe)
+  const innen = versetztePolylinie(punkte, -halbe)
+  const anschluesse = ermittleWandAnschluesse(wand, blatt.objekte)
+  for (const [anschluss, amStart] of [
+    [anschluesse.start, true],
+    [anschluesse.ende, false],
+  ] as const) {
+    const eck = anschluss ? gehrungAmEnde(punkte, halbe, anschluss, amStart) : null
+    if (!eck) continue
+    const i = amStart ? 0 : punkte.length - 1
+    aussen[i] = eck.aussen
+    innen[i] = eck.innen
   }
-  const ergebnis: SzenenPrisma[] = teile.map((teil) => ({
-    ...basis,
+  const geschlossen =
+    punkte.length > 2 &&
+    Math.hypot(punkte[0].x - punkte.at(-1)!.x, punkte[0].y - punkte.at(-1)!.y) < 1e-9
+
+  const oeffnungen = oeffnungenAufWand(blatt.objekte, wand.id).map((o) => {
+    const mitte = o.t * gesamt
+    const { info, offen } = oeffnungsMasse(o, geschoss)
+    return { von: mitte - o.breite / 2, bis: mitte + o.breite / 2, offen, info }
+  })
+
+  const abschnitte: SzenenWandAbschnitt[] = []
+  let start = 0
+  for (let k = 0; k < punkte.length - 1; k++) {
+    const laenge = Math.hypot(punkte[k + 1].x - punkte[k].x, punkte[k + 1].y - punkte[k].y)
+    const ende = start + laenge
+    const hier = oeffnungen
+      .map((o) => ({
+        ...o,
+        von: Math.max(o.von, start) - start,
+        bis: Math.min(o.bis, ende) - start,
+      }))
+      .filter((o) => o.bis > o.von)
+    if (laenge > 1e-9)
+      abschnitte.push({
+        von: m(punkte[k]),
+        bis: m(punkte[k + 1]),
+        laenge,
+        innenVon: m(innen[k]),
+        aussenVon: m(aussen[k]),
+        innenBis: m(innen[k + 1]),
+        aussenBis: m(aussen[k + 1]),
+        ansicht: wandAnsicht(
+          laenge,
+          hoehe,
+          hier.map((o) => ({ von: o.von, bis: o.bis, unten: o.offen[0], oben: o.offen[1] })),
+        ),
+        fugeAmAnfang: k > 0 || geschlossen,
+        fugeAmEnde: k < punkte.length - 2 || geschlossen,
+        oeffnungen: hier.map((o) => ({ von: o.von, bis: o.bis, info: o.info })),
+      })
+    start = ende
+  }
+  if (abschnitte.length === 0) return null
+
+  return {
     id: wand.id,
-    art: 'wand' as const,
-    grundriss: [...teil.aussen, ...[...teil.innen].reverse()].map(m),
+    blattId: blatt.id,
+    art: 'wand',
+    grundriss: [...aussen, ...[...innen].reverse()].map(m),
     z: geschoss.kote,
     hoehe,
+    farbe: WAND_FARBE,
+    deckkraft: WAND_DECKKRAFT,
+    wand: abschnitte,
     info: {
       titel: t('dreid.gebaeude.wand'),
       zeilen: [
@@ -225,39 +275,13 @@ function wandPrismen(
         t('dreid.info.geschoss', { name: geschoss.name }),
       ],
     },
-  }))
-
-  const gesamt = pfadGesamtLaenge(wand.punkte)
-  if (gesamt <= 0) return ergebnis
-  for (const o of oeffnungen) {
-    const halbT = o.breite / 2 / gesamt
-    const achse = teilPfad(wand.punkte, Math.max(0, o.t - halbT), Math.min(1, o.t + halbT))
-    if (achse.length < 2) continue
-    const grundriss = umriss(achse, wand.staerke / 2).map(m)
-    const { info, offen } = oeffnungsMasse(o, geschoss)
-    const stuecke: [number, number][] = [
-      [0, offen[0]],
-      [offen[1], hoehe],
-    ]
-    for (const [von, bis] of stuecke)
-      if (bis - von > 1e-3)
-        ergebnis.push({
-          ...basis,
-          id: o.id,
-          art: 'oeffnung',
-          grundriss,
-          z: geschoss.kote + von,
-          hoehe: bis - von,
-          info,
-        })
   }
-  return ergebnis
 }
 
 function oeffnungsMasse(
   o: WandOeffnung,
   geschoss: ExportGeschoss,
-): { offen: [number, number]; info: SzenenPrisma['info'] } {
+): { offen: [number, number]; info: NonNullable<SzenenPrisma['info']> } {
   const breite = t('dreid.gebaeude.breite', { breite: infoMeter(o.breite) })
   const wo = t('dreid.info.geschoss', { name: geschoss.name })
   const offen = oeffnungOffen(o)

@@ -11,7 +11,11 @@ aufnehmen.
 Über „+ Neue Gruppe…“ bündeln Sie mehrere Befehle zu einem benannten Aufklappmenü – etwa
 „Zeichnen“ oder „Auswertung“ für ein eigenes Themengebiet. Ein Befehl wechselt seine Gruppe
 über ein Auswahlfeld in der Liste; das Aufklappmenü selbst zeigt seine Mitglieder mit Symbol
-und Name wie im Hauptmenü.
+und Name wie im Hauptmenü. Umschalter (Beschriftungen, Raster, Fang …) stehen darin mit einem
+Kästchen; ein Klick setzt oder löscht den Haken, und das Menü bleibt offen, sodass Sie mehrere
+nacheinander ändern können. Ab zwei Umschaltern stehen oben **Alle an** und **Alle aus** – ein
+Klick schaltet jeden gerade wählbaren Umschalter der Gruppe, ausgegraute bleiben, wie sie sind.
+Die Blatt-Schalter darunter nimmt ein einziges Rückgängig zurück.
 
 Ab Werk sind vier Gruppen eingerichtet: **Sichtbarkeit** (Hintergrund, Raster und die Schalter
 für Beschriftungen, Leitungen, Trunks und Räume), **Blattverwaltung** (Blätter, Zeichenfläche,

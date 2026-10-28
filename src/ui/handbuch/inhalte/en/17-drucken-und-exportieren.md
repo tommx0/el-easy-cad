@@ -96,7 +96,7 @@ through rooms, switch on [Only in walls, ceilings or floors](#nur-in-bauteilen) 
 For orientation, the building stands behind the design, as far as you have drawn it:
 [walls](#waende-zeichnen) up to the top edge of the ceiling, that is the
 [clear room height](#geschossangaben) (2.75 m if not stated) plus the ceiling thickness of the storey.
-Doors and wall openings are 2.01 m high; windows sit on a 0.90 m sill and are 1.26 m high. Stairs rise
+Each wall is one continuous body with doors, windows and wall openings cut out – no joint above or below the opening. Clicking into the opening or onto the wall piece above or below it shows the door or window. Doors and wall openings are 2.01 m high; windows sit on a 0.90 m sill and are 1.26 m high. Stairs rise
 in equal steps to the level of the storey above. Each step is a 5 cm thick tread, and the space under
 the stairs stays free. Each room gets a thin floor slab, a ceiling above the clear room height in the
 thickness of the room or storey, and a label with its name. Without rooms, there is one slab under all

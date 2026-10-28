@@ -13,6 +13,7 @@ export interface RoutingSettings {
 
 export interface RoutingAufruf extends RoutingSettings {
   nurInBauteilen?: boolean
+  leitungHoeheMeter?: number
 }
 
 export const WAND_BEVORZUGUNG_MAX = 0.8

@@ -27,6 +27,7 @@ export const server: Texte['server'] = {
     nichtGefunden: 'Project not found.',
     nichtGefundenOderPapierkorb: 'Project not found or already in the recycle bin.',
     nichtImPapierkorb: 'Project is not in the recycle bin.',
+    musterUnbekannt: 'No such sample project.',
   },
   dokumente: {
     nichtGefunden: 'Document not found.',

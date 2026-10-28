@@ -9,6 +9,7 @@ import type {
   SzenenInfo,
   SzenenPrisma,
   SzenenQuader,
+  SzenenWandAbschnitt,
 } from '../dreid'
 import {
   aussenNormalen,
@@ -20,8 +21,10 @@ import {
   istBewegung,
   istVorne,
   KEINE_BEWEGUNG,
+  oeffnungAmPunkt,
   radSchritt,
   schritt,
+  wandGrundrissPunkt,
 } from '../dreid'
 import type { HuellenNetz, IfcHuelle, Punkt3 } from '../ifc'
 import { holeKatalogBild } from './katalog-bild-cache'
@@ -110,6 +113,7 @@ export async function erzeugeDreidViewer(canvas: HTMLCanvasElement): Promise<Dre
   welt.add(inhalt)
   const linienMaterialien: LineMaterial[] = []
   const infos = new Map<THREE.Object3D, SzenenInfo>()
+  const wandStrecken = new Map<THREE.Object3D, SzenenWandAbschnitt[]>()
   const gebaeude = new Set<THREE.Object3D>()
   let breite = 1
   let hoehe = 1
@@ -129,11 +133,7 @@ export async function erzeugeDreidViewer(canvas: HTMLCanvasElement): Promise<Dre
 
   function gruppeVon(t: (typeof teile)[number], kameraGrundriss: Point): keyof DreidDeckkraft {
     if (t.art === 'decke') return 'decken'
-    if (
-      (t.art === 'wand' || t.art === 'oeffnung') &&
-      istVorne(t.normalen, t.mitte, kameraGrundriss)
-    )
-      return 'vorne'
+    if (t.art === 'wand' && istVorne(t.normalen, t.mitte, kameraGrundriss)) return 'vorne'
     return 'hinten'
   }
 
@@ -287,6 +287,7 @@ export async function erzeugeDreidViewer(canvas: HTMLCanvasElement): Promise<Dre
     geschossGruppen = new Map()
     linienMaterialien.length = 0
     infos.clear()
+    wandStrecken.clear()
     gebaeude.clear()
     schilder = []
     schildBasis.clear()
@@ -295,10 +296,45 @@ export async function erzeugeDreidViewer(canvas: HTMLCanvasElement): Promise<Dre
 
   function prisma(p: SzenenPrisma): THREE.Mesh | null {
     if (p.grundriss.length < 3 || p.hoehe <= 0) return null
+    if (p.wand) return koerper(p, wandGeometrie(p, p.wand), 0)
     const form = new three.Shape(p.grundriss.map((q) => new three.Vector2(q.x - ux(), q.y - uy())))
     for (const loch of p.loecher ?? [])
       form.holes.push(new three.Path(loch.map((q) => new three.Vector2(q.x - ux(), q.y - uy()))))
     const geometrie = new three.ExtrudeGeometry(form, { depth: p.hoehe, bevelEnabled: false })
+    const mesh = koerper(p, geometrie, p.z)
+    mesh.rotation.x = -Math.PI / 2
+    return mesh
+  }
+
+  function wandGeometrie(p: SzenenPrisma, strecken: SzenenWandAbschnitt[]): THREE.BufferGeometry {
+    const lage: number[] = []
+    const ENDE = 1e-4
+    for (const a of strecken)
+      for (const f of a.ansicht) {
+        const form = new three.Shape(f.umriss.map((q) => new three.Vector2(q.x, q.y)))
+        for (const loch of f.loecher)
+          form.holes.push(new three.Path(loch.map((q) => new three.Vector2(q.x, q.y))))
+        const roh = new three.ExtrudeGeometry(form, { depth: 1, bevelEnabled: false })
+        const pos = roh.getAttribute('position')
+        for (let i = 0; i + 2 < pos.count; i += 3) {
+          const ecken = [i, i + 1, i + 2]
+          const alleBei = (u: number) => ecken.every((e) => Math.abs(pos.getX(e) - u) < ENDE)
+          if ((a.fugeAmAnfang && alleBei(0)) || (a.fugeAmEnde && alleBei(a.laenge))) continue
+          for (const e of ecken) {
+            const q = wandGrundrissPunkt(a, pos.getX(e), pos.getZ(e))
+            const v = nachThree(q.x, q.y, p.z + pos.getY(e))
+            lage.push(v.x, v.y, v.z)
+          }
+        }
+        roh.dispose()
+      }
+    const geometrie = new three.BufferGeometry()
+    geometrie.setAttribute('position', new three.Float32BufferAttribute(lage, 3))
+    geometrie.computeVertexNormals()
+    return geometrie
+  }
+
+  function koerper(p: SzenenPrisma, geometrie: THREE.BufferGeometry, hoehe: number): THREE.Mesh {
     const durchsichtig = p.deckkraft < 1
     const mesh = new three.Mesh(
       geometrie,
@@ -310,8 +346,7 @@ export async function erzeugeDreidViewer(canvas: HTMLCanvasElement): Promise<Dre
         side: three.DoubleSide,
       }),
     )
-    mesh.rotation.x = -Math.PI / 2
-    mesh.position.y = p.z
+    mesh.position.y = hoehe
     mesh.add(
       new three.LineSegments(
         new three.EdgesGeometry(geometrie, 20),
@@ -524,6 +559,7 @@ export async function erzeugeDreidViewer(canvas: HTMLCanvasElement): Promise<Dre
         const mesh = prisma(p)
         if (!mesh) continue
         if (p.info) infos.set(mesh, p.info)
+        if (p.wand?.some((a) => a.oeffnungen.length > 0)) wandStrecken.set(mesh, p.wand)
         gebaeude.add(mesh)
         const n = p.grundriss.length
         teile.push({
@@ -644,7 +680,9 @@ export async function erzeugeDreidViewer(canvas: HTMLCanvasElement): Promise<Dre
       for (const t of strahl.intersectObjects(sichtbar, true)) {
         const objekt = t.object instanceof three.LineSegments ? t.object.parent : t.object
         if (!objekt?.visible) continue
-        const info = infos.get(objekt)
+        const strecken = wandStrecken.get(objekt)
+        const info =
+          (strecken && oeffnungAmPunkt(strecken, nachModell(t.point))) || infos.get(objekt)
         const istGebaeude = gebaeude.has(objekt) || huellenObjekte.has(objekt)
         const undurchsichtig =
           istGebaeude && !((objekt as THREE.Mesh).material as THREE.Material).transparent

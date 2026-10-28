@@ -420,9 +420,55 @@
   cursor: default;
 }
 
-.symbolleiste-gruppe-eintrag.aktiv {
-  background: var(--akzent-hell);
-  color: var(--akzent);
+.symbolleiste-gruppe-checkbox {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--rand-stark);
+  border-radius: 3px;
+  background: var(--flaeche);
+  color: #fff;
+}
+
+.symbolleiste-gruppe-checkbox.an {
+  border-color: var(--akzent);
+  background: var(--akzent);
+}
+
+.symbolleiste-gruppe-checkbox .icon {
+  width: 12px;
+  height: 12px;
+}
+
+.symbolleiste-gruppe-alle {
+  display: flex;
+  gap: 4px;
+  padding: 0 0 4px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--rand);
+}
+
+.symbolleiste-gruppe-alle-knopf {
+  flex: 1 1 0;
+  padding: 4px 8px;
+  border: 1px solid var(--rand);
+  border-radius: var(--radius-s);
+  background: transparent;
+  font-size: 12px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.symbolleiste-gruppe-alle-knopf:hover:not(:disabled) {
+  background: var(--flaeche-hover);
+}
+
+.symbolleiste-gruppe-alle-knopf:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 .symbolleiste-gruppe-kuerzel {
@@ -5682,9 +5728,48 @@
 .projekte-spalte-fuss {
   flex: 0 0 auto;
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   padding: 10px 12px;
   border-top: 1px solid var(--rand);
+  background: var(--flaeche-gedaempft);
+}
+
+.projekte-muster {
+  position: relative;
+}
+
+.projekte-muster-liste {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  background: var(--flaeche);
+  box-shadow: var(--schatten-3);
+}
+
+.projekte-muster-liste button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.projekte-muster-liste button:hover,
+.projekte-muster-liste button:focus-visible {
   background: var(--flaeche-gedaempft);
 }
 

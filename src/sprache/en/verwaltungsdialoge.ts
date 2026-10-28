@@ -658,6 +658,13 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     neuesProjektKnopf: 'New project…',
     bezeichnung: 'Name',
     importieren: 'Import…',
+    muster: 'Sample project',
+    musterArt: {
+      bauplan: 'Detached house – floor plan only',
+      elektro: 'Detached house – with components',
+    },
+    musterAngelegt: 'Sample project “{name}” created.',
+    musterFehlgeschlagen: 'The sample project could not be created.',
     projektWaehlen: 'Select a project on the left – its details and documents then appear here.',
     geaendert: 'changed {zeitpunkt}',
     kunde: 'Customer',

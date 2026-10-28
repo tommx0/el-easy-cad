@@ -130,7 +130,7 @@ export async function sichereEinstellungen(
   const datum = new Date().toISOString().slice(0, 10)
   const blob = new Blob([JSON.stringify(sicherung, null, 2)], { type: 'application/json' })
   const dateiname = erzeugeDateiname(
-    ['el-easy-cad', t('verwaltungsdialoge.einstellungenAustausch.dateinameTeil'), datum],
+    ['el-esy-cad', t('verwaltungsdialoge.einstellungenAustausch.dateinameTeil'), datum],
     'json',
   )
   return speichereDatei(blob, dateiname, {

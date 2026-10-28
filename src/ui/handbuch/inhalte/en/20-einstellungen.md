@@ -40,7 +40,7 @@ The settings are spread over tabs:
 So that you do not have to set everything up again on a new computer:
 
 1. {{befehl:extras.einstellungen-sichern}} writes a file named
-   `el-easy-cad-Settings-YYYY-MM-DD.json`.
+   `el-esy-cad-Settings-YYYY-MM-DD.json`.
 2. {{befehl:extras.einstellungen-einspielen}} reads it back in. Beforehand, choose which areas
    should be applied:
 

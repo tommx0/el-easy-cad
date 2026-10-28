@@ -1,7 +1,8 @@
 import { isTauri } from '@tauri-apps/api/core'
-import { API_BASIS, holeJson, sendeDatei } from './api-client'
+import { API_BASIS, holeJson, sendeDatei, sendeJson } from './api-client'
 import { speichereDatei } from './datei-speichern'
 import { t } from '../sprache'
+import type { MusterArt } from './musterprojekte'
 
 export type Konfliktbehandlung = 'ersetzen' | 'kopie'
 
@@ -20,6 +21,19 @@ export function ladeProjektPaketHoch(
 ): Promise<ImportErgebnis> {
   const abfrage = konflikt ? `?konflikt=${konflikt}` : ''
   return sendeDatei<ImportErgebnis>(`/import/projekt${abfrage}`, datei, 'application/zip')
+}
+
+export async function legeMusterprojekteBeimErstenStartAn(): Promise<ImportErgebnis[]> {
+  const antwort = await sendeJson<{ angelegt: ImportErgebnis[] }>(
+    'POST',
+    '/musterprojekte/erster-start',
+    {},
+  )
+  return antwort.angelegt
+}
+
+export function legeMusterprojektAn(muster: MusterArt): Promise<ImportErgebnis> {
+  return sendeJson<ImportErgebnis>('POST', `/musterprojekte/${muster}`, {})
 }
 
 export interface ProjektExportPruefung {

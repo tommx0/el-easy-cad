@@ -21,6 +21,7 @@ import { registriereKatalogRegisterRouten } from './routen/kataloge'
 import { registriereKabeltypRouten } from './routen/kabeltypen'
 import { registriereInstallationszonenRouten } from './routen/installationszonen'
 import { registriereProjektRouten } from './routen/projekte'
+import { registriereMusterprojektRouten } from './routen/musterprojekte'
 import { registriereProduktlizenzRouten } from './routen/produktlizenz'
 import { registriereStatusRouten } from './routen/status'
 import { registriereZusatzmodulRouten } from './routen/zusatzmodule'
@@ -83,6 +84,7 @@ export async function erzeugeServer(
   registriereFehlerprotokollRouten(app, kontext, fehlerprotokollierer)
   registriereProduktlizenzRouten(app, kontext, oeffentlicherSchluessel, demoPruefungAktiv)
   registriereProjektRouten(app, kontext)
+  registriereMusterprojektRouten(app, kontext)
   const demoOptionen = {
     demoDurchsetzungAktiv: lizenzPruefungAktiv && demoPruefungAktiv,
     oeffentlicherSchluessel,

@@ -55,7 +55,7 @@ This is how el.easy.CAD always routes cables:
 
 Cables already laid can be brought up to this state with {{befehl:bearbeiten.leitungen-neu-verlegen}} (Draw menu, right-click on cables): the selected ones, or if none is selected, all cables on the sheet, in one undo step. Cables with their own vertices or with automatic routing switched off stay as they are.
 
-A **window** is never crossed by a cable through the routing, whether wall routing is switched on or off: the cable crosses the wall next to the window. In front of the window, along the wall, it may run. Only to a device at the window itself, such as a window contact, does it lead up to this window.
+A **window** is never crossed by a cable through the routing, whether wall routing is switched on or off: the cable crosses the wall next to the window. In front of the window, along the wall, it may run. Only to a device at the window itself, such as a window contact, does it lead up to this window. If the cable lies in a zone **below the sill** of the window, for example in the lower zone under a window with a 90 cm sill, it carries on there as in the wall – below the window there is wall after all.
 
 ## Choosing cable type and zone in advance {#kabeltyp-waehlen}
 

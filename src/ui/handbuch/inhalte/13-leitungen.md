@@ -99,7 +99,9 @@ automatischen Verlegen bleiben, wie sie sind.
 Durch ein **Fenster** verlegt das Routing nie eine Leitung, ob die Wandführung ein- oder
 ausgeschaltet ist: Die Leitung quert die Wand neben dem Fenster. Vor dem Fenster an der Wand
 entlang darf sie laufen. Nur zu einem Gerät am Fenster selbst, etwa einem Fensterkontakt, führt
-sie an dieses Fenster heran.
+sie an dieses Fenster heran. Liegt die Leitung in einer Zone **unter der Brüstung** des Fensters,
+etwa in der unteren Zone unter einem Fenster mit 90 cm Brüstung, läuft sie dort wie in der Wand
+weiter – unter dem Fenster steht ja Wand.
 
 ## Kabeltyp und Zone vorab wählen {#kabeltyp-waehlen}
 

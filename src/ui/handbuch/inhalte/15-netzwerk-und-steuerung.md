@@ -482,13 +482,17 @@ am Switch-Port):
   „Slot-Bezeichnung“, vorbelegt aus Raum und Ansteuerung, etwa „Licht Flur“ (Schalten, Dimmen,
   DALI, RGB) oder „Rollo Flur“ (Rollo, Jalousie). Hat der gewählte Slot schon ein Ziel, zeigt der Dialog
   zusätzlich Name, Ansteuerung und KNX der Gerätegruppe, die dabei entsteht.
-- **Schalter → Schalter**: Hat einer schon einen Slot mit Zielen, kann ein Slot des anderen
-  dieselben Ziele bekommen.
-- **Leuchte → Leuchte** (gleicher Typ ohne eigene Slots): Beide kommen in eine Gerätegruppe
+- **Melder → Melder** (zwei Geräte mit Slot-Liste, etwa Sensoren): Hat einer schon einen Slot mit
+  Zielen, kann ein Slot des anderen dieselben Ziele bekommen. Zwischen zwei Befehlsgeräten
+  (Schalter, Taster) kommt kein Dialog – deren Slots stellen Sie am Gerät selbst ein.
+- **Leuchte → Leuchte** (gleicher Typ ohne eigene Slots, mit Ansteuerung – ab Werk die
+  Verbraucher): Beide kommen in eine Gerätegruppe
   (Name vorbelegt aus dem Raum, Ansteuerung und KNX aus den Leuchten, im Dialog änderbar), oder die
   eine tritt der Gruppe der anderen bei. Zeigte ein Slot
   auf eine der beiden, zeigt er danach auf die Gruppe – so wird die andere mitgeschaltet. Stehen
   beide schon in verschiedenen Gruppen, legt el.easy.CAD nichts an und sagt das in einer Meldung.
+  Anschlussdosen (Steckdosen, Antennen-, EDV-, Herddosen) und andere Typen ohne Ansteuerung bilden
+  beim Verkabeln keine Gruppe.
 
 Beispiel: Wechselschalter → Wechselschalter, dann zur ersten Leuchte, dann zur zweiten – am Ende
 schalten beide Wechselschalter die Gruppe beider Leuchten. Gibt es nichts anzulegen, kommt kein

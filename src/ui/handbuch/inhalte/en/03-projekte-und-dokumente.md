@@ -17,6 +17,21 @@ on your computer manages – you do not need to file anything by hand or choose 
 
 Recently edited documents are quicker to reach via **File › Recently edited**.
 
+## Sample projects {#musterprojekte}
+
+To try things out, the program comes with two sample projects, both a detached house with
+basement, ground floor and first floor (12.00 × 9.00 m), under the customer **Sample**:
+
+- **Detached house – floor plan:** only the building – walls, doors, windows, rooms, stairs,
+  shaft and storey heights. Start your own electrical design here.
+- **Detached house – electrical:** the same house with components placed – distribution board in
+  the basement, a ceiling luminaire and a switch at the door in every room, socket outlets, data
+  and TV outlets. Cables and trunks have not been routed yet – a good place to try routing.
+
+On the first start the program creates both once – in German if the interface speaks German,
+otherwise in English. If you have deleted or changed them, **Sample project** at the bottom of
+the project list creates a new one at any time; if the same one already exists, you get a copy.
+
 ## Drawing, note and PDF attachment {#dokumentarten}
 
 - **Drawing** – the actual CAD document with sheets, background and objects.

@@ -5,6 +5,7 @@ export interface WandStrecke {
   a: Point
   b: Point
   halbeStaerke: number
+  unterkanteMeter?: number
 }
 
 export function waendeAlsRoutingStrecken(objekte: readonly Objekt[]): WandStrecke[] {

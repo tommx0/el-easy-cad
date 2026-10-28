@@ -1,7 +1,7 @@
 import { t } from '../sprache'
 import type { CatalogComponent } from './catalog'
 import type { KomponentenTyp, Slot, SlotZiel } from './geraetegruppe'
-import { erzeugeSlot, typHatSlotMatrix, typHatSlots } from './geraetegruppe'
+import { erzeugeSlot, typHatAnsteuerung, typHatSlotMatrix, typHatSlots } from './geraetegruppe'
 import {
   ermittleTypUndSlots,
   ermittleUrsprung,
@@ -31,6 +31,10 @@ import {
   wendeAutoGruppeAn,
 } from './gruppe-bilden'
 import type { Zeichnung } from './zeichnung'
+
+function typBildetGruppe(typ: KomponentenTyp): boolean {
+  return !typHatSlots(typ) && typHatAnsteuerung(typ)
+}
 
 export interface VerknuepfungsGeraet {
   blattId: string
@@ -225,7 +229,8 @@ export function leitungsVerknuepfungsHinweis(
   const gb = gruppeVon(zeichnung, b.objekt)
   if (!ga || !gb || ga.id === gb.id) return null
   const ta = ermittleTypUndSlots(a.objekt, zeichnung)?.typ
-  if (!ta || ta !== ermittleTypUndSlots(b.objekt, zeichnung)?.typ || typHatSlots(ta)) return null
+  if (!ta || ta !== ermittleTypUndSlots(b.objekt, zeichnung)?.typ || !typBildetGruppe(ta))
+    return null
   return t('generatoren.leitungsVerknuepfung.verschiedeneGruppen', {
     a: komponentenBezeichnung(a.objekt, katalog),
     b: komponentenBezeichnung(b.objekt, katalog),
@@ -280,6 +285,7 @@ export function ermittleLeitungsVerknuepfung(
   }
 
   if (typHatSlots(a.typ) && typHatSlots(b.typ)) {
+    if (a.matrix || b.matrix) return null
     const mitZielen = (g: VerknuepfungsGeraet) => g.slots.find((s) => s.ziele.length > 0)
     const [von, nach] = mitZielen(a) ? [a, b] : mitZielen(b) ? [b, a] : [null, null]
     if (!von || !nach) return null
@@ -291,7 +297,7 @@ export function ermittleLeitungsVerknuepfung(
     }
   }
 
-  if (a.typ === b.typ && !typHatSlots(a.typ)) {
+  if (a.typ === b.typ && typBildetGruppe(a.typ)) {
     const ga = gruppeVon(zeichnung, oa)
     const gb = gruppeVon(zeichnung, ob)
     if (ga && gb) return null

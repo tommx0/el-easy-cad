@@ -11,6 +11,7 @@ export interface Konfiguration {
   host: string
   statischesVerzeichnis: string | null
   demoStartUeberschreibung: string | null
+  musterprojekteBeimStart: boolean
 }
 
 export const STANDARD_PORT = 4747
@@ -70,5 +71,6 @@ export function leseKonfiguration(env: NodeJS.ProcessEnv = process.env): Konfigu
     host: env.EL_EASY_CAD_HOST?.trim() ? env.EL_EASY_CAD_HOST.trim() : STANDARD_HOST,
     statischesVerzeichnis: statisch ? absolut(statisch) : null,
     demoStartUeberschreibung: demoStart && /^\d{4}-\d{2}-\d{2}$/.test(demoStart) ? demoStart : null,
+    musterprojekteBeimStart: env.EL_EASY_CAD_OHNE_MUSTERPROJEKTE !== '1',
   }
 }

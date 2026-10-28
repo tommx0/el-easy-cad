@@ -24,6 +24,7 @@ import type { RoutingAufruf } from './routing-settings'
 import type { BelegungsAufruf } from './belegung'
 import { rastereBelegung } from './belegung'
 import { WAND_BEVORZUGUNG_MAX } from './routing-settings'
+import type { WandStrecke } from './waende'
 import { wandStreckeBox } from './waende'
 
 function normalisiereWinkelDiff(w: number): number {
@@ -312,21 +313,28 @@ export function routePath(
     return zurueck
   }
   const nurInBauteilen = settings.nurInBauteilen === true
+  const unterBruestung = (f: WandStrecke) =>
+    settings.leitungHoeheMeter !== undefined &&
+    f.unterkanteMeter !== undefined &&
+    settings.leitungHoeheMeter < f.unterkanteMeter
+  const alleFenster = Array.isArray(hindernisse) ? [] : (hindernisse.fensterSperren ?? [])
+  const fensterSperren = alleFenster.filter(
+    (f) =>
+      !unterBruestung(f) &&
+      [start, ziel].every(
+        (p) => distanceToSegment(p, f.a, f.b) > f.halbeStaerke + WAND_NAEHE_METER,
+      ),
+  )
   const { boxen, waende } = Array.isArray(hindernisse)
     ? { boxen: hindernisse, waende: [] }
     : {
         boxen: hindernisse.boxen,
         waende: nurInBauteilen
           ? (hindernisse.waendeMitFenstern ?? hindernisse.waende)
-          : hindernisse.waende,
+          : [...hindernisse.waende, ...alleFenster.filter(unterBruestung)],
       }
   const raumGrenzen = Array.isArray(hindernisse) ? undefined : hindernisse.raumGrenzen
   const streifen = Array.isArray(hindernisse) ? [] : (hindernisse.wandStreifen ?? [])
-  const fensterSperren = (
-    Array.isArray(hindernisse) ? [] : (hindernisse.fensterSperren ?? [])
-  ).filter((f) =>
-    [start, ziel].every((p) => distanceToSegment(p, f.a, f.b) > f.halbeStaerke + WAND_NAEHE_METER),
-  )
   const wandabstand = nurInBauteilen ? zellgroesse : settings.wandabstandMeter
   const wandAktiv = (settings.wandfuehrung || nurInBauteilen) && waende.length > 0
   const korridorRand = Math.max(wandabstand + zellgroesse, nurInBauteilen ? WAND_NAEHE_METER : 0)

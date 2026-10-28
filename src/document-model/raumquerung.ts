@@ -1,4 +1,5 @@
 import type { Blatt, Installationszone, Raumquerung } from './blatt'
+import { fensterBruestung } from './bauteil-hoehen'
 import type { Point } from './geometry'
 import { pfadGesamtLaenge } from './geometry'
 import type { ZonenDefinition } from './installationszonen'
@@ -11,6 +12,7 @@ export interface WandAchse {
   a: Point
   b: Point
   halbeStaerke: number
+  unterkanteMeter?: number
 }
 
 export const WAND_NAEHE_METER = 0.3
@@ -40,11 +42,13 @@ export function wandAchsenAufBlatt(objekte: readonly Objekt[]): {
     if (gesamt === 0) continue
     for (const x of alle) {
       const halb = x.breite / 2 / gesamt
-      ;(x.type === 'fenster' ? fenster : durchgaenge).push({
+      const achse = {
         a: punktAufPfad(o.punkte, x.t - halb),
         b: punktAufPfad(o.punkte, x.t + halb),
         halbeStaerke,
-      })
+      }
+      if (x.type === 'fenster') fenster.push({ ...achse, unterkanteMeter: fensterBruestung(x) })
+      else durchgaenge.push(achse)
     }
   }
   return { waende, durchgaenge, fenster }

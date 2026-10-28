@@ -9,7 +9,11 @@ and snap can be added there too.
 
 Use **+ New group…** to bundle several commands into a named drop-down menu – for example “Draw” or
 “Evaluation” for a topic of your own. A command changes its group with the selection box in the list.
-The drop-down menu itself shows its members with icon and name, as the main menu does.
+The drop-down menu itself shows its members with icon and name, as the main menu does. Toggles
+(labels, grid, snap …) appear with a check box; a click sets or clears the tick and the menu stays
+open, so you can change several in a row. From two toggles on, **All on** and **All off** appear at
+the top – one click switches every toggle of the group that is currently available, greyed-out ones
+stay as they are. A single undo takes back the sheet switches among them.
 
 From the factory, four groups are set up: **Visibility** (background, grid, and the switches for
 labels, cables, trunks and rooms), **Sheet management** (sheets, print area, origin, loading the

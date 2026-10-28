@@ -112,6 +112,7 @@ export function objektKurzform(
       })
     case 'tuer':
     case 'fenster':
+    case 'wanddurchbruch':
       return ohneLeere({
         ...basis,
         position: zuBlatt(objekt.position, blatt),

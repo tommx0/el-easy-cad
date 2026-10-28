@@ -657,6 +657,13 @@ export const verwaltungsdialoge = {
     neuesProjektKnopf: 'Neues Projekt…',
     bezeichnung: 'Bezeichnung',
     importieren: 'Importieren…',
+    muster: 'Musterprojekt',
+    musterArt: {
+      bauplan: 'Einfamilienhaus – nur Bauplan',
+      elektro: 'Einfamilienhaus – mit Komponenten',
+    },
+    musterAngelegt: 'Musterprojekt „{name}“ angelegt.',
+    musterFehlgeschlagen: 'Das Musterprojekt konnte nicht angelegt werden.',
     projektWaehlen: 'Links ein Projekt auswählen – dann stehen hier Stammdaten und Dokumente.',
     geaendert: 'geändert {zeitpunkt}',
     kunde: 'Kunde',

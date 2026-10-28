@@ -18,6 +18,21 @@ keine Dateinamen vergeben.
 
 Zuletzt bearbeitete Dokumente erreichen Sie schneller über **Datei › Zuletzt bearbeitet**.
 
+## Musterprojekte {#musterprojekte}
+
+Zum Ausprobieren bringt das Programm zwei Musterprojekte mit, beide ein Einfamilienhaus mit
+Keller, Erdgeschoss und Obergeschoss (12,00 × 9,00 m) unter dem Kunden **Muster**:
+
+- **Einfamilienhaus – Bauplan:** nur das Gebäude – Wände, Türen, Fenster, Räume, Treppen,
+  Steigschacht und Geschosshöhen. Hier lässt sich die eigene Elektroplanung beginnen.
+- **Einfamilienhaus – Elektro:** dasselbe Haus mit platzierten Komponenten – Unterverteilung im
+  Keller, je Raum Deckenleuchte und Schalter an der Tür, Steckdosen, Daten- und TV-Dosen.
+  Leitungen und Trunks sind noch nicht verlegt – daran lässt sich das Verlegen ausprobieren.
+
+Beim ersten Start legt das Programm beide einmal an – auf Deutsch, wenn die Oberfläche Deutsch
+spricht, sonst auf Englisch. Haben Sie sie gelöscht oder verändert, legt **Musterprojekt** unten
+in der Projektliste jederzeit ein neues an; gibt es dasselbe schon, entsteht eine Kopie.
+
 ## Zeichnung, Notiz und PDF-Anlage {#dokumentarten}
 
 - **Zeichnung** – das eigentliche CAD-Dokument mit Blättern, Hintergrund und Objekten.

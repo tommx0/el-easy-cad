@@ -16,6 +16,17 @@ export const community = {
       'Funktionsumfang und ohne Zeitbegrenzung. Ausdrucke, PDFs und Exporte tragen dafür den ' +
       'Hinweis „Nicht kommerzielle Nutzung“.',
     gewerblich: 'Eine gewerbliche oder berufliche Nutzung erlaubt die Lizenz nicht.',
+    pruefen:
+      'Alle Ergebnisse – Pläne, Listen, Leitungslängen, Verteilerpläne – sind Vorschläge. ' +
+      'Lassen Sie sie vor der Verwendung durch eine dafür fachlich geeignete und berechtigte ' +
+      'Person prüfen, bei elektrischen Anlagen durch eine Elektrofachkraft. Die Verantwortung ' +
+      'für die Planung und die Einhaltung der anerkannten Regeln der Technik, insbesondere ' +
+      'DIN VDE, verbleibt beim Verwender.',
+    haftung:
+      'Das Programm wird unentgeltlich und ohne Gewähr überlassen. Der Lizenzgeber haftet nur ' +
+      'für Vorsatz und grobe Fahrlässigkeit. Unberührt bleibt die Haftung für Schäden aus der ' +
+      'Verletzung von Leben, Körper oder Gesundheit, für arglistig verschwiegene Mängel und ' +
+      'nach dem Produkthaftungsgesetz.',
     abgelaufen:
       'Ihre Lizenz ist am {datum} abgelaufen. Bis zu einer neuen Lizenz gilt wieder die nicht ' +
       'kommerzielle Nutzung.',

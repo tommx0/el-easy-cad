@@ -123,10 +123,16 @@ Fremdbibliotheken*.
 
 ## Disclaimer
 
-el.esy.CAD Community is a planning aid and comes without any warranty. Have every planning
-result checked by a qualified electrician before you use it. Responsibility for the planning and
-for compliance with the recognised rules of technology remains with the
-user.
+el.esy.CAD Community is a planning aid. All results – plans, lists, cable lengths, distribution
+board diagrams – are suggestions. Before use, have them checked by a person who is professionally
+qualified and authorised to do so; for electrical installations, by a qualified electrician.
+Responsibility for the planning and for compliance with the recognised rules of technology, in
+particular DIN VDE, remains with the user.
+
+The program is provided free of charge and without any warranty. The licensor is liable only for
+intent and gross negligence. Liability for injury to life, body or health, for fraudulently
+concealed defects and under the German Product Liability Act (Produkthaftungsgesetz) remains
+unaffected.
 
 ## Download
 
@@ -273,10 +279,15 @@ Ergebnisse des Assistenten vor der Verwendung zu prüfen.
 vollem Funktionsumfang und ohne Zeitbegrenzung. Eine gewerbliche oder berufliche Nutzung erlaubt
 die Lizenz nicht. Verbindlich ist der englische Lizenztext in [LICENSE](LICENSE).
 
-**Haftungshinweis:** el.esy.CAD Community ist eine Planungshilfe und wird ohne Gewähr
-bereitgestellt. Lassen Sie jedes Planungsergebnis vor der Verwendung durch eine Elektrofachkraft
-prüfen. Die Verantwortung für die Planung und die Einhaltung der anerkannten Regeln der Technik,
-insbesondere DIN VDE, verbleibt beim Verwender.
+**Haftungshinweis:** el.esy.CAD Community ist eine Planungshilfe. Alle Ergebnisse – Pläne,
+Listen, Leitungslängen, Verteilerpläne – sind Vorschläge. Lassen Sie sie vor der Verwendung durch
+eine dafür fachlich geeignete und berechtigte Person prüfen, bei elektrischen Anlagen durch eine
+Elektrofachkraft. Die Verantwortung für die Planung und die Einhaltung der anerkannten Regeln der
+Technik, insbesondere DIN VDE, verbleibt beim Verwender.
+
+Das Programm wird unentgeltlich und ohne Gewähr überlassen. Der Lizenzgeber haftet nur für Vorsatz
+und grobe Fahrlässigkeit. Unberührt bleibt die Haftung für Schäden aus der Verletzung von Leben,
+Körper oder Gesundheit, für arglistig verschwiegene Mängel und nach dem Produkthaftungsgesetz.
 
 **Herunterladen:** fertige Apps für macOS und Windows unter *Releases*, ohne kommerzielle
 Signatur (macOS: Rechtsklick › Öffnen; Windows: „Weitere Informationen › Trotzdem ausführen“).

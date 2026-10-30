@@ -14,7 +14,9 @@ features and no time limit. It is licensed under PolyForm Noncommercial 1.0.0. T
 shows “Non-commercial use”, and every printout, every PDF, every Excel workbook and every IFC
 export carries a note to that effect: on plan pages a small stamp at the top right and a line in
 the small print. The drawing area itself stays clear. At the first start and after every update, a
-short notice explains what this means.
+short notice explains what this means. It also reminds you that all results are suggestions that
+a professionally qualified person must check before use – for electrical installations, a
+qualified electrician – and states the extent of liability.
 
 The licence does not permit business or professional use. {{befehl:hilfe.meine-lizenz}} shows
 which licence the program runs under; if you have received a licence file, you install it there.

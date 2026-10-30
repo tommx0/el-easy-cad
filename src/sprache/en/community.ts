@@ -17,6 +17,17 @@ export const community: Texte['community'] = {
       'el.esy.CAD Community is free for non-commercial use – with all features and no time ' +
       'limit. Printouts, PDFs and exports carry the note “Non-commercial use”.',
     gewerblich: 'The licence does not permit business or professional use.',
+    pruefen:
+      'All results – plans, lists, cable lengths, distribution board diagrams – are ' +
+      'suggestions. Before use, have them checked by a person who is professionally qualified ' +
+      'and authorised to do so; for electrical installations, by a qualified electrician. ' +
+      'Responsibility for the planning and for compliance with the recognised rules of ' +
+      'technology, in particular DIN VDE, remains with the user.',
+    haftung:
+      'The program is provided free of charge and without any warranty. The licensor is liable ' +
+      'only for intent and gross negligence. Liability for injury to life, body or health, for ' +
+      'fraudulently concealed defects and under the German Product Liability Act ' +
+      '(Produkthaftungsgesetz) remains unaffected.',
     abgelaufen:
       'Your licence expired on {datum}. Until you have a new licence, non-commercial use ' +
       'applies again.',

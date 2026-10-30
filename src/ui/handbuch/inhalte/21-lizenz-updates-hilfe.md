@@ -15,7 +15,9 @@ PolyForm Noncommercial 1.0.0. Oben in der Kopfzeile steht dann „Nicht kommerzi
 jeder Ausdruck, jedes PDF, jede Excel-Arbeitsmappe und jeder IFC-Export trägt einen Hinweis darauf:
 auf Planseiten ein kleiner Stempel oben rechts und eine Zeile im Kleingedruckten. Die Zeichenfläche
 selbst bleibt frei. Beim ersten Start und nach jedem Update erklärt ein kurzer Hinweis, was das
-bedeutet.
+bedeutet. Er erinnert auch daran, dass alle Ergebnisse Vorschläge sind, die vor der Verwendung
+eine fachlich geeignete Person prüfen muss, bei elektrischen Anlagen eine Elektrofachkraft, und
+nennt den Umfang der Haftung.
 
 Eine gewerbliche oder berufliche Nutzung erlaubt die Lizenz nicht. {{befehl:hilfe.meine-lizenz}}
 zeigt, unter welcher Lizenz das Programm läuft; eine Lizenzdatei, die Sie erhalten haben, spielen

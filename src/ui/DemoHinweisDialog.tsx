@@ -43,6 +43,10 @@ export function DemoHinweisDialog(_props: { resttage: number }) {
         )}
         <p>{t('community.start.kostenlos')}</p>
         <p>{t('community.start.gewerblich')}</p>
+        <p>
+          <b>{t('community.start.pruefen')}</b>
+        </p>
+        <p>{t('community.start.haftung')}</p>
         <div className="dialog-aktionen">
           {lizenzProblem && (
             <button type="button" onClick={oeffneMeineLizenz}>

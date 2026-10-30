@@ -59,6 +59,8 @@ If a light is switched by a KNX push-button, its terminal in the distribution bo
 
 **Assign** is an undo step. Afterwards the component also shows the channel, for example "UV1-F3 / K1:A1 / X1:5". With a linked distribution board diagram, the dialog does not create actuators; it only uses the free channels of existing ones. The [distribution board diagram wizard](#verteilerplan-erzeugen) also offers the assignment before it creates a diagram from the distribution board of the open floor plan.
 
+> The assignment, including the spare capacity, is a proposal, not a sizing. As with everything el.esy.CAD determines in a distribution board by itself, the note above the buttons says: protective devices, sizing and RCD allocation must be checked by a qualified electrician.
+
 ## Board layout from rooms {#verteiler-aus-raeumen}
 
 You can equip a distribution board even without a single cable – from the rooms of the floor plan and the **Circuit** property of the components. To do so, choose **Suggest board layout from rooms …** in the distribution board dialog. This also works when a distribution board diagram is already linked – for example after you have deleted the cables in order to plan from rooms. After **Apply**, el.esy.CAD asks whether the linked diagram should be **recreated** from the new board layout. In doing so, its content is replaced: your own changes in the diagram are lost, and undo in the floor plan does not reach the diagram. If you decline, the diagram stays as it is, and the distribution board dialog shows in grey what the diagram is missing.
@@ -82,6 +84,8 @@ The room circuit is not "number 1": Kitchen, Kitchen 1 and Kitchen 2 are three c
 - **Suggest again:** what is already there stays, with its reference designation, label and place in the tree; only new items are added. Nodes whose room or component is missing or has been deselected are listed under **No longer needed**, ready to be removed. Nodes you added by hand always stay.
 
 **Apply** is an undo step. Afterwards the components know their [circuit](#stromkreis-zuordnung), although no cable runs to the distribution board.
+
+> The suggestion sets out a structure, not a standards-compliant design. Protective devices, sizing and RCD allocation must be checked by a qualified electrician – the box above the buttons points this out.
 
 ## Connecting cables in a distribution board {#verteiler-anschliessen}
 
@@ -143,6 +147,8 @@ From the project overview and the menu, the first step asks where the content co
 2. **Tree:** the same editor as in the distribution board dialog – labels, types, phases, further circuits, contacts and channels, moving nodes.
 
 In the last step, the wizard suggests the reference designation and the name from **Type** (main distribution board +HV, sub-distribution board +UV), **Storey**, **Flat** and **Use**. For example: "+UV.OG1.WE2" and "Sub-distribution board OG1 WE 2 – Garage/wallbox (+UV.OG1.WE2)". If the reference designation is already taken in the project, the type counts on (+UV2.OG1.WE2). You can change both; **Apply suggestion** resets them to the suggestion. If the content comes from a floor plan, the reference designation of the distribution board stays – only this keeps the plan linked to it. Below that come at most fuses and at most terminals per sheet, the **Split** setting (both remembered), and a preview of all sheets. **Create** adds the diagram to the project as a new document.
+
+> **Only a proposal.** The wizard sets out a structure, not a standards-compliant design: protective devices, sizing and RCD allocation must be checked by a qualified electrician. A box above the buttons points this out, and on every generated sheet the sentence stands at the top as an ordinary text. After checking, select and delete it like any other text.
 
 The **Split** setting decides what happens to an RCD that no longer fits entirely on the sheet being filled:
 

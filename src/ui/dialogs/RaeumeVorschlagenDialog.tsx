@@ -29,6 +29,7 @@ import { useUiStore } from '../store/ui-store'
 import { useAppContext, useProject } from '../use-app-context'
 import { useVerknuepfung } from '../use-verknuepfung'
 import { verteilerplanZu } from '../verknuepfung'
+import { PruefHinweis } from '../components/PruefHinweis'
 import { useT } from '../sprache-anbindung'
 import {
   raumVorschlagStart,
@@ -477,6 +478,7 @@ function Inhalt({ blattId, objektId }: { blattId: string; objektId: string }) {
             />
           </>
         )}
+        {verteiler && vorschlag && <PruefHinweis />}
         <div className="dialog-aktionen">
           <button onClick={schliessen}>{t('verteilerdialoge.allgemein.abbrechen')}</button>
           <button

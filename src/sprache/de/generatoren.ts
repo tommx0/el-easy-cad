@@ -7,6 +7,9 @@ export const generatoren = {
     raum: 'Raum',
     slot: 'Slot {nr}',
   },
+  pruefhinweis:
+    'Vorschlag zur Struktur, keine normgerechte Auslegung. Schutzorgane, Bemessung und ' +
+    'RCD-Aufteilung prüft die Elektrofachkraft.',
   verteilerplan: {
     passtNichtZumNetz: '-{kennzeichen} ({name}) passt nicht zum Wechselstromnetz.',
     katalogeintragFehlt: '{kennzeichen}: Katalogeintrag fehlt, nicht übernommen.',

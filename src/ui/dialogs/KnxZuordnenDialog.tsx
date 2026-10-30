@@ -18,6 +18,7 @@ import { useUiStore } from '../store/ui-store'
 import { useAppContext, useProject } from '../use-app-context'
 import { useVerknuepfung } from '../use-verknuepfung'
 import { verteilerplanZu } from '../verknuepfung'
+import { PruefHinweis } from '../components/PruefHinweis'
 import { useT } from '../sprache-anbindung'
 
 export function KnxZuordnenDialog() {
@@ -199,6 +200,7 @@ function Inhalt({ blattId, objektId }: { blattId: string; objektId: string }) {
             {h}
           </p>
         ))}
+        <PruefHinweis />
         <div className="dialog-aktionen">
           <button onClick={schliessen}>{t('verteilerdialoge.allgemein.abbrechen')}</button>
           <button className="primaer" disabled={aenderungen === 0} onClick={zuordnen}>

@@ -42,6 +42,7 @@ import { useSettingsStore } from '../store/settings-store'
 import type { VerteilerplanAssistentZiel } from '../store/ui-store'
 import { useUiStore } from '../store/ui-store'
 import { useAppContext, useProject } from '../use-app-context'
+import { PruefHinweis } from '../components/PruefHinweis'
 import { useT } from '../sprache-anbindung'
 import { BaumBearbeiten, type BestueckungsQuelle } from './VerteilerDialog'
 import { ArtWahl, RaumVorschlagFelder } from './RaeumeVorschlagenDialog'
@@ -634,6 +635,7 @@ function Assistent({ ziel }: { ziel: VerteilerplanAssistentZiel }) {
             </div>
           </>
         )}
+        {projektId && <PruefHinweis />}
         <div className="dialog-aktionen">
           <button onClick={schliessen}>{t('verteilerdialoge.allgemein.abbrechen')}</button>
           {nummer > 1 && (

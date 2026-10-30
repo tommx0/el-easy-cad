@@ -98,6 +98,7 @@ export async function verteilerplanErzeugen(
         ...ergebnis.hinweise,
         t('kiMeldungen.verteilerplanErzeugen.neuesDokument'),
       ],
+      pruefhinweis: t('generatoren.pruefhinweis'),
     },
   }
 }

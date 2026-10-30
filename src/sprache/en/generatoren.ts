@@ -9,6 +9,9 @@ export const generatoren: Texte['generatoren'] = {
     raum: 'Room',
     slot: 'Slot {nr}',
   },
+  pruefhinweis:
+    'Structural proposal, not a standards-compliant design. Protective devices, sizing and ' +
+    'RCD allocation must be checked by a qualified electrician.',
   verteilerplan: {
     passtNichtZumNetz: '-{kennzeichen} ({name}) is not suitable for a single-phase supply.',
     katalogeintragFehlt: '{kennzeichen}: catalogue entry missing, not included.',

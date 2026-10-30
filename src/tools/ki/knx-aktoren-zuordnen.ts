@@ -66,6 +66,7 @@ export function knxAktorenZuordnen(
       neueAktoren: ergebnis.neueGeraete.map((g) => g.kennzeichen),
       freigegeben: frei.size,
       ...(ergebnis.hinweise.length > 0 ? { hinweise: ergebnis.hinweise } : {}),
+      pruefhinweis: t('generatoren.pruefhinweis'),
       rueckgaengig: label,
     },
   }

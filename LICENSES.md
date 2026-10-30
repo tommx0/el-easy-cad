@@ -8,251 +8,229 @@
 
 Diese Datei hat drei Teile:
 
-1. **npm-Pakete** – am 2026-09-15 automatisiert aus dem tatsächlich installierten Abhängigkeitsbaum erzeugt (`pnpm licenses list --prod --long`, 175 Pakete – nur Production-Abhängigkeiten, die in der ausgelieferten Anwendung enthalten sind, keine reinen Build-/Testwerkzeuge). Bei jeder Aktualisierung der Abhängigkeiten (`pnpm update`, neue Pakete) sollte dieser Teil neu erzeugt werden, damit er nicht wie die Vorversion veraltet.
-2. **Node.js-Laufzeit und Rust-Crates der Tauri-Apps** – seit 2026-10-25 erzeugt von `node skripte/drittlizenzen-erzeugen.mjs` (braucht `cargo` und Netz) aus `src-tauri/Cargo.lock` und der Node-Version des Sidecars. Nach jedem `cargo update` oder Wechsel der Node-Version neu ausführen; `--pruefen` meldet, ob der Teil noch stimmt. Der Skriptlauf bricht bei einer noch nicht eingeordneten Lizenz ab.
-3. **Anhang** mit den Volltexten der Lizenzen der Crates und der vollständigen `LICENSE`-Datei von Node.js (ebenfalls vom Skript erzeugt).
+1. **npm-Pakete** (Oberfläche und Begleitserver) aus dem tatsächlich installierten Abhängigkeitsbaum – nur Production-Abhängigkeiten, keine reinen Build-/Testwerkzeuge.
+2. **Node.js-Laufzeit und Rust-Crates der Tauri-Apps** aus `src-tauri/Cargo.lock` und der Node-Version des Sidecars.
+3. **Anhang** mit den Volltexten aller genutzten Lizenzen und der vollständigen `LICENSE`-Datei von Node.js.
+
+Alle drei Teile erzeugt `node skripte/drittlizenzen-erzeugen.mjs` (seit 2026-10-25; braucht `pnpm`, `cargo` und Netz) zwischen festen Markierungen, samt Copyright-Inhabern aus den LICENSE-Dateien. Nach jedem `pnpm update`, `cargo update` oder Wechsel der Node-Version neu ausführen; `--pruefen` meldet, ob die Datei noch stimmt. Der Skriptlauf bricht bei einer noch nicht eingeordneten Lizenz ab – so rutscht kein Copyleft unbemerkt hinein. Die Anmerkungen unten bleiben von Hand gepflegt.
+
+Diese Datei ist die Entwicklerfassung mit Einordnung. Was der Anwendung beiliegt, ist `THIRD-PARTY-NOTICES.txt` (vom selben Skript erzeugt: je npm-Paket die Lizenzdatei aus dem Paket, dazu Node.js und die Crates) – angezeigt unter Hilfe › Lizenzen › „Vollständige Lizenztexte anzeigen“.
 
 **Alle aufgeführten Lizenzen erlauben kommerzielle Nutzung, Modifikation und Weitergabe.** Keine verlangt die Offenlegung des eigenen Quellcodes (kein GPL/AGPL/SSPL in dem, was ausgeliefert wird; wo GPL/LGPL als eine von mehreren Optionen angeboten wird, wählen wir die permissive). Schwaches, dateibezogenes Copyleft hat nur die MPL-2.0 von **web-ifc** (seit 2026-10-06, IFC-Import) und von fünf unverändert genutzten Rust-Crates (siehe unten).
 ---
 
+<!-- drittlizenzen-erzeugen:npm:anfang -->
 ## npm-Pakete (Oberfläche und Begleitserver)
 
-### MIT  (140 Pakete)
+Erzeugt mit `node skripte/drittlizenzen-erzeugen.mjs` aus dem installierten Abhängigkeitsbaum (`pnpm licenses list --prod`, 169 Paketversionen) – nur Production-Abhängigkeiten, die in der ausgelieferten Anwendung enthalten sind, keine reinen Build-/Testwerkzeuge. Die Urheber stammen aus den LICENSE-Dateien der Pakete, ersatzweise aus deren `package.json`; die Volltexte stehen einmal je Lizenz im Anhang.
 
-Erlaubt kommerzielle Nutzung, Modifikation, Verbreitung und private Nutzung. Bedingung: Copyright-Hinweis und Lizenztext müssen erhalten bleiben.
+### MIT  (130 Pakete)
 
-- **@babel/runtime** 7.29.7 — https://babel.dev/docs/en/next/babel-runtime
-- **@fast-csv/format** 4.3.5 — http://c2fo.github.com/fast-csv/packages/format
-- **@fast-csv/parse** 4.3.6 — http://c2fo.github.com/fast-csv/packages/parse
-- **@fastify/accept-negotiator** 2.1.0 — https://github.com/fastify/accept-negotiator#readme
-- **@fastify/ajv-compiler** 4.0.6 — https://github.com/fastify/ajv-compiler#readme
-- **@fastify/error** 4.2.0 — https://github.com/fastify/fastify-error#readme
-- **@fastify/fast-json-stringify-compiler** 5.1.0 — https://github.com/fastify/fast-json-stringify-compiler#readme
-- **@fastify/forwarded** 3.0.2 — https://github.com/fastify/forwarded#readme
-- **@fastify/merge-json-schemas** 0.2.1 — https://github.com/fastify/merge-json-schemas#readme
-- **@fastify/proxy-addr** 5.1.0 — https://github.com/fastify/proxy-addr#readme
-- **@fastify/send** 4.1.1 — https://github.com/fastify/send#readme
-- **@fastify/static** 10.1.3 — https://github.com/fastify/fastify-static
-- **@lukeed/ms** 2.0.2 — https://github.com/lukeed/ms#readme
-- **@napi-rs/canvas** 1.0.8 — https://github.com/Brooooooklyn/canvas#readme
-- **@napi-rs/canvas-linux-arm64-gnu** 1.0.8 — https://github.com/Brooooooklyn/canvas#readme
-- **@pinojs/redact** 0.4.0 — https://github.com/pinojs/redact#readme
-- **@types/node** 14.18.63 — https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node
-- **@types/pako** 2.0.4 — https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pako
-- **@types/raf** 3.4.3 — https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/raf
-- **@types/react** 19.2.18 — https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react
-- **@types/trusted-types** 2.0.7 — https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/trusted-types
-- **abstract-logging** 2.0.1 — https://github.com/jsumners/abstract-logging#readme
-- **ajv** 8.20.0 — https://ajv.js.org
-- **ajv-formats** 3.0.1 — https://github.com/ajv-validator/ajv-formats#readme
-- **archiver** 5.3.2 — https://github.com/archiverjs/node-archiver
-- **archiver-utils** 2.1.0, 3.0.4 — https://github.com/archiverjs/archiver-utils#readme
-- **async** 3.2.6 — https://caolan.github.io/async/
-- **atomic-sleep** 1.0.0 — https://github.com/davidmarkclements/atomic-sleep#readme
-- **avvio** 9.3.0 — https://github.com/fastify/avvio#readme
-- **balanced-match** 1.0.2, 4.0.4 — https://github.com/juliangruber/balanced-match#readme
-- **base64-arraybuffer** 1.0.2 — https://github.com/niklasvh/base64-arraybuffer
-- **base64-js** 1.5.1 — https://github.com/beatgammit/base64-js
-- **bl** 4.1.0 — https://github.com/rvagg/bl
-- **bluebird** 3.4.7 — https://github.com/petkaantonov/bluebird
-- **brace-expansion** 1.1.18, 2.1.4, 5.0.9 — https://github.com/juliangruber/brace-expansion#readme
-- **buffer** 5.7.1 — https://github.com/feross/buffer
-- **buffer-crc32** 0.2.13 — https://github.com/brianloveswords/buffer-crc32
-- **canvg** 3.0.11 — https://github.com/canvg/canvg#readme
-- **compress-commons** 4.1.2 — https://github.com/archiverjs/node-compress-commons
-- **concat-map** 0.0.1 — https://github.com/substack/node-concat-map#readme
-- **content-disposition** 2.0.1 — https://github.com/jshttp/content-disposition#readme
-- **cookie** 1.1.1 — https://github.com/jshttp/cookie#readme
-- **core-js** 3.50.0 — https://core-js.io
-- **core-util-is** 1.0.3 — https://github.com/isaacs/core-util-is#readme
-- **crc32-stream** 4.0.3 — https://github.com/archiverjs/node-crc32-stream
-- **css-line-break** 2.1.0 — https://github.com/niklasvh/css-line-break#readme
-- **csstype** 3.2.3 — https://github.com/frenic/csstype#readme
-- **dayjs** 1.11.23 — https://day.js.org
-- **depd** 2.0.0 — https://github.com/dougwilson/nodejs-depd#readme
-- **dequal** 2.0.3 — https://github.com/lukeed/dequal#readme
-- **dxf-parser** 1.1.2 — https://github.com/gdsestimating/dxf-parser
-- **end-of-stream** 1.4.5 — https://github.com/mafintosh/end-of-stream
-- **escape-html** 1.0.3 — https://github.com/component/escape-html#readme
-- **exceljs** 4.4.0 — https://github.com/exceljs/exceljs#readme
-- **fast-csv** 4.3.6 — http://c2fo.github.com/fast-csv
-- **fast-decode-uri-component** 1.0.1 — https://github.com/delvedor/fast-decode-uri-component#readme
-- **fast-deep-equal** 3.1.3 — https://github.com/epoberezkin/fast-deep-equal#readme
-- **fast-json-stringify** 7.0.1 — https://github.com/fastify/fast-json-stringify#readme
-- **fast-png** 6.4.0 — https://github.com/image-js/fast-png#readme
-- **fast-querystring** 1.1.2 — https://github.com/anonrig/fast-querystring#readme
-- **fastify** 5.12.1 — https://fastify.dev/
-- **fastify-plugin** 6.0.0 — https://github.com/fastify/fastify-plugin#readme
-- **fflate** 0.8.3 — https://101arrowz.github.io/fflate
-- **find-my-way** 9.9.0 — https://github.com/delvedor/find-my-way#readme
-- **fs-constants** 1.0.0 — https://github.com/mafintosh/fs-constants
-- **html2canvas** 1.4.1 — https://html2canvas.hertzen.com
-- **http-errors** 2.0.1 — https://github.com/jshttp/http-errors#readme
-- **immediate** 3.0.6 — https://github.com/calvinmetcalf/immediate#readme
-- **iobuffer** 5.4.0 — https://github.com/image-js/iobuffer#readme
-- **ipaddr.js** 2.5.0 — https://github.com/whitequark/ipaddr.js#readme
-- **isarray** 1.0.0 — https://github.com/juliangruber/isarray
-- **json-schema-ref-resolver** 3.0.0 — https://github.com/fastify/json-schema-ref-resolver#readme
-- **json-schema-traverse** 1.0.0 — https://github.com/epoberezkin/json-schema-traverse#readme
-- **jspdf** 4.2.1 — https://github.com/parallax/jsPDF
-- **lazystream** 1.0.1 — https://github.com/jpommerening/node-lazystream
-- **lie** 3.3.0 — https://github.com/calvinmetcalf/lie#readme
-- **lodash.defaults** 4.2.0 — https://lodash.com/
-- **lodash.difference** 4.5.0 — https://lodash.com/
-- **lodash.escaperegexp** 4.1.2 — https://lodash.com/
-- **lodash.flatten** 4.4.0 — https://lodash.com/
-- **lodash.groupby** 4.6.0 — https://lodash.com/
-- **lodash.isboolean** 3.0.3 — https://lodash.com/
-- **lodash.isequal** 4.5.0 — https://lodash.com/
-- **lodash.isfunction** 3.0.9 — https://lodash.com/
-- **lodash.isnil** 4.0.0 — https://lodash.com/
-- **lodash.isplainobject** 4.0.6 — https://lodash.com/
-- **lodash.isundefined** 3.0.1 — https://lodash.com/
-- **lodash.union** 4.6.0 — https://lodash.com/
-- **lodash.uniq** 4.5.0 — https://lodash.com/
-- **loglevel** 1.9.2 — https://github.com/pimterry/loglevel
-- **mime** 3.0.0 — https://github.com/broofa/mime#readme
-- **minimist** 1.2.8 — https://github.com/minimistjs/minimist
-- **mkdirp** 0.5.6 — https://github.com/substack/node-mkdirp#readme
-- **normalize-path** 3.0.0 — https://github.com/jonschlinkert/normalize-path
-- **on-exit-leak-free** 2.1.2 — https://github.com/mcollina/on-exit-or-gc#readme
-- **path-is-absolute** 1.0.1 — https://github.com/sindresorhus/path-is-absolute#readme
-- **performance-now** 2.1.0 — https://github.com/braveg1rl/performance-now
-- **pino** 10.3.1 — https://getpino.io
-- **pino-abstract-transport** 3.0.0 — https://github.com/pinojs/pino-abstract-transport#readme
-- **pino-std-serializers** 7.1.0 — https://github.com/pinojs/pino-std-serializers#readme
-- **process-nextick-args** 2.0.1 — https://github.com/calvinmetcalf/process-nextick-args
-- **process-warning** 4.0.1, 5.1.0 — https://github.com/fastify/fastify-warning#readme
-- **quick-format-unescaped** 4.0.4 — https://github.com/davidmarkclements/quick-format#readme
-- **raf** 3.4.1 — https://github.com/chrisdickinson/raf#readme
-- **react** 19.2.8 — https://react.dev/
-- **react-dom** 19.2.8 — https://react.dev/
-- **readable-stream** 2.3.8, 3.6.2 — https://github.com/nodejs/readable-stream#readme
-- **real-require** 0.2.0, 1.0.0 — https://github.com/pinojs/real-require
-- **regenerator-runtime** 0.13.11 — https://github.com/facebook/regenerator/tree/main#readme
-- **require-from-string** 2.0.2 — https://github.com/floatdrop/require-from-string#readme
-- **ret** 0.5.0 — https://github.com/fent/ret.js#readme
-- **reusify** 1.1.0 — https://github.com/mcollina/reusify#readme
-- **rfdc** 1.4.1 — https://github.com/davidmarkclements/rfdc#readme
-- **rgbcolor** 1.0.1 — https://github.com/yetzt/node-rgbcolor#readme
-- **safe-buffer** 5.1.2, 5.2.1 — https://github.com/feross/safe-buffer
-- **safe-regex2** 5.1.1 — https://github.com/fastify/safe-regex2
-- **safe-stable-stringify** 2.5.0 — https://github.com/BridgeAR/safe-stable-stringify#readme
-- **scheduler** 0.27.0 — https://react.dev/
-- **set-cookie-parser** 2.7.2 — https://github.com/nfriedly/set-cookie-parser
-- **setimmediate** 1.0.5 — https://github.com/YuzuJS/setImmediate#readme
-- **sonic-boom** 4.2.1 — https://github.com/pinojs/sonic-boom#readme
-- **stackblur-canvas** 2.7.0 — http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html
-- **statuses** 2.0.2 — https://github.com/jshttp/statuses#readme
-- **string_decoder** 1.1.1, 1.3.0 — https://github.com/nodejs/string_decoder
-- **svg-pathdata** 6.0.3 — https://github.com/nfroidure/svg-pathdata#readme
-- **tar-stream** 2.2.0 — https://github.com/mafintosh/tar-stream
-- **text-segmentation** 1.0.3 — https://github.com/niklasvh/text-segmentation
-- **thread-stream** 4.2.0 — https://github.com/mcollina/thread-stream#readme
-- **three** 0.186.1 — https://threejs.org/ (nur nachgeladen)
-- **tmp** 0.2.7 — http://github.com/raszi/node-tmp
-- **toad-cache** 3.7.4 — https://github.com/kibertoad/toad-cache
-- **toidentifier** 1.0.1 — https://github.com/component/toidentifier#readme
-- **unzipper** 0.11.6 — https://github.com/ZJONSSON/node-unzipper#readme
-- **util-deprecate** 1.0.2 — https://github.com/TooTallNate/util-deprecate
-- **utrie** 1.0.2 — https://github.com/niklasvh/utrie
-- **uuid** 8.3.2 — https://github.com/uuidjs/uuid#readme
-- **xmlchars** 2.2.0 — https://github.com/lddubeau/xmlchars#readme
-- **zip-stream** 4.1.1 — https://github.com/archiverjs/node-zip-stream
-- **zod** 4.5.4 — https://zod.dev
-- **zustand** 5.0.15 — https://github.com/pmndrs/zustand
+Erlaubt kommerzielle Nutzung, Modifikation und Weitergabe. Bedingung: Copyright-Hinweis und Lizenztext bleiben erhalten (siehe Anhang).
 
-### ISC  (16 Pakete)
+- **@babel/runtime** 7.29.7 — https://github.com/babel/babel — Copyright (c) 2014-present Sebastian McKenzie and other contributors
+- **@fast-csv/format** 4.3.5 — https://github.com/C2FO/fast-csv — Copyright (c) 2011-2019 C2FO
+- **@fast-csv/parse** 4.3.6 — https://github.com/C2FO/fast-csv — Copyright (c) 2011-2019 C2FO
+- **@fastify/accept-negotiator** 2.1.0 — https://github.com/fastify/accept-negotiator — Copyright (c) 2022-present The Fastify team <https://github.com/fastify/fastify#team>
+- **@fastify/ajv-compiler** 4.0.6 — https://github.com/fastify/ajv-compiler — Copyright (c) 2022-present The Fastify team <https://github.com/fastify/fastify#team>
+- **@fastify/error** 4.2.0 — https://github.com/fastify/fastify-error — Copyright (c) 2020 Fastify
+- **@fastify/fast-json-stringify-compiler** 5.1.0 — https://github.com/fastify/fast-json-stringify-compiler — Copyright (c) 2022-present The Fastify team <https://github.com/fastify/fastify#team>
+- **@fastify/forwarded** 3.0.2 — https://github.com/fastify/forwarded — Copyright (c) 2014-2017 Douglas Christopher Wilson; Copyright (c) 2021-present The Fastify team <https://github.com/fastify/fastify#team>
+- **@fastify/merge-json-schemas** 0.2.1 — https://github.com/fastify/merge-json-schemas — Copyright (c) 2024 Fastify
+- **@fastify/proxy-addr** 5.1.0 — https://github.com/fastify/proxy-addr — Copyright (c) 2014-2016 Douglas Christopher Wilson; Copyright (c) 2021-present The Fastify team
+- **@fastify/send** 4.1.1 — https://github.com/fastify/send — Copyright (c) 2012 TJ Holowaychuk; Copyright (c) 2014-2022 Douglas Christopher Wilson; Copyright (c) 2023-present The Fastify team <https://github.com/fastify/fastify#team>
+- **@fastify/static** 10.1.3 — https://github.com/fastify/fastify-static — Copyright (c) 2017-present The Fastify team <https://github.com/fastify/fastify#team>
+- **@lukeed/ms** 2.0.2 — https://github.com/lukeed/ms — Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
+- **@pinojs/redact** 0.4.0 — https://github.com/pinojs/redact — Copyright (c) 2025 pinojs contributors
+- **@types/node** 14.18.63 — https://github.com/DefinitelyTyped/DefinitelyTyped — Copyright (c) Microsoft Corporation.
+- **@types/pako** 2.0.4 — https://github.com/DefinitelyTyped/DefinitelyTyped — Copyright (c) Microsoft Corporation.
+- **abstract-logging** 2.0.1 — https://github.com/jsumners/abstract-logging — Urheber laut package.json: James Sumners
+- **ajv** 8.20.0 — https://github.com/ajv-validator/ajv — Copyright (c) 2015-2021 Evgeny Poberezkin
+- **ajv-formats** 3.0.1 — https://github.com/ajv-validator/ajv-formats — Copyright (c) 2020 Evgeny Poberezkin
+- **archiver** 5.3.2 — https://github.com/archiverjs/node-archiver — Copyright (c) 2012-2014 Chris Talkington, contributors.
+- **archiver-utils** 2.1.0, 3.0.4 — https://github.com/archiverjs/archiver-utils — Copyright (c) 2015 Chris Talkington.
+- **async** 3.2.6 — https://github.com/caolan/async — Copyright (c) 2010-2018 Caolan McMahon
+- **atomic-sleep** 1.0.0 — https://github.com/davidmarkclements/atomic-sleep — Copyright (c) 2020 David Mark Clements
+- **avvio** 9.3.0 — https://github.com/fastify/avvio — Copyright (c) 2016-2020 Matteo Collina; Copyright (c) 2020-present The Fastify team <https://github.com/fastify/fastify#team>
+- **balanced-match** 1.0.2, 4.0.4 — https://github.com/juliangruber/balanced-match — Copyright (c) 2013 Julian Gruber &lt;julian@juliangruber.com&gt;; die Autoren von balanced-match
+- **base64-js** 1.5.1 — https://github.com/beatgammit/base64-js — Copyright (c) 2014 Jameson Little
+- **bl** 4.1.0 — https://github.com/rvagg/bl — Copyright (c) 2013-2019 bl contributors
+- **bluebird** 3.4.7 — https://github.com/petkaantonov/bluebird — Copyright (c) 2013-2015 Petka Antonov
+- **brace-expansion** 1.1.18, 2.1.4, 5.0.9 — https://github.com/juliangruber/brace-expansion — Copyright (c) 2013 Julian Gruber <julian@juliangruber.com>; Copyright Julian Gruber <julian@juliangruber.com>
+- **buffer** 5.7.1 — https://github.com/feross/buffer — Copyright (c) Feross Aboukhadijeh, and other contributors.
+- **buffer-crc32** 0.2.13 — https://github.com/brianloveswords/buffer-crc32 — Copyright (c) 2013 Brian J. Brennan
+- **compress-commons** 4.1.2 — https://github.com/archiverjs/node-compress-commons — Copyright (c) 2014 Chris Talkington, contributors.
+- **concat-map** 0.0.1 — https://github.com/substack/node-concat-map — Urheber laut package.json: James Halliday
+- **content-disposition** 2.0.1 — https://github.com/jshttp/content-disposition — Copyright (c) 2014-2017 Douglas Christopher Wilson
+- **cookie** 1.1.1 — https://github.com/jshttp/cookie — Copyright (c) 2012-2014 Roman Shtylman <shtylman@gmail.com>; Copyright (c) 2015 Douglas Christopher Wilson <doug@somethingdoug.com>
+- **core-util-is** 1.0.3 — https://github.com/isaacs/core-util-is — Copyright Node.js contributors. All rights reserved.
+- **crc32-stream** 4.0.3 — https://github.com/archiverjs/node-crc32-stream — Copyright (c) 2014 Chris Talkington, contributors.
+- **dayjs** 1.11.23 — https://github.com/iamkun/dayjs — Copyright (c) 2018-present, iamkun
+- **depd** 2.0.0 — https://github.com/dougwilson/nodejs-depd — Copyright (c) 2014-2018 Douglas Christopher Wilson
+- **dequal** 2.0.3 — https://github.com/lukeed/dequal — Copyright (c) Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
+- **dxf-parser** 1.1.2 — https://github.com/gdsestimating/dxf-parser — Copyright (c) 2015 GDS Storefront Estimating
+- **end-of-stream** 1.4.5 — https://github.com/mafintosh/end-of-stream — Copyright (c) 2014 Mathias Buus
+- **escape-html** 1.0.3 — https://github.com/component/escape-html — Copyright (c) 2012-2013 TJ Holowaychuk; Copyright (c) 2015 Andreas Lubbe; Copyright (c) 2015 Tiancheng "Timothy" Gu
+- **exceljs** 4.4.0 — https://github.com/exceljs/exceljs — Copyright (c) 2014-2019 Guyon Roche
+- **fast-csv** 4.3.6 — https://github.com/C2FO/fast-csv — Copyright (c) 2011-2019 C2FO
+- **fast-decode-uri-component** 1.0.1 — https://github.com/delvedor/fast-decode-uri-component — Copyright (c) 2018 Tomas Della Vedova; Copyright (c) 2017 Justin Ridgewell; Copyright (c) 2008-2009 Bjoern Hoehrmann <bjoern@hoehrmann.de>
+- **fast-deep-equal** 3.1.3 — https://github.com/epoberezkin/fast-deep-equal — Copyright (c) 2017 Evgeny Poberezkin
+- **fast-json-stringify** 7.0.1 — https://github.com/fastify/fast-json-stringify — Copyright (c) 2016-present Matteo Collina; Copyright (c) 2016-present The Fastify team <https://github.com/fastify/fastify#team>
+- **fast-png** 6.4.0 — https://github.com/image-js/fast-png — Copyright (c) 2015 Michaël Zasso
+- **fast-querystring** 1.1.2 — https://github.com/anonrig/fast-querystring — Copyright (c) 2022 Yagiz Nizipli
+- **fastify** 5.12.1 — https://github.com/fastify/fastify — Copyright (c) 2016-present The Fastify team <https://github.com/fastify/fastify#team>
+- **fastify-plugin** 6.0.0 — https://github.com/fastify/fastify-plugin — Copyright (c) 2017-present The Fastify team <https://github.com/fastify/fastify#team>
+- **fflate** 0.8.3 — https://github.com/101arrowz/fflate — Copyright (c) 2026 Arjun Barrett
+- **find-my-way** 9.9.0 — https://github.com/delvedor/find-my-way — Copyright (c) 2017-2019 Tomas Della Vedova
+- **fs-constants** 1.0.0 — https://github.com/mafintosh/fs-constants — Copyright (c) 2018 Mathias Buus
+- **http-errors** 2.0.1 — https://github.com/jshttp/http-errors — Copyright (c) 2014 Jonathan Ong me@jongleberry.com; Copyright (c) 2016 Douglas Christopher Wilson doug@somethingdoug.com
+- **immediate** 3.0.6 — https://github.com/calvinmetcalf/immediate — Copyright (c) 2012 Barnesandnoble.com, llc, Donavon West, Domenic Denicola, Brian Cavalier
+- **iobuffer** 5.4.0 — https://github.com/image-js/iobuffer — Copyright (c) 2015 Michaël Zasso
+- **ipaddr.js** 2.5.0 — https://github.com/whitequark/ipaddr.js — Copyright (C) 2011-2017 whitequark <whitequark@whitequark.org>
+- **isarray** 1.0.0 — https://github.com/juliangruber/isarray — Urheber laut package.json: Julian Gruber
+- **json-schema-ref-resolver** 3.0.0 — https://github.com/fastify/json-schema-ref-resolver — Copyright (c) 2023 Fastify
+- **json-schema-traverse** 1.0.0 — https://github.com/epoberezkin/json-schema-traverse — Copyright (c) 2017 Evgeny Poberezkin
+- **jspdf** 4.2.1 — https://github.com/parallax/jsPDF — Copyright; (c) 2010-2025 James Hall, https://github.com/MrRio/jsPDF; (c) 2015-2025 yWorks GmbH, https://www.yworks.com/
+- **lazystream** 1.0.1 — https://github.com/jpommerening/node-lazystream — Copyright (c) 2013 J. Pommerening, contributors.
+- **lie** 3.3.0 — https://github.com/calvinmetcalf/lie — Copyright (c) 2014-2018 Calvin Metcalf, Jordan Harband
+- **lodash.defaults** 4.2.0 — https://github.com/lodash/lodash — Copyright jQuery Foundation and other contributors <https://jquery.org/>; Copyright and related rights for sample code are waived via CC0. Sample
+- **lodash.difference** 4.5.0 — https://github.com/lodash/lodash — Copyright jQuery Foundation and other contributors <https://jquery.org/>; Copyright and related rights for sample code are waived via CC0. Sample
+- **lodash.escaperegexp** 4.1.2 — https://github.com/lodash/lodash — Copyright jQuery Foundation and other contributors <https://jquery.org/>; Copyright and related rights for sample code are waived via CC0. Sample
+- **lodash.flatten** 4.4.0 — https://github.com/lodash/lodash — Copyright jQuery Foundation and other contributors <https://jquery.org/>; Copyright and related rights for sample code are waived via CC0. Sample
+- **lodash.groupby** 4.6.0 — https://github.com/lodash/lodash — Copyright jQuery Foundation and other contributors <https://jquery.org/>; Copyright and related rights for sample code are waived via CC0. Sample
+- **lodash.isboolean** 3.0.3 — https://github.com/lodash/lodash — Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
+- **lodash.isequal** 4.5.0 — https://github.com/lodash/lodash — Copyright JS Foundation and other contributors <https://js.foundation/>; Copyright and related rights for sample code are waived via CC0. Sample
+- **lodash.isfunction** 3.0.9 — https://github.com/lodash/lodash — Copyright JS Foundation and other contributors <https://js.foundation/>; Copyright and related rights for sample code are waived via CC0. Sample
+- **lodash.isnil** 4.0.0 — https://github.com/lodash/lodash — Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
+- **lodash.isplainobject** 4.0.6 — https://github.com/lodash/lodash — Copyright jQuery Foundation and other contributors <https://jquery.org/>; Copyright and related rights for sample code are waived via CC0. Sample
+- **lodash.isundefined** 3.0.1 — https://github.com/lodash/lodash — Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
+- **lodash.union** 4.6.0 — https://github.com/lodash/lodash — Copyright jQuery Foundation and other contributors <https://jquery.org/>; Copyright and related rights for sample code are waived via CC0. Sample
+- **lodash.uniq** 4.5.0 — https://github.com/lodash/lodash — Copyright jQuery Foundation and other contributors <https://jquery.org/>; Copyright and related rights for sample code are waived via CC0. Sample
+- **loglevel** 1.9.2 — https://github.com/pimterry/loglevel — Copyright (c) 2013 Tim Perry
+- **mime** 3.0.0 — https://github.com/broofa/mime — Copyright (c) 2010 Benjamin Thomas, Robert Kieffer
+- **minimist** 1.2.8 — https://github.com/minimistjs/minimist — Urheber laut package.json: James Halliday
+- **mkdirp** 0.5.6 — https://github.com/substack/node-mkdirp — Copyright 2010 James Halliday (mail@substack.net)
+- **normalize-path** 3.0.0 — https://github.com/jonschlinkert/normalize-path — Copyright (c) 2014-2018, Jon Schlinkert.
+- **on-exit-leak-free** 2.1.2 — https://github.com/mcollina/on-exit-or-gc — Copyright (c) 2021 Matteo Collina
+- **path-is-absolute** 1.0.1 — https://github.com/sindresorhus/path-is-absolute — Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+- **pino** 10.3.1 — https://github.com/pinojs/pino — Copyright (c) 2016-2025 Matteo Collina, David Mark Clements and the Pino contributors listed at <https://github.com/pinojs/pino#the-team> and in the README file.
+- **pino-abstract-transport** 3.0.0 — https://github.com/pinojs/pino-abstract-transport — Copyright (c) 2021 pino
+- **pino-std-serializers** 7.1.0 — ssh://git@github.com/pinojs/pino-std-serializers — Copyright Mateo Collina, David Mark Clements, James Sumners
+- **process-nextick-args** 2.0.1 — https://github.com/calvinmetcalf/process-nextick-args — Copyright (c) 2015 Calvin Metcalf
+- **process-warning** 4.0.1, 5.1.0 — https://github.com/fastify/process-warning — Copyright (c) Fastify; Copyright (c) 2020-present The Fastify team <https://github.com/fastify/fastify#team>
+- **quick-format-unescaped** 4.0.4 — https://github.com/davidmarkclements/quick-format — Copyright (c) 2016-2019 David Mark Clements
+- **react** 19.2.8 — https://github.com/react/react — Copyright (c) Meta Platforms, Inc. and affiliates.
+- **react-dom** 19.2.8 — https://github.com/react/react — Copyright (c) Meta Platforms, Inc. and affiliates.
+- **readable-stream** 2.3.8, 3.6.2 — https://github.com/nodejs/readable-stream — Copyright Node.js contributors. All rights reserved.; Copyright Joyent, Inc. and other Node contributors. All rights reserved.
+- **real-require** 0.2.0, 1.0.0 — https://github.com/pinojs/real-require — Copyright (c) 2021 Paolo Insogna and the real-require contributors
+- **require-from-string** 2.0.2 — https://github.com/floatdrop/require-from-string — Copyright (c) Vsevolod Strukchinsky <floatdrop@gmail.com> (github.com/floatdrop)
+- **ret** 0.5.0 — https://github.com/fent/ret.js — Copyright (C) 2011 by fent
+- **reusify** 1.1.0 — https://github.com/mcollina/reusify — Copyright (c) 2015-2024 Matteo Collina
+- **rfdc** 1.4.1 — https://github.com/davidmarkclements/rfdc — Copyright 2019 "David Mark Clements <david.mark.clements@gmail.com>"
+- **safe-buffer** 5.1.2, 5.2.1 — https://github.com/feross/safe-buffer — Copyright (c) Feross Aboukhadijeh
+- **safe-regex2** 5.1.1 — https://github.com/fastify/safe-regex2 — Copyright (c) 2019-present The Fastify team <https://github.com/fastify/fastify#team>
+- **safe-stable-stringify** 2.5.0 — https://github.com/BridgeAR/safe-stable-stringify — Copyright (c) Ruben Bridgewater
+- **scheduler** 0.27.0 — https://github.com/facebook/react — Copyright (c) Meta Platforms, Inc. and affiliates.
+- **set-cookie-parser** 2.7.2 — https://github.com/nfriedly/set-cookie-parser — Copyright (c) 2015 Nathan Friedly <nathan@nfriedly.com> (http://nfriedly.com/)
+- **setimmediate** 1.0.5 — https://github.com/YuzuJS/setImmediate — Copyright (c) 2012 Barnesandnoble.com, llc, Donavon West, and Domenic Denicola
+- **sonic-boom** 4.2.1 — https://github.com/pinojs/sonic-boom — Copyright (c) 2017 Matteo Collina
+- **statuses** 2.0.2 — https://github.com/jshttp/statuses — Copyright (c) 2014 Jonathan Ong <me@jongleberry.com>; Copyright (c) 2016 Douglas Christopher Wilson <doug@somethingdoug.com>
+- **string_decoder** 1.1.1, 1.3.0 — https://github.com/nodejs/string_decoder — Copyright Node.js contributors. All rights reserved.; Copyright Joyent, Inc. and other Node contributors. All rights reserved.
+- **tar-stream** 2.2.0 — https://github.com/mafintosh/tar-stream — Copyright (c) 2014 Mathias Buus
+- **thread-stream** 4.2.0 — https://github.com/mcollina/thread-stream — Copyright (c) 2021 Matteo Collina
+- **three** 0.186.1 — https://github.com/mrdoob/three.js — Copyright © 2010-2026 three.js authors
+- **tmp** 0.2.7 — https://github.com/raszi/node-tmp — Copyright (c) 2014 KARASZI István
+- **toad-cache** 3.7.4 — https://github.com/kibertoad/toad-cache — Copyright (c) 2023 Igor Savin
+- **toidentifier** 1.0.1 — https://github.com/component/toidentifier — Copyright (c) 2016 Douglas Christopher Wilson <doug@somethingdoug.com>
+- **unzipper** 0.11.6 — https://github.com/ZJONSSON/node-unzipper — Copyright (c) 2012 - 2013 Near Infinity Corporation
+- **util-deprecate** 1.0.2 — https://github.com/TooTallNate/util-deprecate — Copyright (c) 2014 Nathan Rajlich <nathan@tootallnate.net>
+- **uuid** 8.3.2 — https://github.com/uuidjs/uuid — Copyright (c) 2010-2020 Robert Kieffer and other contributors
+- **xmlchars** 2.2.0 — https://github.com/lddubeau/xmlchars — Copyright Louis-Dominique Dubeau and contributors to xmlchars
+- **zip-stream** 4.1.1 — https://github.com/archiverjs/node-zip-stream — Copyright (c) 2014 Chris Talkington, contributors.
+- **zod** 4.5.4 — https://github.com/colinhacks/zod — Copyright (c) 2025 Colin McDonnell
+- **zustand** 5.0.15 — https://github.com/pmndrs/zustand — Copyright (c) 2019 Paul Henschel
 
-Funktional gleichwertig zu MIT, ebenfalls ohne Copyleft-Pflichten.
+### ISC  (17 Pakete)
 
-- **fastq** 1.20.3 — https://github.com/mcollina/fastq#readme
-- **fs.realpath** 1.0.0 — https://github.com/isaacs/fs.realpath#readme
-- **fstream** 1.0.12 — https://github.com/npm/fstream#readme
-- **glob** 7.2.3 — https://github.com/isaacs/node-glob#readme
-- **graceful-fs** 4.2.11 — https://github.com/isaacs/node-graceful-fs#readme
-- **idb** 8.0.3 — https://github.com/jakearchibald/idb#readme
-- **inflight** 1.0.6 — https://github.com/isaacs/inflight
-- **inherits** 2.0.4 — https://github.com/isaacs/inherits#readme
-- **minimatch** 3.1.5, 5.1.9 — https://github.com/isaacs/minimatch#readme
-- **once** 1.4.0 — https://github.com/isaacs/once#readme
-- **rimraf** 2.7.1 — https://github.com/isaacs/rimraf#readme
-- **saxes** 5.0.1 — https://github.com/lddubeau/saxes#readme
-- **semver** 7.8.5 — https://github.com/npm/node-semver#readme
-- **setprototypeof** 1.2.0 — https://github.com/wesleytodd/setprototypeof
-- **split2** 4.2.0 — https://github.com/mcollina/split2#readme
-- **wrappy** 1.0.2 — https://github.com/npm/wrappy
+Funktional gleichwertig zu MIT, ohne Copyleft-Pflichten.
 
-### Apache-2.0  (3 Pakete)
+- **fastq** 1.20.3 — https://github.com/mcollina/fastq — Copyright (c) 2015-2020, Matteo Collina <matteo.collina@gmail.com>
+- **fs.realpath** 1.0.0 — https://github.com/isaacs/fs.realpath — Copyright (c) Isaac Z. Schlueter and Contributors; Copyright Joyent, Inc. and other Node contributors.
+- **fstream** 1.0.12 — https://github.com/npm/fstream — Copyright (c) Isaac Z. Schlueter and Contributors
+- **glob** 7.2.3 — https://github.com/isaacs/node-glob — Copyright (c) Isaac Z. Schlueter and Contributors
+- **graceful-fs** 4.2.11 — https://github.com/isaacs/node-graceful-fs — Copyright (c) 2011-2022 Isaac Z. Schlueter, Ben Noordhuis, and Contributors
+- **idb** 8.0.3 — https://github.com/jakearchibald/idb — Copyright (c) 2016, Jake Archibald <jaffathecake@gmail.com>
+- **inflight** 1.0.6 — https://github.com/npm/inflight — Copyright (c) Isaac Z. Schlueter
+- **inherits** 2.0.4 — https://github.com/isaacs/inherits — Copyright (c) Isaac Z. Schlueter
+- **minimatch** 3.1.5, 5.1.9 — https://github.com/isaacs/minimatch — Copyright (c) Isaac Z. Schlueter and Contributors; Copyright (c) 2011-2023 Isaac Z. Schlueter and Contributors
+- **once** 1.4.0 — https://github.com/isaacs/once — Copyright (c) Isaac Z. Schlueter and Contributors
+- **rimraf** 2.7.1 — https://github.com/isaacs/rimraf — Copyright (c) Isaac Z. Schlueter and Contributors
+- **saxes** 5.0.1 — https://github.com/lddubeau/saxes — Urheber laut package.json: Louis-Dominique Dubeau
+- **semver** 7.8.5 — https://github.com/npm/node-semver — Copyright (c) Isaac Z. Schlueter and Contributors
+- **setprototypeof** 1.2.0 — https://github.com/wesleytodd/setprototypeof — Copyright (c) 2015, Wes Todd
+- **split2** 4.2.0 — https://github.com/mcollina/split2 — Copyright (c) 2014-2018, Matteo Collina <hello@matteocollina.com>
+- **wrappy** 1.0.2 — https://github.com/npm/wrappy — Copyright (c) Isaac Z. Schlueter and Contributors
 
-Erlaubt kommerzielle Nutzung, Modifikation und Verbreitung; verlangt Erhalt von Copyright-/Änderungshinweisen und gewährt zusätzlich eine explizite Patentlizenz. Siehe https://www.apache.org/licenses/LICENSE-2.0
+### BSD-3-Clause  (6 Pakete)
 
-- **crc-32** 1.2.2 — https://sheetjs.com/
-- **pdfjs-dist** 6.3.289 — https://mozilla.github.io/pdf.js/
-- **readdir-glob** 1.1.3 — https://github.com/Yqnn/node-readdir-glob
+Permissiv wie MIT, zusätzlich ein Verbot, den Namen der Urheber ohne Erlaubnis zu Werbezwecken zu nutzen. Bei Weitergabe als Binärdatei gehören Copyright-Hinweis und Lizenztext in die Begleitunterlagen (siehe Anhang).
 
-### Apache-2.0 OR MIT  (1 Paket)
-
-Doppellizenziert – wir nutzen die Software unter einer der beiden (praktisch: MIT-Bedingungen).
-
-- **@tauri-apps/api** 2.11.1 — https://github.com/tauri-apps/tauri#readme
-
-### MIT OR Apache-2.0  (2 Pakete)
-
-Doppellizenziert – wir nutzen die Software unter einer der beiden (praktisch: MIT-Bedingungen).
-
-- **@tauri-apps/plugin-dialog** 2.7.3 — https://github.com/tauri-apps/plugins-workspace#readme
-- **@tauri-apps/plugin-fs** 2.5.2 — https://github.com/tauri-apps/plugins-workspace#readme
-
-### BSD-3-Clause  (5 Pakete)
-
-Permissiv wie MIT, zusätzlich ein Verbot, den Namen der Urheber ohne Erlaubnis zu Werbezwecken zu nutzen.
-
-- **duplexer2** 0.1.4 — https://github.com/deoxxa/duplexer2#readme
-- **fast-uri** 3.1.6, 4.1.3 — https://github.com/fastify/fast-uri
-- **ieee754** 1.2.1 — https://github.com/feross/ieee754#readme
-- **light-my-request** 6.6.0 — https://github.com/fastify/light-my-request#readme
-- **secure-json-parse** 4.1.0 — https://github.com/fastify/secure-json-parse#readme
-
-### Unlicense  (1 Paket)
-
-Gemeinfrei (Public Domain) – keine Einschränkungen, keine Namensnennungspflicht.
-
-- **big-integer** 1.6.52 — https://github.com/peterolson/BigInteger.js#readme
+- **duplexer2** 0.1.4 — https://github.com/deoxxa/duplexer2 — Copyright (c) 2013, Deoxxa Development
+- **fast-uri** 3.1.6, 4.1.3 — https://github.com/fastify/fast-uri — Copyright (c) 2011-2021, Gary Court until https://github.com/garycourt/uri-js/commit/a1acf730b4bba3f1097c9f52e7d9d3aba8cdcaae; Copyright (c) 2021-present The Fastify team <https://github.com/fastify/fastify#team>
+- **ieee754** 1.2.1 — https://github.com/feross/ieee754 — Copyright 2008 Fair Oaks Labs, Inc.
+- **light-my-request** 6.6.0 — https://github.com/fastify/light-my-request — Copyright (c) 2017 The Fastify Team; Copyright (c) 2012-2017, Project contributors; Copyright (c) 2012-2014, Walmart
+- **secure-json-parse** 4.1.0 — https://github.com/fastify/secure-json-parse — Copyright (c) 2019, Sideway Inc, and project contributors; Copyright (c) 2019-present The Fastify team
 
 ### BlueOak-1.0.0  (5 Pakete)
 
 Moderne, bewusst einfach gehaltene permissive Lizenz (Nachfolgeprojekt von Isaac Z. Schlueter/npm-Ökosystem), inhaltlich mit MIT/ISC vergleichbar.
 
-- **glob** 13.0.6 — https://github.com/isaacs/node-glob#readme
-- **lru-cache** 11.5.2 — https://github.com/isaacs/node-lru-cache#readme
-- **minimatch** 10.2.6 — https://github.com/isaacs/minimatch#readme
-- **minipass** 7.1.3 — https://github.com/isaacs/minipass#readme
-- **path-scurry** 2.0.2 — https://github.com/isaacs/path-scurry#readme
+- **glob** 13.0.6 — https://github.com/isaacs/node-glob — copyright in it.
+- **lru-cache** 11.5.2 — ssh://git@github.com/isaacs/node-lru-cache — copyright in it.
+- **minimatch** 10.2.6 — https://github.com/isaacs/minimatch — copyright in it.
+- **minipass** 7.1.3 — https://github.com/isaacs/minipass — copyright in it.
+- **path-scurry** 2.0.2 — https://github.com/isaacs/path-scurry — copyright in it.
+
+### Apache-2.0  (3 Pakete)
+
+Erlaubt kommerzielle Nutzung, Modifikation und Weitergabe; verlangt Lizenztext, Erhalt von Copyright-/Änderungshinweisen und die Weitergabe einer NOTICE-Datei, falls das Crate eine hat (keines dieser Crates hat eine). Gewährt zusätzlich eine Patentlizenz.
+
+- **crc-32** 1.2.2 — https://github.com/SheetJS/js-crc32 — Copyright (C) 2014-present SheetJS LLC
+- **pdfjs-dist** 6.3.289 — https://github.com/mozilla/pdf.js — die Autoren von pdfjs-dist
+- **readdir-glob** 1.1.3 — https://github.com/Yqnn/node-readdir-glob — Copyright 2020 Yann Armelin
+
+### MIT OR Apache-2.0  (3 Pakete)
+
+Doppellizenziert, im Rust-Ökosystem üblich – wir nutzen die Crates unter MIT. Bedingung: Copyright-Hinweis und Lizenztext bleiben erhalten (siehe Anhang).
+
+- **@tauri-apps/api** 2.11.1 — https://github.com/tauri-apps/tauri — Copyright (c) 2017 - Present Tauri Apps Contributors
+- **@tauri-apps/plugin-dialog** 2.7.3 — https://github.com/tauri-apps/plugins-workspace — die Autoren von @tauri-apps/plugin-dialog
+- **@tauri-apps/plugin-fs** 2.5.2 — https://github.com/tauri-apps/plugins-workspace — die Autoren von @tauri-apps/plugin-fs
+
+### MIT AND Zlib  (2 Pakete)
+
+Kombination zweier permissiver Lizenzen – beide ohne Copyleft-Pflichten.
+
+- **pako** 1.0.11, 2.2.0 — https://github.com/nodeca/pako — Copyright (C) 2014-2017 by Vitaly Puzrin and Andrei Tuputcyn
+
+### MIT OR GPL-3.0-or-later  (1 Paket)
+
+Doppellizenziert – **wir wählen ausdrücklich die MIT-Option**, damit keine GPL-Pflichten (Quellcode-Offenlegung) entstehen.
+
+- **jszip** 3.10.2 — https://github.com/Stuk/jszip — Copyright (c) 2009-2016 Stuart Knightley, David Duponchel, Franz Buchinger, António Afonso; Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>; copyright on the Program, and are irrevocable provided the stated
 
 ### MPL-2.0  (1 Paket)
 
 Copyleft nur auf Dateiebene: Wer die Dateien der Bibliothek selbst ändert, muss diese Änderungen offenlegen; die eigene Anwendung bleibt unberührt. el.esy.CAD setzt web-ifc unverändert ein (JS und WASM aus dem npm-Paket), es entstehen also keine Offenlegungspflichten – nur Lizenzhinweis und Quellverweis.
 
-- **web-ifc** 0.0.78 — https://github.com/ThatOpen/engine_web-ifc
+- **web-ifc** 0.0.78 — https://github.com/ThatOpen/engine_web-ifc — Urheber laut package.json: web-ifc
 
-### (MPL-2.0 OR Apache-2.0)  (1 Paket)
+### Unlicense  (1 Paket)
 
-Doppellizenziert (dompurify) – wir nutzen die Software unter Apache-2.0, damit keine MPL-Dateiweitergabepflichten greifen.
+Gemeinfrei (Public Domain) – keine Einschränkungen, keine Namensnennungspflicht.
 
-- **dompurify** 3.4.14 — https://github.com/cure53/DOMPurify
-
-### (MIT AND Zlib)  (1 Paket)
-
-Kombination zweier permissiver Lizenzen (pako) – beide ohne Copyleft-Pflichten.
-
-- **pako** 1.0.11, 2.2.0 — https://github.com/nodeca/pako#readme
-
-### (MIT OR GPL-3.0-or-later)  (1 Paket)
-
-Doppellizenziert (jszip) – **wir wählen ausdrücklich die MIT-Option**, damit keine GPL-Pflichten (Quellcode-Offenlegung) entstehen.
-
-- **jszip** 3.10.2 — https://github.com/Stuk/jszip#readme
+- **big-integer** 1.6.52 — https://github.com/peterolson/BigInteger.js — Urheber laut package.json: Peter Olson
+<!-- drittlizenzen-erzeugen:npm:ende -->
 
 ---
 
@@ -263,7 +241,7 @@ Die Tauri-Apps bringen für den Begleitserver die offizielle Node.js-Binärdatei
 
 Acorn (`deps/acorn`), c-ares (`deps/cares`), merve (`deps/merve`), ittapi (`deps/v8/third_party/ittapi`), amaro (`deps/amaro`), swc (`deps/amaro/dist`), ICU (`deps/icu-small`), libuv (`deps/uv`), LIEF (`deps/LIEF`), llhttp (`deps/llhttp`), corepack (`deps/corepack`), undici (`deps/undici`), postject (`test/fixtures/postject-copy`), OpenSSL (`deps/openssl`), Punycode.js (`lib/punycode.js`), V8 (`deps/v8`), SipHash (`deps/v8/src/third_party/siphash`), zlib (`deps/zlib`), simdjson (`deps/simdjson`), simdutf (`deps/v8/third_party/simdutf`), ada (`deps/ada`), minimatch (`deps/minimatch`), npm (`deps/npm`), GYP (`tools/gyp`), inspector_protocol (`deps/inspector_protocol`), jinja2 (`tools/inspector_protocol/jinja2`), markupsafe (`tools/inspector_protocol/markupsafe`), cpplint.py (`tools/cpplint.py`), gypi_to_gn.py (`tools/gypi_to_gn.py`), gtest (`deps/googletest`), nghttp2 (`deps/nghttp2`), large_pages (`src/large_pages`), caja (`lib/internal/freeze_intrinsics.js`), brotli (`deps/brotli`), zstd (`deps/zstd`), HdrHistogram (`deps/histogram`), node-heapdump (`src/heap_utils.cc`), rimraf (`lib/internal/fs/rimraf.js`), uvwasi (`deps/uvwasi`), ngtcp2 (`deps/ngtcp2/ngtcp2/`), nghttp3 (`deps/ngtcp2/nghttp3/`), node-fs-extra (`lib/internal/fs/cp`), on-exit-leak-free (`lib/internal/process/finalization`), sonic-boom (`lib/internal/streams/fast-utf8-stream.js`).
 
-Darunter Apache-2.0 (OpenSSL, LIEF, simdjson), Unicode-3.0 (ICU), BSD-3-Clause (V8, ittapi u. a.), Zlib (zlib), sonst überwiegend MIT/ISC – alles permissiv, die Bedingungen erfüllt die mitgegebene Datei.Mitgeliefert wird nur `bin/node`; npm, corepack und die Build-Werkzeuge (GYP, cpplint u. a.) stehen zwar in der Datei, sind aber nicht Teil der App. Die einzigen GPL-Texte darin betreffen Autoconf-Hilfsdateien von ICU (`aclocal.m4`, `config.guess`), die nur beim Bauen von Node.js laufen und ausdrücklich unter der Autoconf-Ausnahme stehen – im ausgelieferten Programm steckt davon nichts.
+Darunter Apache-2.0 (OpenSSL, LIEF, simdjson), Unicode-3.0 (ICU), BSD-3-Clause (V8, ittapi u. a.), Zlib (zlib), sonst überwiegend MIT/ISC – alles permissiv, die Bedingungen erfüllt die mitgegebene Datei. Mitgeliefert wird nur `bin/node`; npm, corepack und die Build-Werkzeuge (GYP, cpplint u. a.) stehen zwar in der Datei, sind aber nicht Teil der App. Die einzigen GPL-Texte darin betreffen Autoconf-Hilfsdateien von ICU (`aclocal.m4`, `config.guess`), die nur beim Bauen von Node.js laufen und ausdrücklich unter der Autoconf-Ausnahme stehen – im ausgelieferten Programm steckt davon nichts.
 
 ## Rust-Crates der Tauri-Apps
 
@@ -872,7 +850,7 @@ Wenn Sie el.esy.CAD kommerziell weitergeben oder einsetzen:
 <!-- drittlizenzen-erzeugen:lizenztexte:anfang -->
 ## Anhang: Lizenztexte
 
-Volltexte der Lizenzen, unter denen wir die Rust-Crates nutzen (aus der SPDX-Lizenzliste v3.29.0), gefolgt von der `LICENSE`-Datei von Node.js v24.20.0. Bei MIT, BSD und ISC gehört zum Text der jeweilige Copyright-Vermerk – er steht beim Crate in der Liste oben.
+Volltexte der Lizenzen, unter denen wir die npm-Pakete und Rust-Crates nutzen (aus der SPDX-Lizenzliste v3.29.0), gefolgt von der `LICENSE`-Datei von Node.js v24.20.0. Bei MIT, BSD und ISC gehört zum Text der jeweilige Copyright-Vermerk – er steht beim Paket in den Listen oben.
 
 ### Apache-2.0
 
@@ -950,6 +928,66 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+~~~~
+
+### BlueOak-1.0.0
+
+~~~~text
+# Blue Oak Model License
+
+Version 1.0.0
+
+## Purpose
+
+This license gives everyone as much permission to work with
+this software as possible, while protecting contributors
+from liability.
+
+## Acceptance
+
+In order to receive this license, you must agree to its
+rules.  The rules of this license are both obligations
+under that agreement and conditions to your license.
+You must not do anything with this software that triggers
+a rule that you cannot or will not follow.
+
+## Copyright
+
+Each contributor licenses you to do everything with this
+software that would otherwise infringe that contributor's
+copyright in it.
+
+## Notices
+
+You must ensure that everyone who gets a copy of
+any part of this software from you, with or without
+changes, also gets the text of this license or a link to
+<https://blueoakcouncil.org/license/1.0.0>.
+
+## Excuse
+
+If anyone notifies you in writing that you have not
+complied with [Notices](#notices), you can keep your
+license by taking all practical steps to comply within 30
+days after the notice.  If you do not do so, your license
+ends immediately.
+
+## Patent
+
+Each contributor licenses you to do everything with this
+software that would otherwise infringe any patent claims
+they can license or become able to license.
+
+## Reliability
+
+No contributor can revoke this license.
+
+## No Liability
+
+***As far as the law allows, this software comes as is,
+without any warranty or condition, and no contributor
+will be liable to anyone for any damages related to this
+software or this license, under any kind of legal claim.***
 ~~~~
 
 ### BSD-3-Clause
@@ -1476,6 +1514,21 @@ Except as contained in this notice, the name of a copyright holder shall
 not be used in advertising or otherwise to promote the sale, use or other
 dealings in these Data Files or Software without prior written
 authorization of the copyright holder.
+~~~~
+
+### Unlicense
+
+~~~~text
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
+
+In jurisdictions that recognize copyright laws, the author or authors of this software dedicate any and all copyright interest in the software to the public domain. We make this dedication for the benefit of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of relinquishment in perpetuity of all present and future rights to this software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <http://unlicense.org/>
 ~~~~
 
 ### Zlib

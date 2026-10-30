@@ -1,7 +1,7 @@
 {
   "name": "el-easy-cad",
   "private": true,
-  "version": "0.13.3",
+  "version": "0.13.4",
   "type": "module",
   "scripts": {
     "dev": "node skripte/dev.mjs",

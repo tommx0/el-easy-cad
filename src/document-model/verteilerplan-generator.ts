@@ -1,5 +1,5 @@
 import { oberflaechensprache, t } from '../sprache'
-import type { Sprache } from '../sprache'
+import type { Sprache, Uebersetzer } from '../sprache'
 import { naechstesBestueckungsKennzeichen } from './bestueckung'
 import { knotenAusAbzweigen } from './schaltverbindung-segmente'
 import type { Blatt } from './blatt'
@@ -25,6 +25,7 @@ import type {
   ObjektTyp,
   SchaltverbindungAnschluss,
   SchaltverbindungObjekt,
+  TextObjekt,
 } from './objekte'
 import { neueObjektBasis } from './objekte'
 import { BASIS_SYMBOL_GROESSE_METER } from './symbol'
@@ -432,6 +433,7 @@ export function erzeugeVerteilerplanMitAbzweigen(
     })),
     box,
   )
+  for (const blatt of blaetter) blatt.objekte.push(pruefhinweisText(blatt, box, tp))
   zeichnung.blaetter = blaetter
   zeichnung.aktivesBlattId = blaetter[0].id
   return {
@@ -440,6 +442,26 @@ export function erzeugeVerteilerplanMitAbzweigen(
     rcd: baum.knoten.filter((k) => k.rolle === 'rcd').length,
     hinweise,
     aktoren,
+  }
+}
+
+const PRUEFHINWEIS_HOEHE = 0.1
+
+function pruefhinweisText(
+  blatt: Blatt,
+  box: { min: Point; max: Point },
+  tp: Uebersetzer,
+): TextObjekt {
+  return {
+    ...neueObjektBasis(ebeneFuer(blatt, 'text')),
+    type: 'text',
+    position: {
+      x: box.min.x + RAND + LINKS_FREI,
+      y: box.max.y - (RASTER + PRUEFHINWEIS_HOEHE) / 2,
+    },
+    inhalt: tp('generatoren.pruefhinweis'),
+    hoehe: PRUEFHINWEIS_HOEHE,
+    drehung: 0,
   }
 }
 

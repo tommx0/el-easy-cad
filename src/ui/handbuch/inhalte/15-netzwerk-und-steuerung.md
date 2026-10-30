@@ -138,6 +138,10 @@ Klemmen auf einmal:
 nur freie Kanäle vorhandener. Auch der [Verteilerplan-Assistent](#verteilerplan-erzeugen) bietet
 die Zuordnung an, bevor er einen Plan aus dem Verteiler des offenen Bauplans erzeugt.
 
+> Die Zuordnung samt Reserve ist ein Vorschlag, keine Bemessung. Wie bei allem, was el.esy.CAD im
+> Verteiler selbst festlegt, steht über den Knöpfen: Schutzorgane, Bemessung und RCD-Aufteilung
+> prüft die Elektrofachkraft.
+
 ## Bestückung aus Räumen {#verteiler-aus-raeumen}
 
 Auch ohne eine einzige Leitung lässt sich ein Verteiler bestücken – aus den Räumen des Bauplans
@@ -186,6 +190,9 @@ etwa „F4 / X1:2“.
 
 **Übernehmen** ist ein Rückgängig-Schritt. Danach kennen die Bauteile ihren
 [Stromkreis](#stromkreis-zuordnung), obwohl keine Leitung zum Verteiler führt.
+
+> Der Vorschlag legt eine Struktur fest, keine normgerechte Auslegung. Schutzorgane, Bemessung und
+> RCD-Aufteilung prüft die Elektrofachkraft – darauf weist der Kasten über den Knöpfen hin.
 
 ## Leitungen im Verteiler anschließen {#verteiler-anschliessen}
 
@@ -313,6 +320,11 @@ schon vergeben, zählt die Art weiter (+UV2.OG1.WE2). Beides lässt sich ändern
 bleibt das Kennzeichen des Verteilers – nur so bleibt der Plan mit ihm verknüpft. Darunter
 stehen höchstens Sicherungen und höchstens Klemmen je Blatt, die **Aufteilung** (beides gemerkt)
 und eine Vorschau aller Blätter; **Erzeugen** legt den Plan als neues Dokument im Projekt an.
+
+> **Nur ein Vorschlag.** Der Assistent legt eine Struktur vor, keine normgerechte Auslegung:
+> Schutzorgane, Bemessung und RCD-Aufteilung prüft die Elektrofachkraft. Darauf weist ein Kasten
+> über den Knöpfen hin, und auf jedem erzeugten Blatt steht der Satz oben als gewöhnlicher Text.
+> Nach der Prüfung markieren und löschen Sie ihn wie jeden anderen Text.
 
 Die **Aufteilung** bestimmt, was mit einem RCD geschieht, der nicht mehr ganz auf das angefangene
 Blatt passt:

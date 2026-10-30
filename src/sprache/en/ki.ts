@@ -309,7 +309,8 @@ export const ki: Texte['ki'] = {
         'Suggests the board layout of a distribution board from the property "Stromkreis" ' +
         '(circuit) of the components in the selected rooms (one RCD per sheet, one circuit ' +
         'breaker (LS) with terminal per circuit, KNX targets with their own terminal) and ' +
-        'applies it. Not possible if a distribution board diagram is already linked.',
+        'applies it. Not possible if a distribution board diagram is already linked. A ' +
+        'proposal: pass the check notice of the response (pruefhinweis) on to the user.',
       raumId: 'If omitted: "without room" of this sheet.',
       raeume: 'If omitted: the rooms selected last, or all not yet supplied.',
       knx: 'Assign KNX actuators right away; default yes.',
@@ -338,7 +339,8 @@ export const ki: Texte['ki'] = {
         'Assigns an actuator channel (suggested channel type, reserve) to every terminal whose ' +
         'consumer is switched by a KNX device via a control assignment, creates missing ' +
         'actuators and releases channels without a KNX target – like the dialog with all ' +
-        'suggestions.',
+        'suggestions. A proposal: pass the check notice of the response (pruefhinweis) on to ' +
+        'the user.',
       reserveProzent: 'If omitted: the saved one.',
       freigeben: 'Release channels without a KNX target; default yes.',
     },
@@ -358,7 +360,8 @@ export const ki: Texte['ki'] = {
         'distribution board in the open floor plan as a new document in the project, linked via ' +
         'the location designation. The open document stays open; the user is asked whether to ' +
         'open the diagram. An existing diagram of the same distribution board is not ' +
-        'overwritten. Cannot be undone.',
+        'overwritten. Cannot be undone. A proposal: pass the check notice of the response ' +
+        '(pruefhinweis) on to the user.',
       name: 'If omitted: the usual suggestion.',
     },
     rueckgaengig: {

@@ -8498,3 +8498,14 @@
   color: var(--text-schwach);
   text-align: center;
 }
+
+.dialog .pruef-hinweis {
+  margin: 12px 0 0;
+  padding: 8px 10px;
+  border: 1px solid var(--warnung-rand);
+  border-radius: var(--radius-s);
+  background: var(--warnung-flaeche);
+  color: var(--warnung-text);
+  font-size: 12px;
+  line-height: 1.4;
+}

@@ -120,6 +120,7 @@ export function bestueckungVorschlagen(
           }
         : {}),
       ...(vorschlag.fehlend.length > 0 ? { fehlendImKatalog: vorschlag.fehlend } : {}),
+      pruefhinweis: t('generatoren.pruefhinweis'),
       rueckgaengig: label,
     },
   }

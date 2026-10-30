@@ -278,7 +278,8 @@ export const ki = {
       beschreibung:
         'Schlägt die Bestückung eines Verteilers aus der Eigenschaft "Stromkreis" der Komponenten ' +
         'in den gewählten Räumen vor (je Blatt ein RCD, je Stromkreis LS mit Klemme, KNX-Ziele mit ' +
-        'eigener Klemme) und übernimmt sie. Geht nicht, wenn schon ein Verteilerplan verknüpft ist.',
+        'eigener Klemme) und übernimmt sie. Geht nicht, wenn schon ein Verteilerplan verknüpft ist. ' +
+        'Ein Vorschlag: den Prüfhinweis der Antwort (pruefhinweis) an den Anwender weitergeben.',
       raumId: 'Ohne Angabe: "ohne Raum" dieses Blatts.',
       raeume: 'Ohne Angabe: die zuletzt gewählten bzw. alle noch nicht versorgten.',
       knx: 'KNX-Aktoren gleich zuordnen; Vorgabe ja.',
@@ -304,7 +305,8 @@ export const ki = {
       beschreibung:
         'Ordnet jeder Klemme, deren Verbraucher ein KNX-Gerät über eine Wirkverbindung schaltet, ' +
         'einen Aktorkanal zu (vorgeschlagene Kanalart, Reserve), legt fehlende Aktoren an und gibt ' +
-        'Kanäle ohne KNX-Ziel frei - wie der Dialog mit allen Vorschlägen.',
+        'Kanäle ohne KNX-Ziel frei - wie der Dialog mit allen Vorschlägen. Ein Vorschlag: den ' +
+        'Prüfhinweis der Antwort (pruefhinweis) an den Anwender weitergeben.',
       reserveProzent: 'Ohne Angabe: die gemerkte.',
       freigeben: 'Kanäle ohne KNX-Ziel freigeben; Vorgabe ja.',
     },
@@ -323,7 +325,8 @@ export const ki = {
         'Erzeugt aus dem Verteilerbaum eines Verteilers im offenen Bauplan einen Verteilerplan ' +
         '(Schaltplan) als neues Dokument im Projekt, verknüpft über das Ortskennzeichen. Das ' +
         'offene Dokument bleibt; der Anwender wird gefragt, ob er den Plan öffnen will. Ein ' +
-        'vorhandener Plan desselben Verteilers wird nicht überschrieben. Nicht rückgängig zu machen.',
+        'vorhandener Plan desselben Verteilers wird nicht überschrieben. Nicht rückgängig zu machen. ' +
+        'Ein Vorschlag: den Prüfhinweis der Antwort (pruefhinweis) an den Anwender weitergeben.',
       name: 'Ohne Angabe der übliche Vorschlag.',
     },
     rueckgaengig: {

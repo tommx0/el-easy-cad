@@ -2789,7 +2789,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --------------------------------------------------------------------------------
 jszip 3.10.2
-License: (MIT OR GPL-3.0-or-later) (used under MIT)
+License: MIT OR GPL-3.0-or-later (used under MIT)
 Source: https://github.com/Stuk/jszip
 --------------------------------------------------------------------------------
 
@@ -4574,7 +4574,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 --------------------------------------------------------------------------------
 pako 1.0.11
-License: (MIT AND Zlib)
+License: MIT AND Zlib
 Source: https://github.com/nodeca/pako
 --------------------------------------------------------------------------------
 
@@ -4602,7 +4602,7 @@ THE SOFTWARE.
 
 --------------------------------------------------------------------------------
 pako 2.2.0
-License: (MIT AND Zlib)
+License: MIT AND Zlib
 Source: https://github.com/nodeca/pako
 --------------------------------------------------------------------------------
 

@@ -92,7 +92,7 @@ export function erzeugeWandTool(): Tool {
     get bezeichnung() {
       return t('werkzeugnamen.wand')
     },
-    kuerzel: 'UMSCHALT+W',
+    kuerzel: 'UMSCHALT+ALT+W',
     zusaetzlicheFangarten: ['naechster'],
     onActivate(ctx) {
       reset()

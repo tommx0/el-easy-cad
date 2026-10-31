@@ -5,6 +5,7 @@ export type Kuerzel = string
 
 interface TastenEreignis {
   key: string
+  code?: string
   ctrlKey: boolean
   metaKey: boolean
   shiftKey: boolean
@@ -51,8 +52,14 @@ export function normalform(e: TastenEreignis): Kuerzel | null {
   if (e.ctrlKey || e.metaKey) teile.push('STRG')
   if (e.shiftKey) teile.push('UMSCHALT')
   if (e.altKey) teile.push('ALT')
-  teile.push(e.key.length === 1 ? e.key.toUpperCase() : e.key)
+  teile.push(tasteBeiAlt(e) ?? (e.key.length === 1 ? e.key.toUpperCase() : e.key))
   return teile.join('+')
+}
+
+function tasteBeiAlt(e: TastenEreignis): string | null {
+  if (!e.altKey || e.ctrlKey || /^[a-z0-9]$/i.test(e.key)) return null
+  const physisch = /^(?:Key([A-Z])|Digit([0-9]))$/.exec(e.code ?? '')
+  return physisch ? (physisch[1] ?? physisch[2]) : null
 }
 
 export function taste(kuerzel: Kuerzel): string {

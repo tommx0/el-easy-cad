@@ -155,6 +155,7 @@ export function erzeugeWirkverbindungTool(): Tool {
     get bezeichnung() {
       return t('werkzeugnamen.wirkverbindung')
     },
+    kuerzel: 'UMSCHALT+W',
 
     onActivate(ctx) {
       zuruecksetzen()

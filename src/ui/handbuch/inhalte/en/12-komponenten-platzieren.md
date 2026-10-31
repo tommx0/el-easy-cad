@@ -32,7 +32,8 @@ Where the snap point sits is set in the catalogue ([Set snap point](#fangpunkt-s
 
 In a floor plan, components snap to walls. If the component comes close to a wall surface at the pointer, it jumps to the wall: its top against the wall, its underside towards the room. Snapping happens at drawn walls – including imported and converted ones – and at straight lines of a background plan, as long as [snapping to the background](#hintergrundfang) is switched on. Nothing snaps in door and window openings.
 
-- **Combination:** If a component of the same mounting height is already at that spot, the new one sits beside it, at the end nearer to the pointer. At most **five** form a combination. The sixth starts a new combination directly beside it.
+- **Combination:** Lay the new component onto an existing one – as soon as the two symbols overlap – and, at the same mounting height, it sits beside it, at the end nearer to the pointer. At most **five** form a combination. The sixth starts a new combination directly beside it.
+- **Side by side without a combination:** If the symbols do not overlap, the new component stays a spot of its own on the wall – even when it lies flush against the existing one. This is how you place, say, two single sockets close together.
 - **Other height:** Each height forms its own **row** at the same spot, parallel to the wall. The highest lies directly against the wall; the others follow in front of it in descending order of height.
 - **Size:** In a combination, symbols appear smaller so that five next to each other have room – by default at 75 % of their normal size. You set the value under “Combinations on the wall” in the [settings](#einstellungen-abschnitte). A change applies immediately to all combinations in the open drawing, and to each further one as soon as you open it; Undo takes it back together with the setting.
 - **Frame:** A combination of at least two components is outlined with a grey dotted border. A single component on the wall stays without a frame.
@@ -57,7 +58,7 @@ If you move, rotate or lengthen the wall, the combinations move with it. If the 
 
 Cables reach a component on the wall from the wall side – see [Components on the wall](#leitung-an-der-wand).
 
-A **module carrier** (System 106) also snaps to the wall, but it does not take further components into its combination; others sit beside it. The same applies to components for which **May be part of a combination** is switched off in the [product catalogue](#dockpunkte-grafisch) – they stay at normal size.
+A **module carrier** (System 106) also snaps to the wall, but it does not take further components into its combination. The same applies to components for which **May be part of a combination** is switched off in the [product catalogue](#dockpunkte-grafisch), such as the wall luminaire – they stay at normal size. At **another height** they may still sit at the same spot: lay a wall luminaire onto a socket combination and it forms its own row there at its own height, which it keeps; the other way round, sockets laid onto the wall luminaire go into a row in front of it. At the **same height** the new component sits beside it as a spot of its own.
 
 {{befehl:ansicht.wandfang}} switches wall snapping off and on again (on by default). In the 3D view and in the IFC export, all devices of a spot sit on the wall surface. The rows beside one another are only the display in the floor plan. The devices of a combination stand there **one above the other**, like in a vertical multi-gang frame: the first at the top at mounting height, the others in their order closely below (1 cm gap). Ceiling and floor devices remain side by side.
 

@@ -206,7 +206,9 @@ export const ki: Texte['ki'] = {
       blattId: 'Only for punkt and netzfeld (grid square); otherwise taken from the room or wall.',
       netzfeld: 'Schematic only: grid square of the reference grid A–H/1–6, e.g. "C3".',
       raumMitte: 'Room id from raeume_lesen.',
-      abstandM: 'From the first point of the wall, in m.',
+      abstandM:
+        'From the first point of the wall, in m. A combination only forms where the symbol ' +
+        'overlaps an existing one (same distance); flush beside it, it stays a location of its own.',
       raumId: 'Room on whose side the component sits.',
       seite:
         'Without raumId (room): links/rechts = left/right of the wall direction (first -> second point).',

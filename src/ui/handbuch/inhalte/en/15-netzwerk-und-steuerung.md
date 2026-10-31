@@ -87,7 +87,7 @@ The room circuit is not "number 1": Kitchen, Kitchen 1 and Kitchen 2 are three c
 
 > The suggestion sets out a structure, not a standards-compliant design. Protective devices, sizing and RCD allocation must be checked by a qualified electrician – the box above the buttons points this out.
 
-## Connecting cables in a distribution board {#verteiler-anschliessen}
+## Connecting cables in a distribution board (beta) {#verteiler-anschliessen}
 
 - If you dock a cable onto a distribution board, the dialog asks straight away where it should end. **Apply without terminal** leaves it docked only.
 - If it runs through a trunk to which a distribution board is attached, the **Space** key opens the dialog "Choose cable target" with the category **Distribution board** – as with the [switch port](#switch-ports).

@@ -194,7 +194,7 @@ etwa „F4 / X1:2“.
 > Der Vorschlag legt eine Struktur fest, keine normgerechte Auslegung. Schutzorgane, Bemessung und
 > RCD-Aufteilung prüft die Elektrofachkraft – darauf weist der Kasten über den Knöpfen hin.
 
-## Leitungen im Verteiler anschließen {#verteiler-anschliessen}
+## Leitungen im Verteiler anschließen (Beta) {#verteiler-anschliessen}
 
 - Docken Sie eine Leitung an einem Verteiler an, fragt der Verteiler-Dialog gleich, worauf sie
   landet. „Ohne Anschluss übernehmen“ lässt sie nur angedockt.

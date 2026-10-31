@@ -539,6 +539,17 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
         'menu). “Nearest point” is off by default – it finds a hit on every edge and is intended ' +
         'as a fallback to be switched on deliberately.',
     },
+    leitungsverlegung: {
+      titel: 'Cable routing',
+      schalter: 'Cable routing in floor plans',
+      hinweis:
+        'Cables, trunks, cable risers, connections in the distribution board and cable lists. ' +
+        'When switched off, the floor plan is purely a placement tool: these functions are not ' +
+        'offered, existing cables, trunks and cable risers are hidden but remain unchanged in ' +
+        'the drawing. Schematics are not affected.',
+      abgeschaltet:
+        'Cable routing is switched off (“Cables & cable type” tab) – these settings currently have no effect.',
+    },
     leitungen: {
       titel: 'Cables (this drawing)',
       standardKabeltyp: 'Default cable type for new cables',

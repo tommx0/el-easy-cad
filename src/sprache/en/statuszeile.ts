@@ -29,4 +29,12 @@ export const statuszeile: Texte['statuszeile'] = {
   kiZugriff: '{name} is accessing this document.',
   kiZugriffNurLesen: '{name} is accessing this document (read only).',
   kiAssistent: 'AI assistant',
+  ausgeblendet: '{liste} hidden (cable routing off)',
+  ausgeblendetTitel:
+    'Cable routing is switched off in the settings. The objects remain unchanged in the drawing ' +
+    'and are back once it is switched on. Click to open the setting.',
+  ausgeblendetLeitungen: { one: '{n} cable', other: '{n} cables' },
+  ausgeblendetTrunks: { one: '{n} trunk', other: '{n} trunks' },
+  ausgeblendetSchaechte: { one: '{n} cable riser', other: '{n} cable risers' },
+  ausgeblendetListen: { one: '{n} list', other: '{n} lists' },
 }

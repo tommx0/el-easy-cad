@@ -57,6 +57,7 @@ export interface AppSettings {
   communityHinweisVersion: string | null
   updateSuche: UpdateSuche
   verknuepfungNachLeitung: boolean
+  leitungsverlegung: boolean
   leitungenErstNachLoslassen: boolean
   nichtDruckbereich: { farbe: string; deckkraft: number }
 }
@@ -176,6 +177,7 @@ export const appSettingsPatchSchema = z.object({
   communityHinweisVersion: z.string().nullable().optional(),
   updateSuche: z.enum(['fragen', 'immer', 'nie']).optional(),
   verknuepfungNachLeitung: z.boolean().optional(),
+  leitungsverlegung: z.boolean().optional(),
   leitungenErstNachLoslassen: z.boolean().optional(),
   nichtDruckbereich: z
     .object({

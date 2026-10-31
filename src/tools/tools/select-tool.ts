@@ -69,6 +69,7 @@ import {
   rahmenEcken,
   raumBeschriftungsRahmen,
   rotatePoint,
+  istLeitungsverlegungsObjekt,
   sichtbareObjekteAufBlatt,
   sub,
   verschiebeObjekt,
@@ -453,6 +454,16 @@ interface NummernschildTreffer {
   trunk: TrunkObjekt
   leitungId: string
   art: 'eintritt' | 'austritt'
+}
+
+function leitungsverlegungAus(ctx: ToolContext): boolean {
+  return ctx.leitungsverlegungAus?.() ?? false
+}
+
+function greifbareObjekte(ctx: ToolContext, objekte: Objekt[]): Objekt[] {
+  return leitungsverlegungAus(ctx)
+    ? objekte.filter((o) => !istLeitungsverlegungsObjekt(o))
+    : objekte
 }
 
 function findeNummernschildTreffer(
@@ -1337,7 +1348,7 @@ export function erzeugeAuswahlTool(): Tool {
 
       const bezeichnerToleranz = ctx.view.laengeToWorld(TRUNK_DURCHGANG_GRIFF_TOLERANZ_PX)
       const bezeichnerTreffer = findeBezeichnerTreffer(
-        blatt.objekte,
+        greifbareObjekte(ctx, blatt.objekte),
         blatt,
         ctx.view,
         info.raw,
@@ -1359,7 +1370,7 @@ export function erzeugeAuswahlTool(): Tool {
 
       const toleranz = ctx.view.laengeToWorld(TOLERANZ_PX)
       const treffer = hitTestObjekte(
-        sichtbareObjekteAufBlatt(blatt),
+        sichtbareObjekteAufBlatt(blatt, blatt.objekte, leitungsverlegungAus(ctx)),
         info.raw,
         toleranz,
         tabellenKontextVon(ctx),
@@ -1374,7 +1385,11 @@ export function erzeugeAuswahlTool(): Tool {
         return
       }
 
-      if (treffer.type === 'komponente' && istPortKomponente(treffer)) {
+      if (
+        treffer.type === 'komponente' &&
+        istPortKomponente(treffer) &&
+        !leitungsverlegungAus(ctx)
+      ) {
         ctx.oeffneSwitchPortDialog(
           {
             quelle: { art: 'switch', blattId: blatt.id, objektId: treffer.id },
@@ -1601,7 +1616,9 @@ export function erzeugeAuswahlTool(): Tool {
         }
 
         const trunkEndeToleranz = ctx.view.laengeToWorld(TRUNK_ENDE_TOLERANZ_PX)
-        const trunks = blatt.objekte.filter((o): o is TrunkObjekt => o.type === 'trunk')
+        const trunks = leitungsverlegungAus(ctx)
+          ? []
+          : blatt.objekte.filter((o): o is TrunkObjekt => o.type === 'trunk')
         const sprungZiel = findeVerbundenesTrunkEnde(trunks, info.raw, trunkEndeToleranz)
         if (sprungZiel) {
           window.dispatchEvent(new CustomEvent('eleasycad:sprung-zu-blatt', { detail: sprungZiel }))
@@ -1644,7 +1661,7 @@ export function erzeugeAuswahlTool(): Tool {
           linien: ermittleLinienHindernisse(ctx.view, blatt.objekte),
         }
         const bezeichnerTreffer = findeBezeichnerTreffer(
-          blatt.objekte,
+          greifbareObjekte(ctx, blatt.objekte),
           blatt,
           ctx.view,
           info.raw,
@@ -1882,7 +1899,7 @@ export function erzeugeAuswahlTool(): Tool {
 
       if (erweitertAuswahl(info)) {
         const treffer = hitTestObjekte(
-          sichtbareObjekteAufBlatt(blatt),
+          sichtbareObjekteAufBlatt(blatt, blatt.objekte, leitungsverlegungAus(ctx)),
           info.raw,
           toleranz,
           tabellenKontextVon(ctx),
@@ -1908,7 +1925,7 @@ export function erzeugeAuswahlTool(): Tool {
       }
 
       const treffer = hitTestObjekte(
-        sichtbareObjekteAufBlatt(blatt),
+        sichtbareObjekteAufBlatt(blatt, blatt.objekte, leitungsverlegungAus(ctx)),
         info.raw,
         toleranz,
         tabellenKontextVon(ctx),
@@ -2071,7 +2088,7 @@ export function erzeugeAuswahlTool(): Tool {
       if (!blatt) return
       const toleranz = ctx.view.laengeToWorld(TOLERANZ_PX)
       const treffer = hitTestObjekte(
-        sichtbareObjekteAufBlatt(blatt),
+        sichtbareObjekteAufBlatt(blatt, blatt.objekte, leitungsverlegungAus(ctx)),
         info.raw,
         toleranz,
         tabellenKontextVon(ctx),
@@ -2545,7 +2562,7 @@ export function erzeugeAuswahlTool(): Tool {
           const blatt = aktuellesBlatt(ctx)
           if (blatt) {
             const treffer = ermittleObjekteImAuswahlRechteck(
-              sichtbareObjekteAufBlatt(blatt),
+              sichtbareObjekteAufBlatt(blatt, blatt.objekte, leitungsverlegungAus(ctx)),
               rechteckAuswahl.startRaw,
               info.raw,
               tabellenKontextVon(ctx),
@@ -3272,7 +3289,7 @@ export function erzeugeAuswahlTool(): Tool {
 
       if (rechteckAuswahl) {
         const treffer = ermittleObjekteImAuswahlRechteck(
-          sichtbareObjekteAufBlatt(blatt),
+          sichtbareObjekteAufBlatt(blatt, blatt.objekte, leitungsverlegungAus(ctx)),
           rechteckAuswahl.startRaw,
           rechteckAuswahl.aktuellRaw,
         )

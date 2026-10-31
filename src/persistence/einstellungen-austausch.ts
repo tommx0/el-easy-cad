@@ -65,6 +65,7 @@ const BEREICH_FELDER = {
     'kombinationsFaktor',
     'verteilerplan',
     'verknuepfungNachLeitung',
+    'leitungsverlegung',
   ],
   autorouting: [
     'routingKostenProLaenge',

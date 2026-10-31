@@ -9,6 +9,7 @@ import type { DokumentSitzung } from './dokument-sitzung'
 import { gleicheInstallationszonenAb } from './installationszonen-abgleich'
 import { gleicheKabeltypenAb } from './kabeltyp-abgleich'
 import { freigeschalteteModule } from './lizenz-module'
+import { leitungsverlegungAusFuer } from './leitungsverlegung'
 import { useKabeltypStore } from './store/kabeltyp-store'
 import { useKatalogStore } from './store/katalog-store'
 import { useSettingsStore } from './store/settings-store'
@@ -97,6 +98,7 @@ export function erzeugeKiKontext(teile: {
         ? { projekt: offen.projektBezeichnung, kunde: offen.kunde, dokument: offen.name }
         : null
     },
+    leitungsverlegungAus: () => leitungsverlegungAusFuer(doc.getZeichnung()),
     sperrgrund: () => {
       const offen = sitzung.getOffenesDokument()
       if (!offen) return t('aktionen.ki.keineZeichnung')
@@ -122,6 +124,7 @@ export function erzeugeKiKontext(teile: {
           knxBeschriftungen: holeKnxBeschriftungen(zeichnung, verknuepfteBauplaene),
           verknuepfteBauplaene,
           verknuepfteVerteilerplaene: verteilerplanZeichnungen(stand),
+          leitungsverlegungAus: leitungsverlegungAusFuer(zeichnung),
         },
         {
           bereich,

@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState, type KeyboardEvent, type FormEvent } from 'react'
-import { istSchaltplan, planMassstabNenner, planMassstabText } from '../document-model'
+import {
+  istLeitungsverlegungsObjekt,
+  istSchaltplan,
+  planMassstabNenner,
+  planMassstabText,
+} from '../document-model'
+import { useLeitungsverlegungAus } from './leitungsverlegung'
 import { useAktivesBlatt, useAppContext, useProject } from './use-app-context'
 import { formatiereZahl } from '../sprache/format'
 import { useUiStore } from './store/ui-store'
@@ -81,6 +87,36 @@ function KiKennzeichen() {
       onClick={() => useUiStore.getState().setEinstellungenOffen(true, 'ki')}
     >
       {aktiv ? t('statuszeile.kiVerbunden') : t('statuszeile.kiBereit')}
+    </button>
+  )
+}
+
+function LeitungsverlegungKennzeichen() {
+  const t = useT()
+  const aus = useLeitungsverlegungAus()
+  const blatt = useAktivesBlatt()
+  if (!aus) return null
+  const anzahl = { leitung: 0, trunk: 0, kabelschacht: 0, liste: 0 }
+  for (const o of blatt.objekte) {
+    if (!istLeitungsverlegungsObjekt(o)) continue
+    if (o.type === 'leitung' || o.type === 'trunk' || o.type === 'kabelschacht') anzahl[o.type]++
+    else anzahl.liste++
+  }
+  const teile = [
+    anzahl.leitung > 0 && t('statuszeile.ausgeblendetLeitungen', { n: anzahl.leitung }),
+    anzahl.trunk > 0 && t('statuszeile.ausgeblendetTrunks', { n: anzahl.trunk }),
+    anzahl.kabelschacht > 0 && t('statuszeile.ausgeblendetSchaechte', { n: anzahl.kabelschacht }),
+    anzahl.liste > 0 && t('statuszeile.ausgeblendetListen', { n: anzahl.liste }),
+  ].filter((teil): teil is string => typeof teil === 'string')
+  if (teile.length === 0) return null
+  return (
+    <button
+      type="button"
+      className="statuszeile-ki"
+      title={t('statuszeile.ausgeblendetTitel')}
+      onClick={() => useUiStore.getState().setEinstellungenOffen(true, 'leitungen')}
+    >
+      {t('statuszeile.ausgeblendet', { liste: teile.join(', ') })}
     </button>
   )
 }
@@ -254,6 +290,7 @@ export function Statuszeile() {
       </span>
       <KiKennzeichen />
       <ZusatzmodulKennzeichen />
+      <LeitungsverlegungKennzeichen />
       <span className="statuszeile-fueller" />
       <span className="statuszeile-mass" ref={massBereichRef} hidden={start.mass === null}>
         <span className="statuszeile-feld" title={t('statuszeile.laengeTitel')}>

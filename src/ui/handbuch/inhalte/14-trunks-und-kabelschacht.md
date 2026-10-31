@@ -1,4 +1,4 @@
-# Trunks und Kabelschacht
+# Trunks und Kabelschacht (Beta)
 
 Ein **Trunk** ist ein Kabelbündel: ein gezeichneter Weg, in dem mehrere Leitungen gemeinsam
 verlaufen. Statt zwanzig Einzelleitungen quer durch den Plan zu ziehen, führen Sie einen Trunk

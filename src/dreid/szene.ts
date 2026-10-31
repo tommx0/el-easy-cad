@@ -103,6 +103,7 @@ export interface SzenenKontext {
   module?: readonly LizenzModul[]
   farbschema: Farbschema
   huelleBlaetter?: ReadonlySet<string>
+  leitungsverlegungAus?: boolean
 }
 
 const NEUTRAL = '#b0b4ba'
@@ -147,7 +148,13 @@ const TYP_PALETTE = [
 
 export function baueSzene(kontext: SzenenKontext): Szene {
   const { zeichnung, katalog, module, farbschema } = kontext
-  const modell = baueExportModell({ zeichnung, katalog, module, sprache: oberflaechensprache() })
+  const modell = baueExportModell({
+    zeichnung,
+    katalog,
+    module,
+    sprache: oberflaechensprache(),
+    leitungsverlegungAus: kontext.leitungsverlegungAus,
+  })
   const geschossVon = new Map(modell.geschosse.map((g) => [g.blattId, g]))
   const blattVon = new Map(zeichnung.blaetter.map((b) => [b.id, b]))
   const quader: SzenenQuader[] = []

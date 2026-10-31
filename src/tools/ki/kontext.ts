@@ -11,7 +11,7 @@ import type {
   VerteilerplanAufteilung,
   Zeichnung,
 } from '../../document-model'
-import { nullpunktVon } from '../../document-model'
+import { istLeitungsverlegungsObjekt, nullpunktVon } from '../../document-model'
 import type { RoutingSettings } from '../../routing'
 import { t } from '../../sprache'
 import type { AnordnenEinstellungen } from '../anordnen-einstellungen'
@@ -29,6 +29,7 @@ export interface KiKontext {
   }
   dokument(): { projekt: string; kunde: string; dokument: string } | null
   sperrgrund(): string | null
+  leitungsverlegungAus?(): boolean
   bildschirmfoto(blatt: Blatt, bereich: BoundingBox | null, maxKantePx: number): Promise<string>
 
   commands: CommandStack
@@ -115,6 +116,21 @@ export function waehleBlatt(kontext: KiKontext, blattId: string | undefined): Bl
     )
   }
   return blatt
+}
+
+export function leitungsverlegungAus(kontext: KiKontext): boolean {
+  return kontext.leitungsverlegungAus?.() ?? false
+}
+
+export function pruefeLeitungsverlegung(kontext: KiKontext): void {
+  if (leitungsverlegungAus(kontext))
+    throw new KiFehler(t('kiMeldungen.ausfuehren.leitungsverlegungAus'))
+}
+
+export function sichtbarFuerKi<T extends Objekt>(kontext: KiKontext, objekte: readonly T[]): T[] {
+  return leitungsverlegungAus(kontext)
+    ? objekte.filter((o) => !istLeitungsverlegungsObjekt(o))
+    : [...objekte]
 }
 
 export function findeObjekt(

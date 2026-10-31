@@ -1,6 +1,6 @@
 import { boundingBoxUeberlappt, getBoundingBox } from '../../document-model'
 import type { KiBereich, KiErgebnis, KiKontext } from './kontext'
-import { bereichImModell, waehleBlatt } from './kontext'
+import { bereichImModell, sichtbarFuerKi, waehleBlatt } from './kontext'
 import { objektKurzform } from './objekt-kurzform'
 
 export interface BlattLesenEingabe {
@@ -19,7 +19,7 @@ export function blattLesen(eingabe: BlattLesenEingabe, kontext: KiKontext): KiEr
   const bereich = eingabe.bereich ? bereichImModell(eingabe.bereich, blatt) : null
   const max = eingabe.maxAnzahl ?? STANDARD_MAX_ANZAHL
 
-  const treffer = blatt.objekte.filter(
+  const treffer = sichtbarFuerKi(kontext, blatt.objekte).filter(
     (o) =>
       (!typen || typen.has(o.type)) &&
       (!bereich || boundingBoxUeberlappt(getBoundingBox(o), bereich)),

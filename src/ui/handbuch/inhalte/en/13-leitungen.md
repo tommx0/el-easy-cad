@@ -2,7 +2,10 @@
 
 A cable connects two connection points. The program finds the route between them itself: it lays a grid over the sheet, avoids placed components and finds the shortest path (auto-routing). You can specify your own vertices at any time.
 
-## Drawing a cable {#leitung-zeichnen}
+Cable routing in floor plans is still being trialled (beta) and can be switched off, see
+[Switching cable routing off](#leitungsverlegung-abschalten).
+
+## Drawing a cable (beta) {#leitung-zeichnen}
 
 {{video:05-leitungen}}
 
@@ -117,6 +120,25 @@ Individual cables may deviate: in the properties panel, in the [context bar](#ko
 - A cable end cannot be dragged to another connection point. If the cable is to end at a different connection point, delete it and draw it anew.
 - The right-click menu of a cable also offers **Cable type ▸** and **Installation zone ▸**. For a cable in a trunk it offers the assignment of a [switch port](#switch-ports) (**Assign port circuit …**, **Remove port circuit assignment**), and [Connect in distribution board …](#verteiler-anschliessen). It also offers continuing and releasing at the [cable riser](#kabelschacht), and **Create group/control assignment …** (see [Control assignments](#wirkverbindungen), “Straight away when routing the cable”).
 
+
+## Switching cable routing off {#leitungsverlegung-abschalten}
+
+If you only want to place components in a floor plan – with combinations, rooms, control
+assignments and populating the distribution board from rooms – switch cable routing off: under
+{{befehl:extras.einstellungen}} on the **Cables & cable type** tab, check box **Cable routing in floor
+plans**. A new installation starts with cable routing switched off; if you have used the program
+before, you will find it switched on.
+
+When it is off, a floor plan offers no cable, no trunk and no cable riser, nor the cable list,
+trunk list, cable tree, switch and patch panel plan, cable types, installation zones and
+connecting in the distribution board. Whatever has already been drawn is **hidden** – not drawn,
+not printed, not in the IFC export or the 3D view – but remains unchanged in the drawing. If you
+move or swap a component, its cables follow invisibly, so everything matches the plan once you
+switch it back on. While a sheet has hidden objects, the status bar shows how many; clicking it
+opens the setting.
+
+Circuits that result from a cable in the distribution tree remain valid. Schematics are not
+affected by the setting.
 ## Wire in the schematic {#schaltverbindung}
 
 In a drawing of the type [schematic](#zeichnungsart), the tool {{befehl:werkzeug.schaltverbindung}} takes the place of the cable. It works like the cable: the connection is routed automatically around the symbols – in the schematic, however, only horizontally and vertically, without diagonals, and closely around the symbols: it bends one grid cell (5 cm) before a contact. The safety distance from the auto-routing settings applies only to cables in the installation plan. The wire is black and carries no cable number. The components for it come from the catalogue [Circuit diagram symbols](#stromlaufplan-symbole).

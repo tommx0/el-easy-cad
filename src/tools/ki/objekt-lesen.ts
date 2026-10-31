@@ -1,12 +1,18 @@
-import { dockpunktBezeichnung, getDockpoints, nullpunktVon } from '../../document-model'
+import {
+  dockpunktBezeichnung,
+  getDockpoints,
+  istLeitungsverlegungsObjekt,
+  nullpunktVon,
+} from '../../document-model'
 import { t } from '../../sprache'
 import type { KiErgebnis, KiKontext } from './kontext'
-import { findeObjekt, KiFehler, runde, zuBlatt } from './kontext'
+import { findeObjekt, KiFehler, pruefeLeitungsverlegung, runde, zuBlatt } from './kontext'
 
 export function objektLesen(eingabe: { objektId: string }, kontext: KiKontext): KiErgebnis {
   const fund = findeObjekt(kontext.doc.getZeichnung(), eingabe.objektId)
   if (!fund) throw new KiFehler(t('kiMeldungen.objektLesen.keinObjekt', { id: eingabe.objektId }))
   const { blatt, objekt } = fund
+  if (istLeitungsverlegungsObjekt(objekt)) pruefeLeitungsverlegung(kontext)
   const nullpunkt = nullpunktVon(blatt)
   const zusatz: Record<string, unknown> = {}
   if (objekt.type === 'komponente') {

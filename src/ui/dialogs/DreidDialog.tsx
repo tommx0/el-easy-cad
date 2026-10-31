@@ -31,6 +31,7 @@ import { useUiStore } from '../store/ui-store'
 import { istEingabeFeldFokussiert } from '../tastatur-fokus'
 import { useAppContext, useProject } from '../use-app-context'
 import type { Schluessel } from '../../sprache'
+import { useLeitungsverlegungAus } from '../leitungsverlegung'
 import { useT } from '../sprache-anbindung'
 
 const KLICK_TOLERANZ_PX = 4
@@ -87,9 +88,11 @@ function DreidDialogInhalt() {
   const katalog = useKatalogStore((s) => s.komponenten)
   const module = useFreigeschalteteModule()
   const [farbschema, setFarbschema] = useState<Farbschema>('plan')
+  const leitungsverlegungAus = useLeitungsverlegungAus()
   const szene = useMemo(
-    () => baueSzene({ zeichnung, katalog, module, farbschema, huelleBlaetter }),
-    [zeichnung, katalog, module, farbschema, huelleBlaetter],
+    () =>
+      baueSzene({ zeichnung, katalog, module, farbschema, huelleBlaetter, leitungsverlegungAus }),
+    [zeichnung, katalog, module, farbschema, huelleBlaetter, leitungsverlegungAus],
   )
   const [sichtbar, setSichtbar] = useState<Set<string>>(
     () => new Set(szene.geschosse.map((g) => g.blattId)),

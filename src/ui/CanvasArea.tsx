@@ -22,6 +22,7 @@ import {
   istSchaltplan,
   treppenGeschosshoehe,
   inZeichenreihenfolge,
+  istLeitungsverlegungsObjekt,
   sichtbareObjekteAufBlatt,
   trunkNachbarschaft,
   zeichenflaecheBoundingBox,
@@ -111,6 +112,7 @@ import { abonniereMassEingabe, fordereMassEingabeAn, meldeZeigerStand } from './
 import { useAktivesBlatt, useAppContext, useProject } from './use-app-context'
 import { useKatalogStore } from './store/katalog-store'
 import { useSettingsStore } from './store/settings-store'
+import { leitungsverlegungAusFuer } from './leitungsverlegung'
 import { useFreigeschalteteModule } from './lizenz-module'
 import { hintergrundFangRaster } from './hintergrund-fang-quelle'
 import { istModalerDialogOffen, useUiStore } from './store/ui-store'
@@ -358,7 +360,11 @@ export function CanvasArea() {
       treppenGeschosshoehe: treppenGeschosshoehe(doc.getZeichnung(), blatt),
     }
     zeichneTreppenDerEtageDarunter(ctxSet.inhalt, view, doc.getZeichnung(), blatt)
-    const sichtbareBlattObjekte = sichtbareObjekteAufBlatt(blatt)
+    const sichtbareBlattObjekte = sichtbareObjekteAufBlatt(
+      blatt,
+      blatt.objekte,
+      leitungsverlegungAusFuer(doc.getZeichnung()),
+    )
     for (const objekt of inZeichenreihenfolge(sichtbareBlattObjekte, blatt.objekte)) {
       const gezeigt =
         objekt.type === 'leitung'
@@ -776,7 +782,13 @@ export function CanvasArea() {
     let vorherGridBasisSchritt = useSettingsStore.getState().gridBasisSchritt
     let vorherKontextleiste = useSettingsStore.getState().kontextleisteSichtbar
     let vorherNichtDruckbereich = useSettingsStore.getState().nichtDruckbereich
+    let vorherLeitungsverlegung = useSettingsStore.getState().leitungsverlegung
     const ausSettingsStore = useSettingsStore.subscribe((s) => {
+      if (s.leitungsverlegung !== vorherLeitungsverlegung) {
+        vorherLeitungsverlegung = s.leitungsverlegung
+        inhaltScheduler.request()
+        overlayScheduler.request()
+      }
       if (s.gridBasisSchritt !== vorherGridBasisSchritt) {
         vorherGridBasisSchritt = s.gridBasisSchritt
         hintergrundScheduler.request()
@@ -1247,12 +1259,15 @@ export function CanvasArea() {
         }
         const toleranz = view.laengeToWorld(KONTEXTMENU_TOLERANZ_PX)
         const trunkEndeToleranz = view.laengeToWorld(TRUNK_ENDE_TOLERANZ_PX)
-        const trunks = blatt.objekte.filter((o): o is TrunkObjekt => o.type === 'trunk')
+        const treffbar = leitungsverlegungAusFuer(doc.getZeichnung())
+          ? blatt.objekte.filter((o) => !istLeitungsverlegungsObjekt(o))
+          : blatt.objekte
+        const trunks = treffbar.filter((o): o is TrunkObjekt => o.type === 'trunk')
         const trunkEndeTreffer = info
           ? findeTrunkEndeTreffer(trunks, info.raw, trunkEndeToleranz)
           : null
         const treffer = info
-          ? hitTestObjekte(blatt.objekte, info.raw, toleranz, {
+          ? hitTestObjekte(treffbar, info.raw, toleranz, {
               zeichnung: doc.getZeichnung(),
               blattId: blatt.id,
               katalog: useKatalogStore.getState().komponenten,

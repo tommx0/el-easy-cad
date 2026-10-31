@@ -76,6 +76,7 @@ export interface ToolContext {
   routingSettings(): RoutingSettings
   wandfangAktiv?(): boolean
   leitungenErstNachLoslassen?(): boolean
+  leitungsverlegungAus?(): boolean
   klemmenLeiste?(): string
   leitungVerknuepfen?(blattId: string, leitungId: string): void
   slotsUebernehmen?(quelle: { blattId: string; objektId: string }, slots: Slot[]): void

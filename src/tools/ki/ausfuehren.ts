@@ -1,6 +1,7 @@
 import type { KiAntwort, KiAufruf } from '../../document-model'
 import { KI_WERKZEUG_NACH_NAME } from '../../document-model'
 import { t } from '../../sprache'
+import { leitungsverlegungAus } from './kontext'
 import { automatischAnordnen } from './automatisch-anordnen'
 import { bestueckungAendernKi } from './bestueckung-aendern'
 import { bestueckungVorschlagen } from './bestueckung-vorschlagen'
@@ -71,6 +72,12 @@ const AUSFUEHRUNGEN: Record<string, Ausfuehrung> = {
   rueckgaengig,
 }
 
+export const KI_LEITUNGS_WERKZEUGE: ReadonlySet<string> = new Set([
+  'leitung_verlegen',
+  'leitungen_neu_verlegen',
+  'trunk_anlegen',
+])
+
 export const KI_AUSGEFUEHRTE_WERKZEUGE: readonly string[] = Object.keys(AUSFUEHRUNGEN)
 
 export async function fuehreKiWerkzeugAus(
@@ -94,6 +101,9 @@ export async function fuehreKiWerkzeugAus(
   }
   const sperrgrund = kontext.sperrgrund()
   if (sperrgrund) return { ok: false, fehler: sperrgrund }
+  if (KI_LEITUNGS_WERKZEUGE.has(aufruf.werkzeug) && leitungsverlegungAus(kontext)) {
+    return { ok: false, fehler: t('kiMeldungen.ausfuehren.leitungsverlegungAus') }
+  }
   const schreibsperre = definition.schreibt ? kontext.schreibsperre() : null
   if (schreibsperre) return { ok: false, fehler: schreibsperre }
   try {

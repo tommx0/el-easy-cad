@@ -213,6 +213,7 @@ export interface ExportKontext {
   katalog: readonly CatalogComponent[]
   module?: readonly LizenzModul[]
   sprache?: string
+  leitungsverlegungAus?: boolean
 }
 
 export function exportBlaetter(zeichnung: Zeichnung, module?: readonly LizenzModul[]): Blatt[] {
@@ -585,6 +586,26 @@ export function baueExportModell(kontext: ExportKontext): IfcExportModell {
     const wert = text(liste.join('; '))
     if (eigene) eigene.werte['Accessories'] = wert
     else ziel.psets.push({ name: PSET_KOMPONENTE, werte: { Accessories: wert } })
+  }
+
+  if (kontext.leitungsverlegungAus) {
+    return {
+      projektName: zeichnung.name,
+      geschosse,
+      typen: [...typen.values()],
+      geraete,
+      baugruppen,
+      leitungen: [],
+      stromkreise: stromkreise
+        .filter((s) => s.schluessel !== undefined && s.geraetIds.length > 0)
+        .map((s) => ({ ...s, leitungIds: [] })),
+      trunkGruppen: [],
+      traeger: [],
+      schaechte: [],
+      bauteile,
+      bericht,
+      sprache,
+    }
   }
 
   return {

@@ -4,6 +4,7 @@ export const kopfzeile = {
   konflikt: 'Konflikt – nicht gespeichert',
   nichtGespeichert: 'Nicht gespeichert',
   betaTitel: 'Betaversion – noch nicht fuer den produktiven Einsatz gedacht',
+  betaFunktionTitel: 'Diese Funktion ist noch in Erprobung.',
   keinDokument: 'Kein Dokument geöffnet',
   projekte: 'Projekte',
   hintergrundTitel:

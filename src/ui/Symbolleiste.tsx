@@ -9,6 +9,7 @@ import { useUiStore } from './store/ui-store'
 import { gruppiereSymbolleiste } from './symbolleiste-reihenfolge'
 import { SymbolleisteGruppenKnopf } from './SymbolleisteGruppenKnopf'
 import { useT } from './sprache-anbindung'
+import { BETA_WERKZEUGE } from './leitungsverlegung'
 
 export function Symbolleiste() {
   const t = useT()
@@ -30,9 +31,11 @@ export function Symbolleiste() {
             }
             const eintrag = befehlNachId(id)
             const aktion = befehle[id]
-            if (!eintrag || !aktion) return null
+            if (!eintrag || !aktion || aktion.verborgen) return null
             const kuerzel = eintrag.festeAnzeige ?? (belegung[id] ? anzeige(belegung[id]) : null)
-            const titel = befehlName(eintrag.id) + (kuerzel ? ` (${kuerzel})` : '')
+            const beta =
+              eintrag.werkzeugId && BETA_WERKZEUGE.has(eintrag.werkzeugId) ? ' · BETA' : ''
+            const titel = befehlName(eintrag.id) + (kuerzel ? ` (${kuerzel})` : '') + beta
             return (
               <button
                 key={id}

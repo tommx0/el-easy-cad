@@ -94,6 +94,7 @@ interface SettingsState {
   communityHinweisVersion: string | null
   updateSuche: UpdateSuche
   verknuepfungNachLeitung: boolean
+  leitungsverlegung: boolean
   leitungenErstNachLoslassen: boolean
   nichtDruckbereich: NichtDruckbereichDarstellung
   geladen: boolean
@@ -154,6 +155,7 @@ interface SettingsState {
   setCommunityHinweisVersion: (store: SettingsStore, wert: string) => void
   setUpdateSuche: (store: SettingsStore, wert: UpdateSuche) => void
   setVerknuepfungNachLeitung: (store: SettingsStore, wert: boolean) => void
+  setLeitungsverlegung: (store: SettingsStore, wert: boolean) => void
   setLeitungenErstNachLoslassen: (store: SettingsStore, wert: boolean) => void
   setNichtDruckbereich: (store: SettingsStore, wert: NichtDruckbereichDarstellung) => void
   leiteBefehleNeuAb: () => void
@@ -234,12 +236,15 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   communityHinweisVersion: null,
   updateSuche: 'fragen',
   verknuepfungNachLeitung: true,
+  leitungsverlegung: true,
   leitungenErstNachLoslassen: false,
   nichtDruckbereich: { ...STANDARD_NICHT_DRUCKBEREICH },
   geladen: false,
 
   laden: async (store) => {
     const gespeichert = await store.laden()
+    const leitungsverlegung = gespeichert.leitungsverlegung ?? Object.keys(gespeichert).length > 0
+    if (gespeichert.leitungsverlegung === undefined) void store.speichern({ leitungsverlegung })
     const nachtrag = ergaenzeSymbolleistenGruppen(
       gespeichert.symbolleiste?.gruppen ?? [...SYMBOLLEISTE_STANDARD_GRUPPEN],
       gespeichert.symbolleiste?.eingeblendet ?? null,
@@ -326,6 +331,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
       communityHinweisVersion: gespeichert.communityHinweisVersion ?? null,
       updateSuche: gespeichert.updateSuche ?? 'fragen',
       verknuepfungNachLeitung: gespeichert.verknuepfungNachLeitung ?? true,
+      leitungsverlegung,
       leitungenErstNachLoslassen: gespeichert.leitungenErstNachLoslassen ?? false,
       nichtDruckbereich: gespeichert.nichtDruckbereich ?? { ...STANDARD_NICHT_DRUCKBEREICH },
       geladen: true,
@@ -670,6 +676,12 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     if (get().verknuepfungNachLeitung === wert) return
     set({ verknuepfungNachLeitung: wert })
     void store.speichern({ verknuepfungNachLeitung: wert })
+  },
+
+  setLeitungsverlegung: (store, wert) => {
+    if (get().leitungsverlegung === wert) return
+    set({ leitungsverlegung: wert })
+    void store.speichern({ leitungsverlegung: wert })
   },
 
   setLeitungenErstNachLoslassen: (store, wert) => {

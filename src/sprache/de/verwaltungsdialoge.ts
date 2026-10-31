@@ -538,6 +538,18 @@ export const verwaltungsdialoge = {
         'bzw. Ansicht-Menü). „Nächster Punkt“ ist standardmäßig aus – er liefert auf jeder Kante ' +
         'einen Treffer und ist als bewusst zuschaltbarer Rückfall gedacht.',
     },
+    leitungsverlegung: {
+      titel: 'Leitungsverlegung',
+      schalter: 'Leitungsverlegung im Bauplan',
+      hinweis:
+        'Leitungen, Trunks, Kabelschächte, Anschlüsse im Verteiler und Leitungslisten. ' +
+        'Ausgeschaltet ist der Bauplan ein reines Platzierprogramm: Diese Funktionen werden ' +
+        'nicht angeboten, vorhandene Leitungen, Trunks und Schächte sind ausgeblendet, bleiben ' +
+        'aber unverändert in der Zeichnung. Schaltpläne sind nicht betroffen.',
+      abgeschaltet:
+        'Die Leitungsverlegung ist ausgeschaltet (Reiter „Leitungen & Kabeltyp“) – diese Einstellungen ' +
+        'wirken derzeit nicht.',
+    },
     leitungen: {
       titel: 'Leitungen (diese Zeichnung)',
       standardKabeltyp: 'Standard-Kabeltyp für neue Leitungen',

@@ -12,6 +12,7 @@ import { useAppContext, useAktivesBlatt, useProject } from '../use-app-context'
 import { HilfeHinweiseAuswahl } from './HilfeHinweiseAuswahlDialog'
 import { useUiStore } from '../store/ui-store'
 import { KabeltypFeld } from '../components/KabeltypFeld'
+import { BetaEtikett } from '../components/BetaEtikett'
 import { setzeStandardKabeltyp } from '../kabeltyp-abgleich'
 import { fangartName } from '../objektfang-namen'
 import { useSettingsStore } from '../store/settings-store'
@@ -137,6 +138,7 @@ function AllgemeinAbschnitt() {
   const stromkreisImPanel = useSettingsStore((s) => s.stromkreisImPanel)
   const verknuepfungNachLeitung = useSettingsStore((s) => s.verknuepfungNachLeitung)
   const setVerknuepfungNachLeitung = useSettingsStore((s) => s.setVerknuepfungNachLeitung)
+  const leitungsverlegung = useSettingsStore((s) => s.leitungsverlegung)
   const setStromkreisImPanel = useSettingsStore((s) => s.setStromkreisImPanel)
 
   return (
@@ -334,6 +336,7 @@ function AllgemeinAbschnitt() {
         <input
           type="checkbox"
           checked={verknuepfungNachLeitung}
+          disabled={!leitungsverlegung}
           onChange={(e) => setVerknuepfungNachLeitung(settingsStore, e.target.checked)}
         />
         {t('verwaltungsdialoge.einstellungenDialog.allgemein.verknuepfung')}
@@ -368,141 +371,145 @@ function RoutingAbschnitt() {
   const setRoutingSetting = useSettingsStore((s) => s.setRoutingSetting)
   const erstNachLoslassen = useSettingsStore((s) => s.leitungenErstNachLoslassen)
   const setErstNachLoslassen = useSettingsStore((s) => s.setLeitungenErstNachLoslassen)
+  const leitungsverlegung = useSettingsStore((s) => s.leitungsverlegung)
 
   return (
     <>
-      <h3>{t('verwaltungsdialoge.einstellungenDialog.routing.titel')}</h3>
-      <label className="dialog-feld">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.kostenProMeter')}
-        <ZahlenFeld
-          min={0}
-          step={0.1}
-          value={routing.kostenProLaenge}
-          onCommit={(wert) => setRoutingSetting(settingsStore, 'kostenProLaenge', wert)}
-        />
-      </label>
-      <label className="dialog-feld">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.kosten90')}
-        <ZahlenFeld
-          min={0}
-          step={0.05}
-          value={routing.kosten90}
-          onCommit={(wert) => setRoutingSetting(settingsStore, 'kosten90', wert)}
-        />
-      </label>
-      <p className="dialog-hinweis">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.kostenHinweis')}
-      </p>
+      {!leitungsverlegung && <LeitungsverlegungAbgeschaltet />}
+      <fieldset className="eigenschaften-fieldset" disabled={!leitungsverlegung}>
+        <h3>{t('verwaltungsdialoge.einstellungenDialog.routing.titel')}</h3>
+        <label className="dialog-feld">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.kostenProMeter')}
+          <ZahlenFeld
+            min={0}
+            step={0.1}
+            value={routing.kostenProLaenge}
+            onCommit={(wert) => setRoutingSetting(settingsStore, 'kostenProLaenge', wert)}
+          />
+        </label>
+        <label className="dialog-feld">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.kosten90')}
+          <ZahlenFeld
+            min={0}
+            step={0.05}
+            value={routing.kosten90}
+            onCommit={(wert) => setRoutingSetting(settingsStore, 'kosten90', wert)}
+          />
+        </label>
+        <p className="dialog-hinweis">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.kostenHinweis')}
+        </p>
 
-      <label className="feld feld-checkbox">
-        <input
-          type="checkbox"
-          checked={erstNachLoslassen}
-          onChange={(e) => setErstNachLoslassen(settingsStore, e.target.checked)}
-        />
-        {t('verwaltungsdialoge.einstellungenDialog.routing.erstNachLoslassen')}
-      </label>
-      <p className="dialog-hinweis">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.erstNachLoslassenHinweis')}
-      </p>
+        <label className="feld feld-checkbox">
+          <input
+            type="checkbox"
+            checked={erstNachLoslassen}
+            onChange={(e) => setErstNachLoslassen(settingsStore, e.target.checked)}
+          />
+          {t('verwaltungsdialoge.einstellungenDialog.routing.erstNachLoslassen')}
+        </label>
+        <p className="dialog-hinweis">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.erstNachLoslassenHinweis')}
+        </p>
 
-      <label className="dialog-feld">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.parallelAbstand')}
-        <ZahlenFeld
-          min={0}
-          max={20}
-          step={0.5}
-          value={Math.round(routing.parallelAbstandMeter * 1000) / 10}
-          onCommit={(cm) => setRoutingSetting(settingsStore, 'parallelAbstandMeter', cm / 100)}
-        />
-      </label>
-      <p className="dialog-hinweis">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.parallelAbstandHinweis')}
-      </p>
+        <label className="dialog-feld">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.parallelAbstand')}
+          <ZahlenFeld
+            min={0}
+            max={20}
+            step={0.5}
+            value={Math.round(routing.parallelAbstandMeter * 1000) / 10}
+            onCommit={(cm) => setRoutingSetting(settingsStore, 'parallelAbstandMeter', cm / 100)}
+          />
+        </label>
+        <p className="dialog-hinweis">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.parallelAbstandHinweis')}
+        </p>
 
-      <h3>{t('verwaltungsdialoge.einstellungenDialog.routing.feineinstellungen')}</h3>
-      <label className="dialog-feld">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.sicherheitsabstand')}
-        <ZahlenFeld
-          min={0}
-          max={50}
-          step={1}
-          value={Math.round(routing.sicherheitsabstandMeter * 100)}
-          onCommit={(cm) => setRoutingSetting(settingsStore, 'sicherheitsabstandMeter', cm / 100)}
-        />
-      </label>
-      <p className="dialog-hinweis">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.sicherheitsabstandHinweis')}
-      </p>
-      <label className="dialog-feld">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.sucherweiterungen')}
-        <ZahlenFeld
-          min={1}
-          max={10}
-          step={1}
-          value={routing.maxSuchbereichErweiterungen}
-          onCommit={(wert) =>
-            setRoutingSetting(settingsStore, 'maxSuchbereichErweiterungen', Math.round(wert))
-          }
-        />
-      </label>
-      <p className="dialog-hinweis">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.sucherweiterungenHinweis')}
-      </p>
+        <h3>{t('verwaltungsdialoge.einstellungenDialog.routing.feineinstellungen')}</h3>
+        <label className="dialog-feld">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.sicherheitsabstand')}
+          <ZahlenFeld
+            min={0}
+            max={50}
+            step={1}
+            value={Math.round(routing.sicherheitsabstandMeter * 100)}
+            onCommit={(cm) => setRoutingSetting(settingsStore, 'sicherheitsabstandMeter', cm / 100)}
+          />
+        </label>
+        <p className="dialog-hinweis">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.sicherheitsabstandHinweis')}
+        </p>
+        <label className="dialog-feld">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.sucherweiterungen')}
+          <ZahlenFeld
+            min={1}
+            max={10}
+            step={1}
+            value={routing.maxSuchbereichErweiterungen}
+            onCommit={(wert) =>
+              setRoutingSetting(settingsStore, 'maxSuchbereichErweiterungen', Math.round(wert))
+            }
+          />
+        </label>
+        <p className="dialog-hinweis">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.sucherweiterungenHinweis')}
+        </p>
 
-      <h3>{t('verwaltungsdialoge.einstellungenDialog.routing.wandfuehrung')}</h3>
-      <label className="feld feld-checkbox">
-        <input
-          type="checkbox"
-          checked={routing.wandfuehrung}
-          onChange={(e) => setRoutingSetting(settingsStore, 'wandfuehrung', e.target.checked)}
-        />
-        {t('verwaltungsdialoge.einstellungenDialog.routing.wandfuehrungAn')}
-      </label>
-      <p className="dialog-hinweis">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.wandfuehrungHinweis')}
-      </p>
-      <label className="dialog-feld">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.wandabstand')}
-        <ZahlenFeld
-          min={0}
-          max={100}
-          step={1}
-          disabled={!routing.wandfuehrung}
-          value={Math.round(routing.wandabstandMeter * 100)}
-          onCommit={(cm) => setRoutingSetting(settingsStore, 'wandabstandMeter', cm / 100)}
-        />
-      </label>
-      <label className="dialog-feld">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.bevorzugung')}
-        <ZahlenFeld
-          min={0}
-          max={WAND_BEVORZUGUNG_MAX * 100}
-          step={5}
-          disabled={!routing.wandfuehrung}
-          value={Math.round(routing.wandBevorzugung * 100)}
-          onCommit={(prozent) =>
-            setRoutingSetting(
-              settingsStore,
-              'wandBevorzugung',
-              Math.min(Math.max(prozent, 0), WAND_BEVORZUGUNG_MAX * 100) / 100,
-            )
-          }
-        />
-      </label>
-      <label className="dialog-feld">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.aufschlag')}
-        <ZahlenFeld
-          min={0}
-          step={0.5}
-          disabled={!routing.wandfuehrung}
-          value={routing.wandQuerungsKosten}
-          onCommit={(wert) => setRoutingSetting(settingsStore, 'wandQuerungsKosten', wert)}
-        />
-      </label>
-      <p className="dialog-hinweis">
-        {t('verwaltungsdialoge.einstellungenDialog.routing.bevorzugungHinweis')}
-      </p>
+        <h3>{t('verwaltungsdialoge.einstellungenDialog.routing.wandfuehrung')}</h3>
+        <label className="feld feld-checkbox">
+          <input
+            type="checkbox"
+            checked={routing.wandfuehrung}
+            onChange={(e) => setRoutingSetting(settingsStore, 'wandfuehrung', e.target.checked)}
+          />
+          {t('verwaltungsdialoge.einstellungenDialog.routing.wandfuehrungAn')}
+        </label>
+        <p className="dialog-hinweis">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.wandfuehrungHinweis')}
+        </p>
+        <label className="dialog-feld">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.wandabstand')}
+          <ZahlenFeld
+            min={0}
+            max={100}
+            step={1}
+            disabled={!routing.wandfuehrung}
+            value={Math.round(routing.wandabstandMeter * 100)}
+            onCommit={(cm) => setRoutingSetting(settingsStore, 'wandabstandMeter', cm / 100)}
+          />
+        </label>
+        <label className="dialog-feld">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.bevorzugung')}
+          <ZahlenFeld
+            min={0}
+            max={WAND_BEVORZUGUNG_MAX * 100}
+            step={5}
+            disabled={!routing.wandfuehrung}
+            value={Math.round(routing.wandBevorzugung * 100)}
+            onCommit={(prozent) =>
+              setRoutingSetting(
+                settingsStore,
+                'wandBevorzugung',
+                Math.min(Math.max(prozent, 0), WAND_BEVORZUGUNG_MAX * 100) / 100,
+              )
+            }
+          />
+        </label>
+        <label className="dialog-feld">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.aufschlag')}
+          <ZahlenFeld
+            min={0}
+            step={0.5}
+            disabled={!routing.wandfuehrung}
+            value={routing.wandQuerungsKosten}
+            onCommit={(wert) => setRoutingSetting(settingsStore, 'wandQuerungsKosten', wert)}
+          />
+        </label>
+        <p className="dialog-hinweis">
+          {t('verwaltungsdialoge.einstellungenDialog.routing.bevorzugungHinweis')}
+        </p>
+      </fieldset>
     </>
   )
 }
@@ -533,48 +540,75 @@ function ObjektfangAbschnitt() {
   )
 }
 
+function LeitungsverlegungAbgeschaltet() {
+  const t = useT()
+  return (
+    <p className="dialog-hinweis">
+      {t('verwaltungsdialoge.einstellungenDialog.leitungsverlegung.abgeschaltet')}
+    </p>
+  )
+}
+
 function LeitungenAbschnitt() {
   const t = useT()
-  const { doc, commands } = useAppContext()
+  const { doc, commands, settingsStore } = useAppContext()
   const zeichnung = useProject()
+  const leitungsverlegung = useSettingsStore((s) => s.leitungsverlegung)
+  const setLeitungsverlegung = useSettingsStore((s) => s.setLeitungsverlegung)
 
   return (
     <>
-      <h3>{t('verwaltungsdialoge.einstellungenDialog.leitungen.titel')}</h3>
-      <KabeltypFeld
-        titel={t('verwaltungsdialoge.einstellungenDialog.leitungen.standardKabeltyp')}
-        wertId={zeichnung.standardKabeltypId}
-        zusatzTypen={zeichnung.kabeltypen}
-        freierTextErlaubt={false}
-        leerText={t('verwaltungsdialoge.einstellungenDialog.leitungen.keinStandard')}
-        aendern={(wahl) => setzeStandardKabeltyp(doc, commands, wahl)}
-      />
-      <p className="dialog-hinweis">
-        {t('verwaltungsdialoge.einstellungenDialog.leitungen.standardKabeltypHinweis')}
-      </p>
-
-      <label className="dialog-feld">
-        {t('verwaltungsdialoge.einstellungenDialog.leitungen.anschlussreserve')}
-        <ZahlenFeld
-          min={0}
-          step={10}
-          value={Math.round(zeichnung.anschlussreserveMeter * 100)}
-          onCommit={(cm) =>
-            commands.execute(
-              erzeugeZeichnungAendernCommand(
-                doc,
-                t('verwaltungsdialoge.einstellungenDialog.leitungen.anschlussreserveAendern'),
-                {
-                  anschlussreserveMeter: cm / 100,
-                },
-              ),
-            )
-          }
+      <h3>{t('verwaltungsdialoge.einstellungenDialog.leitungsverlegung.titel')}</h3>
+      <label className="feld feld-checkbox">
+        <input
+          type="checkbox"
+          checked={leitungsverlegung}
+          onChange={(e) => setLeitungsverlegung(settingsStore, e.target.checked)}
         />
+        {t('verwaltungsdialoge.einstellungenDialog.leitungsverlegung.schalter')}
+        <BetaEtikett />
       </label>
       <p className="dialog-hinweis">
-        {t('verwaltungsdialoge.einstellungenDialog.leitungen.anschlussreserveHinweis')}
+        {t('verwaltungsdialoge.einstellungenDialog.leitungsverlegung.hinweis')}
       </p>
+
+      <fieldset className="eigenschaften-fieldset" disabled={!leitungsverlegung}>
+        <h3>{t('verwaltungsdialoge.einstellungenDialog.leitungen.titel')}</h3>
+        <KabeltypFeld
+          titel={t('verwaltungsdialoge.einstellungenDialog.leitungen.standardKabeltyp')}
+          wertId={zeichnung.standardKabeltypId}
+          zusatzTypen={zeichnung.kabeltypen}
+          freierTextErlaubt={false}
+          leerText={t('verwaltungsdialoge.einstellungenDialog.leitungen.keinStandard')}
+          aendern={(wahl) => setzeStandardKabeltyp(doc, commands, wahl)}
+        />
+        <p className="dialog-hinweis">
+          {t('verwaltungsdialoge.einstellungenDialog.leitungen.standardKabeltypHinweis')}
+        </p>
+
+        <label className="dialog-feld">
+          {t('verwaltungsdialoge.einstellungenDialog.leitungen.anschlussreserve')}
+          <ZahlenFeld
+            min={0}
+            step={10}
+            value={Math.round(zeichnung.anschlussreserveMeter * 100)}
+            onCommit={(cm) =>
+              commands.execute(
+                erzeugeZeichnungAendernCommand(
+                  doc,
+                  t('verwaltungsdialoge.einstellungenDialog.leitungen.anschlussreserveAendern'),
+                  {
+                    anschlussreserveMeter: cm / 100,
+                  },
+                ),
+              )
+            }
+          />
+        </label>
+        <p className="dialog-hinweis">
+          {t('verwaltungsdialoge.einstellungenDialog.leitungen.anschlussreserveHinweis')}
+        </p>
+      </fieldset>
     </>
   )
 }

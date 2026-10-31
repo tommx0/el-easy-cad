@@ -4,7 +4,10 @@ Eine Leitung verbindet zwei Anschlusspunkte. Den Weg dazwischen sucht das Progra
 legt ein Raster über das Blatt, meidet platzierte Komponenten und findet den kürzesten Weg
 (Autorouting). Sie können jederzeit eigene Stützpunkte vorgeben.
 
-## Eine Leitung zeichnen {#leitung-zeichnen}
+Die Leitungsverlegung im Bauplan ist noch in Erprobung (Beta) und lässt sich abschalten, siehe
+[Leitungsverlegung abschalten](#leitungsverlegung-abschalten).
+
+## Eine Leitung zeichnen (Beta) {#leitung-zeichnen}
 
 {{video:05-leitungen}}
 
@@ -260,6 +263,26 @@ ausgewählt, tragen ihre Raumquerungen auf dem Plan das Kürzel D bzw. B. Eine v
   [Im Verteiler anschließen …](#verteiler-anschliessen), das Fortsetzen und Lösen am
   [Kabelschacht](#kabelschacht) sowie **Gruppe/Wirkverbindung anlegen …** (siehe
   [Wirkverbindungen](#wirkverbindungen), „Gleich beim Verlegen der Leitung“).
+
+## Leitungsverlegung abschalten {#leitungsverlegung-abschalten}
+
+Wer im Bauplan nur Komponenten platzieren will – mit Kombinationen, Räumen, Wirkverbindungen und
+der Bestückung des Verteilers aus Räumen –, schaltet die Leitungsverlegung ab: unter
+{{befehl:extras.einstellungen}} im Reiter **Leitungen & Kabeltyp**, Kästchen **Leitungsverlegung im
+Bauplan**. Eine neue Installation startet mit ausgeschalteter Leitungsverlegung; wer das Programm
+schon benutzt hat, findet sie eingeschaltet.
+
+Ausgeschaltet bietet ein Bauplan keine Leitung, keinen Trunk und keinen Kabelschacht an, auch
+nicht Leitungsliste, Trunkliste, Leitungsbaum, Switch- und Patchpanelplan, Kabeltypen,
+Installationszonen und das Anschließen im Verteiler. Was schon gezeichnet ist, wird
+**ausgeblendet** – nicht gezeichnet, nicht gedruckt, nicht in IFC-Export und 3D-Ansicht –, bleibt
+aber unverändert in der Zeichnung. Verschieben oder tauschen Sie eine Komponente, laufen ihre
+Leitungen unsichtbar mit; nach dem Einschalten passt also alles zum Plan. Solange ein Blatt
+ausgeblendete Objekte hat, nennt die Statuszeile ihre Zahl; ein Klick darauf öffnet die
+Einstellung.
+
+Stromkreise, die sich im Verteilerbaum über eine Leitung ergeben, gelten weiter. Schaltpläne sind
+von dem Schalter nicht betroffen.
 
 ## Schaltverbindung im Schaltplan {#schaltverbindung}
 

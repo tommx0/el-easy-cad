@@ -1,10 +1,10 @@
 import type { Blatt, Objekt } from '../../document-model'
-import { istBearbeitbar } from '../../document-model'
+import { istBearbeitbar, istLeitungsverlegungsObjekt } from '../../document-model'
 import { erzeugeUebersetzer, SPRACHEN, t } from '../../sprache'
 import type { Command } from '../command'
 import { KiFolgeCommand } from './folge-command'
 import type { KiKontext } from './kontext'
-import { findeObjekt, KiFehler } from './kontext'
+import { findeObjekt, KiFehler, pruefeLeitungsverlegung } from './kontext'
 
 export function kiLabel(text: string): string {
   return `${t('kiMeldungen.schreiben.labelVorspann')}${text}`
@@ -34,6 +34,7 @@ export function ordneObjekteNachBlatt(kontext: KiKontext, ids: readonly string[]
       unbekannt.push(id)
       continue
     }
+    if (istLeitungsverlegungsObjekt(fund.objekt)) pruefeLeitungsverlegung(kontext)
     const grund = kontext.nurAnsicht(fund.blatt)
     if (grund) {
       throw new KiFehler(

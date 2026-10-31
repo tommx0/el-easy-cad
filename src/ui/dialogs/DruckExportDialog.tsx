@@ -26,6 +26,7 @@ import { erzeugeUebersetzer } from '../../sprache'
 import type { Schluessel, Uebersetzer } from '../../sprache'
 import { planspracheVon } from '../../document-model'
 import { ausgabeZeile, hinweisAktiv } from '../community'
+import { leitungsverlegungAusFuer } from '../leitungsverlegung'
 import { useT } from '../sprache-anbindung'
 import { befehlName, gruppenName } from '../befehle/katalog'
 
@@ -131,6 +132,7 @@ export function DruckExportDialog() {
         knxBeschriftungen: holeKnxBeschriftungen(zeichnung, verknuepfteBauplaene),
         verknuepfteBauplaene,
         verknuepfteVerteilerplaene: verteilerplanZeichnungen(verknuepfung.getStand()),
+        leitungsverlegungAus: leitungsverlegungAusFuer(zeichnung),
       }
       const blattIds = ausgewaehlteBlaetter.map((b) => b.id)
       if (aktion === 'export') {

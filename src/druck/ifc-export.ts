@@ -12,10 +12,15 @@ export interface IfcExportErgebnis {
 export async function exportiereAlsIfc(
   zeichnung: Zeichnung,
   katalog: readonly CatalogComponent[],
-  optionen: { module: readonly LizenzModul[]; anwendung: string },
+  optionen: { module: readonly LizenzModul[]; anwendung: string; leitungsverlegungAus?: boolean },
 ): Promise<IfcExportErgebnis> {
   if (istSchaltplan(zeichnung)) throw new Error(t('ifc.export.schaltplan'))
-  const modell = baueExportModell({ zeichnung, katalog, module: optionen.module })
+  const modell = baueExportModell({
+    zeichnung,
+    katalog,
+    module: optionen.module,
+    leitungsverlegungAus: optionen.leitungsverlegungAus,
+  })
   const auftrag: IfcExportAuftrag = {
     modell,
     guidPraefix: zeichnung.id,

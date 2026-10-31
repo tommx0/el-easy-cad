@@ -24,7 +24,8 @@ The settings are spread over tabs:
 | | A* fine-tuning | Fine details of the path search |
 | | Wall routing | Cables along walls, distance to the wall and surcharge per wall crossing |
 | Object snap | Object snap | Which snap types are active |
-| Cables & cable type | Cables (this drawing) | Default cable type for new cables |
+| Cables & cable type | Cable routing | Whether a floor plan offers cables, trunks and cable risers (beta), see [Switching cable routing off](#leitungsverlegung-abschalten) – when off, this tab and “Routing” are greyed out |
+| | Cables (this drawing) | Default cable type for new cables |
 | Sheet | Drawing type | Whether the drawing is a floor plan or a schematic (display only, fixed from creation) |
 | | Print area | Defaults for new sheets |
 | | Labels & symbol size | Default sizes for text and symbols |
@@ -47,7 +48,7 @@ So that you do not have to set everything up again on a new computer:
 | Area | Contents |
 |---|---|
 | User interface | Tool sidebar and toolbar (order, visibility), sidebar, properties panel, appearance, keyboard shortcuts |
-| Drawing | Object snap types, grid spacing, area outside the print area, arrow key step sizes, dimension type, default heights, symbol size on the wall |
+| Drawing | Object snap types, grid spacing, area outside the print area, arrow key step sizes, dimension type, default heights, symbol size on the wall, cable routing on/off |
 | Auto-routing | Costs, safety distance, search area, wall routing, automatic arrangement |
 | Company logo, cable types and installation zones | Company logo for the title block, custom cable types and custom installation zones |
 

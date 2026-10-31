@@ -27,4 +27,12 @@ export const statuszeile = {
   kiZugriff: '{name} greift auf dieses Dokument zu.',
   kiZugriffNurLesen: '{name} greift auf dieses Dokument zu (nur lesen).',
   kiAssistent: 'KI-Assistent',
+  ausgeblendet: '{liste} ausgeblendet (Leitungsverlegung aus)',
+  ausgeblendetTitel:
+    'Die Leitungsverlegung ist in den Einstellungen ausgeschaltet. Die Objekte bleiben unverändert ' +
+    'in der Zeichnung und sind nach dem Einschalten wieder da. Ein Klick öffnet die Einstellung.',
+  ausgeblendetLeitungen: { one: '{n} Leitung', other: '{n} Leitungen' },
+  ausgeblendetTrunks: { one: '{n} Trunk', other: '{n} Trunks' },
+  ausgeblendetSchaechte: { one: '{n} Kabelschacht', other: '{n} Kabelschächte' },
+  ausgeblendetListen: { one: '{n} Liste', other: '{n} Listen' },
 }

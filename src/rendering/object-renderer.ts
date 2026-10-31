@@ -80,6 +80,7 @@ import { oberflaechensprache, t } from '../sprache'
 import type { Sprache, Uebersetzer } from '../sprache'
 
 export interface KomponentenRenderKontext {
+  leitungsverlegungAus?: boolean
   tp: Uebersetzer
   plansprache?: Sprache
   katalogKomponenten: CatalogComponent[]

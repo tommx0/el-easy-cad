@@ -238,7 +238,7 @@ function Befehl({
   const belegung = useSettingsStore((s) => s.belegung)
   const eintrag = befehlNachId(id)
   const aktion = befehle[id]
-  if (!eintrag || !aktion) return null
+  if (!eintrag || !aktion || aktion.verborgen) return null
   const kuerzel = belegung[id]
   return (
     <MenuEintrag

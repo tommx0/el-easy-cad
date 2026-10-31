@@ -87,6 +87,7 @@ export function geltendeEinstellungen(): Partial<AppSettings> {
     installationshoehenVorgabenCm: [...s.installationshoehenVorgabenCm],
     kombinationsFaktor: s.kombinationsFaktor,
     verknuepfungNachLeitung: s.verknuepfungNachLeitung,
+    leitungsverlegung: s.leitungsverlegung,
     routingKostenProLaenge: s.routing.kostenProLaenge,
     routingKosten90: s.routing.kosten90,
     routingKosten45: s.routing.kosten45,

@@ -28,7 +28,8 @@ export function zeichneAnordnenVorschau(
     y: (ausschnitt.min.y + ausschnitt.max.y) / 2,
   }
   view.offset = { x: breitePx / 2 - mitte.x * view.scale, y: hoehePx / 2 + mitte.y * view.scale }
-  for (const objekt of inZeichenreihenfolge(sichtbareObjekteAufBlatt(blatt), blatt.objekte)) {
+  const sichtbar = sichtbareObjekteAufBlatt(blatt, blatt.objekte, rahmen.leitungsverlegungAus)
+  for (const objekt of inZeichenreihenfolge(sichtbar, blatt.objekte)) {
     if (objekt.type === 'leitung' && objekt.trunkDurchgaenge.length > 0) {
       zeichneObjekt(
         ctx,

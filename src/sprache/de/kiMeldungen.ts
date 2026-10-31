@@ -21,6 +21,10 @@ export const kiMeldungen = {
     werkzeugUnbekannt: 'Diese Fassung von el.esy.CAD kennt das Werkzeug {werkzeug} nicht.',
     eingabeUngueltig: 'Ungültige Eingabe für {werkzeug}.',
     internerFehler: 'Interner Fehler in el.esy.CAD: {fehler}',
+    leitungsverlegungAus:
+      'Die Leitungsverlegung ist in den Einstellungen von el.esy.CAD ausgeschaltet (Reiter ' +
+      '„Leitungen & Kabeltyp“). Leitungen, Trunks und Kabelschächte sind ausgeblendet und lassen sich ' +
+      'weder lesen noch anlegen oder ändern.',
   },
   kontext: {
     blattUnbekannt: 'Unbekanntes Blatt "{blattId}". Vorhandene Blätter: {liste}.',

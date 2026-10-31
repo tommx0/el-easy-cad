@@ -4,6 +4,8 @@ import { useSettingsStore } from '../store/settings-store'
 import { useUiStore } from '../store/ui-store'
 import { useAppContext } from '../use-app-context'
 
+const LEITUNGS_HINWEISE: ReadonlySet<string> = new Set(['trunk', 'leitung'])
+
 export function HilfeHinweiseAuswahl() {
   const t = useT()
   const { settingsStore } = useAppContext()
@@ -12,6 +14,7 @@ export function HilfeHinweiseAuswahl() {
   const abgewaehlt = useSettingsStore((s) => s.ausgeblendeteHilfeHinweise)
   const setEinzeln = useSettingsStore((s) => s.setHilfeHinweisZeigen)
   const alleEin = useSettingsStore((s) => s.schalteAlleHilfeHinweiseEin)
+  const leitungsverlegung = useSettingsStore((s) => s.leitungsverlegung)
 
   return (
     <>
@@ -31,6 +34,7 @@ export function HilfeHinweiseAuswahl() {
               <input
                 type="checkbox"
                 checked={!abgewaehlt.includes(kennung)}
+                disabled={!leitungsverlegung && LEITUNGS_HINWEISE.has(kennung)}
                 onChange={(e) => setEinzeln(settingsStore, kennung, e.target.checked)}
               />
               {t(`hinweise.themen.${kennung}.name`)}

@@ -72,6 +72,7 @@ import { useUiStore } from '../store/ui-store'
 import { useAppContext, useProject } from '../use-app-context'
 import { useVerknuepfung } from '../use-verknuepfung'
 import { verteilerplanZeichnungen, verteilerplanZu } from '../verknuepfung'
+import { useLeitungsverlegungAus } from '../leitungsverlegung'
 import { useT } from '../sprache-anbindung'
 
 export function VerteilerDialog() {
@@ -172,9 +173,11 @@ function ermittleBelegung(
   katalog: readonly CatalogComponent[],
   verteilerplaene: readonly Zeichnung[],
   t: Uebersetzer,
+  mitLeitungen: boolean,
 ): Map<string, KnotenBelegung> {
   const leitungen = new Map<string, Set<number>>()
-  for (const z of ermittleVerteilerZuweisungen(zeichnung, verteiler.id)) {
+  const zuweisungen = mitLeitungen ? ermittleVerteilerZuweisungen(zeichnung, verteiler.id) : []
+  for (const z of zuweisungen) {
     const knoten = knotenZurZuweisung(baum, z.anschluss.kennzeichen, z.anschluss.anschluss)
     const schluessel =
       knoten?.schluessel ?? zuweisungsText({ kennzeichen: z.anschluss.kennzeichen })
@@ -233,9 +236,19 @@ export function VerteilerInhalt({
     () => baueVerteilerBaum(verteiler, katalog, plan),
     [verteiler, katalog, plan],
   )
+  const leitungsverlegungAus = useLeitungsverlegungAus()
   const belegung = useMemo(
-    () => ermittleBelegung(zeichnung, verteiler, baum, katalog, verteilerplanZeichnungen(stand), t),
-    [zeichnung, verteiler, baum, katalog, stand, t],
+    () =>
+      ermittleBelegung(
+        zeichnung,
+        verteiler,
+        baum,
+        katalog,
+        verteilerplanZeichnungen(stand),
+        t,
+        !leitungsverlegungAus,
+      ),
+    [zeichnung, verteiler, baum, katalog, stand, t, leitungsverlegungAus],
   )
   const bekannt = new Set(baum.betriebsmittel.map((b) => b.kennzeichen))
   const ohneGegenstueck = [...belegung.keys()].filter(

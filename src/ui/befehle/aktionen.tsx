@@ -10,6 +10,7 @@ import {
 import {
   ermittleFehlendeModulFelder,
   istKalibrierbar,
+  istLeitungsverlegungsObjekt,
   istSchaltplan,
   blaetterDesselbenIfcModells,
   nurAnsichtGrund,
@@ -47,7 +48,7 @@ import { useFreigeschalteteModule, useHatModul } from '../lizenz-module'
 import { ALLE_BLATT_SICHTBARKEITEN, type BlattSichtbarkeitBefehl } from './blatt-sichtbarkeit'
 import { tabellenVerknuepfung } from '../verknuepfung'
 import { alleBefehle, BEFEHLE, BEFEHL_NACH_ID, kuerzelPartner } from './katalog'
-import { werkzeugPasstZuZeichnungsart } from '../werkzeugleiste-reihenfolge'
+import { LEITUNGS_BEFEHLE, leitungsverlegungAus, werkzeugAngeboten } from '../leitungsverlegung'
 import { FANGART_BEFEHL_ID } from '../objektfang-namen'
 import { useT } from '../sprache-anbindung'
 import { waehleZusatzmodulZumHinzufuegen } from '../zusatzmodule/hinzufuegen'
@@ -57,6 +58,7 @@ export interface Befehlsaktion {
   deaktiviert?: boolean
   haken?: boolean
   labelZusatz?: string
+  verborgen?: boolean
 }
 
 export type Aktionskarte = Record<string, Befehlsaktion>
@@ -89,6 +91,7 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
   const zeichnung = useProject()
   const zeichnungHatIfc = zeichnung.blaetter.some((b) => b.hintergrund?.typ === 'ifc')
   const schaltplan = istSchaltplan(zeichnung)
+  const leitungsverlegungEin = useSettingsStore((s) => s.leitungsverlegung)
   const katalogKomponenten = useKatalogStore((s) => s.komponenten)
   const auswahlIds = useUiStore((s) => s.auswahlIds)
   const klemmbrettGefuellt = useUiStore((s) => s.klemmbrettGefuellt)
@@ -161,7 +164,10 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
   }
 
   function handleAllesAuswaehlen() {
-    setAuswahlIds(blatt.objekte.map((o) => o.id))
+    const aus = leitungsverlegungAus(zeichnung.zeichnungsart, leitungsverlegungEin)
+    setAuswahlIds(
+      blatt.objekte.filter((o) => !aus || !istLeitungsverlegungsObjekt(o)).map((o) => o.id),
+    )
     aktiviereTool('auswahl')
   }
 
@@ -290,6 +296,7 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
       const { datei, bericht } = await exportiereAlsIfc(zeichnung, katalogKomponenten, {
         module: freigeschaltet,
         anwendung: `el.esy.CAD ${__APP_VERSION__}`,
+        leitungsverlegungAus: leitungsverlegungAus(zeichnung.zeichnungsart, leitungsverlegungEin),
       })
       const dateiname = erzeugeDateiname(
         [offenesDokument?.projektBezeichnung, zeichnung.name, 'IFC'],
@@ -635,7 +642,10 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     if (!befehl.werkzeugId) continue
     const passendeId = [befehl.id, ...kuerzelPartner(befehl.id)]
       .map((id) => BEFEHL_NACH_ID[id].werkzeugId)
-      .find((id) => id !== undefined && werkzeugPasstZuZeichnungsart(id, zeichnung.zeichnungsart))
+      .find(
+        (id) =>
+          id !== undefined && werkzeugAngeboten(id, zeichnung.zeichnungsart, leitungsverlegungEin),
+      )
     aktionen[befehl.id] = {
       ausfuehren: () => passendeId && aktiviereTool(passendeId),
       deaktiviert:
@@ -656,6 +666,12 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
         modulLaeuft ||
         (modul.nurZeichnungsart !== undefined &&
           modul.nurZeichnungsart !== zeichnung.zeichnungsart),
+    }
+  }
+
+  if (leitungsverlegungAus(zeichnung.zeichnungsart, leitungsverlegungEin)) {
+    for (const id of LEITUNGS_BEFEHLE) {
+      if (aktionen[id]) aktionen[id] = { ...aktionen[id], deaktiviert: true, verborgen: true }
     }
   }
 

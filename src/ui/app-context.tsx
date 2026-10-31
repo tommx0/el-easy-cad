@@ -146,7 +146,8 @@ import { AppContext } from './use-app-context'
 import { verbindeSpracheMitEinstellungen } from './sprache-anbindung'
 import { t } from '../sprache'
 import type { Sprache } from '../sprache'
-import { planspracheVon, planUebersetzer } from '../document-model'
+import { istLeitungsverlegungsObjekt, planspracheVon, planUebersetzer } from '../document-model'
+import { LEITUNGS_WERKZEUGE, leitungsverlegungAusFuer } from './leitungsverlegung'
 
 const SERVER_START_VERSUCHE = 6
 const SERVER_WARTE_MS = 400
@@ -446,6 +447,7 @@ function erzeugeAppKontext(): AppKontext {
       ).neben,
     routingSettings: () => useSettingsStore.getState().routing,
     leitungenErstNachLoslassen: () => useSettingsStore.getState().leitungenErstNachLoslassen,
+    leitungsverlegungAus: () => leitungsverlegungAusFuer(doc.getZeichnung()),
     wandfangAktiv: () => useUiStore.getState().wandfangAktiv,
     hintergrundLinienBei: (punkt, toleranz) => {
       if (!useUiStore.getState().hintergrundfangAktiv) return []
@@ -580,6 +582,24 @@ function erzeugeAppKontext(): AppKontext {
     letztesWerkzeug = id
     const hinweis = hinweisFuerWerkzeug(id)
     if (hinweis) zeigeHilfeHinweis(hinweis)
+  })
+
+  let leitungsverlegungVorher = useSettingsStore.getState().leitungsverlegung
+  useSettingsStore.subscribe((zustand) => {
+    if (zustand.leitungsverlegung === leitungsverlegungVorher) return
+    leitungsverlegungVorher = zustand.leitungsverlegung
+    if (!leitungsverlegungAusFuer(doc.getZeichnung())) return
+    if (LEITUNGS_WERKZEUGE.has(toolManager.getAktivesToolId())) aktiviereTool('auswahl')
+    const ui = useUiStore.getState()
+    const ausgeblendet = new Set(
+      doc
+        .getAktivesBlatt()
+        .objekte.filter(istLeitungsverlegungsObjekt)
+        .map((o) => o.id),
+    )
+    if (ui.auswahlIds.some((id) => ausgeblendet.has(id))) {
+      ui.setAuswahlIds(ui.auswahlIds.filter((id) => !ausgeblendet.has(id)))
+    }
   })
 
   function kopiereAuswahl() {

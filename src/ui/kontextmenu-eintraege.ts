@@ -1,6 +1,8 @@
 import type { AppKontext } from './app-context'
 import { oberflaechensprache, t } from '../sprache'
 import { useUiStore } from './store/ui-store'
+import { useSettingsStore } from './store/settings-store'
+import { leitungsverlegungAusFuer } from './leitungsverlegung'
 import { useKabeltypStore } from './store/kabeltyp-store'
 import { gleicheKabeltypenAb } from './kabeltyp-abgleich'
 import { gleicheInstallationszonenAb } from './installationszonen-abgleich'
@@ -127,10 +129,53 @@ interface Optionen {
   mitLoeschen?: boolean
 }
 
+const LEITUNGS_ANLAESSE: ReadonlySet<KontextMenuAnlass['art']> = new Set([
+  'leitung',
+  'trunk',
+  'trunk-ende',
+  'leitungsbaum',
+  'kabelschacht',
+  'teilstuecke',
+])
+
+const LEITUNGS_EINTRAEGE: ReadonlySet<string> = new Set([
+  'leitungen-neu-verlegen',
+  'gruppe-wirkverbindung',
+  'verteiler-ueber-trunk',
+  'kabeltyp',
+  'installationszone',
+  'nur-in-bauteilen',
+  'teilstuecke-waehlen',
+  'switchport',
+  'switchport-loesen',
+  'inhalt-anzeigen',
+  'baum-trunks',
+])
+const LEITUNGS_EINTRAG_ANFAENGE = ['schacht-loesen', 'fortsetzen-', 'verteiler-']
+
+function istLeitungsEintrag(id: string): boolean {
+  return LEITUNGS_EINTRAEGE.has(id) || LEITUNGS_EINTRAG_ANFAENGE.some((a) => id.startsWith(a))
+}
+
 export function ermittleKontextMenuEintraege(
   anlass: KontextMenuAnlass,
   umgebung: KontextMenuUmgebung,
-  { mitLoeschen = true }: Optionen = {},
+  optionen: Optionen = {},
+): KontextMenuEintrag[] {
+  const aus = leitungsverlegungAusFuer(umgebung.doc.getZeichnung())
+  if (aus && LEITUNGS_ANLAESSE.has(anlass.art)) return []
+  const ohneAbgaenge = !useSettingsStore.getState().leitungsverlegung
+  const eintraege = ermittleEintraegeFuerAnlass(anlass, umgebung, optionen)
+  if (!aus && !ohneAbgaenge) return eintraege
+  return eintraege.filter(
+    (e) => !(aus && istLeitungsEintrag(e.id)) && !(ohneAbgaenge && e.id.startsWith('abgaenge-')),
+  )
+}
+
+function ermittleEintraegeFuerAnlass(
+  anlass: KontextMenuAnlass,
+  umgebung: KontextMenuUmgebung,
+  { mitLoeschen = true }: Optionen,
 ): KontextMenuEintrag[] {
   const blattId = umgebung.toolContext.aktivesBlattId()
   const objekte = umgebung.doc.getBlatt(blattId)?.objekte ?? []

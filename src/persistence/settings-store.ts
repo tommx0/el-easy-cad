@@ -54,6 +54,7 @@ export interface AppSettings {
   stromkreisImPanel: boolean
   sprache: string | null
   verknuepfungNachLeitung: boolean
+  leitungsverlegung: boolean
   leitungenErstNachLoslassen: boolean
   nichtDruckbereich: { farbe: string; deckkraft: number }
 }
@@ -171,6 +172,7 @@ export const appSettingsPatchSchema = z.object({
   stromkreisImPanel: z.boolean().optional(),
   sprache: z.string().nullable().optional(),
   verknuepfungNachLeitung: z.boolean().optional(),
+  leitungsverlegung: z.boolean().optional(),
   leitungenErstNachLoslassen: z.boolean().optional(),
   nichtDruckbereich: z
     .object({

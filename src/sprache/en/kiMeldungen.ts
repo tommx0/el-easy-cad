@@ -23,6 +23,9 @@ export const kiMeldungen: Texte['kiMeldungen'] = {
     werkzeugUnbekannt: 'This version of el.esy.CAD does not know the tool {werkzeug}.',
     eingabeUngueltig: 'Invalid input for {werkzeug}.',
     internerFehler: 'Internal error in el.esy.CAD: {fehler}',
+    leitungsverlegungAus:
+      'Cable routing is switched off in the el.esy.CAD settings (“Cables & cable type” tab). Cables, ' +
+      'trunks and cable risers are hidden and can neither be read nor created or changed.',
   },
   kontext: {
     blattUnbekannt: 'Unknown sheet "{blattId}". Existing sheets: {liste}.',

@@ -144,13 +144,29 @@ export function nullpunktVon(blatt: Pick<Blatt, 'nullpunkt'>): Point {
   return blatt.nullpunkt ?? { x: 0, y: 0 }
 }
 
+export const LEITUNGSVERLEGUNG_OBJEKTTYPEN: ReadonlySet<Objekt['type']> = new Set<Objekt['type']>([
+  'leitung',
+  'trunk',
+  'kabelschacht',
+  'leitungsliste',
+  'trunkliste',
+  'leitungsbaum',
+  'switchplan',
+])
+
+export function istLeitungsverlegungsObjekt(objekt: Pick<Objekt, 'type'>): boolean {
+  return LEITUNGSVERLEGUNG_OBJEKTTYPEN.has(objekt.type)
+}
+
 export function sichtbareObjekteAufBlatt<T extends Objekt>(
   blatt: Pick<Blatt, 'ebenen' | 'leitungenSichtbar' | 'trunksSichtbar'> & {
     objekte: readonly T[]
   },
   objekte: readonly T[] = blatt.objekte,
+  leitungsverlegungAus = false,
 ): T[] {
   const nachEbene = sichtbareObjekte(objekte, blatt.ebenen)
+  if (leitungsverlegungAus) return nachEbene.filter((o) => !istLeitungsverlegungsObjekt(o))
   if (blatt.leitungenSichtbar && blatt.trunksSichtbar) return nachEbene
   return nachEbene.filter(
     (o) =>

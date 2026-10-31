@@ -6,6 +6,7 @@ export const kopfzeile: Texte['kopfzeile'] = {
   konflikt: 'Conflict – not saved',
   nichtGespeichert: 'Not saved',
   betaTitel: 'Beta version – not yet intended for production use',
+  betaFunktionTitel: 'This function is still being trialled.',
   keinDokument: 'No document open',
   projekte: 'Projects',
   hintergrundTitel:

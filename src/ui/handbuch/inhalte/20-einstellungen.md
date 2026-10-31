@@ -24,7 +24,8 @@ Die Einstellungen sind auf Reiter verteilt:
 | | A*-Feineinstellungen | Feinheiten der Wegsuche |
 | | Wandführung | Leitungen an Wänden entlang, Abstand und Querungsaufschlag |
 | Objektfang | Objektfang | Welche Fangarten aktiv sind |
-| Leitungen & Kabeltyp | Leitungen (diese Zeichnung) | Standard-Kabeltyp für neue Leitungen |
+| Leitungen & Kabeltyp | Leitungsverlegung | Ob ein Bauplan Leitungen, Trunks und Kabelschacht anbietet (Beta), siehe [Leitungsverlegung abschalten](#leitungsverlegung-abschalten) – ausgeschaltet sind diese Reiter und „Routing“ ausgegraut |
+| | Leitungen (diese Zeichnung) | Standard-Kabeltyp für neue Leitungen |
 | Blatt | Zeichnungsart | Ob die Zeichnung ein Bauplan oder ein Schaltplan ist (nur Anzeige, fest ab Anlage) |
 | | Zeichenfläche | Vorgaben für neue Blätter |
 | | Beschriftung & Symbolgröße | Vorgabegrößen für Schrift und Symbole |
@@ -47,7 +48,7 @@ Damit Sie auf einem neuen Rechner nicht alles neu einstellen müssen:
 | Bereich | Inhalt |
 |---|---|
 | Oberfläche | Werkzeug- und Symbolleiste, Seitenleiste, Eigenschaften-Panel, Tastenkürzel |
-| Zeichnen | Objektfangarten, Raster, Fläche außerhalb der Zeichenfläche, Pfeiltastenschritte, Bemaßungsvariante, Installationshöhen, Symbolgröße an der Wand |
+| Zeichnen | Objektfangarten, Raster, Fläche außerhalb der Zeichenfläche, Pfeiltastenschritte, Bemaßungsvariante, Installationshöhen, Symbolgröße an der Wand, Leitungsverlegung ein/aus |
 | Autorouting | Alle Routing- und Wandführungswerte, dazu die Einstellungen von „Automatisch anordnen“ |
 | Firmenlogo, Kabeltypen und Installationszonen | Das Plankopf-Logo, Ihre eigenen Kabeltypen und Ihre eigenen Installationszonen |
 

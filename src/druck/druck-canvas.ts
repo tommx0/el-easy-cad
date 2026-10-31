@@ -97,7 +97,11 @@ function zeichneSeiteEinmal(
     zeichneHintergrundBild(ctx, seite.view, blatt, melden, komponentenRahmenBasis.assetQuelle)
   }
 
-  const sichtbareBlattObjekte = sichtbareObjekteAufBlatt(blatt)
+  const sichtbareBlattObjekte = sichtbareObjekteAufBlatt(
+    blatt,
+    blatt.objekte,
+    komponentenRahmenBasis.leitungsverlegungAus ?? false,
+  )
   zeichneTreppenDerEtageDarunter(ctx, seite.view, projekt, blatt)
   for (const objekt of inZeichenreihenfolge(sichtbareBlattObjekte, blatt.objekte)) {
     const gezeigt =

@@ -32,6 +32,7 @@ import { useAppContext } from '../use-app-context'
 import { ZahlenFeldOptional } from '../ZahlenFeld'
 import { formatiereZahl } from '../../sprache'
 import type { Schluessel } from '../../sprache'
+import { leitungsverlegungAusFuer, useLeitungsverlegungAus } from '../leitungsverlegung'
 import { useT } from '../sprache-anbindung'
 import { planspracheVon, planUebersetzer } from '../../document-model'
 
@@ -74,13 +75,19 @@ function renderKontext(
     blattAnzeige: blatt,
     alleObjekteAufBlatt: objekte,
     schaltplan: istSchaltplan(zeichnung),
+    leitungsverlegungAus: leitungsverlegungAusFuer(zeichnung),
   }
 }
 
 function DialogInhalt({ auswahlIds }: { auswahlIds: string[] }) {
   const { doc, commands, settingsStore, catalogStore } = useAppContext()
   const katalogKomponenten = useKatalogStore((s) => s.komponenten)
-  const einstellungen = useSettingsStore((s) => s.anordnenEinstellungen)
+  const gemerkt = useSettingsStore((s) => s.anordnenEinstellungen)
+  const leitungsverlegungAus = useLeitungsverlegungAus()
+  const einstellungen = useMemo(
+    () => (leitungsverlegungAus ? { ...gemerkt, trunksBilden: false } : gemerkt),
+    [gemerkt, leitungsverlegungAus],
+  )
   const setEinstellungen = useSettingsStore((s) => s.setAnordnenEinstellungen)
   const routing = useSettingsStore((s) => s.routing)
   const schliessen = useUiStore((s) => s.schliesseAnordnenDialog)
@@ -137,7 +144,7 @@ function DialogInhalt({ auswahlIds }: { auswahlIds: string[] }) {
   const auswahl = gezeigt.find((v) => v.schluessel === gewaehlt) ?? gezeigt[0] ?? null
 
   function aendere(teil: Partial<AnordnenEinstellungen>) {
-    setEinstellungen(settingsStore, { ...einstellungen, ...teil })
+    setEinstellungen(settingsStore, { ...gemerkt, ...teil })
   }
 
   function uebernehmen() {
@@ -169,6 +176,7 @@ function DialogInhalt({ auswahlIds }: { auswahlIds: string[] }) {
             nurVerlegen={nurVerlegen}
             schaltplan={schaltplan}
             mitZeichenflaeche={blatt.zeichenflaeche !== null}
+            ohneTrunks={leitungsverlegungAus}
           />
           <div className="anordnen-varianten">
             <div className="anordnen-stand" aria-live="polite">
@@ -231,12 +239,14 @@ function Einstellungen({
   nurVerlegen,
   schaltplan,
   mitZeichenflaeche,
+  ohneTrunks,
 }: {
   einstellungen: AnordnenEinstellungen
   aendere: (teil: Partial<AnordnenEinstellungen>) => void
   nurVerlegen: boolean
   schaltplan: boolean
   mitZeichenflaeche: boolean
+  ohneTrunks: boolean
 }) {
   const t = useT()
   const haken = (
@@ -335,7 +345,7 @@ function Einstellungen({
       {!nurVerlegen && (
         <>
           {haken('buendeln', 'zeichendialoge.anordnen.buendeln')}
-          {!schaltplan && e.buendeln && (
+          {!schaltplan && !ohneTrunks && e.buendeln && (
             <>
               {haken('trunksBilden', 'zeichendialoge.anordnen.trunksBilden')}
               {e.trunksBilden && (

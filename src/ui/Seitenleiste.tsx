@@ -10,7 +10,8 @@ import { istKalibrierbar } from '../document-model'
 import { useAktivesBlatt, useAppContext, useProject } from './use-app-context'
 import { useUiStore } from './store/ui-store'
 import { useSettingsStore } from './store/settings-store'
-import { werkzeugPasstZuZeichnungsart } from './werkzeugleiste-reihenfolge'
+import { BETA_WERKZEUGE, werkzeugAngeboten } from './leitungsverlegung'
+import { BetaEtikett } from './components/BetaEtikett'
 import { sucheTrifft } from './seitenleiste-suche'
 import { anzeige } from './befehle/kuerzel'
 import { werkzeugName } from './werkzeug-namen'
@@ -43,8 +44,9 @@ export function Seitenleiste() {
   const aktivesToolId = useUiStore((s) => s.aktivesToolId)
   const belegung = useSettingsStore((s) => s.belegung)
   const werkzeugeGeraeteweit = useSettingsStore((s) => s.werkzeugleiste)
+  const leitungsverlegung = useSettingsStore((s) => s.leitungsverlegung)
   const werkzeugeAlle = werkzeugeGeraeteweit.filter((id) =>
-    werkzeugPasstZuZeichnungsart(id, zeichnungsart),
+    werkzeugAngeboten(id, zeichnungsart, leitungsverlegung),
   )
   const [suche, setSuche] = useState('')
   const sucheFeldRef = useRef<HTMLInputElement | null>(null)
@@ -72,7 +74,12 @@ export function Seitenleiste() {
   const setGroesse = useUiStore((s) => s.setSeitenleisteSchwebeGroesse)
   const fensterKlein = useFensterKlein()
   const [schwebtBeimUeberfahren, setSchwebtBeimUeberfahren] = useState(false)
-  const [tooltip, setTooltip] = useState<{ text: string; x: number; y: number } | null>(null)
+  const [tooltip, setTooltip] = useState<{
+    text: string
+    beta: boolean
+    x: number
+    y: number
+  } | null>(null)
   const tooltipTimerRef = useRef<number | null>(null)
   const bemassungVariante = useSettingsStore((s) => s.bemassungVariante)
   const [variantenMenue, setVariantenMenue] = useState<{ x: number; y: number } | null>(null)
@@ -208,7 +215,12 @@ export function Seitenleiste() {
           if (tooltipTimerRef.current !== null) window.clearTimeout(tooltipTimerRef.current)
           tooltipTimerRef.current = window.setTimeout(() => {
             tooltipTimerRef.current = null
-            setTooltip({ text, x: rechteck.right + 8, y: rechteck.top + rechteck.height / 2 })
+            setTooltip({
+              text,
+              beta: BETA_WERKZEUGE.has(id),
+              x: rechteck.right + 8,
+              y: rechteck.top + rechteck.height / 2,
+            })
           }, TOOLTIP_VERZOEGERUNG_MS)
         }}
         onPointerLeave={() => {
@@ -461,6 +473,7 @@ export function Seitenleiste() {
               style={{ left: tooltip.x, top: tooltip.y }}
             >
               {tooltip.text}
+              {tooltip.beta && <BetaEtikett />}
             </div>,
             document.body,
           )}

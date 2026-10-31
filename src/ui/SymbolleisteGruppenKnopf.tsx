@@ -61,7 +61,7 @@ export function SymbolleisteGruppenKnopf({ gruppe, befehle }: Props) {
 
   const mitglieder = gruppe.befehle
     .map((id) => ({ id, eintrag: befehlNachId(id), aktion: befehle[id] }))
-    .filter((eintrag) => eintrag.eintrag && eintrag.aktion)
+    .filter((eintrag) => eintrag.eintrag && eintrag.aktion && !eintrag.aktion.verborgen)
   const umschalter: GruppenUmschalter[] = mitglieder
 
   function schalte(lauf: { ziel: boolean; erledigt: Set<string> }, liste = umschalter) {

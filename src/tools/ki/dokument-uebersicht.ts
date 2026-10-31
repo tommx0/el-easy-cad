@@ -1,6 +1,6 @@
 import { nullpunktVon, zeichnungsartName } from '../../document-model'
 import type { KiErgebnis, KiKontext } from './kontext'
-import { runde } from './kontext'
+import { runde, sichtbarFuerKi } from './kontext'
 
 export function dokumentUebersicht(_eingabe: unknown, kontext: KiKontext): KiErgebnis {
   const zeichnung = kontext.doc.getZeichnung()
@@ -16,7 +16,8 @@ export function dokumentUebersicht(_eingabe: unknown, kontext: KiKontext): KiErg
       aktivesBlattId: zeichnung.aktivesBlattId,
       blaetter: zeichnung.blaetter.map((blatt) => {
         const anzahl: Record<string, number> = {}
-        for (const o of blatt.objekte) anzahl[o.type] = (anzahl[o.type] ?? 0) + 1
+        for (const o of sichtbarFuerKi(kontext, blatt.objekte))
+          anzahl[o.type] = (anzahl[o.type] ?? 0) + 1
         const nullpunkt = nullpunktVon(blatt)
         return {
           id: blatt.id,

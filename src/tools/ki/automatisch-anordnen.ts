@@ -2,7 +2,7 @@ import { istSchaltplan } from '../../document-model'
 import { t } from '../../sprache'
 import { erzeugeAutomatischAnordnenCommand, zaehleAutomatischAnordnen } from '../anordnen-varianten'
 import type { KiErgebnis, KiKontext } from './kontext'
-import { KiFehler } from './kontext'
+import { KiFehler, leitungsverlegungAus } from './kontext'
 import { blattText, fuehreAenderungAus, kiLabel, ordneObjekteNachBlatt } from './schreiben'
 
 export function automatischAnordnen(
@@ -18,7 +18,10 @@ export function automatischAnordnen(
     throw new KiFehler(t('kiMeldungen.automatischAnordnen.zuWenig'))
   }
   const settings = kontext.routingSettings()
-  const einstellungen = kontext.vorgaben().anordnenEinstellungen
+  const vorgabe = kontext.vorgaben().anordnenEinstellungen
+  const einstellungen = leitungsverlegungAus(kontext)
+    ? { ...vorgabe, trunksBilden: false }
+    : vorgabe
   const text =
     umfang.komponenten >= 2
       ? t('kiMeldungen.automatischAnordnen.angeordnet', {

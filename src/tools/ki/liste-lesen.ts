@@ -24,7 +24,7 @@ import {
   trunklistenRohdaten,
 } from '../../document-model'
 import type { KiErgebnis, KiKontext } from './kontext'
-import { waehleBlatt } from './kontext'
+import { pruefeLeitungsverlegung, waehleBlatt } from './kontext'
 
 export interface ListeLesenEingabe {
   art: KiListenArt
@@ -55,10 +55,12 @@ export function listeLesen(eingabe: ListeLesenEingabe, kontext: KiKontext): KiEr
       spalten = koepfe(daten.spalten ?? STUECKLISTEN_SPALTEN)
       break
     case 'leitungsliste':
+      pruefeLeitungsverlegung(kontext)
       daten = leitungslistenRohdaten(zeichnung, blattId, umfang, katalog, true, verteilerplaene)
       spalten = koepfe(daten.spalten ?? LEITUNGSLISTEN_SPALTEN)
       break
     case 'trunkliste':
+      pruefeLeitungsverlegung(kontext)
       daten = trunklistenRohdaten(zeichnung, blattId, umfang)
       spalten = koepfe(TRUNKLISTEN_SPALTEN)
       break

@@ -1,4 +1,5 @@
 import type { Point } from '../../document-model'
+import { istLeitungsverlegungsObjekt } from '../../document-model'
 import { hitTestObjekte } from '../hit-test'
 import type { Tool, ToolContext } from '../tool'
 
@@ -89,7 +90,10 @@ export function erzeugeZusatzmodulAbfrageTool(): ZusatzmodulAbfrageTool {
       const blatt = ctx.doc.getBlatt(ctx.aktivesBlattId())
       if (!blatt) return
       const arten = auftrag.arten
-      const kandidaten = arten ? blatt.objekte.filter((o) => arten.includes(o.type)) : blatt.objekte
+      const aus = ctx.leitungsverlegungAus?.() ?? false
+      const kandidaten = blatt.objekte.filter(
+        (o) => (!arten || arten.includes(o.type)) && !(aus && istLeitungsverlegungsObjekt(o)),
+      )
       const treffer = hitTestObjekte(kandidaten, info.raw, ctx.view.laengeToWorld(TOLERANZ_PX))
       if (!treffer) return
       if (auftrag.einzeln) {

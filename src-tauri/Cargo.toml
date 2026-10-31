@@ -1,6 +1,6 @@
 [package]
 name = "el-easy-cad-desktop"
-version = "0.13.4"
+version = "0.14.0"
 description = "el.esy.CAD als natives Windows-Fenster um den lokalen Begleitserver"
 authors = ["el.esy.CAD"]
 license = ""

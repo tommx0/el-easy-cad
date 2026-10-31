@@ -973,7 +973,7 @@ dependencies = [
 
 [[package]]
 name = "el-easy-cad-desktop"
-version = "0.13.4"
+version = "0.14.0"
 dependencies = [
  "base64 0.23.1",
  "ed25519-dalek",

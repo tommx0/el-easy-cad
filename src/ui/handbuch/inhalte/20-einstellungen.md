@@ -34,7 +34,6 @@ Die Einstellungen sind auf Reiter verteilt:
 | Werkzeugleiste, Symbolleiste | | Inhalt und Reihenfolge, siehe [Oberfläche anpassen](#symbolleiste-anpassen) |
 | KI-Assistent | | Die Schnittstelle für Claude und andere KI-Assistenten, siehe [Mit einem KI-Assistenten arbeiten](#ki-assistent) |
 | Module | Entwicklermodus | Ein Modul direkt aus einem Ordner laden, siehe [Zusatzmodule](#zusatzmodule) |
-| Lizenz | | Status der Lizenz, Verweis auf [Meine Lizenz](#lizenz) |
 
 ## Einstellungen sichern und mitnehmen {#einstellungen-sichern}
 
@@ -154,20 +153,21 @@ verlassen.
 
 Zusatzmodule sind eigenständige Programmteile, die sich in el.esy.CAD einfügen – etwa ein Modul,
 das in allen Räumen Steckdosen setzt. Ein Modul kommt als Datei mit der Endung **.eecmod** und
-wird über das Menü **Module** verwaltet:
+wird unter **Extras › Module** verwaltet:
 
-- {{befehl:module.hinzufuegen}} wählt eine `.eecmod`. el.esy.CAD prüft die Datei und zeigt vor
+- {{befehl:module.anzeigen}} listet alle installierten Module. Der Haken **aktiv** schaltet ein
+  Modul ab, ohne es zu entfernen – es verschwindet dann nur aus dem Menü.
+- **Modul hinzufügen…** oben in dieser Liste (auch als {{befehl:module.hinzufuegen}} für Kürzel und
+  Symbolleiste) wählt eine `.eecmod`. el.esy.CAD prüft die Datei und zeigt vor
   dem Installieren Name, Version, Hersteller und die Befehle des Moduls. Ist das Modul schon
   installiert, steht dort, welche Version es ersetzt; eine ältere Version spielt el.esy.CAD nur
   nach ausdrücklicher Bestätigung ein.
-- {{befehl:module.anzeigen}} listet alle installierten Module. Der Haken **aktiv** schaltet ein
-  Modul ab, ohne es zu entfernen – es verschwindet dann nur aus dem Menü.
-- {{befehl:module.entfernen}} öffnet dieselbe Liste; **Entfernen** löscht das Modul nach einer
-  Rückfrage. Zeichnungen, die mit dem Modul bearbeitet wurden, bleiben unverändert und lassen
+- **Entfernen** in einer Zeile löscht das Modul nach einer Rückfrage; {{befehl:module.entfernen}}
+  öffnet die Liste mit hervorgehobenen Entfernen-Knöpfen. Zeichnungen, die mit dem Modul bearbeitet wurden, bleiben unverändert und lassen
   sich auch ohne das Modul öffnen, drucken und weiterbearbeiten.
 
-Unter dem Trenner im Menü **Module** stehen die Befehle der aktiven Module – je Modul ein
-Untermenü, bei nur einem Befehl direkt der Eintrag. Diese Befehle lassen sich wie alle anderen in
+Neben „Module verwalten…“ stehen unter **Extras › Module** die Befehle der aktiven Module als
+Kacheln – mehrere Befehle eines Moduls unter seinem Namen. Diese Befehle lassen sich wie alle anderen in
 die [Symbolleiste](#symbolleiste-anpassen) aufnehmen und mit einem [eigenen Kürzel](#kuerzel-vergeben)
 belegen; sie stehen dort in der Gruppe „Module“ mit dem Icon des Moduls oder einem Puzzleteil.
 Ist das Modul entfernt oder abgeschaltet, verschwinden sie, und beim erneuten Installieren sind

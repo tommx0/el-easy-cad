@@ -621,6 +621,7 @@ export function useBefehlsAktionen(): { aktionen: Aktionskarte; versteckteEingab
     },
     'hilfe.lizenzen': { ausfuehren: () => ui().setLizenzenDialogOffen(true) },
     'hilfe.fehlerprotokoll': { ausfuehren: () => ui().setFehlerprotokollDialogOffen(true) },
+    'hilfe.befehlssuche': { ausfuehren: () => zoomEreignis('befehlssuche') },
   }
 
   for (const eintrag of ALLE_BLATT_SICHTBARKEITEN) {

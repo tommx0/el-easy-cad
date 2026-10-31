@@ -335,7 +335,7 @@ const UEBRIGE: Befehl[] = [
   },
   {
     id: 'extras.tastenkuerzel',
-    gruppe: 'extras',
+    gruppe: 'hilfe',
     standard: null,
   },
   {
@@ -375,6 +375,7 @@ const UEBRIGE: Befehl[] = [
     gruppe: 'hilfe',
     standard: null,
   },
+  { id: 'hilfe.befehlssuche', gruppe: 'hilfe', standard: 'STRG+K' },
 ]
 
 const WERKZEUG_TASTEN: { taste: string; hinweis: Schluessel }[] = [

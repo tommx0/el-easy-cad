@@ -51,7 +51,7 @@ erfährt dabei Ihre IP-Adresse und den Zeitpunkt der Anfrage, Projekte und Einst
 nicht übertragen. Liegt eine neuere Fassung vor, nennt der Dialog sie, und „Release öffnen“ zeigt
 die Seite mit den Installationspaketen. Mit dem Haken „Antwort merken“ sucht das Programm künftig
 bei jedem Start ohne Nachfrage – und meldet sich dann nur, wenn es etwas gefunden hat – oder
-gar nicht mehr. Das lässt sich in den Einstellungen im Reiter „Lizenz“ unter „Updates“ wieder
+gar nicht mehr. Das lässt sich in den Einstellungen im Reiter „Allgemein“ unter „Updates“ wieder
 ändern. {{befehl:hilfe.update-suche}} sucht jederzeit von Hand.
 
 Sie installieren eine neue Fassung wie die Erstinstallation. Ihre Projekte bleiben dabei erhalten.

@@ -1196,3 +1196,43 @@ export const IconZusatzmodul = () => (
     <path d="M5 8h3.5a2 2 0 1 1 4 0H16v3.5a2 2 0 1 1 0 4V19H12.5a2 2 0 1 0-4 0H5v-3.5a2 2 0 1 0 0-4z" />
   </Icon>
 )
+
+export const IconEtagen = () => (
+  <Icon>
+    <path d="M4 20.5V9l8-5.5L20 9v11.5z" />
+    <path d="M4 13h16M4 16.8h16" />
+  </Icon>
+)
+
+export const IconBlaetterAusrichten = () => (
+  <Icon>
+    <rect x="3.5" y="3.5" width="11" height="11" rx="1.2" />
+    <rect x="9.5" y="9.5" width="11" height="11" rx="1.2" />
+    <path d="M12 7v10M7 12h10" />
+  </Icon>
+)
+
+export const IconVerteilerplan = () => (
+  <Icon>
+    <rect x="3.5" y="4.5" width="17" height="15" rx="1.5" />
+    <path d="M3.5 9.5h17" />
+    <path d="M7 12.5v4M10.3 12.5v4M13.7 12.5v4M17 12.5v4" />
+  </Icon>
+)
+
+export const IconIfcBauteile = () => (
+  <Icon>
+    <path d="M3.5 8.5h9v11h-9z" />
+    <path d="M3.5 14h9M8 8.5V14" />
+    <path d="M14.5 6.5h6M17.5 3.5l3 3-3 3" />
+  </Icon>
+)
+
+export const IconIfcBauteilgruppen = () => (
+  <Icon>
+    <rect x="3.5" y="3.5" width="7" height="7" rx="1" />
+    <rect x="13.5" y="3.5" width="7" height="7" rx="1" />
+    <rect x="3.5" y="13.5" width="7" height="7" rx="1" />
+    <path d="M14 17h6M17 14v6" />
+  </Icon>
+)

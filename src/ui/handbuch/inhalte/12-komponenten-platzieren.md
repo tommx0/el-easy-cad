@@ -173,7 +173,7 @@ direkt an der Wand, die Bodenreihe ganz vorn.
 
 Die Beschriftung selbst (Bezeichnung, Artikelnummer, Höhe) lässt sich mit der Maus an eine
 freie Stelle ziehen, wenn sie ein anderes Symbol überdeckt. Welche Angaben überhaupt erscheinen,
-schalten Sie unter **Blatt › Beschriftungen anzeigen** um.
+schalten Sie unter **Ansicht › Anzeigen** um.
 
 In einem **Schaltplan** gibt es keine Installationshöhe – Eingabe und Anzeige entfallen dort.
 Bezeichnung und Beschriftung sind auf neuen Schaltplanblättern zunächst ausgeblendet und lassen

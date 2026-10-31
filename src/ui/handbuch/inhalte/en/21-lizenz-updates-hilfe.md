@@ -49,7 +49,7 @@ and the time of the request, no projects or settings are transmitted. If a newer
 available, the dialog names it, and “Open release” shows the page with the installation packages.
 With “Remember my answer” ticked, the program checks at every start without asking – and only
 speaks up when it has found something – or never again. You can change this in the settings on
-the “Licence” tab under “Updates”. {{befehl:hilfe.update-suche}} checks manually at any time.
+the “General” tab under “Updates”. {{befehl:hilfe.update-suche}} checks manually at any time.
 
 You install a new version just like the first installation. Your projects are kept.
 

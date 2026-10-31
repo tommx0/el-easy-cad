@@ -148,7 +148,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
     hinzufuegen: 'Add add-on…',
     leer: 'No add-ons are installed.',
     aktiv: 'active',
-    aktivHinweis: 'Active add-ons appear in the “Add-ons” menu.',
+    aktivHinweis: 'Active add-ons appear under Extras › Add-ons.',
     entfernenHinweis: 'Choose the add-on you want to remove.',
     installiertAm: 'installed on {datum}',
     ungetestet: 'not tested with el.esy.CAD {app}',
@@ -408,17 +408,6 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
       symbolleiste: 'Toolbar',
       ki: 'AI assistant',
       module: 'Add-ons',
-      lizenz: 'Licence',
-    },
-    lizenz: {
-      titel: 'Licence',
-      demo: 'Trial version (demo).',
-      lizenziertFuer: 'Licensed to {name}.',
-      keine: 'No valid licence stored.',
-      hinweis:
-        'All details of the licence and how to replace it with a new one can be found under ' +
-        '“Help › My licence…”.',
-      oeffnen: 'Open my licence…',
     },
     allgemein: {
       ersteSchritte: 'Getting started',
@@ -437,7 +426,7 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
       stromkreisHinweis:
         'For components and cables connected via a terminal or fuse in the distribution board: ' +
         '“Circuit: UV1-F4 / X6 · RCD F2 · L2”. On the symbol and the cable label you switch the ' +
-        'display per sheet under “Sheet › Show labels”.',
+        'display per sheet under “View › Show”.',
       raster: 'Grid',
       rasterBasis: 'Base grid spacing (m)',
       rasterHinweis:

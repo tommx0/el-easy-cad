@@ -200,7 +200,7 @@ The table shows the supplied setting. Which device types exist, and what they ca
 
 If a slot points to a type that is not a usual target, the program marks the connection as "Unusual combination: …" – it remains allowed nonetheless. If you change a component to a type without its own slots, the program asks before existing slots are lost.
 
-The program shows the dashed lines as soon as you select a component involved. Lines between two control devices – for example to a second push-button that switches the same light – are always grey; the lines to the switched loads are coloured. On densely populated plans, they sometimes disturb more than they show. {{befehl:blatt.anzeige-wirkverbindungen}} hides them for the whole sheet – the small slot graphics on the components stay visible. The switch is in the **Sheet** menu and, like the label switches, can be placed on the toolbar.
+The program shows the dashed lines as soon as you select a component involved. Lines between two control devices – for example to a second push-button that switches the same light – are always grey; the lines to the switched loads are coloured. On densely populated plans, they sometimes disturb more than they show. {{befehl:blatt.anzeige-wirkverbindungen}} hides them for the whole sheet – the small slot graphics on the components stay visible. The switch is under **View › Show** and, like the label switches, can be placed on the toolbar.
 
 ### Straight after laying a cable {#wirkverbindung-aus-leitung}
 

@@ -14,7 +14,7 @@ export const befehle: Texte['befehle'] = {
   },
   module: {
     hinzufuegen: 'Add add-ons…',
-    anzeigen: 'Show add-ons…',
+    anzeigen: 'Manage add-ons…',
     entfernen: 'Remove add-ons…',
   },
   werkzeug: {
@@ -76,7 +76,7 @@ export const befehle: Texte['befehle'] = {
     'verteilerplan-assistent': 'Distribution board diagram wizard…',
     speichern: 'Save now',
     'import-zeichnung': 'Import drawing from file…',
-    'import-hintergrund': 'Load background plan (PDF/DXF)…',
+    'import-hintergrund': 'Load background plan…',
     'import-katalog': 'Import catalogue…',
     'import-bibliothek': 'Import library…',
     'export-bibliothek': 'Export library…',
@@ -182,6 +182,7 @@ export const befehle: Texte['befehle'] = {
     lizenzen: 'Third-party library licences…',
     datenschutz: 'Privacy policy…',
     fehlerprotokoll: 'Error log…',
+    befehlssuche: 'Search commands',
   },
   tastenHinweis: {
     M: 'M switches the type in the hatching tool – that is then no longer available there.',

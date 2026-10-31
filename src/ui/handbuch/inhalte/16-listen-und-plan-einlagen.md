@@ -4,7 +4,7 @@ Plan-Einlagen sind Tabellen und Diagramme, die aus der Zeichnung abgeleitet und 
 Blatt platziert werden. Sie rechnen sich selbst fort: Kommt eine Komponente hinzu, steht sie in
 der Stückliste, ohne dass Sie etwas nachtragen.
 
-Alle Einlagen liegen im Menü **Zeichnen › Plan-Einlagen**. Die Bedienung ist überall gleich:
+Alle Einlagen liegen im Menü **Einlagen**. Die Bedienung ist überall gleich:
 Werkzeug wählen und auf das Blatt klicken – der Klick setzt die linke obere Ecke, die Einlage
 wächst mit ihrem Inhalt. Größe, Spaltenbreiten und Schriftgröße stellen Sie danach im
 Eigenschaften-Panel ein.

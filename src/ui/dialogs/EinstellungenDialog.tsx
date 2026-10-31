@@ -27,7 +27,6 @@ import {
 } from '../../sprache'
 import type { Schluessel } from '../../sprache'
 import { systemKennung, useT } from '../sprache-anbindung'
-import { lizenzStatusText } from '../community'
 
 function SpracheAbschnitt() {
   const { settingsStore } = useAppContext()
@@ -64,27 +63,6 @@ import { ZahlenFeld } from '../ZahlenFeld'
 import { WAND_BEVORZUGUNG_MAX } from '../../routing'
 import { STANDARD_NICHT_DRUCKBEREICH } from '../../rendering'
 import { waehleEinstellungsDatei } from '../einstellungen-austausch'
-
-function LizenzVerweis() {
-  const t = useT()
-  const status = useUiStore((s) => s.produktlizenzStatus)
-  function oeffnen() {
-    useUiStore.getState().setEinstellungenOffen(false)
-    useUiStore.getState().setMeineLizenzDialogOffen(true)
-  }
-  return (
-    <>
-      <h3>{t('verwaltungsdialoge.einstellungenDialog.lizenz.titel')}</h3>
-      <p className="dialog-hinweis">{lizenzStatusText(status, t)}</p>
-      <p className="dialog-hinweis">{t('verwaltungsdialoge.einstellungenDialog.lizenz.hinweis')}</p>
-      <div className="dialog-aktionen">
-        <button type="button" onClick={oeffnen}>
-          {t('verwaltungsdialoge.einstellungenDialog.lizenz.oeffnen')}
-        </button>
-      </div>
-    </>
-  )
-}
 
 function UpdateAbschnitt() {
   const t = useT()
@@ -742,7 +720,6 @@ type EinstellungenTab =
   | 'symbolleiste'
   | 'ki'
   | 'module'
-  | 'lizenz'
 
 const TABS: { id: EinstellungenTab; label: Schluessel }[] = [
   { id: 'allgemein', label: 'verwaltungsdialoge.einstellungenDialog.reiter.allgemein' },
@@ -756,7 +733,6 @@ const TABS: { id: EinstellungenTab; label: Schluessel }[] = [
   { id: 'symbolleiste', label: 'verwaltungsdialoge.einstellungenDialog.reiter.symbolleiste' },
   { id: 'ki', label: 'verwaltungsdialoge.einstellungenDialog.reiter.ki' },
   { id: 'module', label: 'verwaltungsdialoge.einstellungenDialog.reiter.module' },
-  { id: 'lizenz', label: 'verwaltungsdialoge.einstellungenDialog.reiter.lizenz' },
 ]
 
 export function EinstellungenDialog() {
@@ -789,7 +765,12 @@ export function EinstellungenDialog() {
             ))}
           </div>
           <div className="einstellungen-inhalt">
-            {tab === 'allgemein' && <AllgemeinAbschnitt />}
+            {tab === 'allgemein' && (
+              <>
+                <AllgemeinAbschnitt />
+                <UpdateAbschnitt />
+              </>
+            )}
             {tab === 'routing' && <RoutingAbschnitt />}
             {tab === 'objektfang' && <ObjektfangAbschnitt />}
             {tab === 'leitungen' && <LeitungenAbschnitt />}
@@ -800,12 +781,6 @@ export function EinstellungenDialog() {
             {tab === 'symbolleiste' && <SymbolleisteEinstellungenTab />}
             {tab === 'ki' && <KiAssistentEinstellungen />}
             {tab === 'module' && <ZusatzmodulEinstellungen />}
-            {tab === 'lizenz' && (
-              <>
-                <LizenzVerweis />
-                <UpdateAbschnitt />
-              </>
-            )}
           </div>
         </div>
 

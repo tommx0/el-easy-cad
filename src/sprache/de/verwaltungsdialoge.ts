@@ -148,7 +148,7 @@ export const verwaltungsdialoge = {
     hinzufuegen: 'Modul hinzufügen…',
     leer: 'Es sind keine Module installiert.',
     aktiv: 'aktiv',
-    aktivHinweis: 'Aktive Module erscheinen im Menü „Module“.',
+    aktivHinweis: 'Aktive Module erscheinen unter Extras › Module.',
     entfernenHinweis: 'Wählen Sie das Modul, das entfernt werden soll.',
     installiertAm: 'installiert am {datum}',
     ungetestet: 'nicht mit el.esy.CAD {app} getestet',
@@ -408,17 +408,6 @@ export const verwaltungsdialoge = {
       symbolleiste: 'Symbolleiste',
       ki: 'KI-Assistent',
       module: 'Module',
-      lizenz: 'Lizenz',
-    },
-    lizenz: {
-      titel: 'Lizenz',
-      demo: 'Testversion (Demo).',
-      lizenziertFuer: 'Lizenziert für {name}.',
-      keine: 'Keine gültige Lizenz hinterlegt.',
-      hinweis:
-        'Alle Angaben zur Lizenz und den Austausch gegen eine neue finden Sie unter ' +
-        '„Hilfe › Meine Lizenz…“.',
-      oeffnen: 'Meine Lizenz öffnen…',
     },
     allgemein: {
       ersteSchritte: 'Erste Schritte',
@@ -437,7 +426,7 @@ export const verwaltungsdialoge = {
       stromkreisHinweis:
         'Bei Komponenten und Leitungen, die über eine Klemme oder Sicherung im Verteiler ' +
         'angeschlossen sind: „Stromkreis: UV1-F4 / X6 · RCD F2 · L2“. Am Symbol und am ' +
-        'Leitungsschild schalten Sie die Anzeige je Blatt unter „Blatt › Beschriftungen anzeigen“.',
+        'Leitungsschild schalten Sie die Anzeige je Blatt unter „Ansicht › Anzeigen“.',
       raster: 'Raster',
       rasterBasis: 'Basis-Rasterabstand (m)',
       rasterHinweis:

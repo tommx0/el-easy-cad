@@ -64,7 +64,7 @@ setzen Sie Höhe, Montageort oder AP/UP für alle auf einmal ([Mehrere Komponent
 
 ![Die Beschriftung im Eigenschaften-Panel](ablauf-bauplan-beschriftung.png)
 
-**6. Was am Symbol steht.** Unter **Blatt › Beschriftungen anzeigen** schalten Sie einzeln um,
+**6. Was am Symbol steht.** Unter **Ansicht › Anzeigen** schalten Sie einzeln um,
 ob Produktname ({{befehl:blatt.anzeige-bezeichnung}}), Ihre Beschriftung und die
 Installationshöhe ({{befehl:blatt.anzeige-installationshoehe}}) im Plan stehen. Im Bild unten
 sind Produktname und Höhe ausgeblendet – übrig bleiben die Symbole mit Ihren Beschriftungen

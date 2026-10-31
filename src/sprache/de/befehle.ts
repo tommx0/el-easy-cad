@@ -12,7 +12,7 @@ export const befehle = {
   },
   module: {
     hinzufuegen: 'Module hinzufügen…',
-    anzeigen: 'Module anzeigen…',
+    anzeigen: 'Module verwalten…',
     entfernen: 'Module entfernen…',
   },
   werkzeug: {
@@ -74,7 +74,7 @@ export const befehle = {
     'verteilerplan-assistent': 'Verteilerplan-Assistent…',
     speichern: 'Jetzt speichern',
     'import-zeichnung': 'Zeichnung aus Datei importieren…',
-    'import-hintergrund': 'Hintergrundplan (PDF/DXF) einlesen…',
+    'import-hintergrund': 'Hintergrundplan einlesen…',
     'import-katalog': 'Katalog importieren…',
     'import-bibliothek': 'Bibliothek importieren…',
     'export-bibliothek': 'Bibliothek exportieren…',
@@ -179,6 +179,7 @@ export const befehle = {
     lizenzen: 'Lizenzen der Fremdbibliotheken…',
     datenschutz: 'Datenschutzerklärung…',
     fehlerprotokoll: 'Fehlerprotokoll…',
+    befehlssuche: 'Befehl suchen',
   },
   tastenHinweis: {
     M: 'M schaltet im Schraffur-Werkzeug die Art um – das entfällt dann dort.',

@@ -34,7 +34,6 @@ The settings are spread over tabs:
 | Tool sidebar, toolbar | | Contents and order, see [Customising the interface](#symbolleiste-anpassen) |
 | AI assistant | | The interface for Claude and other AI assistants, see [Working with an AI assistant](#ki-assistent) |
 | Add-ons | Developer mode | Load an add-on directly from a folder, see [Add-ons](#zusatzmodule) |
-| Licence | | Licence status, reference to [My licence](#lizenz) |
 
 ## Back up and transfer settings {#einstellungen-sichern}
 
@@ -151,20 +150,21 @@ Like any program output, the assistant's answers should be checked before you re
 
 Add-ons are separate pieces of software that fit into el.esy.CAD – for example an add-on that
 places socket outlets in every room. An add-on comes as a file with the extension **.eecmod** and
-is managed from the **Add-ons** menu:
+is managed under **Extras › Add-ons**:
 
-- {{befehl:module.hinzufuegen}} chooses an `.eecmod`. el.esy.CAD checks the file and, before
+- {{befehl:module.anzeigen}} lists all installed add-ons. The **active** box switches an add-on
+  off without removing it – it then only disappears from the menu.
+- **Add add-on…** at the top of this list (also available as {{befehl:module.hinzufuegen}} for
+  shortcuts and the toolbar) chooses an `.eecmod`. el.esy.CAD checks the file and, before
   installing, shows the add-on's name, version, manufacturer and commands. If the add-on is
   already installed, it says which version will be replaced; an older version is only installed
   after you confirm it explicitly.
-- {{befehl:module.anzeigen}} lists all installed add-ons. The **active** box switches an add-on
-  off without removing it – it then only disappears from the menu.
-- {{befehl:module.entfernen}} opens the same list; **Remove** deletes the add-on after a
-  confirmation. Drawings edited with the add-on stay unchanged and can still be opened, printed and
+- **Remove** in a row deletes the add-on after a confirmation; {{befehl:module.entfernen}} opens the
+  list with the remove buttons highlighted. Drawings edited with the add-on stay unchanged and can still be opened, printed and
   edited without it.
 
-Below the separator in the **Add-ons** menu are the commands of the active add-ons – one submenu
-per add-on, or the entry itself if it has only one command. Like all other commands, they can be
+Next to “Manage add-ons…”, **Extras › Add-ons** shows the commands of the active add-ons as tiles –
+several commands of one add-on under its name. Like all other commands, they can be
 added to the [toolbar](#symbolleiste-anpassen) and given a [shortcut of your own](#kuerzel-vergeben);
 they appear there in the “Add-ons” group with the add-on's icon or a puzzle piece. If the add-on is
 removed or switched off, they disappear, and when it is installed again, position and shortcut

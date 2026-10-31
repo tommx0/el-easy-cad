@@ -134,7 +134,7 @@ Nummer wieder frei. Die Nummer steht als kleines Schild am Ein- und Austritt jed
 den die Leitung läuft, bei einer Leitung ohne Trunk mittig auf ihrem Weg. Eine Leitung, die über
 einen [Kabelschacht](#kabelschacht) auf der anderen Etage fortgesetzt wird, behält dort ihre
 Nummer. Eigenen Text an der Leitung tragen Sie im Eigenschaften-Panel als Beschreibung ein. Was am Plan erscheint – Nummer, Kabeltyp, Länge –, schalten Sie unter
-**Blatt › Beschriftungen anzeigen** um.
+**Ansicht › Anzeigen** um.
 
 ## Leitungslängen {#leitungslaengen}
 

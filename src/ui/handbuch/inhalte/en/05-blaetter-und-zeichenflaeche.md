@@ -238,7 +238,8 @@ You change the layer of an existing object in the properties panel.
 
 ## What is labelled on the sheet {#beschriftungen}
 
-Under **Sheet › Show labels**, you switch individually what is shown on the objects. All these switches
+Under **View › Show**, you switch individually what is shown on the objects – with boxes, and the
+menu stays open; **All on** and **All off** switch everything at once. All these switches
 are also in the **Visibility** drop-down of the toolbar. In a schematic, this includes the automatic labels:
 potential names, reference designations and the outgoing connections from the floor plan. At the very top
 of the list there are also {{befehl:ansicht.hintergrund}} and {{befehl:ansicht.raster}}. If you had already
@@ -263,7 +264,7 @@ afterwards stays removed. You can also place the switches individually in the [t
 | {{befehl:blatt.anzeige-stromkreis}} | Floor plan only: the [circuit](#stromkreis-zuordnung) from the distribution board, “UV1-F4 / X6” |
 | {{befehl:blatt.anzeige-stromkreis-schild}} | Floor plan only: the circuit on the cable label, “12 → UV1-X6 (F4)” |
 
-Whole object types are hidden in the **Sheet** menu, directly below. {{befehl:blatt.anzeige-leitungen}} and
+Whole object types are hidden in the same column. {{befehl:blatt.anzeige-leitungen}} and
 {{befehl:blatt.anzeige-trunks}} hide all cables and trunks on the sheet, together with their numbers. Hidden,
 as on a hidden layer, they are neither visible, printed nor selectable. In the cable list, parts list and cable
 lengths, they still count. Both switches are also in the **Visibility** group of the toolbar.

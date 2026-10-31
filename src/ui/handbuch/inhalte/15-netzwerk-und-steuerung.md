@@ -476,7 +476,7 @@ Linien zwischen zwei Bediengeräten – etwa zu einem zweiten Taster, der diesel
 sind immer grau, die Linien zu den geschalteten Verbrauchern farbig.
 In dicht belegten Plänen stören sie dabei manchmal mehr, als sie zeigen: Mit
 {{befehl:blatt.anzeige-wirkverbindungen}} blenden Sie sie für das ganze Blatt aus – die kleinen
-Slot-Grafiken an den Komponenten bleiben sichtbar. Der Schalter steht im Menü **Blatt** und
+Slot-Grafiken an den Komponenten bleiben sichtbar. Der Schalter steht unter **Ansicht › Anzeigen** und
 lässt sich wie die Beschriftungs-Schalter in die Symbolleiste legen.
 
 ### Gleich beim Verlegen der Leitung {#wirkverbindung-aus-leitung}

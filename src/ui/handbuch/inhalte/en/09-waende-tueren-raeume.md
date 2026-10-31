@@ -2,7 +2,7 @@
 
 These tools draw building elements, not just lines: a wall has a thickness and joins the
 neighbouring wall, a door cuts an opening into it, and a room detects its own area. They are in
-the menu **Draw › Walls & rooms**.
+the menu **Draw › Building**.
 
 ## Drawing walls {#waende-zeichnen}
 
@@ -80,7 +80,7 @@ exactly two walls meet – both become one straight wall.
 2. Click in the area that is to be the room.
 
 The program looks for the closed outline and creates the room. Name and area are shown on the plan
-(this can be switched off under **Sheet › Show labels**). If you change the walls, the room
+(this can be switched off under **View › Show**). If you change the walls, the room
 recalculates its area. If you remove a partition between two rooms, they merge.
 
 In the room's properties panel you set:

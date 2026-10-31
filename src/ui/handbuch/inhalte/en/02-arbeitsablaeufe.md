@@ -62,7 +62,7 @@ once](#installationshoehe)). If a symbol has its own text fields, fill them in u
 
 ![The label in the Properties panel](ablauf-bauplan-beschriftung.png)
 
-**6. What is shown on the symbol.** Under **Sheet › Show labels** you switch individually whether
+**6. What is shown on the symbol.** Under **View › Show** you switch individually whether
 the product name ({{befehl:blatt.anzeige-bezeichnung}}), your label and the mounting height
 ({{befehl:blatt.anzeige-installationshoehe}}) appear on the plan. In the picture below, product name
 and height are hidden – what remains are the symbols with your labels and, at the distribution

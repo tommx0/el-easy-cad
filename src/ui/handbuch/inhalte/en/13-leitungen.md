@@ -72,7 +72,7 @@ For an existing cable, cable type and zone are in the properties panel. Quicker 
 
 ## Cable numbers and labels {#leitungsnummern}
 
-Each cable automatically receives the next free number of the whole drawing – across all sheets, whether it runs through a trunk or not. A deleted cable frees its number again. The number appears as a small tag at the entry and exit of each trunk through which the cable runs; for a cable without a trunk, it sits in the middle of its route. A cable continued on the other storey via a [cable riser](#kabelschacht) keeps its number there. You enter your own text on the cable as a description in the properties panel. What appears on the plan – number, cable type, length – you switch under **Sheet › Show labels**.
+Each cable automatically receives the next free number of the whole drawing – across all sheets, whether it runs through a trunk or not. A deleted cable frees its number again. The number appears as a small tag at the entry and exit of each trunk through which the cable runs; for a cable without a trunk, it sits in the middle of its route. A cable continued on the other storey via a [cable riser](#kabelschacht) keeps its number there. You enter your own text on the cable as a description in the properties panel. What appears on the plan – number, cable type, length – you switch under **View › Show**.
 
 ## Cable lengths {#leitungslaengen}
 

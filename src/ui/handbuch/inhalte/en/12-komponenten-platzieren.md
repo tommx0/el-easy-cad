@@ -80,7 +80,7 @@ Light outlets and ceiling luminaires come with **Ceiling** from the catalogue. T
 
 Only on the **wall** do you enter the **mounting height** (height above finished floor). For the usual values – switch, socket, parapet – there are buttons. The height is shown on the label in the plan, together with the [installation method](#verlegeart) (“h= 105 cm FM”). For ceiling and floor devices the height is omitted; there only “SM” or “FM” is shown. In a [combination on the wall](#wandfang) the height is shown once per row, next to its first component. Ceiling and floor devices also snap to the wall, in their own row marked “Ceiling” or “Floor”: the ceiling row directly on the wall, the floor row at the very front.
 
-The label itself (name, article number, height) can be dragged with the mouse to a free spot if it covers another symbol. Which details appear at all is switched under **Sheet › Show labels**.
+The label itself (name, article number, height) can be dragged with the mouse to a free spot if it covers another symbol. Which details appear at all is switched under **View › Show**.
 
 In a **schematic** there is no mounting height – input and display are omitted there. Name and label are hidden on new schematic sheets and can be turned on via the same menu.
 

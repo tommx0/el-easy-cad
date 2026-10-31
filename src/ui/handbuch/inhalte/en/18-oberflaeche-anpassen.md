@@ -1,5 +1,27 @@
 # Customising the interface
 
+## The menu {#menue}
+
+Each title in the menu bar opens a panel with columns by topic – under **Sheet**, for example,
+sheet, origin and background. Commands appear as **tiles** with an icon and a short name; the
+tooltip shows the full name and the keyboard shortcut, and the shortcut is also shown small in the
+corner. Toggles such as grid, snap or the labels appear as **boxes**: a click sets or clears the
+tick, and the menu stays open. **All on** and **All off** above a column switch everything in it at
+once – the sheet switches with a single undo step.
+
+Every command has exactly one place in the menu. Tools that the drawing type does not know – walls
+in a schematic, wires in a floor plan – are missing entirely; whatever is not possible right now
+(paste with an empty clipboard) is greyed out. The arrow keys move through the entries, **Enter**
+runs one, **Esc** closes the menu.
+
+## Search commands {#befehlssuche}
+
+To the right of the menu titles is the **Search commands** field; {{befehl:hilfe.befehlssuche}}
+puts the cursor into it. While you type, up to twelve matching commands appear, with the place where
+they are in the menu (“Sheet › Background”) and their shortcut. The search looks at the name and the
+menu location, ignores upper and lower case, and accepts umlauts written out. Choose with the arrow
+keys, **Enter** runs the command, **Esc** clears the field.
+
 ## Toolbar {#symbolleiste-anpassen}
 
 The toolbar below the menu holds the commands you use most often. {{befehl:ansicht.symbolleiste}}

@@ -64,35 +64,6 @@ import { WAND_BEVORZUGUNG_MAX } from '../../routing'
 import { STANDARD_NICHT_DRUCKBEREICH } from '../../rendering'
 import { waehleEinstellungsDatei } from '../einstellungen-austausch'
 
-function LizenzVerweis() {
-  const t = useT()
-  const status = useUiStore((s) => s.produktlizenzStatus)
-  function oeffnen() {
-    useUiStore.getState().setEinstellungenOffen(false)
-    useUiStore.getState().setMeineLizenzDialogOffen(true)
-  }
-  return (
-    <>
-      <h3>{t('verwaltungsdialoge.einstellungenDialog.lizenz.titel')}</h3>
-      <p className="dialog-hinweis">
-        {status?.betriebsmodus === 'demo'
-          ? t('verwaltungsdialoge.einstellungenDialog.lizenz.demo')
-          : status?.lizenznehmer
-            ? t('verwaltungsdialoge.einstellungenDialog.lizenz.lizenziertFuer', {
-                name: status.lizenznehmer,
-              })
-            : t('verwaltungsdialoge.einstellungenDialog.lizenz.keine')}
-      </p>
-      <p className="dialog-hinweis">{t('verwaltungsdialoge.einstellungenDialog.lizenz.hinweis')}</p>
-      <div className="dialog-aktionen">
-        <button type="button" onClick={oeffnen}>
-          {t('verwaltungsdialoge.einstellungenDialog.lizenz.oeffnen')}
-        </button>
-      </div>
-    </>
-  )
-}
-
 function AllgemeinAbschnitt() {
   const t = useT()
   const { settingsStore } = useAppContext()
@@ -716,7 +687,6 @@ type EinstellungenTab =
   | 'symbolleiste'
   | 'ki'
   | 'module'
-  | 'lizenz'
 
 const TABS: { id: EinstellungenTab; label: Schluessel }[] = [
   { id: 'allgemein', label: 'verwaltungsdialoge.einstellungenDialog.reiter.allgemein' },
@@ -730,7 +700,6 @@ const TABS: { id: EinstellungenTab; label: Schluessel }[] = [
   { id: 'symbolleiste', label: 'verwaltungsdialoge.einstellungenDialog.reiter.symbolleiste' },
   { id: 'ki', label: 'verwaltungsdialoge.einstellungenDialog.reiter.ki' },
   { id: 'module', label: 'verwaltungsdialoge.einstellungenDialog.reiter.module' },
-  { id: 'lizenz', label: 'verwaltungsdialoge.einstellungenDialog.reiter.lizenz' },
 ]
 
 export function EinstellungenDialog() {
@@ -774,7 +743,6 @@ export function EinstellungenDialog() {
             {tab === 'symbolleiste' && <SymbolleisteEinstellungenTab />}
             {tab === 'ki' && <KiAssistentEinstellungen />}
             {tab === 'module' && <ZusatzmodulEinstellungen />}
-            {tab === 'lizenz' && <LizenzVerweis />}
           </div>
         </div>
 

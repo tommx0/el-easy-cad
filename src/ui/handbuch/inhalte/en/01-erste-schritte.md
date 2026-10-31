@@ -22,7 +22,9 @@ In the cloud edition you sign in, and your projects are stored on your company's
 
 1. **Header** with the program name, the version and the name of the open document. On the right you
    can see whether everything is saved.
-2. **Menu bar** – File, Edit, Draw, Sheet, View, Catalogue, Extras, Help.
+2. **Menu bar** – File, Edit, Draw, Inserts, Sheet, View, Catalogue, Extras, Help.
+   Each menu opens a panel of tiles, arranged by topic in columns; to the right of it, the
+   [Search commands](#befehlssuche) field finds any command.
 3. **Toolbar** with the commands you use most often. You can arrange it freely, see [Customise the
    toolbar](#symbolleiste-anpassen).
 4. **Tool sidebar** on the left: all drawing tools, by default as a list with icon, keyboard

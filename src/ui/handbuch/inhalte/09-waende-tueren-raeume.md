@@ -2,7 +2,7 @@
 
 Diese Werkzeuge zeichnen Bauteile, keine bloßen Linien: Eine Wand hat eine Stärke und schließt
 an die Nachbarwand an, eine Tür schneidet eine Öffnung hinein, ein Raum erkennt seine Fläche
-selbst. Sie stehen im Menü **Zeichnen › Wände & Räume**.
+selbst. Sie stehen im Menü **Zeichnen › Bau**.
 
 ## Wände zeichnen {#waende-zeichnen}
 
@@ -84,7 +84,7 @@ zu zeichnen. Einen angeklickten Eckpunkt, an dem genau zwei Wände zusammentreff
 2. In die Fläche klicken, die der Raum sein soll.
 
 Das Programm sucht die geschlossene Umgrenzung und legt den Raum an. Name und Fläche werden auf
-dem Plan angezeigt (abschaltbar unter **Blatt › Beschriftungen anzeigen**). Ändern Sie die Wände,
+dem Plan angezeigt (abschaltbar unter **Ansicht › Anzeigen**). Ändern Sie die Wände,
 rechnet der Raum seine Fläche neu. Entfernen Sie eine Trennwand zwischen zwei Räumen, verschmelzen
 sie.
 

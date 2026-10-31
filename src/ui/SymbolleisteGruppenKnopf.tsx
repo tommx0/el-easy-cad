@@ -14,7 +14,7 @@ import {
   type GruppenUmschalter,
 } from './symbolleiste-umschalter'
 import { useT } from './sprache-anbindung'
-import { useAppContext } from './use-app-context'
+import { useAlleUmschalten } from './use-alle-umschalten'
 
 interface Props {
   gruppe: SymbolleistenGruppe
@@ -23,12 +23,10 @@ interface Props {
 
 export function SymbolleisteGruppenKnopf({ gruppe, befehle }: Props) {
   const t = useT()
-  const { commands } = useAppContext()
   const belegung = useSettingsStore((s) => s.belegung)
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null)
   const knopfRef = useRef<HTMLButtonElement | null>(null)
   const listeRef = useRef<HTMLDivElement | null>(null)
-  const nachlauf = useRef<{ ziel: boolean; erledigt: Set<string> } | null>(null)
   const offen = position !== null
 
   useEffect(() => {
@@ -64,33 +62,11 @@ export function SymbolleisteGruppenKnopf({ gruppe, befehle }: Props) {
     .filter((eintrag) => eintrag.eintrag && eintrag.aktion && !eintrag.aktion.verborgen)
   const umschalter: GruppenUmschalter[] = mitglieder
 
-  function schalte(lauf: { ziel: boolean; erledigt: Set<string> }, liste = umschalter) {
-    const offene = umzuschaltende(liste, lauf.ziel, lauf.erledigt)
-    if (offene.length === 0) return
-    const sammeln = !commands.sammeltGerade()
-    if (sammeln) commands.beginneSammlung()
-    for (const e of offene) {
-      lauf.erledigt.add(e.id)
-      e.aktion.ausfuehren()
-    }
-    if (sammeln) {
-      const schluessel = lauf.ziel ? 'symbolleiste.alleAnSchritt' : 'symbolleiste.alleAusSchritt'
-      commands.beendeSammlung(t(schluessel, { gruppe: gruppenAnzeigeName(gruppe, t) }))
-    }
-  }
-
-  function schalteAlle(ziel: boolean) {
-    const lauf = { ziel, erledigt: new Set<string>() }
-    schalte(lauf)
-    nachlauf.current = lauf
-  }
-
-  useEffect(() => {
-    const lauf = nachlauf.current
-    if (!lauf) return
-    nachlauf.current = null
-    schalte(lauf)
-  })
+  const schalteAlle = useAlleUmschalten(umschalter, (ziel) =>
+    t(ziel ? 'symbolleiste.alleAnSchritt' : 'symbolleiste.alleAusSchritt', {
+      gruppe: gruppenAnzeigeName(gruppe, t),
+    }),
+  )
 
   return (
     <div className="symbolleiste-gruppe">

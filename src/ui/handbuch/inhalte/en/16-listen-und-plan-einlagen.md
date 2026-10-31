@@ -4,7 +4,7 @@ Plan inserts are tables and diagrams that are derived from the drawing and place
 They keep themselves up to date: when a component is added, it appears in the bill of materials
 without you having to enter it.
 
-All inserts are in the menu **Draw › Plan inserts**. Operation is the same for all of them: choose
+All inserts are in the **Inserts** menu. Operation is the same for all of them: choose
 the tool and click on the sheet – the click sets the top left corner, and the insert grows with its
 contents. You set the size, column widths and font size afterwards in the properties panel.
 

@@ -20,7 +20,9 @@ Unternehmens. Alles Übrige in diesem Handbuch gilt unverändert.
 
 1. **Kopfzeile** mit Programmnamen, Version und dem Namen des geöffneten Dokuments. Rechts
    sehen Sie, ob alles gespeichert ist.
-2. **Menüleiste** – Datei, Bearbeiten, Zeichnen, Blatt, Ansicht, Katalog, Extras, Hilfe.
+2. **Menüleiste** – Datei, Bearbeiten, Zeichnen, Einlagen, Blatt, Ansicht, Katalog, Extras, Hilfe.
+   Jedes Menü öffnet eine Fläche mit Kacheln, nach Themen in Spalten geordnet; rechts daneben
+   finden Sie jeden Befehl über das Feld [Befehl suchen](#befehlssuche).
 3. **Symbolleiste** mit den Befehlen, die Sie am häufigsten brauchen. Sie lässt sich frei
    zusammenstellen, siehe [Symbolleiste anpassen](#symbolleiste-anpassen).
 4. **Werkzeug-Seitenleiste** links: alle Zeichenwerkzeuge, ab Werk als Liste mit Symbol,

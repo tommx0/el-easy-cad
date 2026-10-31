@@ -1,5 +1,27 @@
 # Oberfläche anpassen
 
+## Das Menü {#menue}
+
+Jeder Titel der Menüleiste öffnet eine Fläche mit Spalten nach Thema – unter **Blatt** etwa
+Blatt, Nullpunkt und Hintergrund. Befehle stehen darin als **Kacheln** mit Symbol und kurzem
+Namen; den vollen Namen und das Tastenkürzel zeigt der Tooltip, das Kürzel steht außerdem klein in
+der Ecke. Umschalter wie Raster, Fang oder die Beschriftungen stehen als **Kästchen**: Ein Klick
+setzt oder löscht den Haken, und das Menü bleibt offen. **Alle an** und **Alle aus** über einer
+Spalte schalten alles darin auf einmal – die Blatt-Schalter mit einem einzigen Rückgängig-Schritt.
+
+Jeder Befehl hat genau einen Platz im Menü. Werkzeuge, die die Zeichnungsart nicht kennt – Wände
+im Schaltplan, Schaltverbindungen im Bauplan –, fehlen ganz; was gerade nicht geht (Einfügen ohne
+Zwischenablage), ist ausgegraut. Mit den Pfeiltasten wandern Sie durch die Einträge, **Enter**
+führt aus, **Esc** schließt.
+
+## Befehl suchen {#befehlssuche}
+
+Rechts neben den Menütiteln steht das Feld **Befehl suchen**; {{befehl:hilfe.befehlssuche}} setzt
+den Cursor hinein. Schon beim Tippen erscheinen bis zu zwölf passende Befehle mit dem Ort, an dem
+sie im Menü stehen („Blatt › Hintergrund“), und ihrem Kürzel. Gesucht wird im Namen und im Menüort,
+Groß- und Kleinschreibung zählt nicht, Umlaute dürfen ausgeschrieben werden („loeschen“). Mit den
+Pfeiltasten wählen Sie, **Enter** führt aus, **Esc** leert das Feld.
+
 ## Symbolleiste {#symbolleiste-anpassen}
 
 Die Symbolleiste unter dem Menü enthält die Befehle, die Sie am häufigsten brauchen.

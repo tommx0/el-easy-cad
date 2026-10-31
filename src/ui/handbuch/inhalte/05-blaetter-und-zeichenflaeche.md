@@ -253,7 +253,8 @@ Die Ebene eines vorhandenen Objekts ändern Sie im Eigenschaften-Panel.
 
 ## Was auf dem Blatt beschriftet wird {#beschriftungen}
 
-Unter **Blatt › Beschriftungen anzeigen** schalten Sie einzeln um, was an den Objekten steht.
+Unter **Ansicht › Anzeigen** schalten Sie einzeln um, was an den Objekten steht – mit Kästchen,
+das Menü bleibt dabei offen; **Alle an** und **Alle aus** schalten alles auf einmal.
 Alle diese Schalter stehen auch im Aufklappmenü **Sichtbarkeit** der Symbolleiste – im Schaltplan
 also auch die automatischen Beschriftungen: Potentialnamen, Kennzeichen und die Abgänge aus dem
 Bauplan. Ganz oben stehen dort außerdem {{befehl:ansicht.hintergrund}} und {{befehl:ansicht.raster}}.
@@ -279,7 +280,7 @@ sich auch einzeln in die [Symbolleiste](#symbolleiste-anpassen) legen.
 | {{befehl:blatt.anzeige-stromkreis}} | Nur im Bauplan: den [Stromkreis](#stromkreis-zuordnung) aus dem Verteiler, „UV1-F4 / X6“ |
 | {{befehl:blatt.anzeige-stromkreis-schild}} | Nur im Bauplan: den Stromkreis am Leitungsschild, „12 → UV1-X6 (F4)“ |
 
-Ganze Objektarten blenden Sie im Menü **Blatt** direkt darunter aus: {{befehl:blatt.anzeige-leitungen}}
+Ganze Objektarten blenden Sie in derselben Spalte aus: {{befehl:blatt.anzeige-leitungen}}
 und {{befehl:blatt.anzeige-trunks}} verbergen alle Leitungen bzw. Trunks des Blatts samt ihren
 Nummern. Ausgeblendet sind sie wie auf einer ausgeblendeten Ebene weder zu sehen noch zu drucken
 noch anzuklicken – in Leitungsliste, Stückliste und Leitungslängen zählen sie weiter mit. Beide

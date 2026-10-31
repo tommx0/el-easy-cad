@@ -54,9 +54,13 @@ Raum. Gefangen wird an gezeichneten Wänden – auch an übernommenen und umgewa
 geraden Linien eines Hintergrundplans, solange der [Fang auf den Hintergrund](#hintergrundfang)
 eingeschaltet ist. In Tür- und Fensteröffnungen fängt nichts.
 
-- **Kombination:** Liegt an der Stelle schon eine Komponente in derselben Installationshöhe,
-  setzt sich die neue daneben, an das Ende, das dem Zeiger näher liegt. Höchstens **fünf**
-  bilden eine Kombination. Die sechste beginnt direkt daneben eine neue Kombination.
+- **Kombination:** Legen Sie die neue Komponente auf eine vorhandene – sobald sich die beiden
+  Symbole überdecken –, setzt sie sich in derselben Installationshöhe daneben, an das Ende, das
+  dem Zeiger näher liegt. Höchstens **fünf** bilden eine Kombination. Die sechste beginnt direkt
+  daneben eine neue Kombination.
+- **Nebeneinander ohne Kombination:** Überdecken sich die Symbole nicht, bleibt die neue
+  Komponente eine eigene Stelle an der Wand – auch dann, wenn sie bündig an der vorhandenen
+  anliegt. So setzen Sie etwa zwei einzelne Steckdosen dicht nebeneinander.
 - **Andere Höhe:** Jede Höhe bildet an derselben Stelle eine eigene **Reihe** parallel zur Wand.
   Die höchste liegt direkt an der Wand, davor die übrigen absteigend nach ihrer Höhe.
 - **Größe:** In einer Kombination erscheinen Symbole kleiner, damit auch fünf nebeneinander
@@ -120,9 +124,13 @@ Leitungen kommen an einer Komponente an der Wand von der Wandseite – siehe
 [Komponenten an der Wand](#leitung-an-der-wand).
 
 Ein **Modulträger** (System 106) fängt ebenfalls an der Wand, nimmt aber keine weiteren
-Komponenten neben sich in seine Kombination auf. Andere setzen sich daneben. Genauso verhalten sich
-Komponenten, bei denen im Katalog **Darf Teil einer Kombination sein** abgeschaltet ist
-([Produktkatalog](#dockpunkte-grafisch)) – sie bleiben dabei in normaler Größe.
+Komponenten neben sich in seine Kombination auf. Genauso verhalten sich Komponenten, bei denen im
+Katalog **Darf Teil einer Kombination sein** abgeschaltet ist
+([Produktkatalog](#dockpunkte-grafisch)), etwa die Wandleuchte – sie bleiben dabei in normaler
+Größe. In einer **anderen Höhe** dürfen sie trotzdem an derselben Stelle sitzen: Legen Sie eine
+Wandleuchte auf eine Steckdosenkombination, bildet sie dort ihre eigene Reihe in ihrer Höhe und
+behält diese; umgekehrt kommen Steckdosen, die Sie auf die Wandleuchte legen, in eine Reihe davor.
+In **derselben Höhe** setzt sich die neue Komponente als eigene Stelle daneben.
 
 {{befehl:ansicht.wandfang}} schaltet den Wandfang ab und wieder ein (ab Werk an). In der
 3D-Ansicht und im IFC-Export sitzen alle Geräte einer Stelle auf der Wandoberfläche. Die Reihen

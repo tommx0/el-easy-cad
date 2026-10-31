@@ -181,7 +181,9 @@ export const ki = {
       blattId: 'Nur für punkt und netzfeld; sonst aus Raum bzw. Wand.',
       netzfeld: 'Nur Schaltplan: Feld des Netzes A–H/1–6, z. B. "C3".',
       raumMitte: 'Raum-Id aus raeume_lesen.',
-      abstandM: 'Ab dem ersten Punkt der Wand, in m.',
+      abstandM:
+        'Ab dem ersten Punkt der Wand, in m. Eine Kombination entsteht nur, wenn sich das Symbol ' +
+        'mit einem vorhandenen überdeckt (gleicher Abstand); bündig daneben bleibt es eine eigene Stelle.',
       raumId: 'Raum, auf dessen Seite die Komponente sitzt.',
       seite: 'Ohne raumId: links/rechts der Wandrichtung (erster -> zweiter Punkt).',
       hoeheM: 'Installationshöhe; ohne Angabe die Standardhöhe des Gerätetyps.',

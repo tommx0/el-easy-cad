@@ -381,7 +381,13 @@ function legeStelleAus(
     }
     for (const g of zuzug) {
       const letzte = kombis[kombis.length - 1]
-      if (!letzte || letzte.length >= KOMBINATION_MAX || stehtAllein(g)) kombis.push([g])
+      if (
+        !letzte ||
+        letzte.length >= KOMBINATION_MAX ||
+        stehtAllein(g) ||
+        letzte.some((x) => stehtAllein(x))
+      )
+        kombis.push([g])
       else letzte.push(g)
     }
     const reihenStart =
@@ -545,7 +551,7 @@ export function ordneAnWandEin(
   zeichnung: Zeichnung,
   drehungSchritte = schritteVon(komponente),
 ): WandEinordnung {
-  const zielCm = treffer.kombinationHoeheCm
+  const zielCm = stehtAllein(komponente) ? undefined : treffer.kombinationHoeheCm
   const k0 = verkleinert(
     zielCm !== undefined && hoeheCm(komponente, zeichnung) !== zielCm
       ? aufReihe(komponente, zielCm)
@@ -587,7 +593,7 @@ export function ordneAnWandEin(
     )
     const spanne = spanneVon(stelle, glieder)
     const abstand = s < spanne.von ? spanne.von - s : s > spanne.bis ? s - spanne.bis : 0
-    if (abstand <= w && abstand < zielAbstand) {
+    if (abstand < w / 2 - EPS && abstand < zielAbstand) {
       ziel = { stelle, glieder, s, spanne }
       zielAbstand = abstand
     }
@@ -610,9 +616,10 @@ export function ordneAnWandEin(
     kombination: { nr: 0, platz: 0, hoeheCm: cm, reihenStart: reihenStartAbFuss, ...mit(eigene) },
   })
 
+  const belegteReihe = ziel?.glieder.filter((g) => hoeheCm(g, zeichnung) === cm) ?? []
   if (!ziel) {
     eingeordnet = neueStelle(-w / 2)
-  } else if (traeger || ziel.glieder.some((g) => stehtAllein(g))) {
+  } else if (belegteReihe.length > 0 && (traeger || belegteReihe.some((g) => stehtAllein(g)))) {
     const mitte = (ziel.spanne.von + ziel.spanne.bis) / 2
     const luecke = w / 2
     const start =
@@ -913,7 +920,7 @@ export function findeKombinationUnter(
   let bester: WandflaechenTreffer | null = null
   for (const o of objekte) {
     if (o.type !== 'komponente' || !o.wandstelle || !o.kombination || ohne.has(o.id)) continue
-    if (stehtAllein(o)) continue
+    const allein = stehtAllein(o)
     const stelle = o.wandstelle
     const u = einheit(stelle.richtung)
     const n = links(u)
@@ -932,8 +939,8 @@ export function findeKombinationUnter(
       fusspunkt: { x: stelle.punkt.x + u.x * s, y: stelle.punkt.y + u.y * s },
       richtung: stelle.richtung,
       abstand,
-      kombinationHoeheCm: o.kombination.hoeheCm,
-      ...(abstand === 0 ? { komponenteId: o.id } : {}),
+      ...(allein ? {} : { kombinationHoeheCm: o.kombination.hoeheCm }),
+      ...(abstand === 0 && !allein ? { komponenteId: o.id } : {}),
     }
   }
   return bester

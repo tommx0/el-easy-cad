@@ -73,6 +73,20 @@ export function zeichnePlankopf(
         const hoehe = image.naturalHeight * skala
         ctx.drawImage(image, x + innenRand, bildBereichY + (bildHoehe - hoehe) / 2, breite, hoehe)
       }
+    } else if (zelle.teile) {
+      const wertPx = view.laengeToScreen(plankopfWertHoehe(zelle.hoehe, modell))
+      ctx.font = `${wertPx}px sans-serif`
+      let tx = x + innenRand
+      const ende = x + innenRand + nutzBreite
+      for (const teil of zelle.teile) {
+        if (tx >= ende) break
+        const text = kuerzeAufBreite(ctx, teil.text, ende - tx)
+        ctx.fillStyle = teil.farbe ?? farbe
+        ctx.fillText(text, tx, y + zellenHoehe - innenRand)
+        tx += ctx.measureText(text).width
+        if (text !== teil.text) break
+      }
+      ctx.fillStyle = farbe
     } else if (zelle.text) {
       const wertPx = view.laengeToScreen(plankopfWertHoehe(zelle.hoehe, modell))
       ctx.font = `${wertPx}px sans-serif`

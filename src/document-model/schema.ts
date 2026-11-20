@@ -763,6 +763,7 @@ const plankopfZelleSchema = z.object({
     .nullable(),
   spanne: z.number().positive(),
   logo: z.object({ assetId: z.string(), dateiname: z.string() }).nullable().default(null),
+  teile: z.array(z.object({ text: z.string(), farbe: z.string().optional() })).optional(),
 })
 
 const plankopfObjektSchema = z.object({

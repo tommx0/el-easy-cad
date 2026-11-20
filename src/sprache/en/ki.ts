@@ -274,7 +274,7 @@ export const ki: Texte['ki'] = {
         'fuellung. rechteck: von, bis (opposite corners), fuellung. kreis: mittelpunkt, radius, ' +
         'fuellung. text: position (baseline), inhalt, hoehe (text height in m), ausrichtung ' +
         '(links/mittig/rechts), drehungGrad (to rotate, in degrees). plankopf: position (top ' +
-        'left corner), breiteMm, zeilen with hoeheMm and zellen (beschriftung, wert, spanne). For ' +
+        'left corner), breiteMm, zeilen with hoeheMm and zellen (beschriftung, wert or teile with text and farbe, spanne). For ' +
         'all: farbe ("#00a000"), strichstaerke, linientyp, ebene (layer name; created if ' +
         'missing), modulDaten. fuellung (fill): farbe, deckkraft (opacity 0..1), schraffur ' +
         '(hatching: diagonal/kreuz/horizontal/vertikal), abstandM.',

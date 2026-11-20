@@ -248,7 +248,7 @@ export const ki = {
         '(gegenüberliegende Ecken), fuellung. kreis: mittelpunkt, radius, fuellung. text: ' +
         'position (Unterkante), inhalt, hoehe (Schrifthöhe in m), ausrichtung ' +
         '(links/mittig/rechts), drehungGrad. plankopf: position (obere linke Ecke), breiteMm, ' +
-        'zeilen mit hoeheMm und zellen (beschriftung, wert, spanne). Für alle: farbe ("#00a000"), ' +
+        'zeilen mit hoeheMm und zellen (beschriftung, wert oder teile mit text und farbe, spanne). Für alle: farbe ("#00a000"), ' +
         'strichstaerke, linientyp, ebene (Name; fehlt sie, wird sie angelegt), modulDaten. ' +
         'fuellung: farbe, deckkraft 0..1, schraffur (diagonal/kreuz/horizontal/vertikal), abstandM.',
     },

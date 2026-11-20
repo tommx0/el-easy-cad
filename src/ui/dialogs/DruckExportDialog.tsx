@@ -14,9 +14,8 @@ import {
   druckeSeiten,
   exportiereAlsPdf,
 } from '../../druck'
-import { assetUrl, oeffneDruckdialog, speichereDatei } from '../../persistence'
-import { holeAbgangsTexte, holeKnxBeschriftungen } from '../../rendering'
-import { bauplanZeichnungen, verteilerplanZeichnungen } from '../verknuepfung'
+import { oeffneDruckdialog, speichereDatei } from '../../persistence'
+import { druckKontextFuer } from '../druck-kontext'
 import { useAppContext, useProject } from '../use-app-context'
 import { useKatalogStore } from '../store/katalog-store'
 import type { DruckExportModus } from '../store/ui-store'
@@ -26,7 +25,6 @@ import { erzeugeUebersetzer } from '../../sprache'
 import type { Schluessel, Uebersetzer } from '../../sprache'
 import { planspracheVon } from '../../document-model'
 import { ausgabeZeile, hinweisAktiv } from '../community'
-import { leitungsverlegungAusFuer } from '../leitungsverlegung'
 import { useT } from '../sprache-anbindung'
 import { befehlName, gruppenName } from '../befehle/katalog'
 
@@ -122,18 +120,11 @@ export function DruckExportDialog() {
     }
     setLaeuft(true)
     try {
-      const verknuepfteBauplaene = bauplanZeichnungen(verknuepfung.getStand())
-      const abgangsTexte = holeAbgangsTexte(zeichnung, verknuepfteBauplaene, katalogKomponenten)
-      const kontext = {
+      const kontext = druckKontextFuer(zeichnung, {
         katalogKomponenten,
         catalogStore,
-        assetQuelle: assetUrl,
-        abgangsTexte,
-        knxBeschriftungen: holeKnxBeschriftungen(zeichnung, verknuepfteBauplaene),
-        verknuepfteBauplaene,
-        verknuepfteVerteilerplaene: verteilerplanZeichnungen(verknuepfung.getStand()),
-        leitungsverlegungAus: leitungsverlegungAusFuer(zeichnung),
-      }
+        verknuepfung,
+      })
       const blattIds = ausgewaehlteBlaetter.map((b) => b.id)
       if (aktion === 'export') {
         const blob = await exportiereAlsPdf(

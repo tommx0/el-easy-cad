@@ -1,6 +1,6 @@
 import type { BoundingBox, Point } from './geometry'
 import { boundingBoxFromPoints, rotatePoint, unionBoundingBox } from './geometry'
-import type { Objekt } from './objekte'
+import { textAusrichtungsAnteil, type Objekt } from './objekte'
 
 export interface TransformRahmen {
   zentrum: Point
@@ -73,11 +73,12 @@ export function objektRahmen(objekt: Objekt): TransformRahmen | null {
       }
     case 'text': {
       const breite = objekt.inhalt.length * objekt.hoehe * 0.6
+      const links = -textAusrichtungsAnteil(objekt.ausrichtung) * breite
       return {
         zentrum: objekt.position,
         drehung: objekt.drehung,
-        lokalMin: { x: 0, y: 0 },
-        lokalMax: { x: breite, y: objekt.hoehe },
+        lokalMin: { x: links, y: 0 },
+        lokalMax: { x: links + breite, y: objekt.hoehe },
       }
     }
     case 'komponente': {

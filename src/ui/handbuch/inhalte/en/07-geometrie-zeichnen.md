@@ -51,3 +51,8 @@ In the properties panel, set **Colour** and **Line weight** for the selected obj
 polylines, rectangles, circles, arcs, ellipses, polygons, walls, stairs, floor slabs and wires also
 have a **Line type**: Default (solid), Dashed, Dotted or Dash-dot. New objects always start with
 the default values; you can change them afterwards, including for several selected objects at once.
+
+Under **Arrow**, lines and open polylines can get a filled arrowhead at the start, at the end or
+at both ends. The arrowhead takes the colour of the line, grows with the line weight and stays
+solid even on a dashed line – useful for drawing routes with a direction. It moves along when you
+move the points.

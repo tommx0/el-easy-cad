@@ -235,6 +235,37 @@ export class DokumentSitzung {
     })
   }
 
+  async zeichnungenImProjekt(): Promise<DokumentMeta[]> {
+    if (!this.offen) throw new Error(t('aktionen.zusatzmodule.ohneProjekt'))
+    const liste = await this.dokumente.liste(this.offen.projektId)
+    return liste.filter((d) => d.typ === 'zeichnung')
+  }
+
+  async liesZeichnung(dokumentId: string): Promise<Zeichnung> {
+    if (this.offen?.dokumentId === dokumentId) return this.doc.getZeichnung()
+    const dokument = await this.dokumente.hole(dokumentId)
+    if (!dokument || dokument.typ !== 'zeichnung' || !dokument.inhalt.inhalt) {
+      throw new Error(t('aktionen.zusatzmodule.zeichnungFehlt'))
+    }
+    return deserialisiereZeichnung(dokument.inhalt.inhalt)
+  }
+
+  async schreibeZeichnung(dokumentId: string, zeichnung: Zeichnung): Promise<void> {
+    if (this.offen?.dokumentId === dokumentId) {
+      throw new Error(t('aktionen.zusatzmodule.zeichnungOffen'))
+    }
+    const dokument = await this.dokumente.hole(dokumentId)
+    if (!dokument || dokument.typ !== 'zeichnung') {
+      throw new Error(t('aktionen.zusatzmodule.zeichnungFehlt'))
+    }
+    await this.dokumente.speichereInhalt(dokumentId, {
+      formatVersion: FORMAT_VERSION,
+      version: dokument.inhalt.version,
+      inhalt: serialisiereZeichnung(zeichnung),
+      assetId: null,
+    })
+  }
+
   benenneUm(name: string) {
     if (!this.offen) return
     this.offen = { ...this.offen, name }

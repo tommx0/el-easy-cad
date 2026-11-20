@@ -2,6 +2,7 @@ import type * as React from 'react'
 import type * as ReactDOM from 'react-dom/client'
 import type * as DocumentModel from '../../document-model'
 import type { KiInhalt } from '../../document-model'
+import type { Grundform, GrundformMitId } from '../../document-model/grundform'
 import type * as Rendering from '../../rendering'
 import type { Sprache } from '../../sprache'
 import type * as SpracheModul from '../../sprache'
@@ -38,6 +39,19 @@ export interface Eec {
       vorschlagName: string,
       typ: ZusatzmodulDateiTyp,
     ): Promise<boolean>
+    pdfSpeichern(
+      quelle: { dokumentId?: string; blattIds?: string[] },
+      vorschlagName: string,
+    ): Promise<boolean>
+  }
+
+  readonly dokumente: {
+    liste(): Promise<ZusatzmodulDokument[]>
+    zeichnungLesen(dokumentId: string): Promise<ZusatzmodulZeichnung>
+    zeichnungSchreiben(
+      zeichnung: ZusatzmodulZeichnung,
+      optionen?: { dokumentId?: string; behalteFremdes?: boolean },
+    ): Promise<ZusatzmodulDokument>
   }
 
   readonly modul: {
@@ -84,6 +98,31 @@ export interface EecIntern {
     aktiviere(id: string): void
     entferne(id: string): void
   }
+}
+
+export interface ZusatzmodulDokument {
+  id: string
+  name: string
+  zeichnungsart: 'bauplan' | 'schaltplan'
+  offen: boolean
+}
+
+export interface ZusatzmodulZeichnung {
+  name: string
+  modulDaten?: unknown
+  blaetter: ZusatzmodulBlatt[]
+}
+
+export interface ZusatzmodulBlatt {
+  id?: string
+  name: string
+  zeichenflaeche?: {
+    papierformat: 'A4' | 'A3' | 'A2' | 'A1' | 'A0'
+    ausrichtung: 'hoch' | 'quer'
+    massstab: number
+    ursprung?: ZusatzmodulPunkt
+  }
+  objekte: (Grundform | GrundformMitId)[]
 }
 
 export interface ZusatzmodulPunkt {
@@ -200,4 +239,4 @@ export class ZusatzmodulAbbruch extends Error {
   }
 }
 
-export type { KiInhalt }
+export type { KiInhalt, Grundform, GrundformMitId }

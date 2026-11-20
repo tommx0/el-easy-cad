@@ -29,8 +29,10 @@ export const ki = {
       titel: 'Dokument im Überblick',
       beschreibung:
         'Das in el.esy.CAD offene Dokument: Projekt, Zeichnungsart (Bauplan oder Schaltplan), ' +
-        'Blätter mit Id, Etage, Maßstab, Nullpunkt und Anzahl der Objekte je Typ, dazu das aktive ' +
-        'Blatt. Zuerst aufrufen - die Blatt-Ids braucht jedes andere Werkzeug.',
+        'Blätter mit Id, Etage, Maßstab, Nullpunkt samt Richtung und Ausrichtungsstand, ' +
+        'Zeichenfläche (Rahmen in Metern ab Nullpunkt, Überstand des Inhalts je Seite) und Anzahl ' +
+        'der Objekte je Typ, dazu das aktive Blatt. Zuerst aufrufen - die Blatt-Ids braucht jedes ' +
+        'andere Werkzeug.',
     },
     blattLesen: {
       titel: 'Blatt lesen',
@@ -58,6 +60,19 @@ export const ki = {
         'mitIds - für objekt_lesen oder eine gezielte Frage zu einzelnen Komponenten.',
       alleBlaetter: 'Räume aller Blätter statt nur eines.',
       mitIds: 'Je Katalogeintrag auch die Ids der Komponenten (Vorgabe: nein).',
+    },
+    laufwegSuchen: {
+      titel: 'Laufweg suchen',
+      beschreibung:
+        'Kürzester Weg für Personen auf einem Blatt von start nach ziel: durch Räume, Türen und ' +
+        'Wanddurchbrüche, nicht durch Wände oder Fenster, mit Abstand zu den Wänden (Flurmitte). ' +
+        'Liefert die Eckpunkte in Metern und die Länge. Ändert nichts - zeichnen z. B. mit ' +
+        'grundform_zeichnen als Polylinie mit pfeil. Über mehrere Geschosse: je Blatt bis zur ' +
+        'bzw. ab der Treppe suchen.',
+      start: 'Startpunkt in Metern ab Nullpunkt; darf an einer Wand liegen (z. B. die BMZ).',
+      ziel: 'Zielpunkt in Metern ab Nullpunkt.',
+      freiraumM:
+        'Mindestabstand zur Wand in Metern (Vorgabe 0,2) - kleiner als die halbe Türbreite.',
     },
     katalogSuchen: {
       titel: 'Katalog durchsuchen',
@@ -104,16 +119,21 @@ export const ki = {
         '(AP/UP) nicht zur angeschlossenen Komponente passt, und Komponenten bis 30 cm neben ' +
         'einem Raum, die deshalb zu keinem Raum gehören (meist in der Wand gelandet). Im ' +
         'Schaltplan zusätzlich: Schaltverbindungen mit freiem Ende, Netze mit zwei verschiedenen ' +
-        'Potentialen, doppelte Gerätekennzeichen und Bauteile außerhalb des Netzes A–H/1–6.',
+        'Potentialen, doppelte Gerätekennzeichen und Bauteile außerhalb des Netzes A–H/1–6. Im ' +
+        'Bauplan: Blätter, die nicht deckungsgleich übereinanderliegen (verschiedene Nullpunkte), ' +
+        'und Inhalt, der über die Zeichenfläche ragt.',
       blattId: 'Nur dieses Blatt. Ohne Angabe: alle Blätter.',
     },
     bildschirmfoto: {
       titel: 'Bildschirmfoto',
       beschreibung:
         'Ein Bild (PNG) eines Blatts mit derselben Darstellung wie im Druck - ohne Bereich der ' +
-        'ganze Inhalt des Blatts, mit Bereich nur dieser Ausschnitt. Zur Kontrolle von Lage und ' +
-        'Anordnung.',
+        'ganze Inhalt des Blatts, mit Bereich nur dieser Ausschnitt, mit ausschnitt ' +
+        '"zeichenflaeche" genau der Druckbereich (was darüber hinausragt, fehlt im Druck). Zur ' +
+        'Kontrolle von Lage und Anordnung.',
       maxKantePx: 'Längere Bildkante in Pixeln (Vorgabe 1568).',
+      ausschnitt:
+        '"zeichenflaeche": genau die Zeichenfläche des Blatts. Nicht zusammen mit bereich.',
     },
     eigenschaftenSetzen: {
       titel: 'Eigenschaften setzen',
@@ -175,6 +195,62 @@ export const ki = {
         'Legt ein leeres Blatt an - hinter dem genannten oder am Ende. Die Ansicht des Anwenders ' +
         'wechselt nicht; die Zeichenfläche richtet er selbst ein.',
       nachBlattId: 'Das neue Blatt kommt dahinter.',
+    },
+    blaetterAusrichten: {
+      titel: 'Blätter ausrichten',
+      beschreibung:
+        'Wie „Blätter am Nullpunkt ausrichten“: dreht jedes Blatt so, dass die Kante am Nullpunkt ' +
+        'waagerecht liegt, und verschiebt es samt Hintergrund und allem Gezeichneten, bis der ' +
+        'Nullpunkt bei 0,0 sitzt. Danach liegen die Etagen deckungsgleich übereinander (Treppe ' +
+        'von unten, Kabelschacht, 3D). Braucht je Blatt Nullpunkt und Richtung ' +
+        '(dokument_uebersicht, ausrichtung "bereit"); andere Blätter werden mit Grund übersprungen. ' +
+        'Die Antwort nennt Blätter, deren Inhalt danach über die Zeichenfläche ragt.',
+      blattIds: 'Nur diese Blätter. Ohne Angabe: alle, die bereit sind.',
+    },
+    zeichenflaecheSetzen: {
+      titel: 'Zeichenfläche setzen',
+      beschreibung:
+        'Legt die Zeichenfläche (Druckbereich) eines Blatts neu: höchstens eine Lage - versatz, ' +
+        'ursprung oder mittig -, dazu wahlweise papierformat, ausrichtung und massstab oder ' +
+        'einpassen. Ohne Lage bleibt die linke untere Ecke. Hat das Blatt noch keine Zeichenfläche, ' +
+        'entsteht eine, eingepasst und mittig über den Inhalt. Plan-Einlagen bleiben liegen. Nicht ' +
+        'im Schaltplan (dort ist die Zeichenfläche fest).',
+      versatz: 'Verschieben um dx, dy in Metern.',
+      ursprung: 'Linke untere Ecke in Metern ab Nullpunkt.',
+      mittig: 'Mittig über den Inhalt (Hintergrund und Objekte).',
+      papierformat: 'A4, A3, A2, A1 oder A0.',
+      ausrichtung: 'hoch oder quer.',
+      massstab: 'Maßstabszahl, z. B. 50 für 1:50.',
+      einpassen: 'Maßstab so wählen, dass der Inhalt passt (wie „Einmalig einpassen“).',
+    },
+    nullpunktSetzen: {
+      titel: 'Nullpunkt setzen',
+      beschreibung:
+        'Setzt den Nullpunkt eines Blatts an eine Gebäudeecke, wahlweise mit der Richtung einer ' +
+        'Gebäudekante - Voraussetzung für blaetter_ausrichten. Vorher dem Anwender sagen, welche ' +
+        'Ecke und welche Kante gemeint sind, und auf jeder Etage dieselbe nehmen. Danach zählen ' +
+        'alle Koordinaten dieses Blatts ab dem neuen Punkt.',
+      punkt: 'Neuer Nullpunkt in Metern ab dem bisherigen Nullpunkt.',
+      richtungGrad:
+        'Richtung der Kante in Grad gegen den Uhrzeigersinn, 0 = nach rechts. Ohne Angabe keine ' +
+        'Richtung (dann kann das Blatt nicht ausgerichtet werden).',
+    },
+    grundformZeichnen: {
+      titel: 'Grundformen zeichnen',
+      beschreibung:
+        'Zeichnet Linien, Polylinien, Rechtecke, Kreise, Texte und Plankoepfe in einem Schritt ' +
+        '(höchstens 2000) - etwa Symbole, Laufwege, Schraffuren oder Tabellen aus Linien und ' +
+        'Texten. Liefert die Ids in der Reihenfolge der Eingabe.',
+      objekte:
+        'Je Objekt "art" (linie, polylinie, rechteck, kreis, text, plankopf) mit ihren Feldern, ' +
+        'alle Koordinaten in Metern ab Nullpunkt. linie: von, bis, pfeil (anfang/ende/beide). ' +
+        'polylinie: punkte, geschlossen, pfeil (nur offen), fuellung. rechteck: von, bis ' +
+        '(gegenüberliegende Ecken), fuellung. kreis: mittelpunkt, radius, fuellung. text: ' +
+        'position (Unterkante), inhalt, hoehe (Schrifthöhe in m), ausrichtung ' +
+        '(links/mittig/rechts), drehungGrad. plankopf: position (obere linke Ecke), breiteMm, ' +
+        'zeilen mit hoeheMm und zellen (beschriftung, wert, spanne). Für alle: farbe ("#00a000"), ' +
+        'strichstaerke, linientyp, ebene (Name; fehlt sie, wird sie angelegt), modulDaten. ' +
+        'fuellung: farbe, deckkraft 0..1, schraffur (diagonal/kreuz/horizontal/vertikal), abstandM.',
     },
     komponenteSetzen: {
       titel: 'Komponenten setzen',

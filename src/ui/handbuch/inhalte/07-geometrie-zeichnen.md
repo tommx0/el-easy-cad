@@ -52,3 +52,8 @@ ein. Linien, Polylinien, Rechtecke, Kreise, Bögen, Ellipsen, Polygone, Wände, 
 Bodenplatten und Schaltverbindungen haben zusätzlich einen **Linientyp**: Standard
 (durchgezogen), Gestrichelt, Gepunktet oder Strich-Punkt. Neue Objekte beginnen immer mit den
 Standardwerten; ändern Sie sie danach, gern für mehrere ausgewählte Objekte auf einmal.
+
+Linien und offene Polylinien bekommen unter **Pfeil** auf Wunsch eine gefüllte Pfeilspitze: am
+Anfang, am Ende oder an beiden Enden. Die Spitze hat die Farbe der Linie, wächst mit der
+Strichstärke und bleibt auch an einer gestrichelten Linie durchgezogen – so lassen sich etwa
+Laufwege mit Richtung zeichnen. Beim Verschieben der Punkte wandert sie mit.

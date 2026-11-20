@@ -5,6 +5,7 @@ import {
   type KiAufruf,
   type ZusatzmodulEintrag,
   type ZusatzmodulManifest,
+  type Zeichnung,
 } from '../../document-model'
 import {
   entferneZusatzmodul,
@@ -30,12 +31,14 @@ import {
   type ZusatzmodulBefehle,
   type ZusatzmodulBereich,
   type ZusatzmodulDateiTyp,
+  type ZusatzmodulDokument,
   type ZusatzmodulFeldWert,
   type ZusatzmodulFormular,
   type ZusatzmodulPanel,
   type ZusatzmodulPanelGriff,
   type ZusatzmodulPunkt,
 } from './schnittstelle'
+import { baueZeichnung, leseZeichnung } from './dokumente'
 
 export interface WirtServer {
   lade(): Promise<ZusatzmodulEintrag[]>
@@ -113,6 +116,12 @@ export interface WirtTeile {
   nachBestand?(eintraege: readonly ZusatzmodulEintrag[]): void
   kiSchreibsperre?(): string | null
   meldeKiAenderung?(text: string): void
+  dokumente?: {
+    liste(): Promise<ZusatzmodulDokument[]>
+    lies(dokumentId: string): Promise<Zeichnung>
+    schreibe(dokumentId: string | null, zeichnung: Zeichnung): Promise<ZusatzmodulDokument>
+  }
+  pdf?(zeichnung: Zeichnung | null, blattIds: string[] | undefined): Promise<Blob | null>
   server?: WirtServer
 }
 
@@ -577,6 +586,10 @@ export class ZusatzmodulWirt {
     }
     const naechsteAufrufId = () => `modul-${++this.aufrufe}`
     const texte = () => useZusatzmodulStore.getState().texte[kennung]
+    const dokumenteTeil = () => {
+      if (!teile.dokumente) throw new Error(t('aktionen.zusatzmodule.ohneProjekt'))
+      return teile.dokumente
+    }
     const werkzeugId = (id: string) =>
       id.startsWith(`modul.${kennung}.`) ? id : `modul.${kennung}.${id}`
 
@@ -683,6 +696,21 @@ export class ZusatzmodulWirt {
           wirt.merke(kennung, () => griff.entferne())
           return griff
         },
+        async pdfSpeichern(quelle, vorschlagName) {
+          wirt.pruefeAbbruch(kennung)
+          if (wirt.ki()) return false
+          if (!teile.pdf) throw new Error(t('aktionen.zusatzmodule.ohneProjekt'))
+          const zeichnung = quelle.dokumentId ? await dokumenteTeil().lies(quelle.dokumentId) : null
+          const blob = await teile.pdf(zeichnung, quelle.blattIds)
+          wirt.pruefeAbbruch(kennung)
+          if (!blob) throw new Error(t('aktionen.zusatzmodule.keinDruckbaresBlatt'))
+          const gespeichert = await teile.speichere(blob, vorschlagName, {
+            beschreibung: t('aktionen.zusatzmodule.pdfDokument'),
+            erweiterungen: ['pdf'],
+          })
+          wirt.pruefeAbbruch(kennung)
+          return gespeichert
+        },
         async speichern(inhalt, vorschlagName, typ: ZusatzmodulDateiTyp) {
           wirt.pruefeAbbruch(kennung)
           if (wirt.ki()) return false
@@ -723,6 +751,27 @@ export class ZusatzmodulWirt {
         zeichnungSchreiben(wert) {
           wirt.pruefeAbbruch(kennung)
           teile.commands.execute(teile.zeichnungsModulDatenCommand(kennung, wert, manifest.name))
+        },
+      },
+
+      dokumente: {
+        liste: () => dokumenteTeil().liste(),
+        async zeichnungLesen(dokumentId) {
+          wirt.pruefeAbbruch(kennung)
+          return leseZeichnung(await dokumenteTeil().lies(dokumentId), kennung)
+        },
+        async zeichnungSchreiben(aufbau, optionen = {}) {
+          wirt.pruefeAbbruch(kennung)
+          const sperre = wirt.ki() ? teile.kiSchreibsperre?.() : null
+          if (sperre) throw new Error(sperre)
+          const teil = dokumenteTeil()
+          const alt = optionen.dokumentId ? await teil.lies(optionen.dokumentId) : null
+          const zeichnung = baueZeichnung(aufbau, kennung, alt, {
+            behalteFremdes: optionen.behalteFremdes,
+            plansprache: teile.plansprache(),
+          })
+          wirt.pruefeAbbruch(kennung)
+          return teil.schreibe(optionen.dokumentId ?? null, zeichnung)
         },
       },
 

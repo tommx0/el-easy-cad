@@ -1,6 +1,32 @@
-import { nullpunktVon, zeichnungsartName } from '../../document-model'
+import type { Blatt, ZeichenflaecheUeberstand } from '../../document-model'
+import {
+  ausrichtungsStand,
+  nullpunktVon,
+  zeichenflaecheBoundingBox,
+  zeichenflaecheUeberstand,
+  zeichnungsartName,
+} from '../../document-model'
 import type { KiErgebnis, KiKontext } from './kontext'
-import { runde, sichtbarFuerKi } from './kontext'
+import { runde, sichtbarFuerKi, zuBlatt } from './kontext'
+
+export function ueberstandGerundet(
+  ueberstand: ZeichenflaecheUeberstand | null,
+): ZeichenflaecheUeberstand | undefined {
+  if (!ueberstand) return undefined
+  return Object.fromEntries(
+    Object.entries(ueberstand).map(([seite, wert]) => [seite, runde(wert)]),
+  ) as ZeichenflaecheUeberstand
+}
+
+export function zeichenflaecheFuerKi(blatt: Blatt) {
+  if (!blatt.zeichenflaeche) return undefined
+  const rahmen = zeichenflaecheBoundingBox(blatt.zeichenflaeche)
+  const ueberstandM = ueberstandGerundet(zeichenflaecheUeberstand(blatt))
+  return {
+    rahmen: { min: zuBlatt(rahmen.min, blatt), max: zuBlatt(rahmen.max, blatt) },
+    ...(ueberstandM ? { ueberstandM } : {}),
+  }
+}
 
 export function dokumentUebersicht(_eingabe: unknown, kontext: KiKontext): KiErgebnis {
   const zeichnung = kontext.doc.getZeichnung()
@@ -34,6 +60,11 @@ export function dokumentUebersicht(_eingabe: unknown, kontext: KiKontext): KiErg
               }
             : {}),
           nullpunktImModell: { x: runde(nullpunkt.x), y: runde(nullpunkt.y) },
+          ...(blatt.nullpunktRichtung !== undefined
+            ? { nullpunktRichtungGrad: runde((blatt.nullpunktRichtung * 180) / Math.PI, 2) }
+            : {}),
+          ausrichtung: ausrichtungsStand(blatt),
+          ...(blatt.zeichenflaeche ? { zeichenflaeche: zeichenflaecheFuerKi(blatt) } : {}),
           hintergrund: blatt.hintergrund ? blatt.hintergrund.typ : null,
           objekte: anzahl,
         }

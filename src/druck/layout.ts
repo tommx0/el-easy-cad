@@ -1,7 +1,6 @@
 import type {
   Ausrichtung,
   Blatt,
-  BoundingBox,
   LizenzModul,
   Papierformat,
   Zeichenflaeche,
@@ -9,14 +8,8 @@ import type {
 import {
   ZEICHENFLAECHE_RAND_MM,
   ZEICHENFLAECHE_HINWEIS_HOEHE_MM,
-  hintergrundRahmen,
-  getBoundingBox,
-  istBekannterHintergrund,
   istNurAnsicht,
   papierGroesseMm,
-  unionBoundingBox,
-  zeichenflaecheGroesseWelt,
-  zeichenflaecheInhaltGroesseMm,
 } from '../document-model'
 import { ViewTransform } from '../rendering'
 
@@ -147,45 +140,8 @@ export function berechneAusgabeSeite(
   }
 }
 
-export function weltBoundingBoxInhalt(blatt: Blatt): BoundingBox | null {
-  let ergebnis: BoundingBox | null = null
-  if (istBekannterHintergrund(blatt.hintergrund) && blatt.hintergrundSichtbar) {
-    ergebnis = hintergrundRahmen(blatt, blatt.hintergrund)
-  }
-  for (const objekt of blatt.objekte) {
-    if (objekt.type === 'leitung' && objekt.pfadSegmente.every((s) => s.length === 0)) continue
-    const bb = getBoundingBox(objekt)
-    ergebnis = ergebnis ? unionBoundingBox(ergebnis, bb) : bb
-  }
-  return ergebnis
-}
-
-export function schlageMassstabNennerVor(
-  blatt: Blatt,
-  papierformat: Papierformat,
-  ausrichtung: Ausrichtung,
-): number | null {
-  const bb = weltBoundingBoxInhalt(blatt)
-  if (!bb) return null
-  const breiteM = bb.max.x - bb.min.x
-  const hoeheM = bb.max.y - bb.min.y
-  if (breiteM <= 0 && hoeheM <= 0) return null
-  const inhaltMm = zeichenflaecheInhaltGroesseMm({ papierformat, ausrichtung })
-  const nennerX = breiteM > 0 ? (breiteM * 1000) / inhaltMm.breite : 0
-  const nennerY = hoeheM > 0 ? (hoeheM * 1000) / inhaltMm.hoehe : 0
-  return Math.max(1, Math.ceil(Math.max(nennerX, nennerY)))
-}
-
-export function vorschlagZeichenflaecheUrsprung(
-  blatt: Blatt,
-  entwurf: Pick<Zeichenflaeche, 'papierformat' | 'ausrichtung' | 'massstabNenner'>,
-): { x: number; y: number } {
-  const bb = weltBoundingBoxInhalt(blatt)
-  const groesse = zeichenflaecheGroesseWelt({ ...entwurf, ursprung: { x: 0, y: 0 } })
-  if (!bb) return { x: 0, y: 0 }
-  const inhaltZentrum = { x: (bb.min.x + bb.max.x) / 2, y: (bb.min.y + bb.max.y) / 2 }
-  return {
-    x: inhaltZentrum.x - groesse.breite / 2,
-    y: inhaltZentrum.y - groesse.hoehe / 2,
-  }
-}
+export {
+  schlageMassstabNennerVor,
+  vorschlagZeichenflaecheUrsprung,
+  weltBoundingBoxInhalt,
+} from '../document-model'

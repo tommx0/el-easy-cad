@@ -61,6 +61,9 @@ export const kiMeldungen: Texte['kiMeldungen'] = {
   bildschirmfoto: {
     blatt: 'Sheet “{name}” ({id}).',
     ausschnitt: 'Sheet “{name}” ({id}), detail x {xMin}…{xMax} m, y {yMin}…{yMax} m.',
+    zeichenflaeche: 'Sheet “{name}” ({id}), print area {papier} 1:{nenner} – this is what prints.',
+    ohneZeichenflaeche: 'Sheet “{name}” has no print area.',
+    bereichUndAusschnitt: 'Do not give bereich and ausschnitt together.',
   },
   verteilerHilfen: {
     imBauplan:
@@ -152,6 +155,43 @@ export const kiMeldungen: Texte['kiMeldungen'] = {
     angelegt: 'Created sheet “{name}”',
     zeichenflaecheVonHand:
       'The user sets up the print area, just as when creating a sheet by hand.',
+  },
+  blaetterAusrichten: {
+    ausgerichtet: 'Aligned sheets{blaetter}',
+    nichtsBereit: 'No sheet is ready to be aligned: {liste}.',
+    ausgerichtetSchon: 'already aligned',
+    ohneNullpunkt: 'no origin (nullpunkt_setzen)',
+    ohneRichtung: 'origin without direction (nullpunkt_setzen with richtungGrad)',
+    ragtHinweis:
+      'On these sheets the content now extends beyond the print area: {blaetter}. Adjust with ' +
+      'zeichenflaeche_setzen (mittig or einpassen).',
+  },
+  zeichenflaecheSetzen: {
+    schaltplan: 'In a schematic the print area is fixed – the reference grid depends on it.',
+    mehrereLagen: 'Give at most one position: versatz, ursprung or mittig.',
+    massstabUndEinpassen: 'Do not give the scale (massstab) and einpassen together.',
+    nichts:
+      'Nothing to change – give a position, the paper size (papierformat), ausrichtung, the ' +
+      'scale (massstab) or einpassen.',
+    keinInhalt: 'The sheet has no content to fit to.',
+    gesetzt: 'Changed print area “{blatt}”',
+    angelegt: 'Created print area “{blatt}”',
+    nullpunktGesetzt:
+      'The sheet had no origin; as when setting up by hand it now lies at the lower-left corner ' +
+      'of the print area. Coordinates count from there.',
+  },
+  grundformZeichnen: {
+    leer: 'No objects given.',
+    ebeneGesperrt: 'The layer “{ebene}” is locked.',
+    gezeichnet: '{n} basic shapes drawn on “{blatt}”',
+  },
+  laufwegSuchen: {
+    keinWeg:
+      'On “{blatt}” there is no route from start to target – is a door missing or does a point lie inside a wall?',
+  },
+  nullpunktSetzen: {
+    gesetzt: 'Set origin “{blatt}”',
+    hinweis: 'All coordinates of this sheet now count from the new origin.',
   },
   komponenteSetzen: {
     platzierung: 'Placement {nr}: {text}',
@@ -409,5 +449,17 @@ export const kiMeldungen: Texte['kiMeldungen'] = {
     ausserhalbNetzMitKennzeichen:
       '-{kennzeichen} is outside the reference grid and has no location.',
     kennzeichenDoppelt: 'Reference designation -{kennzeichen} is used by {n} pieces of equipment.',
+    nichtDeckungsgleich:
+      'The sheets do not lie exactly on top of each other, their origins differ ({liste}). ' +
+      'Stairs from below and cable risers are therefore offset; blaetter_ausrichten aligns them.',
+    ohneNullpunkt:
+      'Sheet “{blatt}” has no origin while other sheets do – it cannot be aligned this way.',
+    ueberstand:
+      'On sheet “{blatt}” the content extends beyond the print area ({seiten}) and is missing ' +
+      'from the printout.',
+    links: 'left {m} m',
+    rechts: 'right {m} m',
+    oben: 'top {m} m',
+    unten: 'bottom {m} m',
   },
 }

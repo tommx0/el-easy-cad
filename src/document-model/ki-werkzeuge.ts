@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { erzeugeUebersetzer, QUELLSPRACHE } from '../sprache'
 import type { Sprache, Texte, Uebersetzer } from '../sprache'
+import { GRUNDFORM_HOECHSTZAHL, grundformSchema } from './grundform'
 import { RAUMART_IDS } from './raumart'
 import { STROMKREIS_NUMMER_MAX } from './stromkreis-eigenschaft'
 
@@ -180,6 +181,18 @@ function bauWerkzeuge(t: Uebersetzer): KiWerkzeugDefinition[] {
       schreibt: false,
     },
     {
+      name: 'laufweg_suchen',
+      titel: text('laufwegSuchen.titel'),
+      beschreibung: text('laufwegSuchen.beschreibung'),
+      eingabe: z.object({
+        blattId: blattIdSchema,
+        start: punktSchema.describe(text('laufwegSuchen.start')),
+        ziel: punktSchema.describe(text('laufwegSuchen.ziel')),
+        freiraumM: z.number().min(0.05).max(1).optional().describe(text('laufwegSuchen.freiraumM')),
+      }),
+      schreibt: false,
+    },
+    {
       name: 'katalog_suchen',
       titel: text('katalogSuchen.titel'),
       beschreibung: text('katalogSuchen.beschreibung'),
@@ -248,6 +261,10 @@ function bauWerkzeuge(t: Uebersetzer): KiWerkzeugDefinition[] {
           .max(2000)
           .optional()
           .describe(text('bildschirmfoto.maxKantePx')),
+        ausschnitt: z
+          .enum(['zeichenflaeche'])
+          .optional()
+          .describe(text('bildschirmfoto.ausschnitt')),
       }),
       schreibt: false,
       zeitlimitMs: 90_000,
@@ -361,6 +378,75 @@ function bauWerkzeuge(t: Uebersetzer): KiWerkzeugDefinition[] {
         nachBlattId: z.string().optional().describe(text('blattAnlegen.nachBlattId')),
       }),
       schreibt: true,
+    },
+    {
+      name: 'blaetter_ausrichten',
+      titel: text('blaetterAusrichten.titel'),
+      beschreibung: mitAendernHinweis('blaetterAusrichten.beschreibung'),
+      eingabe: z.object({
+        blattIds: z
+          .array(z.string())
+          .min(1)
+          .optional()
+          .describe(text('blaetterAusrichten.blattIds')),
+      }),
+      schreibt: true,
+    },
+    {
+      name: 'zeichenflaeche_setzen',
+      titel: text('zeichenflaecheSetzen.titel'),
+      beschreibung: mitAendernHinweis('zeichenflaecheSetzen.beschreibung'),
+      eingabe: z.object({
+        blattId: blattIdSchema,
+        versatz: z
+          .object({ dx: z.number(), dy: z.number() })
+          .optional()
+          .describe(text('zeichenflaecheSetzen.versatz')),
+        ursprung: punktSchema.optional().describe(text('zeichenflaecheSetzen.ursprung')),
+        mittig: z.boolean().optional().describe(text('zeichenflaecheSetzen.mittig')),
+        papierformat: z
+          .enum(['A4', 'A3', 'A2', 'A1', 'A0'])
+          .optional()
+          .describe(text('zeichenflaecheSetzen.papierformat')),
+        ausrichtung: z
+          .enum(['hoch', 'quer'])
+          .optional()
+          .describe(text('zeichenflaecheSetzen.ausrichtung')),
+        massstab: z
+          .number()
+          .min(1)
+          .max(100_000)
+          .optional()
+          .describe(text('zeichenflaecheSetzen.massstab')),
+        einpassen: z.boolean().optional().describe(text('zeichenflaecheSetzen.einpassen')),
+      }),
+      schreibt: true,
+    },
+    {
+      name: 'nullpunkt_setzen',
+      titel: text('nullpunktSetzen.titel'),
+      beschreibung: mitAendernHinweis('nullpunktSetzen.beschreibung'),
+      eingabe: z.object({
+        blattId: blattIdSchema,
+        punkt: punktSchema.describe(text('nullpunktSetzen.punkt')),
+        richtungGrad: z.number().optional().describe(text('nullpunktSetzen.richtungGrad')),
+      }),
+      schreibt: true,
+    },
+    {
+      name: 'grundform_zeichnen',
+      titel: text('grundformZeichnen.titel'),
+      beschreibung: mitAendernHinweis('grundformZeichnen.beschreibung'),
+      eingabe: z.object({
+        blattId: blattIdSchema,
+        objekte: z
+          .array(grundformSchema)
+          .min(1)
+          .max(GRUNDFORM_HOECHSTZAHL)
+          .describe(text('grundformZeichnen.objekte')),
+      }),
+      schreibt: true,
+      zeitlimitMs: 60_000,
     },
     {
       name: 'komponente_setzen',

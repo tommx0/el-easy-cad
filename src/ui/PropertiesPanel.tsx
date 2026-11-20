@@ -6,10 +6,12 @@ import type {
   KomponentenDarstellung,
   KomponentenTyp,
   LeitungsObjekt,
+  LinienObjekt,
   Linientyp,
   Montageort,
   Objekt,
   PlankopfObjekt,
+  PolylinienObjekt,
   SchaltverbindungObjekt,
   Slot,
   SlotMatrix,
@@ -210,6 +212,12 @@ const LINIENTYP_FORMTYPEN: Objekt['type'][] = [
   'ellipse',
   'polygon',
 ]
+
+function kannPfeil(o: Objekt): o is LinienObjekt | PolylinienObjekt {
+  return o.type === 'linie' || (o.type === 'polylinie' && !o.geschlossen)
+}
+
+const PFEIL_WERTE = ['ohne', 'anfang', 'ende', 'beide'] as const
 
 const LINIENTYP_LABELS: Record<Linientyp, Schluessel> = {
   standard: 'eigenschaften.panel.linientyp.standard',
@@ -689,6 +697,34 @@ function PropertiesPanelInhalt({ schwebend = false }: { schwebend?: boolean }) {
               {(Object.keys(LINIENTYP_LABELS) as Linientyp[]).map((typ) => (
                 <option key={typ} value={typ}>
                   {t(LINIENTYP_LABELS[typ])}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
+        {ausgewaehlt.every(kannPfeil) && (
+          <label className="feld">
+            {t('eigenschaften.panel.gemeinsam.pfeil')}
+            <select
+              value={
+                ausgewaehlt.every((o) => kannPfeil(o) && o.pfeil === (erstes as LinienObjekt).pfeil)
+                  ? ((erstes as LinienObjekt).pfeil ?? 'ohne')
+                  : ''
+              }
+              onChange={(e) => {
+                const wert = e.target.value as (typeof PFEIL_WERTE)[number]
+                aktualisiereAusgewaehlte(
+                  { pfeil: wert === 'ohne' ? undefined : wert } as Partial<Objekt>,
+                  t('eigenschaften.panel.gemeinsam.pfeilUndo'),
+                )
+              }}
+            >
+              {!ausgewaehlt.every(
+                (o) => kannPfeil(o) && o.pfeil === (erstes as LinienObjekt).pfeil,
+              ) && <option value="">{t('eigenschaften.panel.gemeinsam.verschieden')}</option>}
+              {PFEIL_WERTE.map((w) => (
+                <option key={w} value={w}>
+                  {t(`eigenschaften.panel.pfeil.${w}`)}
                 </option>
               ))}
             </select>

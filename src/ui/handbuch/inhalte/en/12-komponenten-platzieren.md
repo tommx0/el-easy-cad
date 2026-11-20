@@ -66,7 +66,7 @@ A **module carrier** (System 106) also snaps to the wall, but it does not take f
 
 While a component hangs from the pointer – and likewise while you move a single component with the mouse – el.esy.CAD shows the distance to the nearest component above, below, left and right: a dashed blue line with a measurement.
 
-Distances are measured to the nearest **wall**, **stairs**, the nearest **cable riser** or the nearest **component**, in each case to its facing outer side. Doors, windows and wall openings belong to the wall – the line ends there at the outside of the wall, not at the opening symbol. Freely drawn lines, labels and dimensions do not count as targets.
+Distances are measured to the nearest **wall**, **stairs**, the nearest **cable riser** or the nearest **component**. To a wall, stairs or cable riser, the line runs from the edge of the component to the target's facing outer side. If the nearest item is another **component**, the distance is measured **centre to centre** – so for recessed spotlights or a row of sockets you read the axis spacing directly, regardless of the symbol size. Doors, windows and wall openings belong to the wall – the line ends there at the outside of the wall, not at the opening symbol. Freely drawn lines, labels and dimensions do not count as targets.
 
 ## Mounting location, mounting height and label {#installationshoehe}
 

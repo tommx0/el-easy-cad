@@ -148,3 +148,8 @@ the title block to its usual place. Without a print area set up, it is shown for
 
 Store the logo once in the program settings under **Company & title block**; it then applies to all
 plans.
+
+Title blocks created by an add-on or by the AI assistant may contain fields with **coloured text
+parts** – on fire brigade route cards, for example, the mounting location of concealed detectors in
+red and the other remarks in black. If you change such a field under **Content** by hand, it
+becomes single-coloured again; only running the add-on again restores the colours.

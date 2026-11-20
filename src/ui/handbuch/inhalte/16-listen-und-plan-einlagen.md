@@ -148,3 +148,8 @@ wird er vorläufig wie bei 1:100 dargestellt.
 
 Das Logo hinterlegen Sie einmalig in den Programmeinstellungen unter **Firma & Plankopf**; es gilt
 dann für alle Pläne.
+
+Planköpfe, die ein Zusatzmodul oder der KI-Assistent angelegt hat, können Felder mit **farbigen
+Textteilen** enthalten – auf Feuerwehr-Laufkarten etwa den Einbauort verdeckter Melder in Rot,
+die übrigen Bemerkungen schwarz. Ändern Sie ein solches Feld unter **Inhalt** von Hand, wird es
+wieder einfarbig; die Farben setzt erst ein erneuter Lauf des Moduls.

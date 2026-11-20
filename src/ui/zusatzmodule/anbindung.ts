@@ -21,7 +21,7 @@ import {
 import type { AppKontext } from '../app-context'
 import { setzeZusatzmodulBefehle, type Befehl } from '../befehle/katalog'
 import { druckKontextFuer, druckLizenz } from '../druck-kontext'
-import { exportiereAlsPdf } from '../../druck'
+import { exportiereAlsPdf, PAPIER_WIE_ZEICHENFLAECHE } from '../../druck'
 import { useKatalogStore } from '../store/katalog-store'
 import { useSettingsStore } from '../store/settings-store'
 import { useUiStore } from '../store/ui-store'
@@ -264,7 +264,7 @@ export function erzeugeZusatzmodulWirt(teile: {
         return { id: neu.id, name: neu.name, zeichnungsart: 'bauplan', offen: false }
       },
     },
-    async pdf(zeichnung, blattIds) {
+    async pdf(zeichnung, blattIds, gedrehtBlattIds = []) {
       const quelle = zeichnung ?? doc.getZeichnung()
       const ids = blattIds ?? quelle.blaetter.filter((b) => b.zeichenflaeche).map((b) => b.id)
       const { demoAktiv, lizenznehmer, module } = druckLizenz()
@@ -273,7 +273,16 @@ export function erzeugeZusatzmodulWirt(teile: {
         catalogStore: app().catalogStore,
         verknuepfung: app().verknuepfung,
       })
-      return exportiereAlsPdf(quelle, ids, kontext, demoAktiv, lizenznehmer, module)
+      return exportiereAlsPdf(
+        quelle,
+        ids,
+        kontext,
+        demoAktiv,
+        lizenznehmer,
+        module,
+        PAPIER_WIE_ZEICHENFLAECHE,
+        new Set(gedrehtBlattIds),
+      )
     },
 
     nachBestand: (eintraege) => {

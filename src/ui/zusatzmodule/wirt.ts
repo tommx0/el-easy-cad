@@ -122,7 +122,11 @@ export interface WirtTeile {
     lies(dokumentId: string): Promise<Zeichnung>
     schreibe(dokumentId: string | null, zeichnung: Zeichnung): Promise<ZusatzmodulDokument>
   }
-  pdf?(zeichnung: Zeichnung | null, blattIds: string[] | undefined): Promise<Blob | null>
+  pdf?(
+    zeichnung: Zeichnung | null,
+    blattIds: string[] | undefined,
+    gedrehtBlattIds?: readonly string[],
+  ): Promise<Blob | null>
   server?: WirtServer
 }
 
@@ -706,7 +710,7 @@ export class ZusatzmodulWirt {
           if (wirt.ki()) return false
           if (!teile.pdf) throw new Error(t('aktionen.zusatzmodule.ohneProjekt'))
           const zeichnung = quelle.dokumentId ? await dokumenteTeil().lies(quelle.dokumentId) : null
-          const blob = await teile.pdf(zeichnung, quelle.blattIds)
+          const blob = await teile.pdf(zeichnung, quelle.blattIds, quelle.gedrehtBlattIds)
           wirt.pruefeAbbruch(kennung)
           if (!blob) throw new Error(t('aktionen.zusatzmodule.keinDruckbaresBlatt'))
           const gespeichert = await teile.speichere(blob, vorschlagName, {

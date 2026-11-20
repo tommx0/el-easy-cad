@@ -59,10 +59,13 @@ export const STANDARD_FUELL_DECKKRAFT = 0.5
 export const STANDARD_SCHRAFFUR_MUSTER: SchraffurMuster = 'diagonal'
 export const STANDARD_SCHRAFFUR_ABSTAND_M = 0.1
 
+export type Pfeil = 'anfang' | 'ende' | 'beide'
+
 export interface LinienObjekt extends ObjektBasis {
   type: 'linie'
   start: Point
   ende: Point
+  pfeil?: Pfeil
 }
 
 export interface PolylinienObjekt extends ObjektBasis {
@@ -70,6 +73,7 @@ export interface PolylinienObjekt extends ObjektBasis {
   punkte: Point[]
   geschlossen: boolean
   fuellung: Fuellung | null
+  pfeil?: Pfeil
 }
 
 export interface RechteckObjekt extends ObjektBasis {
@@ -127,6 +131,13 @@ export interface TextObjekt extends ObjektBasis {
   inhalt: string
   hoehe: number
   drehung: number
+  ausrichtung?: TextAusrichtung
+}
+
+export type TextAusrichtung = 'links' | 'mittig' | 'rechts'
+
+export function textAusrichtungsAnteil(ausrichtung: TextAusrichtung | undefined): number {
+  return ausrichtung === 'mittig' ? 0.5 : ausrichtung === 'rechts' ? 1 : 0
 }
 
 export interface BemassungObjekt extends ObjektBasis {
@@ -873,14 +884,14 @@ export function getBoundingBox(objekt: Objekt): BoundingBox {
       return boundingBoxFromPoints([objekt.position])
     case 'potential':
       return expandBoundingBox(boundingBoxFromPoints([objekt.position]), POTENTIAL_SYMBOL_GROESSE)
-    case 'text':
+    case 'text': {
+      const breite = objekt.inhalt.length * objekt.hoehe * 0.6
+      const links = objekt.position.x - textAusrichtungsAnteil(objekt.ausrichtung) * breite
       return boundingBoxFromPoints([
-        objekt.position,
-        {
-          x: objekt.position.x + objekt.inhalt.length * objekt.hoehe * 0.6,
-          y: objekt.position.y + objekt.hoehe,
-        },
+        { x: links, y: objekt.position.y },
+        { x: links + breite, y: objekt.position.y + objekt.hoehe },
       ])
+    }
     case 'bemassung':
       return boundingBoxFromPoints([objekt.start, objekt.ende])
     case 'bemassungsreihe':

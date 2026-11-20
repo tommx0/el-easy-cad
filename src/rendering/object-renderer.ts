@@ -7,6 +7,7 @@ import type {
   Fuellung,
   KatalogTextElement,
   Objekt,
+  Pfeil,
   SchraffurMuster,
   Point,
   TreppenSchnitt,
@@ -15,6 +16,7 @@ import type {
   WandObjekt,
   WandTeilstueck,
 } from '../document-model'
+import { pfeilLaengePx, pfeilspitzen } from './pfeilspitze'
 import {
   breiteEntlangWand,
   eingerechneterKombinationsFaktor,
@@ -381,6 +383,7 @@ export function zeichneObjekt(
       ctx.moveTo(a.x, a.y)
       ctx.lineTo(b.x, b.y)
       ctx.stroke()
+      zeichnePfeilspitzen(ctx, [a, b], objekt.pfeil, objekt.strichstaerke)
       break
     }
     case 'polylinie': {
@@ -393,6 +396,9 @@ export function zeichneObjekt(
       }
       fuelleFlaeche(ctx, view, wirksameFuellung(objekt), pfad, () => rahmenAusPunkten(punkte))
       ctx.stroke()
+      if (!objekt.geschlossen) {
+        zeichnePfeilspitzen(ctx, punkte, objekt.pfeil, objekt.strichstaerke)
+      }
       break
     }
     case 'bodenplatte': {
@@ -496,6 +502,12 @@ export function zeichneObjekt(
       ctx.fillStyle = objekt.farbe
       ctx.font = `${hoehePx}px sans-serif`
       ctx.textBaseline = 'bottom'
+      ctx.textAlign =
+        objekt.ausrichtung === 'mittig'
+          ? 'center'
+          : objekt.ausrichtung === 'rechts'
+            ? 'right'
+            : 'left'
       ctx.fillText(objekt.inhalt, 0, 0)
       break
     }
@@ -1172,6 +1184,30 @@ function normalisiereWinkelPositiv(winkel: number): number {
   const zweiPi = Math.PI * 2
   const r = winkel % zweiPi
   return r < 0 ? r + zweiPi : r
+}
+
+function zeichnePfeilspitzen(
+  ctx: CanvasRenderingContext2D,
+  punkte: { x: number; y: number }[],
+  pfeil: Pfeil | undefined,
+  strichstaerke: number,
+) {
+  const spitzen = pfeilspitzen(punkte, pfeil, pfeilLaengePx(strichstaerke))
+  if (spitzen.length === 0) return
+  ctx.save()
+  ctx.setLineDash([])
+  ctx.fillStyle = ctx.strokeStyle
+  ctx.lineWidth = 1
+  for (const d of spitzen) {
+    ctx.beginPath()
+    ctx.moveTo(d[0].x, d[0].y)
+    ctx.lineTo(d[1].x, d[1].y)
+    ctx.lineTo(d[2].x, d[2].y)
+    ctx.closePath()
+    ctx.fill()
+    ctx.stroke()
+  }
+  ctx.restore()
 }
 
 export function zweifarbMuster(strichstaerke: number): number[] {

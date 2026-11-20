@@ -76,13 +76,26 @@ The assistant **reads** sheets with all their objects, individual objects with t
 entry, rooms, the catalogue, all lists (bill of materials, cable list with lengths, circuit
 schedule and others), the distribution tree, the building control in one piece (per device group
 or load the room, control type, KNX, triggering push-buttons and actuator channel), a check for
-irregularities and screenshots of the sheets.
+irregularities and screenshots of the sheets – exactly the print area if you like. It also sees
+whether the storeys lie exactly on top of each other and whether anything extends beyond the print
+area.
 
 It can also **change** the drawing: set properties on many objects at once (label, height,
 mounting location, SM/FM, circuit, KNX, variable texts, reference designation; for cables the cable
 type and description; for trunks and rooms the name, for rooms also room type and single-room
 control), delete, move and rotate objects, replace
 components with another entry from the same catalogue, and create sheets.
+
+It also sets up the **sheet itself**: it lays the storeys on top of each other at the origin like
+{{befehl:blatt.ausrichten}}, sets the origin at a building corner – telling you the corner and the
+edge first – and moves the print area, centres it over the plan or changes the paper size and
+scale. If a sheet has no print area yet, it creates one that fits the plan. In a schematic the
+print area stays fixed.
+
+It can also draw **basic shapes** – lines and polylines (with arrowheads too), rectangles, circles,
+texts and title-block tables, with colour, fill or hatching and on a layer of its choice, many at
+once as a single undo step – and find a **walking route** for people through rooms and doors, for
+example from the fire alarm panel to a room.
 
 On a **floor plan** it also **draws**: it places components from the catalogue – at a point, in the
 middle of a room, or on a wall with a distance and height, where they line up in a row and a

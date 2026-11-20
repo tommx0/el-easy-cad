@@ -20,6 +20,8 @@ import {
 } from '../../tools'
 import type { AppKontext } from '../app-context'
 import { setzeZusatzmodulBefehle, type Befehl } from '../befehle/katalog'
+import { druckKontextFuer, druckLizenz } from '../druck-kontext'
+import { exportiereAlsPdf } from '../../druck'
 import { useKatalogStore } from '../store/katalog-store'
 import { useSettingsStore } from '../store/settings-store'
 import { useUiStore } from '../store/ui-store'
@@ -215,6 +217,41 @@ export function erzeugeZusatzmodulWirt(teile: {
     },
     speichere: (blob, vorschlagName, typ) =>
       speichereDatei(blob, bereinigterDateiname(vorschlagName), typ),
+
+    dokumente: {
+      async liste() {
+        const offenId = app().sitzung.getOffenesDokument()?.dokumentId
+        return (await app().sitzung.zeichnungenImProjekt()).map((d) => ({
+          id: d.id,
+          name: d.name,
+          zeichnungsart: d.zeichnungsart ?? 'bauplan',
+          offen: d.id === offenId,
+        }))
+      },
+      lies: (dokumentId) => app().sitzung.liesZeichnung(dokumentId),
+      async schreibe(dokumentId, zeichnung) {
+        const { sitzung } = app()
+        if (dokumentId) {
+          await sitzung.schreibeZeichnung(dokumentId, zeichnung)
+          return { id: dokumentId, name: zeichnung.name, zeichnungsart: 'bauplan', offen: false }
+        }
+        const offen = sitzung.getOffenesDokument()
+        if (!offen) throw new Error(t('aktionen.zusatzmodule.ohneProjekt'))
+        const neu = await sitzung.legeZeichnungAn(offen.projektId, zeichnung)
+        return { id: neu.id, name: neu.name, zeichnungsart: 'bauplan', offen: false }
+      },
+    },
+    async pdf(zeichnung, blattIds) {
+      const quelle = zeichnung ?? doc.getZeichnung()
+      const ids = blattIds ?? quelle.blaetter.filter((b) => b.zeichenflaeche).map((b) => b.id)
+      const { demoAktiv, lizenznehmer, module } = druckLizenz()
+      const kontext = druckKontextFuer(quelle, {
+        katalogKomponenten: useKatalogStore.getState().komponenten,
+        catalogStore: app().catalogStore,
+        verknuepfung: app().verknuepfung,
+      })
+      return exportiereAlsPdf(quelle, ids, kontext, demoAktiv, lizenznehmer, module)
+    },
 
     nachBestand: (eintraege) => {
       const texte = useZusatzmodulStore.getState().texte

@@ -35,6 +35,8 @@ export const eigenschaften: Texte['eigenschaften'] = {
       strichstaerkeUndo: 'Change line weight',
       linientyp: 'Line type',
       linientypUndo: 'Change line type',
+      pfeil: 'Arrow',
+      pfeilUndo: 'Change arrow',
       ebene: 'Layer',
       ebeneUndo: 'Assign layer',
       textUndo: 'Change text',
@@ -49,6 +51,12 @@ export const eigenschaften: Texte['eigenschaften'] = {
       autoVerlegenEin: 'Route automatically',
       autoVerlegenAus: 'Do not route automatically',
       zuruecksetzen: 'Reset',
+    },
+    pfeil: {
+      ohne: 'None',
+      anfang: 'At start',
+      ende: 'At end',
+      beide: 'At both ends',
     },
     linientyp: {
       standard: 'Default',

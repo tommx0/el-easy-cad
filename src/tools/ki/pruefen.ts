@@ -16,8 +16,9 @@ import {
   klemmenNummernVon,
   teiltKennzeichenOhneRueckfrage,
   verlegungsAbweichungen,
+  zeichenflaecheUeberstand,
 } from '../../document-model'
-import { t } from '../../sprache'
+import { formatiereZahl, t } from '../../sprache'
 import type { KiErgebnis, KiKontext } from './kontext'
 import { waehleBlatt } from './kontext'
 
@@ -293,6 +294,63 @@ function doppelteKennzeichen(zeichnung: Zeichnung, blaetter: readonly Blatt[]): 
   return befunde
 }
 
+function lageSchluessel(blatt: Blatt): string {
+  const p = blatt.nullpunkt!
+  const richtung = blatt.nullpunktRichtung ?? 0
+  return [Math.round(p.x * 1000), Math.round(p.y * 1000), Math.round(richtung * 1e6)].join('|')
+}
+
+function meter(wert: number): string {
+  return formatiereZahl(wert, { maximumFractionDigits: 2 })
+}
+
+function nichtDeckungsgleich(zeichnung: Zeichnung, blaetter: readonly Blatt[]): Befund[] {
+  if (istSchaltplan(zeichnung) || zeichnung.blaetter.length < 2) return []
+  const mitNullpunkt = zeichnung.blaetter.filter((b) => b.nullpunkt)
+  if (mitNullpunkt.length === 0) return []
+  const imUmfang = new Set(blaetter.map((b) => b.id))
+  const befunde: Befund[] = []
+  const umfangMit = mitNullpunkt.filter((b) => imUmfang.has(b.id))
+  if (new Set(mitNullpunkt.map(lageSchluessel)).size > 1 && umfangMit.length > 0) {
+    const liste = mitNullpunkt
+      .map((b) => `${b.name}: x ${meter(b.nullpunkt!.x)} m, y ${meter(b.nullpunkt!.y)} m`)
+      .join('; ')
+    befunde.push({
+      art: 'blaetter-nicht-deckungsgleich',
+      meldung: t('kiMeldungen.pruefen.nichtDeckungsgleich', { liste }),
+      blattId: umfangMit[0].id,
+      objektIds: [],
+    })
+  }
+  for (const blatt of blaetter) {
+    if (blatt.nullpunkt) continue
+    befunde.push({
+      art: 'blatt-ohne-nullpunkt',
+      meldung: t('kiMeldungen.pruefen.ohneNullpunkt', { blatt: blatt.name }),
+      blattId: blatt.id,
+      objektIds: [],
+    })
+  }
+  return befunde
+}
+
+function ueberZeichenflaeche(blatt: Blatt): Befund[] {
+  const ueberstand = zeichenflaecheUeberstand(blatt)
+  if (!ueberstand) return []
+  const seiten = (['links', 'rechts', 'oben', 'unten'] as const)
+    .filter((seite) => ueberstand[seite] !== undefined)
+    .map((seite) => t(`kiMeldungen.pruefen.${seite}`, { m: meter(ueberstand[seite]!) }))
+    .join(', ')
+  return [
+    {
+      art: 'zeichenflaeche-ueberstand',
+      meldung: t('kiMeldungen.pruefen.ueberstand', { blatt: blatt.name, seiten }),
+      blattId: blatt.id,
+      objektIds: [],
+    },
+  ]
+}
+
 export function pruefen(eingabe: { blattId?: string }, kontext: KiKontext): KiErgebnis {
   const zeichnung = kontext.doc.getZeichnung()
   const blaetter = eingabe.blattId ? [waehleBlatt(kontext, eingabe.blattId)] : zeichnung.blaetter
@@ -307,8 +365,9 @@ export function pruefen(eingabe: { blattId?: string }, kontext: KiKontext): KiEr
       ...verlegeartAbweichungen(b, zeichnung),
       ...(istSchaltplan(zeichnung)
         ? [...offeneVerbindungsenden(b), ...verbundenePotentiale(b), ...ausserhalbDesNetzes(b)]
-        : []),
+        : ueberZeichenflaeche(b)),
     ]),
+    ...nichtDeckungsgleich(zeichnung, blaetter),
     ...doppelteKlemmen(zeichnung, blaetter),
     ...(istSchaltplan(zeichnung) ? doppelteKennzeichen(zeichnung, blaetter) : []),
   ]

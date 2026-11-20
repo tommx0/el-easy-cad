@@ -59,6 +59,9 @@ export const kiMeldungen = {
   bildschirmfoto: {
     blatt: 'Blatt „{name}“ ({id}).',
     ausschnitt: 'Blatt „{name}“ ({id}), Ausschnitt x {xMin}…{xMax} m, y {yMin}…{yMax} m.',
+    zeichenflaeche: 'Blatt „{name}“ ({id}), Zeichenfläche {papier} 1:{nenner} – so wird gedruckt.',
+    ohneZeichenflaeche: 'Blatt „{name}“ hat keine Zeichenfläche.',
+    bereichUndAusschnitt: 'bereich und ausschnitt nicht zusammen angeben.',
   },
   verteilerHilfen: {
     imBauplan:
@@ -147,6 +150,41 @@ export const kiMeldungen = {
     nameLeer: 'Der Name des Blatts ist leer.',
     angelegt: 'Blatt „{name}“ angelegt',
     zeichenflaecheVonHand: 'Die Zeichenfläche richtet der Anwender ein, wie beim Anlegen von Hand.',
+  },
+  blaetterAusrichten: {
+    ausgerichtet: 'Blätter ausgerichtet{blaetter}',
+    nichtsBereit: 'Kein Blatt ist bereit zum Ausrichten: {liste}.',
+    ausgerichtetSchon: 'schon ausgerichtet',
+    ohneNullpunkt: 'ohne Nullpunkt (nullpunkt_setzen)',
+    ohneRichtung: 'Nullpunkt ohne Richtung (nullpunkt_setzen mit richtungGrad)',
+    ragtHinweis:
+      'Auf diesen Blättern ragt der Inhalt jetzt über die Zeichenfläche: {blaetter}. Mit ' +
+      'zeichenflaeche_setzen (mittig oder einpassen) nachziehen.',
+  },
+  zeichenflaecheSetzen: {
+    schaltplan: 'Im Schaltplan ist die Zeichenfläche fest – das Koordinatennetz hängt an ihr.',
+    mehrereLagen: 'Höchstens eine Lage angeben: versatz, ursprung oder mittig.',
+    massstabUndEinpassen: 'massstab und einpassen nicht zusammen angeben.',
+    nichts: 'Nichts zu ändern – Lage, papierformat, ausrichtung, massstab oder einpassen angeben.',
+    keinInhalt: 'Das Blatt hat keinen Inhalt, nach dem sich einpassen ließe.',
+    gesetzt: 'Zeichenfläche „{blatt}“ geändert',
+    angelegt: 'Zeichenfläche „{blatt}“ angelegt',
+    nullpunktGesetzt:
+      'Das Blatt hatte keinen Nullpunkt; er liegt jetzt wie beim Einrichten von Hand auf der ' +
+      'linken unteren Ecke der Zeichenfläche. Koordinaten zählen ab dort.',
+  },
+  grundformZeichnen: {
+    leer: 'Keine Objekte angegeben.',
+    ebeneGesperrt: 'Die Ebene „{ebene}“ ist gesperrt.',
+    gezeichnet: '{n} Grundformen auf „{blatt}“ gezeichnet',
+  },
+  laufwegSuchen: {
+    keinWeg:
+      'Auf „{blatt}“ führt kein Weg vom Start zum Ziel – fehlt eine Tür oder liegt ein Punkt in der Wand?',
+  },
+  nullpunktSetzen: {
+    gesetzt: 'Nullpunkt „{blatt}“ gesetzt',
+    hinweis: 'Alle Koordinaten dieses Blatts zählen jetzt ab dem neuen Nullpunkt.',
   },
   komponenteSetzen: {
     platzierung: 'Platzierung {nr}: {text}',
@@ -400,5 +438,18 @@ export const kiMeldungen = {
     ausserhalbNetz: 'Bauteil liegt außerhalb des Netzes und hat keinen Ort.',
     ausserhalbNetzMitKennzeichen: '-{kennzeichen} liegt außerhalb des Netzes und hat keinen Ort.',
     kennzeichenDoppelt: 'Kennzeichen -{kennzeichen} tragen {n} Betriebsmittel.',
+    nichtDeckungsgleich:
+      'Die Blätter liegen nicht deckungsgleich übereinander, ihre Nullpunkte sind verschieden ' +
+      '({liste}). Treppen von unten und Kabelschächte stehen deshalb versetzt; ' +
+      'blaetter_ausrichten legt sie übereinander.',
+    ohneNullpunkt:
+      'Blatt „{blatt}“ hat keinen Nullpunkt, andere Blätter schon – es lässt sich so nicht ' +
+      'ausrichten.',
+    ueberstand:
+      'Auf Blatt „{blatt}“ ragt der Inhalt über die Zeichenfläche ({seiten}) und fehlt im Druck.',
+    links: 'links {m} m',
+    rechts: 'rechts {m} m',
+    oben: 'oben {m} m',
+    unten: 'unten {m} m',
   },
 }

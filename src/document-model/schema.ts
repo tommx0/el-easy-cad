@@ -64,11 +64,14 @@ const fuellungSchema = z
   .nullable()
   .default(null)
 
+const pfeilSchema = z.enum(['anfang', 'ende', 'beide'])
+
 const linienObjektSchema = z.object({
   ...objektBasisSchema,
   type: z.literal('linie'),
   start: punktSchema,
   ende: punktSchema,
+  pfeil: pfeilSchema.optional(),
 })
 
 const polylinienObjektSchema = z.object({
@@ -77,6 +80,7 @@ const polylinienObjektSchema = z.object({
   punkte: z.array(punktSchema),
   geschlossen: z.boolean(),
   fuellung: fuellungSchema,
+  pfeil: pfeilSchema.optional(),
 })
 
 const rechteckObjektSchema = z.object({
@@ -139,6 +143,7 @@ const textObjektSchema = z.object({
   inhalt: z.string(),
   hoehe: z.number(),
   drehung: z.number(),
+  ausrichtung: z.enum(['links', 'mittig', 'rechts']).optional(),
 })
 
 const bemassungObjektSchema = z.object({

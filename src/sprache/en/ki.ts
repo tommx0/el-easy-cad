@@ -36,8 +36,10 @@ export const ki: Texte['ki'] = {
       titel: 'Document overview',
       beschreibung:
         'The document open in el.esy.CAD: project, drawing type (floor plan or schematic), ' +
-        'sheets with id, storey, scale, origin and number of objects per type, plus the active ' +
-        'sheet. Call this first – every other tool needs the sheet ids.',
+        'sheets with id, storey, scale, origin with direction and alignment state, print area ' +
+        '(frame in metres from the origin, how far the content extends beyond each side) and ' +
+        'number of objects per type, plus the active sheet. Call this first – every other tool ' +
+        'needs the sheet ids.',
     },
     blattLesen: {
       titel: 'Read sheet',
@@ -66,6 +68,19 @@ export const ki: Texte['ki'] = {
         'mitIds – for objekt_lesen or a specific question about individual components.',
       alleBlaetter: 'Rooms of all sheets instead of just one.',
       mitIds: 'Also the ids of the components per catalogue entry (default: no).',
+    },
+    laufwegSuchen: {
+      titel: 'Find walking route',
+      beschreibung:
+        'Shortest route for people on a sheet from start to ziel: through rooms, doors and wall ' +
+        'openings, not through walls or windows, keeping clear of the walls (middle of the ' +
+        'corridor). Returns the vertices in metres and the length. Changes nothing – draw ' +
+        'it e.g. with grundform_zeichnen as a polyline with pfeil. Across storeys: search each ' +
+        'sheet up to or from the stairs.',
+      start:
+        'Start point in metres from the origin; may lie at a wall (e.g. the fire alarm panel).',
+      ziel: 'Target point in metres from the origin.',
+      freiraumM: 'Minimum distance to walls in metres (default 0.2) – less than half a door width.',
     },
     katalogSuchen: {
       titel: 'Search catalogue',
@@ -121,16 +136,19 @@ export const ki: Texte['ki'] = {
         'a room that therefore belong to no room (usually ended up in the wall). In a ' +
         'schematic additionally: wires with a free end, nets with two different potentials, ' +
         'duplicate device reference designations and components outside the reference grid ' +
-        'A–H/1–6.',
+        'A–H/1–6. In a floor plan: sheets that do not lie exactly on top of each other ' +
+        '(different origins) and content that extends beyond the print area.',
       blattId: 'Only this sheet. If omitted: all sheets.',
     },
     bildschirmfoto: {
       titel: 'Screenshot',
       beschreibung:
         'An image (PNG) of a sheet, rendered as in the printout – without area the whole ' +
-        'content of the sheet, with area only that section. For checking position and ' +
-        'arrangement.',
+        'content of the sheet, with area only that section, with ausschnitt "zeichenflaeche" ' +
+        'exactly the print area (whatever extends beyond it is missing from the printout). For ' +
+        'checking position and arrangement.',
       maxKantePx: 'Longer image edge in pixels (default 1568).',
+      ausschnitt: '"zeichenflaeche": exactly the print area of the sheet. Not together with area.',
     },
     eigenschaftenSetzen: {
       titel: 'Set properties',
@@ -201,6 +219,65 @@ export const ki: Texte['ki'] = {
         'Creates an empty sheet – after the given one or at the end. The user’s view does not ' +
         'change; the user sets up the print area themselves.',
       nachBlattId: 'The new sheet is inserted after this one.',
+    },
+    blaetterAusrichten: {
+      titel: 'Align sheets',
+      beschreibung:
+        'Like “Align sheets to origin”: rotates each sheet so that the edge at the origin is ' +
+        'horizontal and moves it, with its background and everything drawn, until the origin ' +
+        'sits at 0,0. The storeys then lie exactly on top of each other (stairs from below, ' +
+        'cable riser, 3D). Each sheet needs an origin and a direction (document overview ' +
+        'dokument_uebersicht, ausrichtung "bereit"); other sheets are skipped with a reason. The answer names sheets ' +
+        'whose content then extends beyond the print area.',
+      blattIds: 'Only these sheets. If omitted: all that are ready.',
+    },
+    zeichenflaecheSetzen: {
+      titel: 'Set print area',
+      beschreibung:
+        'Repositions the print area of a sheet: at most one position – versatz, ursprung or ' +
+        'mittig – plus optionally the paper size (papierformat), ausrichtung and the scale ' +
+        '(massstab) or einpassen. Without a ' +
+        'position the lower-left corner stays. If the sheet has no print area yet, one is ' +
+        'created, fitted and centred over the content. Plan inserts stay where they are. Not in ' +
+        'a schematic (the print area is fixed there).',
+      versatz: 'Move by dx, dy in metres.',
+      ursprung: 'Lower-left corner in metres from the origin.',
+      mittig: 'Centred over the content (background and objects).',
+      papierformat: 'A4, A3, A2, A1 or A0.',
+      ausrichtung: 'hoch (portrait) or quer (landscape).',
+      massstab: 'Scale number, e.g. 50 for 1:50.',
+      einpassen: 'Choose the scale so that the content fits (like “Fit once”).',
+    },
+    nullpunktSetzen: {
+      titel: 'Set origin',
+      beschreibung:
+        'Sets the origin of a sheet at a building corner, optionally with the direction of a ' +
+        'building edge – required to align the sheets (blaetter_ausrichten). Tell the user ' +
+        'beforehand which corner ' +
+        'and which edge you mean, and use the same one on every storey. Afterwards all ' +
+        'coordinates of this sheet count from the new point.',
+      punkt: 'New origin in metres from the previous origin.',
+      richtungGrad:
+        'Direction of the edge in degrees counter-clockwise, 0 = to the right. If omitted, no ' +
+        'direction (the sheet then cannot be aligned).',
+    },
+    grundformZeichnen: {
+      titel: 'Draw basic shapes',
+      beschreibung:
+        'Draws lines, polylines, rectangles, circles, texts and title blocks in one step (at most ' +
+        '2000) – e.g. symbols, walking routes, hatching or tables made of lines and texts. ' +
+        'Returns the ids in the order of the input.',
+      objekte:
+        'Per object "art" (linie, polylinie, rechteck = rectangle, kreis = circle, text, plankopf ' +
+        '= title block) with its fields, all coordinates in metres from the origin. linie: von, ' +
+        'bis, pfeil (anfang/ende/beide). polylinie: punkte, geschlossen, pfeil (open only), ' +
+        'fuellung. rechteck: von, bis (opposite corners), fuellung. kreis: mittelpunkt, radius, ' +
+        'fuellung. text: position (baseline), inhalt, hoehe (text height in m), ausrichtung ' +
+        '(links/mittig/rechts), drehungGrad (to rotate, in degrees). plankopf: position (top ' +
+        'left corner), breiteMm, zeilen with hoeheMm and zellen (beschriftung, wert, spanne). For ' +
+        'all: farbe ("#00a000"), strichstaerke, linientyp, ebene (layer name; created if ' +
+        'missing), modulDaten. fuellung (fill): farbe, deckkraft (opacity 0..1), schraffur ' +
+        '(hatching: diagonal/kreuz/horizontal/vertikal), abstandM.',
     },
     komponenteSetzen: {
       titel: 'Place components',

@@ -76,7 +76,8 @@ Der Assistent **liest** Blätter mit allen Objekten, einzelne Objekte samt Katal
 den Katalog, alle Listen (Stückliste, Leitungsliste mit Längen, Stromkreisverzeichnis und
 weitere), den Verteilerbaum, die Gebäudesteuerung in einem Stück (je Gerätegruppe bzw. Verbraucher
 Raum, Ansteuerung, KNX, auslösende Taster und Aktorkanal), eine Prüfung auf Auffälligkeiten und
-Bildschirmfotos der Blätter.
+Bildschirmfotos der Blätter – auf Wunsch genau den Druckbereich. Dabei sieht er auch, ob die
+Etagen deckungsgleich übereinanderliegen und ob etwas über die Zeichenfläche hinausragt.
 
 Er kann die Zeichnung auch **ändern**: Eigenschaften an vielen Objekten auf einmal setzen
 (Beschriftung, Höhe, Montageort, AP/UP, Stromkreis, KNX, variable Texte, Kennzeichen, bei
@@ -84,6 +85,17 @@ Leitungen Kabeltyp und Beschreibung, bei Trunks und Räumen den Namen, bei Räum
 Einzelraumregelung), Objekte löschen,
 verschieben und drehen, Komponenten gegen einen anderen Eintrag desselben Katalogs austauschen und
 Blätter anlegen.
+
+Auch das **Blatt selbst** richtet er ein: Er legt die Etagen wie
+{{befehl:blatt.ausrichten}} am Nullpunkt übereinander, setzt den Nullpunkt an eine Gebäudeecke –
+vorher nennt er Ihnen Ecke und Kante – und verschiebt die Zeichenfläche, setzt sie mittig über
+den Plan oder ändert Papierformat und Maßstab. Hat ein Blatt noch keine Zeichenfläche, legt er
+eine an, passend zum Plan. Im Schaltplan bleibt die Zeichenfläche fest.
+
+Er kann außerdem **Grundformen** zeichnen – Linien und Polylinien (auch mit Pfeilspitze),
+Rechtecke, Kreise, Texte und Plankopf-Tabellen, mit Farbe, Füllung oder Schraffur und auf einer
+Ebene seiner Wahl, viele auf einmal als ein Rückgängig-Schritt – und für Personen einen
+**Laufweg** durch Räume und Türen suchen, etwa von der Brandmelderzentrale bis zu einem Raum.
 
 Im Bauplan **zeichnet** er auch: Komponenten aus dem Katalog setzen – an einen Punkt, in die
 Raummitte oder an eine Wand mit Abstand und Höhe, wo sie sich wie beim Wandfang in Reihe und

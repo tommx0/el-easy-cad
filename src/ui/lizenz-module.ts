@@ -12,7 +12,7 @@ export function useHatModul(modul: LizenzModul): boolean {
 
 const KEINE: readonly LizenzModul[] = []
 
-function moduleAus(status: ProduktlizenzStatus | null): readonly LizenzModul[] {
+export function moduleAus(status: ProduktlizenzStatus | null): readonly LizenzModul[] {
   return status?.module ?? KEINE
 }
 

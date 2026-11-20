@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import type { AusrichtungsStand, Blatt } from '../../document-model'
+import type { AusrichtungsStand } from '../../document-model'
 import {
   ausrichtungsStand,
   nurAnsichtGrund,
   richteBlattAus,
-  zeichenflaecheBoundingBox,
+  zeichenflaecheUeberstand,
 } from '../../document-model'
-import { weltBoundingBoxInhalt } from '../../druck'
 import { CompositeCommand, erzeugeBlattAendernCommand } from '../../tools'
 import { useFreigeschalteteModule } from '../lizenz-module'
 import { useUiStore } from '../store/ui-store'
@@ -73,7 +72,7 @@ function Inhalt() {
     schliessen()
     window.dispatchEvent(new CustomEvent('eleasycad:zoom-alles'))
     const ragen = neu
-      .filter(ragtUeberZeichenflaeche)
+      .filter((b) => zeichenflaecheUeberstand(b) !== null)
       .map((b) => t('zeichendialoge.gemeinsam.inAnfuehrung', { text: b.name }))
     const meldung = t('zeichendialoge.blaetterAusrichten.ausgerichtet', { n: neu.length })
     useUiStore
@@ -133,19 +132,5 @@ function Inhalt() {
         </div>
       </div>
     </div>
-  )
-}
-
-function ragtUeberZeichenflaeche(blatt: Blatt): boolean {
-  if (!blatt.zeichenflaeche) return false
-  const inhalt = weltBoundingBoxInhalt(blatt)
-  if (!inhalt) return false
-  const flaeche = zeichenflaecheBoundingBox(blatt.zeichenflaeche)
-  const toleranz = 1e-6
-  return (
-    inhalt.min.x < flaeche.min.x - toleranz ||
-    inhalt.min.y < flaeche.min.y - toleranz ||
-    inhalt.max.x > flaeche.max.x + toleranz ||
-    inhalt.max.y > flaeche.max.y + toleranz
   )
 }

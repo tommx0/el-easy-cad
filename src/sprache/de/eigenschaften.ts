@@ -35,6 +35,8 @@ export const eigenschaften = {
       strichstaerkeUndo: 'Strichstärke ändern',
       linientyp: 'Linientyp',
       linientypUndo: 'Linientyp ändern',
+      pfeil: 'Pfeil',
+      pfeilUndo: 'Pfeil ändern',
       ebene: 'Ebene',
       ebeneUndo: 'Ebene zuweisen',
       textUndo: 'Text ändern',
@@ -49,6 +51,12 @@ export const eigenschaften = {
       autoVerlegenEin: 'Automatische Verlegung einschalten',
       autoVerlegenAus: 'Automatische Verlegung ausschalten',
       zuruecksetzen: 'Zurücksetzen',
+    },
+    pfeil: {
+      ohne: 'Ohne',
+      anfang: 'Am Anfang',
+      ende: 'Am Ende',
+      beide: 'An beiden Enden',
     },
     linientyp: {
       standard: 'Standard',

@@ -7,6 +7,7 @@ import { automatischAnordnen } from './automatisch-anordnen'
 import { bestueckungAendernKi } from './bestueckung-aendern'
 import { bestueckungVorschlagen } from './bestueckung-vorschlagen'
 import { bildschirmfoto } from './bildschirmfoto'
+import { blaetterAusrichten } from './blaetter-ausrichten'
 import { blattAnlegen } from './blatt-anlegen'
 import { blattLesen } from './blatt-lesen'
 import { dokumentUebersicht } from './dokument-uebersicht'
@@ -28,6 +29,9 @@ import { listeLesen } from './liste-lesen'
 import { objekteDrehen } from './objekte-drehen'
 import { objekteLoeschen } from './objekte-loeschen'
 import { objekteVerschieben } from './objekte-verschieben'
+import { nullpunktSetzen } from './nullpunkt-setzen'
+import { grundformZeichnen } from './grundform-zeichnen'
+import { laufwegSuchen } from './laufweg-suchen'
 import { objektLesen } from './objekt-lesen'
 import { potentialSetzen } from './potential-setzen'
 import { pruefen } from './pruefen'
@@ -36,6 +40,7 @@ import { rueckgaengig } from './rueckgaengig'
 import { schaltverbindungZiehen } from './schaltverbindung-ziehen'
 import { verteilerbaumLesen } from './verteilerbaum-lesen'
 import { verteilerplanErzeugen } from './verteilerplan-erzeugen'
+import { zeichenflaecheSetzen } from './zeichenflaeche-setzen'
 
 type Ausfuehrung = (eingabe: never, kontext: KiKontext) => KiErgebnis | Promise<KiErgebnis>
 
@@ -56,6 +61,11 @@ const AUSFUEHRUNGEN: Record<string, Ausfuehrung> = {
   objekte_drehen: objekteDrehen,
   komponente_austauschen: komponenteAustauschen,
   blatt_anlegen: blattAnlegen,
+  blaetter_ausrichten: blaetterAusrichten,
+  zeichenflaeche_setzen: zeichenflaecheSetzen,
+  nullpunkt_setzen: nullpunktSetzen,
+  grundform_zeichnen: grundformZeichnen,
+  laufweg_suchen: laufwegSuchen,
   komponente_setzen: komponenteSetzen,
   leitung_verlegen: leitungVerlegen,
   leitungen_neu_verlegen: leitungenNeuVerlegen,

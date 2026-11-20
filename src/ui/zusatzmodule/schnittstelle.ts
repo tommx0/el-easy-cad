@@ -24,6 +24,7 @@ export interface Eec {
   readonly ui: {
     meldung(text: string): void
     auswahl(): string[]
+    auswaehlen(ids: readonly string[], optionen?: { zeigen?: boolean }): number
     frage(text: string, optionen?: { titel?: string; ja?: string; nein?: string }): Promise<boolean>
     formular(formular: ZusatzmodulFormular): Promise<Record<string, ZusatzmodulFeldWert> | null>
     fortschritt(anteil: number | null, text?: string): void

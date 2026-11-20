@@ -87,6 +87,7 @@ export interface WirtTeile {
   intern(): Omit<EecIntern, 'werkzeuge'>
   melde(text: string): void
   auswahl(): string[]
+  auswaehlen?(ids: readonly string[], zeigen: boolean): number
   oberflaechensprache(): Sprache
   plansprache(): Sprache
   frage(text: string, optionen: { titel: string; ja?: string; nein?: string }): Warten<boolean>
@@ -626,6 +627,10 @@ export class ZusatzmodulWirt {
           teile.melde(text)
         },
         auswahl: () => teile.auswahl(),
+        auswaehlen(ids, optionen = {}) {
+          if (wirt.ki() || !teile.auswaehlen) return 0
+          return teile.auswaehlen(ids, optionen.zeigen === true)
+        },
         frage: async (text, optionen = {}) =>
           wirt.ki()
             ? false

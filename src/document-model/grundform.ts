@@ -85,7 +85,11 @@ export const grundformSchema = z.discriminatedUnion('art', [
             .array(
               z.object({
                 beschriftung: z.string().max(200).optional(),
-                wert: z.string().max(500),
+                wert: z.string().max(500).optional(),
+                teile: z
+                  .array(z.object({ text: z.string().max(500), farbe: z.string().optional() }))
+                  .max(20)
+                  .optional(),
                 spanne: z.number().positive().optional(),
               }),
             )
@@ -193,10 +197,18 @@ export function grundformZuObjekt(g: Grundform, ebeneId: string, bezug: Point): 
           hoeheMm: z.hoeheMm,
           zellen: z.zellen.map((c) => ({
             beschriftung: c.beschriftung ?? '',
-            wert: c.wert,
+            wert: c.teile?.length ? c.teile.map((t) => t.text).join('') : (c.wert ?? ''),
             quelle: null,
             spanne: c.spanne ?? 1,
             logo: null,
+            ...(c.teile?.length
+              ? {
+                  teile: c.teile.map((t) => ({
+                    text: t.text,
+                    ...(t.farbe ? { farbe: t.farbe } : {}),
+                  })),
+                }
+              : {}),
           })),
         })),
       } satisfies PlankopfObjekt
@@ -273,6 +285,7 @@ export function objektZuGrundform(
             beschriftung: c.beschriftung,
             wert: c.wert,
             spanne: c.spanne,
+            ...(c.teile ? { teile: c.teile } : {}),
           })),
         })),
       }

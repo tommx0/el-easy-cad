@@ -1,4 +1,10 @@
-import type { PlankopfObjekt, PlankopfZeile, PlankopfZelle, PlankopfQuelle } from './objekte'
+import type {
+  PlankopfObjekt,
+  PlankopfQuelle,
+  PlankopfTextteil,
+  PlankopfZeile,
+  PlankopfZelle,
+} from './objekte'
 import type { Zeichnung } from './zeichnung'
 import { papierGroesseMm } from './papierformat'
 import { planspracheVon, planUebersetzer } from './plansprache'
@@ -85,6 +91,12 @@ export interface PlankopfZellenLayout {
   beschriftung: string
   text: string
   logo: { assetId: string; dateiname: string } | null
+  teile?: PlankopfTextteil[]
+}
+
+export function wirksameTextteile(zelle: PlankopfZelle): PlankopfTextteil[] | undefined {
+  if (!zelle.teile?.length || zelle.quelle || zelle.logo) return undefined
+  return zelle.teile.map((t) => t.text).join('') === zelle.wert ? zelle.teile : undefined
 }
 
 export interface PlankopfModell {
@@ -162,6 +174,7 @@ export function bauePlankopfModell(
           beschriftung: z.beschriftung,
           text: z.logo ? '' : loesePlankopfZelle(z, kontext),
           logo: z.logo,
+          ...(wirksameTextteile(z) ? { teile: wirksameTextteile(z) } : {}),
         })
         x += breite
       }

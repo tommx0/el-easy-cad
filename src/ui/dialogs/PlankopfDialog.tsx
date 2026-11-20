@@ -57,9 +57,12 @@ function PlankopfDialogInhalt({ objektId }: { objektId: string }) {
           ? zeile
           : {
               ...zeile,
-              zellen: zeile.zellen.map((zelle, ci) =>
-                ci !== zellenIndex ? zelle : { ...zelle, ...patch },
-              ),
+              zellen: zeile.zellen.map((zelle, ci) => {
+                if (ci !== zellenIndex) return zelle
+                const neu = { ...zelle, ...patch }
+                if ('wert' in patch) delete neu.teile
+                return neu
+              }),
             },
       ),
       beschreibung,

@@ -589,6 +589,12 @@ export interface PlankopfZelle {
   quelle: PlankopfQuelle | null
   spanne: number
   logo: { assetId: string; dateiname: string } | null
+  teile?: PlankopfTextteil[]
+}
+
+export interface PlankopfTextteil {
+  text: string
+  farbe?: string
 }
 
 export interface PlankopfZeile {

@@ -15,11 +15,13 @@ export interface Abstandsanzeige {
   entfernungMeter: number
   vonPunkt: Point
   zuPunkt: Point
+  mitteZuMitte: boolean
 }
 
 interface Kandidat {
   entfernung: number
   zuPunkt: Point
+  mitteAbstand?: number
 }
 
 function besser(bisher: Kandidat | null, neu: Kandidat): Kandidat {
@@ -97,6 +99,10 @@ function pruefeBoundingBox(
   rechts: Kandidat | null,
 ): [Kandidat | null, Kandidat | null, Kandidat | null, Kandidat | null] {
   const bb = getBoundingBox(objekt)
+  const mitte =
+    objekt.type === 'komponente'
+      ? { x: (bb.min.x + bb.max.x) / 2, y: (bb.min.y + bb.max.y) / 2 }
+      : null
   const compOben = position.y + halbHoehe
   const compUnten = position.y - halbHoehe
   const compRechts = position.x + halbBreite
@@ -106,12 +112,14 @@ function pruefeBoundingBox(
     if (compLinks >= bb.max.x) {
       links = besser(links, {
         entfernung: compLinks - bb.max.x,
-        zuPunkt: { x: bb.max.x, y: position.y },
+        zuPunkt: mitte ? { x: mitte.x, y: position.y } : { x: bb.max.x, y: position.y },
+        mitteAbstand: mitte ? position.x - mitte.x : undefined,
       })
     } else if (compRechts <= bb.min.x) {
       rechts = besser(rechts, {
         entfernung: bb.min.x - compRechts,
-        zuPunkt: { x: bb.min.x, y: position.y },
+        zuPunkt: mitte ? { x: mitte.x, y: position.y } : { x: bb.min.x, y: position.y },
+        mitteAbstand: mitte ? mitte.x - position.x : undefined,
       })
     }
   }
@@ -119,12 +127,14 @@ function pruefeBoundingBox(
     if (compUnten >= bb.max.y) {
       unten = besser(unten, {
         entfernung: compUnten - bb.max.y,
-        zuPunkt: { x: position.x, y: bb.max.y },
+        zuPunkt: mitte ? { x: position.x, y: mitte.y } : { x: position.x, y: bb.max.y },
+        mitteAbstand: mitte ? position.y - mitte.y : undefined,
       })
     } else if (compOben <= bb.min.y) {
       oben = besser(oben, {
         entfernung: bb.min.y - compOben,
-        zuPunkt: { x: position.x, y: bb.min.y },
+        zuPunkt: mitte ? { x: position.x, y: mitte.y } : { x: position.x, y: bb.min.y },
+        mitteAbstand: mitte ? mitte.y - position.y : undefined,
       })
     }
   }
@@ -181,13 +191,15 @@ export function ermittleAbstaende(
     ['links', links, { x: position.x - halbBreite, y: position.y }],
     ['rechts', rechts, { x: position.x + halbBreite, y: position.y }],
   ]
-  for (const [richtung, kandidat, vonPunkt] of eintraege) {
+  for (const [richtung, kandidat, vonRand] of eintraege) {
     if (!kandidat) continue
+    const mitteZuMitte = kandidat.mitteAbstand !== undefined
     ergebnisse.push({
       richtung,
-      entfernungMeter: kandidat.entfernung,
-      vonPunkt,
+      entfernungMeter: kandidat.mitteAbstand ?? kandidat.entfernung,
+      vonPunkt: mitteZuMitte ? position : vonRand,
       zuPunkt: kandidat.zuPunkt,
+      mitteZuMitte,
     })
   }
   return ergebnisse

@@ -146,7 +146,10 @@ der Maus verschieben – zeigt el.esy.CAD nach oben, unten, links und rechts den
 nächsten Bauteil an: gestrichelte blaue Linie mit Metermaß.
 
 Gemessen wird bis zur nächsten **Wand**, **Treppe**, zum nächsten **Kabelschacht** oder zur
-nächsten **Komponente**, und zwar jeweils an deren zugewandte Außenseite. Türen, Fenster und
+nächsten **Komponente**. Zu Wand, Treppe und Kabelschacht misst die Linie vom Rand der Komponente
+bis an deren zugewandte Außenseite. Ist das nächste Bauteil eine andere **Komponente**, gilt
+**Mitte bis Mitte** – so lesen Sie bei Einbaustrahlern oder einer Reihe Steckdosen direkt den
+Achsabstand ab, unabhängig von der Symbolgröße. Türen, Fenster und
 Wanddurchbrüche gehören zur Wand – die Linie endet dort an der Wandaußenseite, nicht am
 Öffnungssymbol. Frei gezeichnete Linien, Beschriftungen und Bemaßungen zählen nicht als Ziel.
 

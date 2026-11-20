@@ -138,6 +138,14 @@ export const eigenschaften = {
       stromkreisMit: 'Raumstromkreis gemeinsam mit',
       stromkreisUndo: 'Raumstromkreis ändern',
       stromkreisEigener: '— (eigener Raumstromkreis)',
+      einzelraumregelung: 'Einzelraumregelung (KNX)',
+      einzelraumregelungHilfe:
+        'Bekommt der Raum eine Raumtemperaturregelung (z. B. Heizen im Gira X1)? Automatisch: ja, ' +
+        'wenn ein KNX-Raumtemperaturregler im Raum sitzt oder ein Heizkanal einen Verbraucher darin versorgt.',
+      einzelraumregelungAuto: 'automatisch',
+      einzelraumregelungJa: 'ja',
+      einzelraumregelungNein: 'nein',
+      einzelraumregelungUndo: 'Einzelraumregelung ändern',
       ohneName: 'Raum',
     },
     text: {

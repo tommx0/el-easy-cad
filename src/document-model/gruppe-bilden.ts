@@ -43,6 +43,7 @@ const VORSILBE: Record<string, Schluessel> = {
   rgb: 'generatoren.gruppe.licht',
   rgbw: 'generatoren.gruppe.licht',
   rgbww: 'generatoren.gruppe.licht',
+  tunablewhite: 'generatoren.gruppe.licht',
   rollo: 'generatoren.gruppe.rollo',
   jalousie: 'generatoren.gruppe.rollo',
 }

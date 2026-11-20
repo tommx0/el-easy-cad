@@ -8663,6 +8663,71 @@
   width: 440px;
 }
 
+.dialog-zusatzmodul-formular.mit-liste {
+  width: 560px;
+}
+
+.zusatzmodul-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.zusatzmodul-liste-kopf {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.zusatzmodul-liste ul {
+  max-height: 320px;
+  overflow: auto;
+  margin: 0;
+  padding: 4px 0;
+  border: 1px solid var(--rand);
+  border-radius: 6px;
+  background: var(--flaeche-gedaempft);
+  list-style: none;
+}
+
+.zusatzmodul-liste-zeile {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  padding-right: 8px;
+  line-height: 1.6;
+}
+
+.zusatzmodul-liste-zeile.art-hinweis {
+  color: var(--text-gedaempft);
+}
+
+.zusatzmodul-liste-zeile.art-warnung {
+  color: var(--warnung-text);
+}
+
+.zusatzmodul-liste-klappe {
+  flex: 0 0 14px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.zusatzmodul-liste-text {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.zusatzmodul-liste-rechts {
+  flex: 0 0 auto;
+  color: var(--text-gedaempft);
+}
+
 .zusatzmodul-formular-felder {
   display: flex;
   flex-direction: column;

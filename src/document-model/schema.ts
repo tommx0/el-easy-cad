@@ -829,6 +829,7 @@ const raumObjektSchema = z.object({
   deckenstaerke: z.number().positive().optional(),
   stromkreisMitRaumId: z.string().optional(),
   raumart: z.enum(RAUMART_IDS).optional(),
+  einzelraumregelung: z.enum(['ja', 'nein']).optional(),
 })
 
 const treppeObjektSchema = z.object({
@@ -1098,6 +1099,7 @@ export const zeichnungSchema = z.object({
   standardKabeltypId: z.string().optional(),
   installationszonen: z.array(zonenDefinitionSchema).optional(),
   geraeteGruppen: z.array(geraetegruppeSchema).default([]),
+  modulDaten: z.record(z.string(), z.unknown()).optional(),
   herkunftTestversion: z.boolean().optional(),
   plansprache: z.string().optional(),
   ebenenStand: z.number().int().optional(),

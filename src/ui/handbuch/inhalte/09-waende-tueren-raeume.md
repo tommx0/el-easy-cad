@@ -96,6 +96,12 @@ Im Eigenschaften-Panel des Raums stellen Sie ein:
   der bisherigen Raumart ist – ein selbst gewählter Name wie „Kinderzimmer Lea“ bleibt beim
   Wechsel stehen. Zusatzmodule und die KI-Schnittstelle lesen die Raumart, statt sie am Namen zu
   erraten,
+- die **Einzelraumregelung (KNX)**: *automatisch*, *ja* oder *nein*. Sie sagt, ob der Raum eine
+  eigene Raumtemperaturregelung bekommt, etwa die Funktion „Heizen“ in einer Gira-X1-
+  Visualisierung. Automatisch heißt ja, sobald ein KNX-Raumtemperaturregler (Tastsensor mit RTR) im
+  Raum sitzt oder ein Heizkanal eines KNX-Aktors einen Verbraucher darin versorgt; *ja* erzwingt
+  sie (Regler noch nicht geplant), *nein* schaltet sie ab (etwa ein Abstellraum, dessen
+  Stellantrieb am Regler des Nachbarraums hängt),
 - **Name** und **Schriftgröße** (in cm) der Beschriftung,
 - **Name** und **Fläche** einzeln: Wie global, Anzeigen oder Ausblenden,
 - eine **Füllung** wie bei anderen geschlossenen Formen, siehe

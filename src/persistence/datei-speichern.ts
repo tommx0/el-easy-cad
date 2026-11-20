@@ -22,12 +22,16 @@ function istAbbruch(fehler: unknown): boolean {
 
 const UNZULAESSIGE_ZEICHEN = /[/\\:*?"<>|]/g
 
+export function bereinigterDateiname(name: string): string {
+  return name.trim().replace(UNZULAESSIGE_ZEICHEN, '_')
+}
+
 export function erzeugeDateiname(
   teile: (string | null | undefined)[],
   erweiterung: string,
 ): string {
   const bereinigt = teile
-    .map((teil) => teil?.trim().replace(UNZULAESSIGE_ZEICHEN, '_'))
+    .map((teil) => (teil ? bereinigterDateiname(teil) : teil))
     .filter((teil): teil is string => Boolean(teil))
   return `${bereinigt.join('-')}.${erweiterung}`
 }

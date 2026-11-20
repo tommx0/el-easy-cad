@@ -83,6 +83,7 @@ export const kiMeldungen: Texte['kiMeldungen'] = {
       beschreibung: 'description',
       name: 'name',
       raumart: 'room type',
+      einzelraumregelung: 'single-room control',
     },
     kennzeichenBelegt: {
       one: '{kennzeichen} is already used by {n} other piece of equipment ({blaetter}).',

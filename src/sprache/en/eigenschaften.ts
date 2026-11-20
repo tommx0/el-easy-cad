@@ -137,6 +137,14 @@ export const eigenschaften: Texte['eigenschaften'] = {
       stromkreisMit: 'Room circuit shared with',
       stromkreisUndo: 'Change room circuit',
       stromkreisEigener: '— (own room circuit)',
+      einzelraumregelung: 'Single-room control (KNX)',
+      einzelraumregelungHilfe:
+        'Does the room get room temperature control (e.g. heating in the Gira X1)? Automatic: yes ' +
+        'if a KNX room temperature controller sits in the room or a heating channel supplies a load in it.',
+      einzelraumregelungAuto: 'automatic',
+      einzelraumregelungJa: 'yes',
+      einzelraumregelungNein: 'no',
+      einzelraumregelungUndo: 'Change single-room control',
       ohneName: 'Room',
     },
     text: {

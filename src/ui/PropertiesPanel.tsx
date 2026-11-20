@@ -921,6 +921,23 @@ function PropertiesPanelInhalt({ schwebend = false }: { schwebend?: boolean }) {
                   ))}
               </select>
             </label>
+            <label className="feld" title={t('eigenschaften.panel.raum.einzelraumregelungHilfe')}>
+              {t('eigenschaften.panel.raum.einzelraumregelung')}
+              <select
+                value={erstes.einzelraumregelung ?? ''}
+                onChange={(e) => {
+                  const wert = e.target.value
+                  aktualisiereAusgewaehlte(
+                    { einzelraumregelung: wert === 'ja' || wert === 'nein' ? wert : undefined },
+                    t('eigenschaften.panel.raum.einzelraumregelungUndo'),
+                  )
+                }}
+              >
+                <option value="">{t('eigenschaften.panel.raum.einzelraumregelungAuto')}</option>
+                <option value="ja">{t('eigenschaften.panel.raum.einzelraumregelungJa')}</option>
+                <option value="nein">{t('eigenschaften.panel.raum.einzelraumregelungNein')}</option>
+              </select>
+            </label>
           </>
         )}
         {ausgewaehlt.length === 1 && erstes.type === 'treppe' && (

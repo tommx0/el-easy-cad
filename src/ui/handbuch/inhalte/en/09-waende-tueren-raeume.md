@@ -91,6 +91,12 @@ In the room's properties panel you set:
   the previous room type – a name you chose yourself, such as “Lea's room”, stays when you change
   the type. Add-on modules and the AI interface read the room type instead of guessing it from
   the name,
+- **Single-room control (KNX)**: *automatic*, *yes* or *no*. It says whether the room gets its own
+  room temperature control, for example the “Heating” function in a Gira X1 visualisation.
+  Automatic means yes as soon as a KNX room temperature controller (push-button sensor with RTR)
+  sits in the room or a heating channel of a KNX actuator supplies a load in it; *yes* forces it
+  (controller not planned yet), *no* switches it off (for example a storage room whose valve
+  drive hangs on the controller of the neighbouring room),
 - the **Name** and **Font size** (in cm) of the label,
 - **Name** and **Area** individually: follow the global setting, show or hide,
 - a **fill** as for other closed shapes, see [Hatching and area fill](#schraffur-und-fuellung).

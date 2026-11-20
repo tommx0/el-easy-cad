@@ -5,10 +5,11 @@ import type { DocumentStore } from '../../document-model'
 import * as rendering from '../../rendering'
 import * as sprache from '../../sprache'
 import { t } from '../../sprache'
-import { zusatzmodulDateiUrl } from '../../persistence'
+import { bereinigterDateiname, speichereDatei, zusatzmodulDateiUrl } from '../../persistence'
 import * as tools from '../../tools'
 import {
   erzeugeObjektAendernCommand,
+  erzeugeZeichnungAendernCommand,
   fuehreKiWerkzeugAus,
   zuBlatt,
   ZUSATZMODUL_ABFRAGE_TOOL_ID,
@@ -202,6 +203,18 @@ export function erzeugeZusatzmodulWirt(teile: {
         }),
       )
     },
+
+    leseZeichnungsModulDaten: (kennung) => doc.getZeichnung().modulDaten?.[kennung],
+    zeichnungsModulDatenCommand: (kennung, wert, label) => {
+      const modulDaten: Record<string, unknown> = { ...doc.getZeichnung().modulDaten }
+      if (wert === undefined) delete modulDaten[kennung]
+      else modulDaten[kennung] = wert
+      return erzeugeZeichnungAendernCommand(doc, label, {
+        modulDaten: Object.keys(modulDaten).length > 0 ? modulDaten : undefined,
+      })
+    },
+    speichere: (blob, vorschlagName, typ) =>
+      speichereDatei(blob, bereinigterDateiname(vorschlagName), typ),
 
     nachBestand: (eintraege) => {
       const texte = useZusatzmodulStore.getState().texte

@@ -87,6 +87,15 @@ export const ki = {
         'die Verteiler der Zeichnung zur Auswahl.',
       verteiler: 'Ortskennzeichen ohne "+", z. B. "UV1". Ohne Angabe: Liste der Verteiler.',
     },
+    steuerungLesen: {
+      titel: 'Steuerung lesen',
+      beschreibung:
+        'Alles zur Gebäudesteuerung der Zeichnung in einem Aufruf: Etagen (Blätter), Räume mit ' +
+        'Raumart, Einzelraumregelung und KNX-Raumtemperaturreglern, dazu je Verbraucher-Ziel ' +
+        '(Gerätegruppe als Ganzes oder Einzelgerät) Name, Ansteuerung, ob es KNX-geschaltet ist, ' +
+        'die Mitglieder mit Raum-Id und Katalogeintrag, die auslösenden Taster samt Wippe und den ' +
+        'Aktorkanal ("K1:A3") mit seiner Funktion. Außerdem die Verteiler.',
+    },
     pruefen: {
       titel: 'Zeichnung prüfen',
       beschreibung:
@@ -113,7 +122,7 @@ export const ki = {
         'das Eigenschaften-Panel. Jedes Feld gilt nur für die Objekttypen, zu denen es passt ' +
         '(Komponente: beschriftung, installationshoeheM, montageort, verlegung, stromkreis, ' +
         'stromkreisPolzahl, knx, variableTexte, kennzeichen; Leitung: kabeltyp, beschreibung; ' +
-        'Trunk: name, beschreibung; Raum: name, raumart).',
+        'Trunk: name, beschreibung; Raum: name, raumart, einzelraumregelung).',
       beschriftung: 'Leer löscht die Beschriftung.',
       installationshoeheM: 'Installationshöhe in Metern; null = Vorgabe.',
       verlegung: 'Aufputz/Unterputz - gilt für die ganze Kombination an der Wand.',
@@ -126,6 +135,8 @@ export const ki = {
         'Raumart (kueche, bad, wc, kind, schlafen, arbeiten, wohnen, essen, hauswirtschaft, hobby, ' +
         'flur, freisitz, abstell, keller, sonstige). Ohne name übernimmt der Raum den Namen der ' +
         'Raumart, solange er noch einen Vorgabenamen trägt.',
+      einzelraumregelung:
+        'Einzelraumregelung (KNX) des Raums: automatisch (aus Regler bzw. Heizkanal), ja oder nein.',
       mindestensEinFeld: 'Mindestens ein Feld angeben.',
     },
     objekteLoeschen: {

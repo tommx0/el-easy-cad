@@ -648,6 +648,7 @@ export interface RaumObjekt extends ObjektBasis {
   deckenstaerke?: number
   stromkreisMitRaumId?: string
   raumart?: RaumartId
+  einzelraumregelung?: 'ja' | 'nein'
 }
 
 export const STANDARD_RAUM_NAME = 'Raum'

@@ -188,6 +188,7 @@ export const STANDARD_REGELWERK: GeraeteRegelwerk = {
     { kennung: 'rgb', bezeichnung: 'RGB' },
     { kennung: 'rgbw', bezeichnung: 'RGBW' },
     { kennung: 'rgbww', bezeichnung: 'RGBWW' },
+    { kennung: 'tunablewhite', bezeichnung: 'Tunable White', ...englisch('Tunable white') },
     { kennung: 'dali', bezeichnung: 'Dali', ...englisch('DALI') },
     { kennung: 'zigbee', bezeichnung: 'Zigbee', ...englisch('Zigbee') },
     { kennung: 'sonstiges', bezeichnung: 'Sonstiges', ...englisch('Other') },

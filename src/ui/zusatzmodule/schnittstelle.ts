@@ -33,6 +33,11 @@ export interface Eec {
     ): Promise<string[] | null>
     rechteckWaehlen(hinweis: string): Promise<ZusatzmodulBereich | null>
     panel(panel: ZusatzmodulPanel): ZusatzmodulPanelGriff
+    speichern(
+      inhalt: Blob | string,
+      vorschlagName: string,
+      typ: ZusatzmodulDateiTyp,
+    ): Promise<boolean>
   }
 
   readonly modul: {
@@ -49,6 +54,8 @@ export interface Eec {
   readonly modulDaten: {
     lesen<T = unknown>(objektId: string): T | undefined
     schreiben(objektId: string, wert: unknown): void
+    zeichnungLesen<T = unknown>(): T | undefined
+    zeichnungSchreiben(wert: unknown): void
   }
 
   readonly sprache: {
@@ -93,6 +100,12 @@ export interface ZusatzmodulBereich {
 
 export type ZusatzmodulFeldWert = number | string | boolean | null
 
+export interface ZusatzmodulDateiTyp {
+  beschreibung: string
+  erweiterungen: string[]
+  mime?: string
+}
+
 export type ZusatzmodulFeld =
   | {
       id: string
@@ -115,6 +128,21 @@ export type ZusatzmodulFeld =
       optionen: { wert: string; titel: string }[]
     }
   | { id: string; art: 'katalog'; titel: string; wert?: string | null; leerErlaubt?: boolean }
+  | {
+      id: string
+      art: 'liste'
+      titel?: string
+      zusammenfassung?: string
+      zeilen: ZusatzmodulListenZeile[]
+    }
+
+export interface ZusatzmodulListenZeile {
+  text: string
+  tiefe?: number
+  rechts?: string
+  art?: 'normal' | 'hinweis' | 'warnung'
+  zu?: boolean
+}
 
 export interface ZusatzmodulFormular {
   titel: string

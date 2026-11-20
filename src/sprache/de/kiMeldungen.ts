@@ -80,6 +80,7 @@ export const kiMeldungen = {
       beschreibung: 'Beschreibung',
       name: 'Name',
       raumart: 'Raumart',
+      einzelraumregelung: 'Einzelraumregelung',
     },
     kennzeichenBelegt: {
       one: '{kennzeichen} trägt schon ein anderes Betriebsmittel ({blaetter}).',

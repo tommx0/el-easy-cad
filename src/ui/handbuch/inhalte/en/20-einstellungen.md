@@ -74,12 +74,14 @@ assistant sees the new descriptions as soon as it reconnects.
 
 The assistant **reads** sheets with all their objects, individual objects with their catalogue
 entry, rooms, the catalogue, all lists (bill of materials, cable list with lengths, circuit
-schedule and others), the distribution tree, a check for irregularities and screenshots of the
-sheets.
+schedule and others), the distribution tree, the building control in one piece (per device group
+or load the room, control type, KNX, triggering push-buttons and actuator channel), a check for
+irregularities and screenshots of the sheets.
 
 It can also **change** the drawing: set properties on many objects at once (label, height,
 mounting location, SM/FM, circuit, KNX, variable texts, reference designation; for cables the cable
-type and description; for trunks and rooms the name), delete, move and rotate objects, replace
+type and description; for trunks and rooms the name, for rooms also room type and single-room
+control), delete, move and rotate objects, replace
 components with another entry from the same catalogue, and create sheets.
 
 On a **floor plan** it also **draws**: it places components from the catalogue – at a point, in the
@@ -191,8 +193,10 @@ cannot be loaded at all – for example because it was built for a different ver
 –, el.esy.CAD switches it off; the list gives the reason. An add-on that was not tested with your
 version is marked with ⚠ there but keeps running.
 
-An add-on can store data of its own on objects. It stays in the drawing, goes along with copies and
-does no harm if the add-on is missing. el.esy.CAD keeps the add-on's settings (such as the form
+An add-on can store data of its own on objects and on the drawing itself (for example a group
+address plan). It stays in the drawing, goes along with copies and does no harm if the add-on is
+missing. If an add-on creates a file, the system's save dialog opens; whatever you cancel there is
+not saved. A command called by Claude does not save files. el.esy.CAD keeps the add-on's settings (such as the form
 values chosen last) on this computer; when removing an add-on, the dialog asks whether to delete
 them too.
 

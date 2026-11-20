@@ -104,6 +104,29 @@ export function erzeugeZusatzmodulWirt(teile: {
     kiSchreibsperre: () => kiKontext.schreibsperre(),
     meldeKiAenderung: (text) => kiKontext.meldeAenderung(text),
     auswahl: () => [...useUiStore.getState().auswahlIds],
+    auswaehlen: (ids, zeigen) => {
+      const ui = useUiStore.getState()
+      const erstes = ids.map(findeObjekt).find((f) => f !== null)
+      if (!erstes) {
+        ui.setAuswahlIds([])
+        return 0
+      }
+      const gewaehlt = erstes.blatt.objekte.filter((o) => ids.includes(o.id))
+      if (zeigen) {
+        const bereich = gewaehlt
+          .map((o) => documentModel.getBoundingBox(o))
+          .reduce((a, b) => documentModel.unionBoundingBox(a, b))
+        window.dispatchEvent(
+          new CustomEvent('eleasycad:sprung-zu-blatt', {
+            detail: { blattId: erstes.blatt.id, bereich, objektIds: gewaehlt.map((o) => o.id) },
+          }),
+        )
+      } else {
+        if (doc.getAktivesBlatt().id !== erstes.blatt.id) doc.setAktivesBlatt(erstes.blatt.id)
+        ui.setAuswahlIds(gewaehlt.map((o) => o.id))
+      }
+      return gewaehlt.length
+    },
     oberflaechensprache: () => sprache.oberflaechensprache(),
     plansprache: () => documentModel.planspracheVon(doc.getZeichnung()),
 

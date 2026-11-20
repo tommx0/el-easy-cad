@@ -34,6 +34,7 @@ export interface Zeichnung {
   standardKabeltypId?: string
   installationszonen?: ZonenDefinition[]
   geraeteGruppen: Geraetegruppe[]
+  modulDaten?: Record<string, unknown>
   herkunftTestversion?: boolean
   plansprache?: string
   ebenenStand?: number

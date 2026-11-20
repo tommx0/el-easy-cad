@@ -114,8 +114,8 @@ Klemmen auf einmal:
   (Tastsensor, Bewegungs- oder Präsenzmelder KNX, auch über eine Gerätegruppe). Im zweiten Fall
   steht der Haken gesetzt und grau, darunter der Auslöser. Drei Leuchten an einer Klemme sind ein
   Kanal. Auch Klemmen aus [Räumen](#verteiler-aus-raeumen) ohne Leitung zählen.
-- **Kanalart aus der Ansteuerung:** Schalten (auch ohne Ansteuerung und an Steckdosen), Dimmen,
-  Rollo bzw. Jalousie als Kanalpaar mit ungeradem ersten Kanal. DALI, RGB und Ähnliches gehen nicht
+- **Kanalart aus der Ansteuerung:** Schalten (auch ohne Ansteuerung und an Steckdosen), Dimmen
+  (auch Tunable White), Rollo bzw. Jalousie als Kanalpaar mit ungeradem ersten Kanal. DALI, RGB und Ähnliches gehen nicht
   über diese Aktoren – die Zeile sagt es. Im Dialog lässt sich die Kanalart je Klemme ändern oder
   „kein Kanal“ wählen.
 - **Bemessung:** Was auf freie Kanäle vorhandener Aktoren passt, kommt dorthin. Für den Rest legt
@@ -549,7 +549,7 @@ sieht damit ohne Rückfrage, was worauf wirkt.
   (Fächer)**, daneben je Reihe 1 oder 2 Spalten. Ein Klick auf eine Zelle zeigt darunter
   Bezeichnung und Ziele dieses Slots. Belegte Zellen sind hervorgehoben.
 - **Ansteuerung** (Aktor, Verbraucher): wie das Ziel angesteuert wird, etwa Schalten, Dimmen,
-  Dali oder Jalousie; daneben der Haken **KNX** (auch bei Anschlussdosen). In einer Gerätegruppe
+  Tunable White (Leuchten mit einstellbarer Farbtemperatur), Dali oder Jalousie; daneben der Haken **KNX** (auch bei Anschlussdosen). In einer Gerätegruppe
   gilt beides für die ganze Gruppe.
 - **Wird angesteuert von** steht oben, sobald ein Slot einer anderen Komponente auf diese zeigt:
   Quelle und Slot, nur zum Ansehen. Geändert wird an der Quelle.

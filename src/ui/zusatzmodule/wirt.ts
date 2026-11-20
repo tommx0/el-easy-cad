@@ -29,6 +29,7 @@ import {
   type EecIntern,
   type ZusatzmodulBefehle,
   type ZusatzmodulBereich,
+  type ZusatzmodulDateiTyp,
   type ZusatzmodulFeldWert,
   type ZusatzmodulFormular,
   type ZusatzmodulPanel,
@@ -102,6 +103,13 @@ export interface WirtTeile {
   entferneWerkzeug(id: string): void
   leseModulDaten(kennung: string, objektId: string): unknown
   modulDatenCommand(kennung: string, objektId: string, wert: unknown, label: string): Command | null
+  leseZeichnungsModulDaten(kennung: string): unknown
+  zeichnungsModulDatenCommand(kennung: string, wert: unknown, label: string): Command
+  speichere(
+    blob: Blob,
+    vorschlagName: string,
+    typ: Omit<ZusatzmodulDateiTyp, 'mime'>,
+  ): Promise<boolean>
   nachBestand?(eintraege: readonly ZusatzmodulEintrag[]): void
   kiSchreibsperre?(): string | null
   meldeKiAenderung?(text: string): void
@@ -143,7 +151,9 @@ function kiWert(
   }
 }
 
-function vorgabeWert(feld: ZusatzmodulFormular['felder'][number]): ZusatzmodulFeldWert {
+function vorgabeWert(
+  feld: Exclude<ZusatzmodulFormular['felder'][number], { art: 'liste' }>,
+): ZusatzmodulFeldWert {
   switch (feld.art) {
     case 'zahl':
       return feld.wert ?? null
@@ -619,7 +629,9 @@ export class ZusatzmodulWirt {
             ? {
                 ...formular,
                 felder: formular.felder.map((f) =>
-                  f.id in gemerkt ? ({ ...f, wert: gemerkt[f.id] } as typeof f) : f,
+                  f.art !== 'liste' && f.id in gemerkt
+                    ? ({ ...f, wert: gemerkt[f.id] } as typeof f)
+                    : f,
                 ),
               }
             : formular
@@ -627,6 +639,7 @@ export class ZusatzmodulWirt {
           if (ki) {
             const werte: Record<string, ZusatzmodulFeldWert> = {}
             for (const feld of vorbelegt.felder) {
+              if (feld.art === 'liste') continue
               const ausKi = feld.id in ki.eingabe ? kiWert(feld, ki.eingabe[feld.id]) : undefined
               werte[feld.id] = ausKi !== undefined ? ausKi : vorgabeWert(feld)
               const leer = werte[feld.id] === null || werte[feld.id] === ''
@@ -670,6 +683,20 @@ export class ZusatzmodulWirt {
           wirt.merke(kennung, () => griff.entferne())
           return griff
         },
+        async speichern(inhalt, vorschlagName, typ: ZusatzmodulDateiTyp) {
+          wirt.pruefeAbbruch(kennung)
+          if (wirt.ki()) return false
+          const blob =
+            typeof inhalt === 'string'
+              ? new Blob([inhalt], { type: typ.mime ?? 'text/plain;charset=utf-8' })
+              : inhalt
+          const gespeichert = await teile.speichere(blob, vorschlagName, {
+            beschreibung: typ.beschreibung,
+            erweiterungen: typ.erweiterungen,
+          })
+          wirt.pruefeAbbruch(kennung)
+          return gespeichert
+        },
       },
 
       modul: {
@@ -691,6 +718,11 @@ export class ZusatzmodulWirt {
           const command = teile.modulDatenCommand(kennung, objektId, wert, manifest.name)
           if (!command) throw new Error(t('aktionen.zusatzmodule.objektFehlt', { id: objektId }))
           teile.commands.execute(command)
+        },
+        zeichnungLesen: <T>() => teile.leseZeichnungsModulDaten(kennung) as T | undefined,
+        zeichnungSchreiben(wert) {
+          wirt.pruefeAbbruch(kennung)
+          teile.commands.execute(teile.zeichnungsModulDatenCommand(kennung, wert, manifest.name))
         },
       },
 

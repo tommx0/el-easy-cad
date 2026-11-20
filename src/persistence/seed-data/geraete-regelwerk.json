@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "typen": [
     {
       "kennung": "bediengeraet",
@@ -262,6 +262,15 @@
     {
       "kennung": "rgbww",
       "bezeichnung": "RGBWW"
+    },
+    {
+      "kennung": "tunablewhite",
+      "bezeichnung": "Tunable White",
+      "uebersetzungen": {
+        "en": {
+          "bezeichnung": "Tunable white"
+        }
+      }
     },
     {
       "kennung": "dali",

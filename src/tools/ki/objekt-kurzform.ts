@@ -100,6 +100,8 @@ export function objektKurzform(
       return ohneLeere({
         ...basis,
         name: objekt.name,
+        raumart: objekt.raumart,
+        einzelraumregelung: objekt.einzelraumregelung,
         flaecheM2: runde(objekt.flaeche, 2),
         mittelpunkt: zuBlatt(objekt.mittelpunkt, blatt),
         gueltig: objekt.gueltig ? undefined : false,

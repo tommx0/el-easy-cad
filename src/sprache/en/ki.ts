@@ -102,6 +102,16 @@ export const ki: Texte['ki'] = {
       verteiler:
         'Location designation without "+", e.g. "UV1". If omitted: list of the distribution boards.',
     },
+    steuerungLesen: {
+      titel: 'Read building control',
+      beschreibung:
+        'Everything about the building control of the drawing in one call: storeys (sheets), ' +
+        'rooms with room type, single-room control and KNX room temperature controllers, and per ' +
+        'load target (device group as a whole or single device) the name, control type ' +
+        '(ansteuerung), whether it is switched via KNX, the members with room id and catalogue ' +
+        'entry, the triggering push-buttons with their rocker, and the actuator channel ' +
+        '("K1:A3") with its function. Also the distribution boards.',
+    },
     pruefen: {
       titel: 'Check drawing',
       beschreibung:
@@ -132,7 +142,7 @@ export const ki: Texte['ki'] = {
         'also affects how connected cables are routed), stromkreis (circuit), stromkreisPolzahl ' +
         '(number of poles of the circuit), knx, variableTexte (variable texts), kennzeichen ' +
         '(reference designation); cable: kabeltyp (cable type), beschreibung (description); ' +
-        'trunk: name, beschreibung; room: name, raumart).',
+        'trunk: name, beschreibung; room: name, raumart, einzelraumregelung).',
       beschriftung: 'Empty deletes the label.',
       installationshoeheM: 'Mounting height in metres; null = default.',
       verlegung:
@@ -149,6 +159,9 @@ export const ki: Texte['ki'] = {
         'Room type (kueche, bad, wc, kind, schlafen, arbeiten, wohnen, essen, hauswirtschaft, ' +
         'hobby, flur, freisitz, abstell, keller, sonstige). Without name, the room takes the ' +
         'name of the room type as long as it still has a default name.',
+      einzelraumregelung:
+        'Single-room temperature control (KNX) of the room: automatisch (automatic, from controller ' +
+        'or heating channel), ja (yes) or nein (no).',
       mindestensEinFeld: 'Specify at least one field.',
     },
     objekteLoeschen: {

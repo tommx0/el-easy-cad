@@ -174,6 +174,7 @@ export function knxKanalartVon(
     case 'schalten':
       return { kanalart: 'schalten', ansteuerung }
     case 'dimmen':
+    case 'tunablewhite':
       return { kanalart: 'dimmen', ansteuerung }
     case 'rollo':
       return { kanalart: 'rollladen', ansteuerung }

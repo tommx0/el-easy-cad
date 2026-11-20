@@ -48,6 +48,7 @@ export interface EigenschaftenWerte {
   beschreibung?: string
   name?: string
   raumart?: RaumartId
+  einzelraumregelung?: 'automatisch' | 'ja' | 'nein'
 }
 
 type Feld = keyof EigenschaftenWerte
@@ -70,7 +71,7 @@ const FELDER_JE_TYP: Partial<Record<Objekt['type'], readonly Feld[]>> = {
   ],
   leitung: ['kabeltyp', 'beschreibung'],
   trunk: ['name', 'beschreibung'],
-  raum: ['name', 'raumart'],
+  raum: ['name', 'raumart', 'einzelraumregelung'],
 }
 
 function passendeFelder(o: Objekt, genannt: readonly Feld[]): Feld[] {
@@ -248,7 +249,12 @@ export function eigenschaftenSetzen(
         const neu = objekte.map((o): Objekt => {
           if (!blattIds.has(o.id)) return o
           if (o.type === 'komponente') return komponenteGepatcht(zeichnung, o, werte, hinweise)
-          if (o.type === 'raum' && (werte.name !== undefined || werte.raumart !== undefined)) {
+          if (
+            o.type === 'raum' &&
+            (werte.name !== undefined ||
+              werte.raumart !== undefined ||
+              werte.einzelraumregelung !== undefined)
+          ) {
             const name =
               werte.name ??
               raumNameNachRaumartWechsel(
@@ -257,7 +263,13 @@ export function eigenschaftenSetzen(
                 werte.raumart,
                 planUebersetzer(zeichnung),
               )
-            return { ...o, name, raumart: werte.raumart ?? o.raumart }
+            const regelung =
+              werte.einzelraumregelung === undefined
+                ? o.einzelraumregelung
+                : werte.einzelraumregelung === 'automatisch'
+                  ? undefined
+                  : werte.einzelraumregelung
+            return { ...o, name, raumart: werte.raumart ?? o.raumart, einzelraumregelung: regelung }
           }
           if (o.type === 'leitung' && werte.beschreibung !== undefined) {
             return { ...o, beschreibung: werte.beschreibung || undefined }

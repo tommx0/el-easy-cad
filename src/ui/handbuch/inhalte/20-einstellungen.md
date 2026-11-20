@@ -74,11 +74,14 @@ Assistent die neuen Beschreibungen, sobald er sich neu verbindet.
 
 Der Assistent **liest** Blätter mit allen Objekten, einzelne Objekte samt Katalogeintrag, Räume,
 den Katalog, alle Listen (Stückliste, Leitungsliste mit Längen, Stromkreisverzeichnis und
-weitere), den Verteilerbaum, eine Prüfung auf Auffälligkeiten und Bildschirmfotos der Blätter.
+weitere), den Verteilerbaum, die Gebäudesteuerung in einem Stück (je Gerätegruppe bzw. Verbraucher
+Raum, Ansteuerung, KNX, auslösende Taster und Aktorkanal), eine Prüfung auf Auffälligkeiten und
+Bildschirmfotos der Blätter.
 
 Er kann die Zeichnung auch **ändern**: Eigenschaften an vielen Objekten auf einmal setzen
 (Beschriftung, Höhe, Montageort, AP/UP, Stromkreis, KNX, variable Texte, Kennzeichen, bei
-Leitungen Kabeltyp und Beschreibung, bei Trunks und Räumen den Namen), Objekte löschen,
+Leitungen Kabeltyp und Beschreibung, bei Trunks und Räumen den Namen, bei Räumen auch Raumart und
+Einzelraumregelung), Objekte löschen,
 verschieben und drehen, Komponenten gegen einen anderen Eintrag desselben Katalogs austauschen und
 Blätter anlegen.
 
@@ -196,8 +199,10 @@ andere Version von el.esy.CAD gebaut wurde –, schaltet el.esy.CAD es ab; die L
 Grund. Ein Modul, das nicht mit Ihrer Version getestet wurde, ist dort mit ⚠ gekennzeichnet, läuft
 aber weiter.
 
-Ein Modul kann eigene Angaben an Objekten ablegen. Sie bleiben in der Zeichnung, gehen mit Kopien
-mit und stören nicht, wenn das Modul fehlt. Seine Einstellungen (etwa die zuletzt gewählten
+Ein Modul kann eigene Angaben an Objekten und an der Zeichnung selbst ablegen (etwa einen
+Gruppenadressplan). Sie bleiben in der Zeichnung, gehen mit Kopien mit und stören nicht, wenn das
+Modul fehlt. Erzeugt ein Modul eine Datei, öffnet sich der Speichern-Dialog des Systems; was Sie
+dort abbrechen, wird nicht gespeichert. Ein Befehl, den Claude aufruft, speichert keine Dateien. Seine Einstellungen (etwa die zuletzt gewählten
 Formularwerte) merkt sich el.esy.CAD auf diesem Rechner; beim Entfernen fragt der Dialog, ob sie
 mit gelöscht werden sollen.
 

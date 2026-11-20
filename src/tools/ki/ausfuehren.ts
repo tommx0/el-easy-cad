@@ -2,6 +2,7 @@ import type { KiAntwort, KiAufruf } from '../../document-model'
 import { KI_WERKZEUG_NACH_NAME } from '../../document-model'
 import { t } from '../../sprache'
 import { leitungsverlegungAus } from './kontext'
+import { steuerungLesen } from './steuerung-lesen'
 import { automatischAnordnen } from './automatisch-anordnen'
 import { bestueckungAendernKi } from './bestueckung-aendern'
 import { bestueckungVorschlagen } from './bestueckung-vorschlagen'
@@ -46,6 +47,7 @@ const AUSFUEHRUNGEN: Record<string, Ausfuehrung> = {
   katalog_suchen: katalogSuchen,
   liste_lesen: listeLesen,
   verteilerbaum_lesen: verteilerbaumLesen,
+  steuerung_lesen: steuerungLesen,
   pruefen,
   bildschirmfoto,
   eigenschaften_setzen: eigenschaftenSetzen,

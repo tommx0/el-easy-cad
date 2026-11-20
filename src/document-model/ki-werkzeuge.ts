@@ -219,6 +219,13 @@ function bauWerkzeuge(t: Uebersetzer): KiWerkzeugDefinition[] {
       schreibt: false,
     },
     {
+      name: 'steuerung_lesen',
+      titel: text('steuerungLesen.titel'),
+      beschreibung: text('steuerungLesen.beschreibung'),
+      eingabe: z.object({}),
+      schreibt: false,
+    },
+    {
       name: 'pruefen',
       titel: text('pruefen.titel'),
       beschreibung: text('pruefen.beschreibung'),
@@ -288,6 +295,10 @@ function bauWerkzeuge(t: Uebersetzer): KiWerkzeugDefinition[] {
             beschreibung: z.string().optional(),
             name: z.string().optional(),
             raumart: z.enum(RAUMART_IDS).optional().describe(text('eigenschaftenSetzen.raumart')),
+            einzelraumregelung: z
+              .enum(['automatisch', 'ja', 'nein'])
+              .optional()
+              .describe(text('eigenschaftenSetzen.einzelraumregelung')),
           })
           .refine((w) => Object.values(w).some((v) => v !== undefined), {
             message: text('eigenschaftenSetzen.mindestensEinFeld'),

@@ -41,7 +41,11 @@ export interface Eec {
       typ: ZusatzmodulDateiTyp,
     ): Promise<boolean>
     pdfSpeichern(
-      quelle: { dokumentId?: string; blattIds?: string[] },
+      quelle: {
+        dokumentId?: string
+        blattIds?: string[]
+        gedrehtBlattIds?: string[]
+      },
       vorschlagName: string,
     ): Promise<boolean>
   }

@@ -18,6 +18,7 @@ export async function exportiereAlsPdf(
   lizenznehmer: string | null = null,
   module: readonly LizenzModul[] = [],
   papierWahl: PapierWahl = PAPIER_WIE_ZEICHENFLAECHE,
+  gedreht: ReadonlySet<string> = new Set(),
 ): Promise<Blob | null> {
   const blaetter = projekt.blaetter.filter((b) => blattIds.includes(b.id))
   if (blaetter.length === 0) return null
@@ -40,7 +41,7 @@ export async function exportiereAlsPdf(
       lizenznehmer,
       ausgabe,
     )
-    const bildDaten = canvas.toDataURL('image/png')
+    const bildDaten = (gedreht.has(blatt.id) ? gedrehtUm180(canvas) : canvas).toDataURL('image/png')
     const format = [ausgabe.breiteMm, ausgabe.hoeheMm]
     const orientierung = ausgabe.breiteMm >= ausgabe.hoeheMm ? 'l' : 'p'
     if (!pdf) {
@@ -52,4 +53,16 @@ export async function exportiereAlsPdf(
   }
 
   return pdf?.output('blob') ?? null
+}
+
+function gedrehtUm180(canvas: HTMLCanvasElement): HTMLCanvasElement {
+  const gedreht = document.createElement('canvas')
+  gedreht.width = canvas.width
+  gedreht.height = canvas.height
+  const ctx = gedreht.getContext('2d')
+  if (!ctx) return canvas
+  ctx.translate(canvas.width, canvas.height)
+  ctx.rotate(Math.PI)
+  ctx.drawImage(canvas, 0, 0)
+  return gedreht
 }

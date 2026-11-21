@@ -66,6 +66,8 @@ export interface DreidViewer {
 }
 
 const KANTEN_FARBE = '#3c4043'
+const KANTEN_DECKKRAFT_DURCHSICHTIG = 0.25
+const KANTEN_DECKKRAFT_DECKEND = 0.55
 const HUELLE_FARBE = '#cfcac2'
 const HUELLE_DECKKRAFT = 0.3
 
@@ -88,10 +90,16 @@ export async function erzeugeDreidViewer(canvas: HTMLCanvasElement): Promise<Dre
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setClearColor(0x000000, 0)
   const welt = new three.Scene()
-  welt.add(new three.HemisphereLight(0xffffff, 0xb0b4ba, 2.2))
-  const sonne = new three.DirectionalLight(0xffffff, 1.4)
-  sonne.position.set(1, 2, 1.5)
-  welt.add(sonne)
+  welt.add(new three.HemisphereLight(0xffffff, 0xb0b4ba, 1.3))
+  const hauptlicht = new three.DirectionalLight(0xffffff, 1.6)
+  hauptlicht.position.set(0.8, 1.5, 0.4)
+  welt.add(hauptlicht)
+  const fuelllicht = new three.DirectionalLight(0xffffff, 0.8)
+  fuelllicht.position.set(-0.15, 1.2, -1)
+  welt.add(fuelllicht)
+  const kopflicht = new three.DirectionalLight(0xffffff, 0.7)
+  welt.add(kopflicht)
+  welt.add(kopflicht.target)
 
   const kamera = new three.PerspectiveCamera(45, 1, 0.05, 2000)
   const steuerung: OrbitControls = new Orbit(kamera, canvas)
@@ -148,6 +156,11 @@ export async function erzeugeDreidViewer(canvas: HTMLCanvasElement): Promise<Dre
       material.opacity = wert
       material.depthWrite = !durchsichtig
       t.mesh.visible = wert > 0
+      for (const kind of t.mesh.children)
+        if (kind instanceof three.LineSegments)
+          (kind.material as THREE.LineBasicMaterial).opacity = durchsichtig
+            ? KANTEN_DECKKRAFT_DURCHSICHTIG
+            : KANTEN_DECKKRAFT_DECKEND
     }
   }
 
@@ -172,7 +185,10 @@ export async function erzeugeDreidViewer(canvas: HTMLCanvasElement): Promise<Dre
     }
   }
 
+  const blickVektor = new three.Vector3()
   const zeichnen = () => {
+    kopflicht.position.copy(kamera.position)
+    kopflicht.target.position.copy(kamera.position).add(kamera.getWorldDirection(blickVektor))
     passeSchilderAn()
     wendeDeckkraftAn()
     renderer.render(welt, kamera)
@@ -350,7 +366,11 @@ export async function erzeugeDreidViewer(canvas: HTMLCanvasElement): Promise<Dre
     mesh.add(
       new three.LineSegments(
         new three.EdgesGeometry(geometrie, 20),
-        new three.LineBasicMaterial({ color: KANTEN_FARBE, transparent: true, opacity: 0.25 }),
+        new three.LineBasicMaterial({
+          color: KANTEN_FARBE,
+          transparent: true,
+          opacity: KANTEN_DECKKRAFT_DURCHSICHTIG,
+        }),
       ),
     )
     return mesh

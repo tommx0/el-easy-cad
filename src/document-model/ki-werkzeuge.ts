@@ -308,6 +308,14 @@ function bauWerkzeuge(t: Uebersetzer): KiWerkzeugDefinition[] {
               .optional()
               .describe(text('eigenschaftenSetzen.variableTexte')),
             kennzeichen: z.string().optional().describe(text('eigenschaftenSetzen.kennzeichen')),
+            bezeichnungSichtbar: z
+              .boolean()
+              .optional()
+              .describe(text('eigenschaftenSetzen.bezeichnungSichtbar')),
+            hoeheSichtbar: z
+              .boolean()
+              .optional()
+              .describe(text('eigenschaftenSetzen.hoeheSichtbar')),
             kabeltyp: z.string().optional().describe(text('eigenschaftenSetzen.kabeltyp')),
             beschreibung: z.string().optional(),
             name: z.string().optional(),

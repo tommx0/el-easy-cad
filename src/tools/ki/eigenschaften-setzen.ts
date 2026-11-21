@@ -44,6 +44,8 @@ export interface EigenschaftenWerte {
   knx?: boolean
   variableTexte?: Record<string, string>
   kennzeichen?: string
+  bezeichnungSichtbar?: boolean
+  hoeheSichtbar?: boolean
   kabeltyp?: string
   beschreibung?: string
   name?: string
@@ -68,6 +70,8 @@ const FELDER_JE_TYP: Partial<Record<Objekt['type'], readonly Feld[]>> = {
     'knx',
     'variableTexte',
     'kennzeichen',
+    'bezeichnungSichtbar',
+    'hoeheSichtbar',
   ],
   leitung: ['kabeltyp', 'beschreibung'],
   trunk: ['name', 'beschreibung'],
@@ -143,6 +147,10 @@ function komponenteGepatcht(
 ): KomponentenObjekt {
   let k: KomponentenObjekt = { ...o }
   if (werte.beschriftung !== undefined) k.beschriftung = werte.beschriftung || undefined
+  if (werte.bezeichnungSichtbar !== undefined)
+    k.bezeichnungSichtbar = werte.bezeichnungSichtbar ? undefined : false
+  if (werte.hoeheSichtbar !== undefined)
+    k.installationshoeheSichtbar = werte.hoeheSichtbar ? undefined : false
   if (werte.installationshoeheM !== undefined) {
     k.installationshoehe = werte.installationshoeheM ?? undefined
   }

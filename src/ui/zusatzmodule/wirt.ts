@@ -32,7 +32,10 @@ import {
   type ZusatzmodulBereich,
   type ZusatzmodulDateiTyp,
   type ZusatzmodulDokument,
+  type ZusatzmodulExcelBlatt,
+  type ZusatzmodulExcelBlattGelesen,
   type ZusatzmodulFeldWert,
+  type ZusatzmodulGeoeffneteDatei,
   type ZusatzmodulFormular,
   type ZusatzmodulPanel,
   type ZusatzmodulPanelGriff,
@@ -114,6 +117,9 @@ export interface WirtTeile {
     vorschlagName: string,
     typ: Omit<ZusatzmodulDateiTyp, 'mime'>,
   ): Promise<boolean>
+  oeffne(typ: Omit<ZusatzmodulDateiTyp, 'mime'>): Promise<ZusatzmodulGeoeffneteDatei | null>
+  excelLesen(inhalt: Uint8Array): Promise<ZusatzmodulExcelBlattGelesen[]>
+  excelSchreiben(blaetter: ZusatzmodulExcelBlatt[]): Promise<Blob>
   nachBestand?(eintraege: readonly ZusatzmodulEintrag[]): void
   kiSchreibsperre?(): string | null
   meldeKiAenderung?(text: string): void
@@ -734,6 +740,18 @@ export class ZusatzmodulWirt {
           wirt.pruefeAbbruch(kennung)
           return gespeichert
         },
+        async dateiOeffnen(typ) {
+          wirt.pruefeAbbruch(kennung)
+          if (wirt.ki()) return null
+          const datei = await teile.oeffne(typ)
+          wirt.pruefeAbbruch(kennung)
+          return datei
+        },
+      },
+
+      excel: {
+        lesen: (inhalt) => teile.excelLesen(inhalt),
+        schreiben: (blaetter) => teile.excelSchreiben(blaetter),
       },
 
       modul: {

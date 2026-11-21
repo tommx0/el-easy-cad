@@ -159,7 +159,8 @@ export const ki: Texte['ki'] = {
         'wand/decke/boden = wall/ceiling/floor), verlegung (installation method AP/UP, which ' +
         'also affects how connected cables are routed), stromkreis (circuit), stromkreisPolzahl ' +
         '(number of poles of the circuit), knx, variableTexte (variable texts), kennzeichen ' +
-        '(reference designation); cable: kabeltyp (cable type), beschreibung (description); ' +
+        '(reference designation), bezeichnungSichtbar (show catalogue name), hoeheSichtbar (show ' +
+        'height/SM-FM line); cable: kabeltyp (cable type), beschreibung (description); ' +
         'trunk: name, beschreibung; room: name, raumart, einzelraumregelung).',
       beschriftung: 'Empty deletes the label.',
       installationshoeheM: 'Mounting height in metres; null = default.',
@@ -172,6 +173,8 @@ export const ki: Texte['ki'] = {
       variableTexte:
         'Field name -> value of the variable texts, e.g. {"Wippen": "2"} (Wippen = rockers).',
       kennzeichen: 'Equipment reference designation, only for exactly one component.',
+      bezeichnungSichtbar: 'Show the catalogue name next to the symbol (false hides it).',
+      hoeheSichtbar: 'Show the height or SM/FM line next to the symbol (false hides it).',
       kabeltyp: 'Name of a cable type, e.g. "NYM-J 3x1,5"; unknown = free text.',
       raumart:
         'Room type (kueche, bad, wc, kind, schlafen, arbeiten, wohnen, essen, hauswirtschaft, ' +

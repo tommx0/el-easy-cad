@@ -79,6 +79,8 @@ export const kiMeldungen = {
       knx: 'KNX',
       variableTexte: 'variable Texte',
       kennzeichen: 'Kennzeichen',
+      bezeichnungSichtbar: 'Bezeichnung sichtbar',
+      hoeheSichtbar: 'Höhe sichtbar',
       kabeltyp: 'Kabeltyp',
       beschreibung: 'Beschreibung',
       name: 'Name',

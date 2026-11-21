@@ -56,8 +56,14 @@ const START_ABSTAND = { rechts: 300, oben: 140, versatz: 28 }
 
 function SchwebendesPanel({ panel, index }: { panel: ZusatzmodulPanelEintrag; index: number }) {
   const t = useT()
+  const breite = panel.breite ?? 260
   const [lage, setLage] = useState(() => ({
-    x: Math.max(16, window.innerWidth - START_ABSTAND.rechts - index * START_ABSTAND.versatz),
+    x: Math.max(
+      16,
+      window.innerWidth -
+        Math.max(START_ABSTAND.rechts, breite + 40) -
+        index * START_ABSTAND.versatz,
+    ),
     y: START_ABSTAND.oben + index * START_ABSTAND.versatz,
   }))
   const zugRef = useRef<{ dx: number; dy: number } | null>(null)
@@ -71,7 +77,7 @@ function SchwebendesPanel({ panel, index }: { panel: ZusatzmodulPanelEintrag; in
   return (
     <div
       className="zusatzmodul-panel-schwebend"
-      style={{ left: lage.x, top: lage.y }}
+      style={{ left: lage.x, top: lage.y, ...(panel.breite ? { width: panel.breite } : {}) }}
       hidden={!panel.sichtbar}
       role="dialog"
       aria-label={panel.titel}

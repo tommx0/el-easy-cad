@@ -5,7 +5,14 @@ import type { DocumentStore } from '../../document-model'
 import * as rendering from '../../rendering'
 import * as sprache from '../../sprache'
 import { t } from '../../sprache'
-import { bereinigterDateiname, speichereDatei, zusatzmodulDateiUrl } from '../../persistence'
+import {
+  bereinigterDateiname,
+  leseModulExcel,
+  schreibeModulExcel,
+  speichereDatei,
+  waehleDatei,
+  zusatzmodulDateiUrl,
+} from '../../persistence'
 import * as tools from '../../tools'
 import {
   erzeugeObjektAendernCommand,
@@ -188,6 +195,7 @@ export function erzeugeZusatzmodulWirt(teile: {
         kennung,
         titel: panel.titel,
         ort: panel.ort ?? 'rechts',
+        ...(panel.breite ? { breite: Math.min(Math.max(panel.breite, 200), 1600) } : {}),
         sichtbar: true,
         erzeuge: panel.erzeuge,
       })
@@ -240,6 +248,12 @@ export function erzeugeZusatzmodulWirt(teile: {
     },
     speichere: (blob, vorschlagName, typ) =>
       speichereDatei(blob, bereinigterDateiname(vorschlagName), typ),
+    async oeffne(typ) {
+      const datei = await waehleDatei(typ.erweiterungen.map((e) => `.${e}`).join(','))
+      return datei ? { name: datei.name, inhalt: new Uint8Array(await datei.arrayBuffer()) } : null
+    },
+    excelLesen: (inhalt) => leseModulExcel(inhalt),
+    excelSchreiben: (blaetter) => schreibeModulExcel(blaetter),
 
     dokumente: {
       async liste() {

@@ -28,6 +28,7 @@ export interface ZusatzmodulPanelEintrag {
   kennung: string
   titel: string
   ort: 'rechts' | 'schwebend'
+  breite?: number
   sichtbar: boolean
   erzeuge: ZusatzmodulPanel['erzeuge']
 }

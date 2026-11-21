@@ -368,7 +368,7 @@ export async function ladeExcelJs(): Promise<ExcelJsModul> {
   return (modul as unknown as { default?: ExcelJsModul }).default ?? modul
 }
 
-function zellenText(wert: unknown): string {
+export function zellenText(wert: unknown): string {
   if (wert === null || wert === undefined) return ''
   if (typeof wert === 'string') return wert
   if (typeof wert === 'number' || typeof wert === 'boolean') return String(wert)

@@ -48,6 +48,12 @@ export interface Eec {
       },
       vorschlagName: string,
     ): Promise<boolean>
+    dateiOeffnen(typ: Omit<ZusatzmodulDateiTyp, 'mime'>): Promise<ZusatzmodulGeoeffneteDatei | null>
+  }
+
+  readonly excel: {
+    lesen(inhalt: Uint8Array): Promise<ZusatzmodulExcelBlattGelesen[]>
+    schreiben(blaetter: ZusatzmodulExcelBlatt[]): Promise<Blob>
   }
 
   readonly dokumente: {
@@ -144,6 +150,22 @@ export interface ZusatzmodulBereich {
 
 export type ZusatzmodulFeldWert = number | string | boolean | null
 
+export interface ZusatzmodulGeoeffneteDatei {
+  name: string
+  inhalt: Uint8Array
+}
+
+export interface ZusatzmodulExcelBlattGelesen {
+  name: string
+  zeilen: string[][]
+}
+
+export interface ZusatzmodulExcelBlatt {
+  name: string
+  spalten: { titel: string; breite?: number; auswahl?: string[] }[]
+  zeilen: (string | number | null)[][]
+}
+
 export interface ZusatzmodulDateiTyp {
   beschreibung: string
   erweiterungen: string[]
@@ -200,6 +222,7 @@ export interface ZusatzmodulPanel {
   id: string
   titel: string
   ort?: 'rechts' | 'schwebend'
+  breite?: number
   erzeuge(behaelter: HTMLElement): void | (() => void)
 }
 

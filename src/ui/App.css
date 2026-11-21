@@ -8627,8 +8627,10 @@
   position: fixed;
   z-index: 40;
   width: 260px;
+  max-width: calc(100vw - 32px);
   max-height: 60vh;
   overflow: auto;
+  resize: both;
   background: var(--flaeche);
   color: var(--text);
   border: 1px solid var(--rand-stark);

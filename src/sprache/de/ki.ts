@@ -141,7 +141,8 @@ export const ki = {
         'Setzt Eigenschaften an einem oder vielen Objekten auf einmal, über dieselben Wege wie ' +
         'das Eigenschaften-Panel. Jedes Feld gilt nur für die Objekttypen, zu denen es passt ' +
         '(Komponente: beschriftung, installationshoeheM, montageort, verlegung, stromkreis, ' +
-        'stromkreisPolzahl, knx, variableTexte, kennzeichen; Leitung: kabeltyp, beschreibung; ' +
+        'stromkreisPolzahl, knx, variableTexte, kennzeichen, bezeichnungSichtbar, hoeheSichtbar; ' +
+        'Leitung: kabeltyp, beschreibung; ' +
         'Trunk: name, beschreibung; Raum: name, raumart, einzelraumregelung).',
       beschriftung: 'Leer löscht die Beschriftung.',
       installationshoeheM: 'Installationshöhe in Metern; null = Vorgabe.',
@@ -150,6 +151,8 @@ export const ki = {
       stromkreisPolzahl: 'Polzahl eines eigenen Stromkreises; null = Vorgabe.',
       variableTexte: 'Feldname -> Wert der variablen Texte, z. B. {"Wippen": "2"}.',
       kennzeichen: 'Betriebsmittelkennzeichen, nur für genau eine Komponente.',
+      bezeichnungSichtbar: 'Katalogname neben dem Symbol zeigen (false blendet ihn aus).',
+      hoeheSichtbar: 'Höhe bzw. AP/UP neben dem Symbol zeigen (false blendet sie aus).',
       kabeltyp: 'Name eines Kabeltyps, z. B. "NYM-J 3x1,5"; unbekannt = freier Text.',
       raumart:
         'Raumart (kueche, bad, wc, kind, schlafen, arbeiten, wohnen, essen, hauswirtschaft, hobby, ' +

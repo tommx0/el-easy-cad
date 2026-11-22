@@ -29,6 +29,10 @@ export interface ZusatzmodulPanelEintrag {
   titel: string
   ort: 'rechts' | 'schwebend'
   breite?: number
+  hoehe?: number
+  andockbar?: boolean
+  angedockt?: 'links' | 'rechts'
+  dockBreite?: number
   sichtbar: boolean
   erzeuge: ZusatzmodulPanel['erzeuge']
 }

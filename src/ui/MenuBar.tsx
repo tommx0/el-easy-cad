@@ -15,6 +15,7 @@ import { zeigtAlleSchalter, umzuschaltende } from './symbolleiste-umschalter'
 import { useAlleUmschalten } from './use-alle-umschalten'
 import { Befehlssuche } from './Befehlssuche'
 import { zusatzmodulDateiUrl, type ZuletztBearbeitet } from '../persistence'
+import { zusatzmodulMenueBefehle } from '../document-model'
 import { IconDokZeichnung, IconHaken, IconZusatzmodul } from './components/Icons'
 
 const RAND_PX = 8
@@ -276,6 +277,8 @@ function ZusatzmodulKacheln({ schliesse }: { schliesse: () => void }) {
   return (
     <>
       {aktive.map(({ manifest }) => {
+        const imMenue = zusatzmodulMenueBefehle(manifest)
+        if (imMenue.length === 0) return null
         const bild = (datei: string | undefined) =>
           datei ? (
             <img
@@ -286,8 +289,8 @@ function ZusatzmodulKacheln({ schliesse }: { schliesse: () => void }) {
           ) : (
             <IconZusatzmodul />
           )
-        const einziger = manifest.befehle.length === 1
-        const kacheln = manifest.befehle.map((befehl) => {
+        const einziger = imMenue.length === 1
+        const kacheln = imMenue.map((befehl) => {
           const titel = einziger ? manifest.name : zusatzmodule.befehlTitel(manifest, befehl.id)
           return (
             <button

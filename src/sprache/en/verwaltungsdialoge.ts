@@ -137,6 +137,10 @@ export const verwaltungsdialoge: Texte['verwaltungsdialoge'] = {
       'An add-on from the folder has full access like any other. If it has the same identifier as an installed one, it replaces it while developer mode is on.',
   },
   zusatzmodule: {
+    panelLinks: 'dock left',
+    panelRechts: 'dock right',
+    panelLoesen: 'undock (float)',
+    panelBreite: 'change width',
     kiFreigabe: 'for AI assistant (Claude may call the commands)',
     keinEintrag: 'no entry chosen',
     waehlen: 'Choose…',

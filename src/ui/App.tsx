@@ -22,7 +22,10 @@ import { FehlerprotokollDialog } from './dialogs/FehlerprotokollDialog'
 import { ZusatzmoduleDialog } from './dialogs/ZusatzmoduleDialog'
 import { ZusatzmodulHinzufuegenDialog } from './dialogs/ZusatzmodulHinzufuegenDialog'
 import { ZusatzmodulFormularDialog } from './dialogs/ZusatzmodulFormularDialog'
-import { ZusatzmodulPanelsSchwebend } from './zusatzmodule/ZusatzmodulPanels'
+import {
+  ZusatzmodulPanelsAngedockt,
+  ZusatzmodulPanelsSchwebend,
+} from './zusatzmodule/ZusatzmodulPanels'
 import { TastenkuerzelDialog } from './dialogs/TastenkuerzelDialog'
 import { HandbuchDialog } from './dialogs/HandbuchDialog'
 import { KatalogDialog } from './dialogs/KatalogDialog'
@@ -188,7 +191,9 @@ function AppInhalt() {
           <SheetTabs />
           <div className="arbeitsbereich">
             <Seitenleiste />
+            <ZusatzmodulPanelsAngedockt seite="links" />
             <CanvasArea />
+            <ZusatzmodulPanelsAngedockt seite="rechts" />
             <PropertiesPanel />
             <ZusatzmodulPanelsSchwebend />
           </div>

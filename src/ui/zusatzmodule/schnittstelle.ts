@@ -223,6 +223,8 @@ export interface ZusatzmodulPanel {
   titel: string
   ort?: 'rechts' | 'schwebend'
   breite?: number
+  andockbar?: boolean
+  hoehe?: number
   erzeuge(behaelter: HTMLElement): void | (() => void)
 }
 

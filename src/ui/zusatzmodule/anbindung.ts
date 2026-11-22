@@ -188,6 +188,13 @@ export function erzeugeZusatzmodulWirt(teile: {
     },
 
     zeigePanel: (kennung, panel): ZusatzmodulPanelGriff => {
+      const dockStandVon = (s: string) => {
+        const alt = useZusatzmodulStore.getState().panels.find((p) => p.schluessel === s)
+        return {
+          ...(alt?.angedockt ? { angedockt: alt.angedockt } : {}),
+          ...(alt?.dockBreite ? { dockBreite: alt.dockBreite } : {}),
+        }
+      }
       const schluessel = `${kennung}:${panel.id}`
       const store = () => useZusatzmodulStore.getState()
       store().setzePanel({
@@ -196,6 +203,9 @@ export function erzeugeZusatzmodulWirt(teile: {
         titel: panel.titel,
         ort: panel.ort ?? 'rechts',
         ...(panel.breite ? { breite: Math.min(Math.max(panel.breite, 200), 1600) } : {}),
+        ...(panel.andockbar && panel.ort === 'schwebend' ? { andockbar: true } : {}),
+        ...(panel.hoehe ? { hoehe: Math.min(Math.max(panel.hoehe, 200), 1400) } : {}),
+        ...dockStandVon(schluessel),
         sichtbar: true,
         erzeuge: panel.erzeuge,
       })

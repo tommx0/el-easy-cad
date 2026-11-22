@@ -137,6 +137,10 @@ export const verwaltungsdialoge = {
       'Ein Modul aus dem Ordner hat wie jedes andere vollen Zugriff. Hat es dieselbe Kennung wie ein installiertes, ersetzt es dieses, solange der Entwicklermodus an ist.',
   },
   zusatzmodule: {
+    panelLinks: 'links andocken',
+    panelRechts: 'rechts andocken',
+    panelLoesen: 'lösen (wieder schwebend)',
+    panelBreite: 'Breite ändern',
     kiFreigabe: 'für KI-Assistent (Claude darf die Befehle aufrufen)',
     keinEintrag: 'kein Eintrag gewählt',
     waehlen: 'Wählen…',

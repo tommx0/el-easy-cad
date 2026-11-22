@@ -8661,6 +8661,62 @@
   cursor: pointer;
 }
 
+.zusatzmodul-panel-dockknoepfe {
+  display: inline-flex;
+  gap: 2px;
+  margin-left: auto;
+  margin-right: 6px;
+}
+
+.zusatzmodul-panel-angedockt {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--flaeche);
+  color: var(--text);
+}
+
+.zusatzmodul-panel-angedockt.links {
+  border-right: 1px solid var(--rand-stark);
+}
+
+.zusatzmodul-panel-angedockt.rechts {
+  border-left: 1px solid var(--rand-stark);
+}
+
+.zusatzmodul-panel-angedockt .zusatzmodul-panel-griff {
+  cursor: grab;
+}
+
+.zusatzmodul-panel-dockinhalt {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+}
+
+.zusatzmodul-panel-dockinhalt .zusatzmodul-panel-inhalt {
+  padding: 8px 10px 10px;
+}
+
+.zusatzmodul-panel-dockkante {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  cursor: col-resize;
+  z-index: 1;
+}
+
+.zusatzmodul-panel-angedockt.links .zusatzmodul-panel-dockkante {
+  right: -3px;
+}
+
+.zusatzmodul-panel-angedockt.rechts .zusatzmodul-panel-dockkante {
+  left: -3px;
+}
+
 .dialog-zusatzmodul-formular {
   width: 440px;
 }

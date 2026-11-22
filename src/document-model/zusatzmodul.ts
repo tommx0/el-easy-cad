@@ -18,6 +18,7 @@ export const zusatzmodulBefehlSchema = z.object({
   titel: z.string().min(1),
   icon: z.string().optional(),
   nurZeichnungsart: z.enum(['bauplan', 'schaltplan']).optional(),
+  menue: z.boolean().optional(),
   ki: z
     .object({
       beschreibung: z.string().min(1).max(4000),
@@ -127,6 +128,10 @@ export const ZUSATZMODUL_KI_VORSATZ = 'modul_'
 export function zusatzmodulKiWerkzeugName(kennung: string, befehlId: string): string {
   const kurz = (kennung.split('.').pop() ?? kennung).replace(/-/g, '_')
   return `${ZUSATZMODUL_KI_VORSATZ}${kurz}_${befehlId.replace(/-/g, '_')}`.slice(0, 64)
+}
+
+export function zusatzmodulMenueBefehle(manifest: ZusatzmodulManifest): ZusatzmodulBefehl[] {
+  return manifest.befehle.filter((b) => b.menue !== false)
 }
 
 export function zusatzmodulBefehlId(kennung: string, befehlId: string): string {

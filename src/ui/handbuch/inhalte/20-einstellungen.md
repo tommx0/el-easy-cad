@@ -188,6 +188,13 @@ belegen; sie stehen dort in der Gruppe „Module“ mit dem Icon des Moduls oder
 Ist das Modul entfernt oder abgeschaltet, verschwinden sie, und beim erneuten Installieren sind
 Platz und Kürzel wieder da.
 
+Ein Modul kann seine Befehle auch in einem **eigenen Fenster** sammeln und dann nur eine Kachel
+zeigen – etwa die Brandmeldeanlage. Ein solches Fenster bleibt offen, bis Sie es mit ✕ schließen.
+Mit ⇤ bzw. ⇥ im Fensterkopf – oder indem Sie den Kopf an den linken oder rechten Rand des
+Programmfensters ziehen – docken Sie es neben der Zeichenfläche an; die Breite ziehen Sie dann an
+der Innenkante. ⧉ oder Ziehen am Kopf macht es wieder schwebend. Die Befehle bleiben über die
+Befehlssuche und eigene Tastenkürzel erreichbar.
+
 Ein Modul kann nachfragen: mit einem **Formular** im Stil von el.esy.CAD (oft mit den zuletzt
 gewählten Werten vorbelegt), mit einer Ja/Nein-Frage oder **im Plan** – dann steht ein Hinweis in
 der Statuszeile („Verteiler anklicken“, „Rechteck aufziehen“), und Sie klicken Punkte oder Objekte

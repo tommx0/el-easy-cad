@@ -1,8 +1,13 @@
 # el.esy.CAD Community 
 
-I'm still working on this page and also the app – it’ll be improved bit by bit. I’ll be adding more information soon. Feel free to test this app. Please read the manual in the program. There are still some issues with workflows and usability. The development is still in progress.
+**Status:** el.esy.CAD Community is a spare-time project and still in development. I work on it
+alongside my job and cannot promise to keep maintaining it, to fix bugs or to answer issues –
+updates may come irregularly or stop altogether.
 
-Ich arbeite an dieser Seite und werde sie sowie das Programm stetig verbessern. Weitere Informationen werden bald nachgepflegt. Bitte lest Euch die Online-Bedienungsanleitung durch. Noch gibt es einige Verbesserungen in der Bedienbarkeit und den Workflows. Die Entwicklung ist noch im Gange. Es handelt sich um eine Entwicklungsversion.
+**Stand:** el.esy.CAD Community ist ein Freizeitprojekt und noch in Entwicklung. Ich arbeite daran
+neben meinem Beruf und kann nicht zusagen, es weiterzupflegen, Fehler zu beheben oder Issues zu
+beantworten – Updates können unregelmäßig erscheinen oder ganz ausbleiben.
+
 *Deutsche Fassung weiter unten.*
 
 el.esy.CAD is a desktop planning tool for electrical, KNX channel and network installation planning. Load a floor
@@ -132,7 +137,8 @@ particular DIN VDE, remains with the user.
 The program is provided free of charge and without any warranty. The licensor is liable only for
 intent and gross negligence. Liability for injury to life, body or health, for fraudulently
 concealed defects and under the German Product Liability Act (Produkthaftungsgesetz) remains
-unaffected.
+unaffected. There is no entitlement to updates, support or further development, including for
+supporters.
 
 ## Download
 
@@ -205,7 +211,7 @@ Bug reports and suggestions are welcome as issues.
 el.esy.CAD ist ein Desktop-CAD für die Elektro-, KNX Sensorkanalzuordnung und Netzwerkplanung: Grundriss als Hintergrund
 laden (PDF, DXF, IFC, Bild), kalibrieren, Komponenten aus dem Produktkatalog platzieren, Leitungen
 automatisch verlegen, in Trunks und Kabelschächten über Etagen führen und jedes Blatt als PDF,
-Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. KNX Tastsensor oder Schalterkanäle zu Leuchten oder Geräten hinzufüge... kein Problem. Alles läuft auf Ihrem Rechner, el.esy.CAD selbst überträgt keine Daten.
+Excel oder IFC ausgeben – dazu Schaltpläne und Verteilerpläne. KNX-Tastsensor- oder Schalterkanäle Leuchten oder Geräten zuordnen – kein Problem. Alles läuft auf Ihrem Rechner, el.esy.CAD selbst überträgt keine Daten.
 
 **Vom Bauplan zum Verteilerplan – mit KNX-Aktoren:** Aus einem bestückten Bauplan erzeugt
 el.esy.CAD den kompletten Verteilerplan, auf Wunsch ganz ohne gezeichnete Leitung:
@@ -288,6 +294,8 @@ Technik, insbesondere DIN VDE, verbleibt beim Verwender.
 Das Programm wird unentgeltlich und ohne Gewähr überlassen. Der Lizenzgeber haftet nur für Vorsatz
 und grobe Fahrlässigkeit. Unberührt bleibt die Haftung für Schäden aus der Verletzung von Leben,
 Körper oder Gesundheit, für arglistig verschwiegene Mängel und nach dem Produkthaftungsgesetz.
+Ein Anspruch auf Updates, Support oder Weiterentwicklung besteht nicht, auch nicht für
+Unterstützer.
 
 **Herunterladen:** fertige Apps für macOS und Windows unter *Releases*, ohne kommerzielle
 Signatur (macOS: Rechtsklick › Öffnen; Windows: „Weitere Informationen › Trotzdem ausführen“).

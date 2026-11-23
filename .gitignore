@@ -40,5 +40,8 @@ src-tauri/gen
 xcode/build
 xcode/ElEasyCAD.xcodeproj/xcuserdata
 xcode/ElEasyCAD.xcodeproj/project.xcworkspace/xcuserdata
+/xcode/[0-9]*/
+
+/.claude/
 
 /austausch/

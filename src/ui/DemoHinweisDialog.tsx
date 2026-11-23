@@ -4,12 +4,14 @@ import { useSettingsStore } from './store/settings-store'
 import { useAppContext } from './use-app-context'
 import { useT } from './sprache-anbindung'
 import { useStarthinweisSichtbar } from './starthinweis'
+import { anzeige } from './befehle/kuerzel'
 
 export function DemoHinweisDialog(_props: { resttage: number }) {
   const { settingsStore } = useAppContext()
   const t = useT()
   const sichtbar = useStarthinweisSichtbar()
   const status = useUiStore((s) => s.produktlizenzStatus)
+  const handbuchTaste = useSettingsStore((s) => s.belegung['hilfe.handbuch'])
 
   const lizenzProblem = status?.status === 'abgelaufen' || status?.status === 'ungueltig'
   if (!sichtbar) return null
@@ -43,6 +45,12 @@ export function DemoHinweisDialog(_props: { resttage: number }) {
         )}
         <p>{t('community.start.kostenlos')}</p>
         <p>{t('community.start.gewerblich')}</p>
+        <p>{t('community.start.freizeit')}</p>
+        <p>
+          {t('community.start.anleitung', {
+            kuerzel: handbuchTaste ? `, ${anzeige(handbuchTaste)}` : '',
+          })}
+        </p>
         <p>
           <b>{t('community.start.pruefen')}</b>
         </p>

@@ -16,6 +16,14 @@ export const community = {
       'Funktionsumfang und ohne Zeitbegrenzung. Ausdrucke, PDFs und Exporte tragen dafür den ' +
       'Hinweis „Nicht kommerzielle Nutzung“.',
     gewerblich: 'Eine gewerbliche oder berufliche Nutzung erlaubt die Lizenz nicht.',
+    freizeit:
+      'el.esy.CAD Community ist ein Freizeitprojekt und noch in Entwicklung. Ich arbeite daran ' +
+      'neben meinem Beruf und kann nicht zusagen, es weiterzupflegen, Fehler zu beheben oder ' +
+      'Issues zu beantworten – Updates können unregelmäßig erscheinen oder ganz ausbleiben.',
+    anleitung:
+      'Bitte lesen Sie vor dem Start die Bedienungsanleitung ' +
+      '(Hilfe › Bedienungsanleitung{kuerzel}) – manche Abläufe und Teile der Bedienung sind ' +
+      'noch nicht ausgereift.',
     pruefen:
       'Alle Ergebnisse – Pläne, Listen, Leitungslängen, Verteilerpläne – sind Vorschläge. ' +
       'Lassen Sie sie vor der Verwendung durch eine dafür fachlich geeignete und berechtigte ' +
@@ -26,7 +34,8 @@ export const community = {
       'Das Programm wird unentgeltlich und ohne Gewähr überlassen. Der Lizenzgeber haftet nur ' +
       'für Vorsatz und grobe Fahrlässigkeit. Unberührt bleibt die Haftung für Schäden aus der ' +
       'Verletzung von Leben, Körper oder Gesundheit, für arglistig verschwiegene Mängel und ' +
-      'nach dem Produkthaftungsgesetz.',
+      'nach dem Produkthaftungsgesetz. Ein Anspruch auf Updates, Support oder ' +
+      'Weiterentwicklung besteht nicht, auch nicht für Unterstützer.',
     abgelaufen:
       'Ihre Lizenz ist am {datum} abgelaufen. Bis zu einer neuen Lizenz gilt wieder die nicht ' +
       'kommerzielle Nutzung.',

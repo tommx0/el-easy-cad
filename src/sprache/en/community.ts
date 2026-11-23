@@ -17,6 +17,13 @@ export const community: Texte['community'] = {
       'el.esy.CAD Community is free for non-commercial use – with all features and no time ' +
       'limit. Printouts, PDFs and exports carry the note “Non-commercial use”.',
     gewerblich: 'The licence does not permit business or professional use.',
+    freizeit:
+      'el.esy.CAD Community is a spare-time project and still in development. I work on it ' +
+      'alongside my job and cannot promise to keep maintaining it, to fix bugs or to answer ' +
+      'issues – updates may come irregularly or stop altogether.',
+    anleitung:
+      'Please read the user manual before you start (Help › User manual{kuerzel}) – some ' +
+      'workflows and parts of the user interface still have rough edges.',
     pruefen:
       'All results – plans, lists, cable lengths, distribution board diagrams – are ' +
       'suggestions. Before use, have them checked by a person who is professionally qualified ' +
@@ -27,7 +34,8 @@ export const community: Texte['community'] = {
       'The program is provided free of charge and without any warranty. The licensor is liable ' +
       'only for intent and gross negligence. Liability for injury to life, body or health, for ' +
       'fraudulently concealed defects and under the German Product Liability Act ' +
-      '(Produkthaftungsgesetz) remains unaffected.',
+      '(Produkthaftungsgesetz) remains unaffected. There is no entitlement to updates, support ' +
+      'or further development, including for supporters.',
     abgelaufen:
       'Your licence expired on {datum}. Until you have a new licence, non-commercial use ' +
       'applies again.',

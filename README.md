@@ -2,11 +2,15 @@
 
 **Status:** el.esy.CAD Community is a spare-time project and still in development. I work on it
 alongside my job and cannot promise to keep maintaining it, to fix bugs or to answer issues –
-updates may come irregularly or stop altogether.
+updates may come irregularly or stop altogether. Please read the manual in the app (*Help › User
+manual*, F1) before you start – some workflows and parts of the user interface still have rough
+edges.
 
 **Stand:** el.esy.CAD Community ist ein Freizeitprojekt und noch in Entwicklung. Ich arbeite daran
 neben meinem Beruf und kann nicht zusagen, es weiterzupflegen, Fehler zu beheben oder Issues zu
-beantworten – Updates können unregelmäßig erscheinen oder ganz ausbleiben.
+beantworten – Updates können unregelmäßig erscheinen oder ganz ausbleiben. Bitte lest vor dem
+Start die Bedienungsanleitung im Programm (*Hilfe › Bedienungsanleitung*, F1) – manche Abläufe und
+Teile der Bedienung sind noch nicht ausgereift.
 
 *Deutsche Fassung weiter unten.*
 
